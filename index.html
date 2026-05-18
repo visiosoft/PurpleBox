@@ -1,1001 +1,1816 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PurpleBox Storage Dubai — Secure Self-Storage in Al Quoz</title>
-<meta name="description" content="Premium, climate-controlled self-storage in Al Quoz 2, Dubai. Flexible monthly terms. Personal & business units from closet to villa size." />
-<link rel="stylesheet" href="shared.css" />
-<style>
-body { background: #fff; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PurpleBox Storage Dubai — Secure Self-Storage in Al Quoz</title>
+  <meta name="description"
+    content="Premium, climate-controlled self-storage in Al Quoz 2, Dubai. Flexible monthly terms. Personal & business units from closet to villa size." />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    body {
+      background: #fff;
+    }
 
-/* ---- Hero ---- */
-.hero {
-  background: #fff; padding: 48px 0 0;
-  overflow: hidden; position: relative;
-  border-bottom: 1px solid var(--border);
-}
-.hero-inner {
-  position: relative; z-index: 2;
-  display: grid; grid-template-columns: 1fr;
-  gap: 32px; align-items: center;
-  padding-bottom: 40px;
-}
-.hero-content { text-align: center; }
-.hero h1 {
-  font-size: 2rem; font-weight: 800; color: var(--ink);
-  line-height: 1.2; margin-bottom: 16px;
-}
-.hero h1 .accent { color: var(--purple); }
-.hero-sub {
-  font-size: 15px; color: var(--ink-mid);
-  margin-bottom: 24px; line-height: 1.7;
-  max-width: 540px; margin-left: auto; margin-right: auto;
-}
-.hero-ctas {
-  display: flex; gap: 10px; justify-content: center;
-  flex-wrap: wrap; margin-bottom: 24px;
-}
-.hero-btn-primary {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 28px; background: var(--purple); color: #fff;
-  border-radius: 14px; font-size: 15px; font-weight: 700;
-  text-decoration: none; transition: all .2s;
-  box-shadow: 0 4px 20px rgba(92,61,153,.25);
-}
-.hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(92,61,153,.3); }
-.hero-btn-ghost {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 14px 24px; background: transparent;
-  border: 1.5px solid var(--border); color: var(--ink);
-  border-radius: 14px; font-size: 14px; font-weight: 600;
-  text-decoration: none; transition: all .2s;
-}
-.hero-btn-ghost:hover { background: var(--cream); border-color: var(--purple); }
-.hero-trust {
-  display: flex; flex-wrap: wrap; gap: 14px;
-  justify-content: center;
-}
-.hero-trust span {
-  font-size: 13px; color: var(--ink-mid);
-  display: flex; align-items: center; gap: 6px; font-weight: 500;
-}
-.hero-trust .check {
-  width: 20px; height: 20px; background: var(--purple-lt);
-  border-radius: 50%; display: flex; align-items: center;
-  justify-content: center; font-size: 11px; color: var(--purple); font-weight: 700;
-}
+    /* ---- Hero ---- */
+    .hero {
+      background: #fff;
+      padding: 48px 0 0;
+      overflow: hidden;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
 
-/* ---- Hero Photo Grid ---- */
-.hero-photos {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 8px; position: relative; z-index: 2;
-}
-.hero-photo-card {
-  border-radius: 14px; overflow: hidden;
-  position: relative; aspect-ratio: 4/3;
-  border: 1px solid var(--border);
-}
-.hero-photo-card img {
-  width: 100%; height: 100%; object-fit: cover;
-  display: block; transition: transform .4s;
-}
-.hero-photo-card:hover img { transform: scale(1.05); }
-.hero-photo-label {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 6px 10px;
-  background: linear-gradient(transparent, rgba(0,0,0,.5));
-  font-size: 11px; font-weight: 600; color: #fff;
-}
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+      padding-bottom: 40px;
+    }
 
-/* ---- Stats Bar ---- */
-.stats-bar {
-  background: var(--cream); position: relative; z-index: 2;
-  border-top: 1px solid var(--border);
-  padding: 20px 0;
-}
-.stats-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
-}
-.stat-box { text-align: center; }
-.stat-num {
-  font-size: 1.6rem; font-weight: 800; color: var(--purple); line-height: 1;
-}
-.stat-label {
-  font-size: 11px; color: var(--ink-soft); margin-top: 2px; font-weight: 500;
-}
+    .hero-content {
+      text-align: center;
+    }
 
-/* ---- Facility Strip ---- */
-.facility-strip {
-  padding: 0; overflow: hidden;
-  border-bottom: 1px solid var(--border);
-}
-.facility-scroll {
-  display: flex; gap: 0; overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.facility-scroll::-webkit-scrollbar { display: none; }
-.facility-photo-card {
-  flex: 0 0 260px; scroll-snap-align: start;
-  position: relative; overflow: hidden;
-}
-.facility-photo-card img {
-  width: 100%; height: 160px; object-fit: cover;
-  display: block; transition: transform .4s;
-}
-.facility-photo-card:hover img { transform: scale(1.05); }
-.fpc-label {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 8px 14px; background: linear-gradient(transparent, rgba(0,0,0,.6));
-  font-size: 12px; font-weight: 600; color: #fff;
-}
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
 
-/* ---- Why Section ---- */
-.why-section { padding: 48px 0; background: var(--cream); border-top: 1px solid var(--border); }
-.why-section h2 { text-align: center; margin-bottom: 8px; }
-.why-section .section-sub { text-align: center; font-size: 14px; color: var(--ink-mid); margin-bottom: 28px; }
-.why-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-}
-.why-card {
-  background: #fff; border-radius: 14px; overflow: hidden;
-  border: 1px solid var(--border);
-  transition: transform .3s, box-shadow .3s;
-}
-.why-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.08); }
-.why-card-img {
-  width: 100%; height: 100px; object-fit: cover; display: block;
-}
-.why-card-body { padding: 14px 14px 16px; }
-.why-card-body .why-icon {
-  width: 36px; height: 36px; background: var(--purple-lt);
-  border-radius: 10px; display: flex; align-items: center;
-  justify-content: center; margin-bottom: 10px;
-}
-.why-card-body .why-icon svg {
-  width: 18px; height: 18px; stroke: var(--purple);
-  fill: none; stroke-width: 2;
-}
-.why-card-body h4 { font-size: .85rem; margin-bottom: 4px; }
-.why-card-body p { font-size: 12px; line-height: 1.6; color: var(--ink-mid); }
+    .hero h1 .accent {
+      color: var(--purple);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--ink-mid);
+      margin-bottom: 24px;
+      line-height: 1.7;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--purple);
+      color: #fff;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .2s;
+      box-shadow: 0 4px 20px rgba(92, 61, 153, .25);
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(92, 61, 153, .3);
+    }
+
+    .hero-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 24px;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--ink);
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .hero-btn-ghost:hover {
+      background: var(--cream);
+      border-color: var(--purple);
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .hero-trust span {
+      font-size: 13px;
+      color: var(--ink-mid);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .hero-trust .check {
+      width: 20px;
+      height: 20px;
+      background: var(--purple-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--purple);
+      font-weight: 700;
+    }
+
+    /* ---- Hero Image ---- */
+    .hero-photos {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-main-image {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 34px rgba(0, 0, 0, .08);
+    }
+
+    .hero-main-image img {
+      width: 100%;
+      height: 100px;
+      min-height: 0;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---- Stats Bar ---- */
+    .stats-bar {
+      background: var(--cream);
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--purple);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--ink-soft);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* ---- Facility Strip ---- */
+    .facility-strip {
+      padding: 0;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .facility-scroll {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .facility-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .facility-photo-card {
+      flex: 0 0 260px;
+      scroll-snap-align: start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .facility-photo-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s;
+    }
+
+    .facility-photo-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .fpc-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 14px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .6));
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* ---- Why Section ---- */
+    .why-section {
+      padding: 48px 0;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+
+    .why-section h2 {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .why-section .section-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--ink-mid);
+      margin-bottom: 28px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .why-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+    }
+
+    .why-card-img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .why-card-body {
+      padding: 14px 14px 16px;
+    }
+
+    .why-card-body .why-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--purple-lt);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .why-card-body .why-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--purple);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .why-card-body h4 {
+      font-size: .85rem;
+      margin-bottom: 4px;
+    }
+
+    .why-card-body p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--ink-mid);
+    }
 
 
-/* ---- Storage Types ---- */
-.need-section { padding: 48px 0; background: #fff; }
-.need-section h2 { text-align: center; margin-bottom: 8px; }
-.need-section .section-sub { text-align: center; font-size: 14px; color: var(--ink-mid); margin-bottom: 28px; }
-.need-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-}
-.need-card {
-  background: #fff; border-radius: 14px; overflow: hidden;
-  border: 1px solid var(--border); text-decoration: none;
-  display: block; transition: transform .3s, box-shadow .3s;
-}
-.need-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(92,61,153,.12); }
-.nc-img { width: 100%; height: 100px; object-fit: cover; display: block; transition: transform .3s; }
-.need-card:hover .nc-img { transform: scale(1.05); }
-.nc-body { padding: 14px 14px 16px; }
-.nc-body h4 { font-size: .85rem; font-weight: 700; margin-bottom: 3px; color: var(--ink); }
-.nc-body p { font-size: 11px; line-height: 1.5; color: var(--ink-soft); margin-bottom: 8px; }
-.nc-link {
-  font-size: 12px; font-weight: 600; color: var(--purple);
-  display: inline-flex; align-items: center; gap: 4px;
-}
-.nc-link svg { width: 14px; height: 14px; stroke: var(--purple); fill: none; stroke-width: 2; }
+    /* ---- Storage Types ---- */
+    .need-section {
+      padding: 48px 0;
+      background: #fff;
+    }
+
+    .need-section h2 {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .need-section .section-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--ink-mid);
+      margin-bottom: 28px;
+    }
+
+    .need-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .need-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      display: block;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .need-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(92, 61, 153, .12);
+    }
+
+    .nc-img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s;
+    }
+
+    .need-card:hover .nc-img {
+      transform: scale(1.05);
+    }
+
+    .nc-body {
+      padding: 14px 14px 16px;
+    }
+
+    .nc-body h4 {
+      font-size: .85rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: var(--ink);
+    }
+
+    .nc-body p {
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+    }
+
+    .nc-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--purple);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nc-link svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--purple);
+      fill: none;
+      stroke-width: 2;
+    }
 
 
-/* ---- Facility Feature ---- */
-.facility-section { padding: 48px 0; background: #fff; }
-.facility-layout {
-  display: grid; grid-template-columns: 1fr; gap: 28px;
-}
-.facility-img-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-}
-.facility-img-grid img {
-  width: 100%; height: 140px; object-fit: cover;
-  border-radius: 12px; display: block; transition: transform .3s;
-}
-.facility-img-grid img:hover { transform: scale(1.03); }
-.facility-img-grid img:first-child {
-  grid-column: span 2; height: 180px;
-}
-.facility-content h2 { margin-bottom: 10px; }
-.facility-content > p { font-size: 14px; color: var(--ink-mid); margin-bottom: 16px; line-height: 1.6; }
-.trust-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.trust-item {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; padding: 8px 12px;
-  background: var(--cream); border-radius: 10px; font-weight: 500;
-}
-.trust-check {
-  width: 22px; height: 22px; background: #10b981;
-  border-radius: 6px; display: flex; align-items: center;
-  justify-content: center; flex-shrink: 0;
-}
-.trust-check svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 3; }
+    /* ---- Facility Feature ---- */
+    .facility-section {
+      padding: 48px 0;
+      background: #fff;
+    }
 
-/* ---- Reviews ---- */
-.reviews-section { padding: 48px 0; background: var(--cream); border-top: 1px solid var(--border); }
-.reviews-section h2 { text-align: center; margin-bottom: 20px; }
-.review-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-.review-card {
-  background: #fff; border: 1px solid var(--border);
-  border-radius: 14px; padding: 20px;
-  transition: transform .3s, box-shadow .3s;
-}
-.review-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.08); }
-.rc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-.rc-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--purple-lt); }
-.rc-meta { flex: 1; }
-.rc-name { font-size: 13px; font-weight: 600; color: var(--ink); }
-.rc-name span { font-weight: 400; color: var(--ink-soft); }
-.rc-stars { color: #f5a623; font-size: 12px; letter-spacing: 1px; }
-.rc-text { font-size: 13px; color: var(--ink-mid); line-height: 1.6; font-style: italic; }
-.review-score {
-  text-align: center; margin-top: 20px;
-  padding: 20px; background: #fff;
-  border-radius: 14px; border: 1px solid var(--border);
-}
-.review-score .score-num {
-  font-size: 2.4rem; color: var(--purple); font-weight: 800; line-height: 1;
-}
-.review-score .score-sub {
-  font-size: 13px; color: var(--ink-mid); margin-top: 4px;
-}
+    .facility-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
 
-/* ---- FAQ ---- */
-.faq-section { padding: 48px 0; background: #fff; }
-.faq-layout { display: grid; grid-template-columns: 1fr; gap: 24px; }
-.faq-sidebar h2 { margin-bottom: 8px; }
-.faq-sidebar p { font-size: 14px; color: var(--ink-mid); margin-bottom: 16px; }
-.faq-item {
-  border: 1px solid var(--border); border-radius: 12px;
-  margin-bottom: 8px; overflow: hidden;
-}
-.faq-btn {
-  width: 100%; padding: 14px 16px; background: #fff;
-  border: none; cursor: pointer; text-align: left;
-  font-size: 14px; font-weight: 600; color: var(--ink);
-  display: flex; align-items: center; justify-content: space-between;
-  transition: background .15s;
-}
-.faq-btn:hover { background: var(--cream); }
-.faq-btn .faq-icon {
-  width: 24px; height: 24px; border-radius: 50%;
-  background: var(--cream); display: flex;
-  align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 700; color: var(--ink);
-  transition: transform .2s;
-}
-.faq-btn.open .faq-icon { transform: rotate(45deg); background: var(--ink); color: #fff; }
-.faq-body {
-  display: none; padding: 0 16px 14px;
-  font-size: 13px; color: var(--ink-mid); line-height: 1.6;
-}
-.faq-body.open { display: block; }
+    .facility-img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
 
-/* ---- CTA Banner ---- */
-.cta-banner {
-  background: var(--ink); padding: 48px 0;
-  text-align: center; position: relative; overflow: hidden;
-}
-.cta-banner::before {
-  content: ''; position: absolute; inset: 0;
-  background: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80') center/cover no-repeat;
-  opacity: .06; pointer-events: none;
-}
-.cta-banner .container { position: relative; z-index: 1; }
-.cta-banner h2 { color: #fff; font-size: 1.5rem; margin-bottom: 10px; }
-.cta-banner p { color: rgba(255,255,255,.6); margin-bottom: 24px; font-size: 15px; }
-.cta-btns {
-  display: flex; gap: 10px; justify-content: center;
-  flex-wrap: wrap;
-}
+    .facility-img-grid img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      transition: transform .3s;
+    }
 
-/* ---- Animations ---- */
-@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-@keyframes scaleIn { from { opacity:0; transform:scale(.92); } to { opacity:1; transform:scale(1); } }
-@keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
-@keyframes shimmer { 0% { background-position:-200% 0; } 100% { background-position:200% 0; } }
+    .facility-img-grid img:hover {
+      transform: scale(1.03);
+    }
 
-.hero h1 { animation: fadeUp .6s ease both .1s; }
-.hero-sub { animation: fadeUp .6s ease both .25s; }
-.hero-ctas { animation: fadeUp .6s ease both .4s; }
-.hero-trust { animation: fadeUp .6s ease both .55s; }
-.hero-photos { animation: fadeUp .6s ease both .5s; }
-.hero-btn-primary { animation: pulse 2s ease 1.5s; }
+    .facility-img-grid img:first-child {
+      grid-column: span 2;
+      height: 180px;
+    }
 
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: .1s; }
-.reveal-delay-2 { transition-delay: .2s; }
-.reveal-delay-3 { transition-delay: .3s; }
-.reveal-delay-4 { transition-delay: .4s; }
-.reveal-delay-5 { transition-delay: .5s; }
-.reveal-delay-6 { transition-delay: .6s; }
+    .facility-content h2 {
+      margin-bottom: 10px;
+    }
 
-/* ---- Mobile Sticky CTA ---- */
-.mobile-cta {
-  display: none; position: fixed; bottom: 0; left: 0; right: 0;
-  z-index: 999; background: #fff;
-  border-top: 1px solid var(--border);
-  box-shadow: 0 -4px 20px rgba(0,0,0,.1);
-  padding: 10px 16px;
-  gap: 8px;
-  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
-}
-.mobile-cta .btn { flex: 1; text-align: center; }
-.wa-float {
-  display: flex; position: fixed; bottom: 80px; right: 16px; z-index: 150;
-  width: 50px; height: 50px; background: #25D366;
-  border-radius: 50%; align-items: center; justify-content: center;
-  font-size: 22px; color: white;
-  box-shadow: 0 4px 16px rgba(37,211,102,.35);
-  transition: transform .2s; text-decoration: none;
-}
-.wa-float:hover { transform: scale(1.08); }
+    .facility-content>p {
+      font-size: 14px;
+      color: var(--ink-mid);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
 
-/* ---- Responsive ---- */
-@media (max-width: 599px) {
-  .mobile-cta { display: flex; }
+    .trust-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
 
-  /* Hero: tighter, app-like */
-  .hero { padding: 20px 0 0; }
-  .hero-inner { gap: 20px; padding-bottom: 24px; }
-  .hero h1 { font-size: 1.5rem; line-height: 1.25; }
-  .hero-sub { font-size: 13px; margin-bottom: 16px; line-height: 1.6; }
-  .hero-ctas { gap: 8px; margin-bottom: 16px; }
-  .hero-btn-primary {
-    padding: 12px 0; font-size: 14px; width: 100%;
-    justify-content: center; border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(92,61,153,.2);
-  }
-  .hero-btn-ghost {
-    padding: 10px 0; font-size: 13px; flex: 1;
-    justify-content: center; border-radius: 12px;
-  }
-  .hero-trust { gap: 10px; margin-top: 0; }
-  .hero-trust span { font-size: 12px; }
-  .hero-trust .check { width: 18px; height: 18px; font-size: 10px; }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      padding: 8px 12px;
+      background: var(--cream);
+      border-radius: 10px;
+      font-weight: 500;
+    }
 
-  /* Hero photos: horizontal scroll instead of grid */
-  .hero-photos {
-    display: flex; gap: 8px; overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-  }
-  .hero-photos::-webkit-scrollbar { display: none; }
-  .hero-photo-card {
-    flex: 0 0 140px; scroll-snap-align: start;
-    aspect-ratio: 3/2; border-radius: 10px;
-  }
-  .hero-photo-label { font-size: 9px; padding: 4px 8px; }
+    .trust-check {
+      width: 22px;
+      height: 22px;
+      background: #10b981;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-  /* Stats: compact */
-  .stats-bar { padding: 12px 0; }
-  .stat-num { font-size: 1.15rem; }
-  .stat-label { font-size: 9px; }
+    .trust-check svg {
+      width: 12px;
+      height: 12px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 3;
+    }
 
-  /* Facility strip */
-  .facility-photo-card { flex: 0 0 180px; }
-  .facility-photo-card img { height: 110px; }
-  .fpc-label { font-size: 11px; }
+    /* ---- Reviews ---- */
+    .reviews-section {
+      padding: 48px 0;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
 
-  /* Sections: less padding */
-  .why-section, .need-section,
-  .facility-section, .reviews-section, .faq-section { padding: 28px 0; }
+    .reviews-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-  /* Storage type cards: horizontal scroll for app feel */
-  .need-section h2 { font-size: 1.2rem; text-align: left; }
-  .need-section .section-sub { text-align: left; font-size: 13px; margin-bottom: 16px; }
-  .need-grid {
-    display: flex; gap: 10px; overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-  }
-  .need-grid::-webkit-scrollbar { display: none; }
-  .need-card {
-    flex: 0 0 150px; scroll-snap-align: start;
-    border-radius: 12px;
-  }
-  .nc-img { height: 90px; }
-  .nc-body { padding: 10px 12px 14px; }
-  .nc-body h4 { font-size: .8rem; }
-  .nc-body p { font-size: 10px; margin-bottom: 6px; }
-  .nc-link { font-size: 11px; }
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
 
-  /* Why cards: horizontal scroll */
-  .why-section h2 { font-size: 1.2rem; text-align: left; }
-  .why-section .section-sub { text-align: left; font-size: 13px; margin-bottom: 16px; }
-  .why-grid {
-    display: flex; gap: 10px; overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-  }
-  .why-grid::-webkit-scrollbar { display: none; }
-  .why-card {
-    flex: 0 0 200px; scroll-snap-align: start;
-  }
-  .why-card-img { height: 90px; }
-  .why-card-body { padding: 12px 12px 14px; }
-  .why-card-body .why-icon { width: 32px; height: 32px; margin-bottom: 8px; }
-  .why-card-body .why-icon svg { width: 16px; height: 16px; }
-  .why-card-body h4 { font-size: .8rem; }
-  .why-card-body p { font-size: 11px; }
+    .review-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      transition: transform .3s, box-shadow .3s;
+    }
 
-  /* Facility section: stack images */
-  .facility-section { padding: 28px 0; }
-  .facility-section h2 { font-size: 1.2rem; }
-  .facility-img-grid { gap: 6px; }
-  .facility-img-grid img:first-child { height: 140px; }
-  .facility-img-grid img { height: 90px; border-radius: 10px; }
-  .trust-list { grid-template-columns: 1fr; gap: 6px; }
-  .trust-item { font-size: 12px; padding: 8px 10px; }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+    }
 
-  /* Reviews: horizontal scroll */
-  .reviews-section h2 { font-size: 1.2rem; }
-  .review-grid {
-    display: flex; gap: 10px; overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-  }
-  .review-grid::-webkit-scrollbar { display: none; }
-  .review-card {
-    flex: 0 0 280px; scroll-snap-align: start;
-    padding: 16px;
-  }
-  .rc-text { font-size: 12px; }
-  .review-score { margin-top: 14px; padding: 16px; }
-  .review-score .score-num { font-size: 2rem; }
-  .reviews-section { padding-bottom: 100px; }
+    .rc-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
 
-  /* FAQ: compact */
-  .faq-section h2 { font-size: 1.2rem; }
-  .faq-sidebar p { font-size: 13px; margin-bottom: 12px; }
-  .faq-btn { font-size: 13px; padding: 12px 14px; }
-  .faq-body { font-size: 12px; padding: 0 14px 12px; }
+    .rc-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--purple-lt);
+    }
 
-  /* CTA */
-  .cta-banner { padding: 28px 0 100px; }
-  .cta-banner h2 { font-size: 1.2rem; }
-  .cta-banner p { font-size: 13px; margin-bottom: 16px; }
-  .cta-btns { flex-direction: column; gap: 8px; }
-  .cta-btns .btn { width: 100%; text-align: center; }
-}
+    .rc-meta {
+      flex: 1;
+    }
 
-@media (min-width: 600px) {
-  .hero-photos { grid-template-columns: repeat(4, 1fr); }
-  .why-grid { grid-template-columns: repeat(3, 1fr); }
-  .need-grid { grid-template-columns: repeat(4, 1fr); }
-  .review-grid { grid-template-columns: repeat(3, 1fr); }
-  .cta-btns { flex-direction: row; }
-}
+    .rc-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
 
-@media (min-width: 768px) {
-  .hero { padding: 56px 0 0; }
-  .hero-inner {
-    grid-template-columns: 1.1fr 1fr; gap: 40px;
-  }
-  .hero-content { text-align: left; }
-  .hero-ctas { justify-content: flex-start; }
-  .hero-trust { justify-content: flex-start; }
-  .hero h1 { font-size: 2.4rem; }
-  .hero-sub { font-size: 16px; margin-left: 0; }
-  .facility-layout { grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
-  .faq-layout { grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
-  .facility-photo-card { flex: 0 0 300px; }
-  .cta-banner { padding: 64px 0; }
-  .wa-float { display: none; }
-}
+    .rc-name span {
+      font-weight: 400;
+      color: var(--ink-soft);
+    }
 
-@media (min-width: 1024px) {
-  .hero h1 { font-size: 2.8rem; }
-  .why-grid { gap: 16px; }
-}
-</style>
+    .rc-stars {
+      color: #f5a623;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .rc-text {
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .review-score {
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .review-score .score-num {
+      font-size: 2.4rem;
+      color: var(--purple);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .review-score .score-sub {
+      font-size: 13px;
+      color: var(--ink-mid);
+      margin-top: 4px;
+    }
+
+    /* ---- FAQ ---- */
+    .faq-section {
+      padding: 48px 0;
+      background: #fff;
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .faq-sidebar h2 {
+      margin-bottom: 8px;
+    }
+
+    .faq-sidebar p {
+      font-size: 14px;
+      color: var(--ink-mid);
+      margin-bottom: 16px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    .faq-btn {
+      width: 100%;
+      padding: 14px 16px;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .15s;
+    }
+
+    .faq-btn:hover {
+      background: var(--cream);
+    }
+
+    .faq-btn .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      transition: transform .2s;
+    }
+
+    .faq-btn.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .faq-body {
+      display: none;
+      padding: 0 16px 14px;
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    .faq-body.open {
+      display: block;
+    }
+
+    /* ---- CTA Banner ---- */
+    .cta-banner {
+      background: var(--ink);
+      padding: 48px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80') center/cover no-repeat;
+      opacity: .06;
+      pointer-events: none;
+    }
+
+    .cta-banner .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner h2 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .cta-banner p {
+      color: rgba(255, 255, 255, .6);
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ---- Animations ---- */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.04);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    .hero h1 {
+      animation: fadeUp .6s ease both .1s;
+    }
+
+    .hero-sub {
+      animation: fadeUp .6s ease both .25s;
+    }
+
+    .hero-ctas {
+      animation: fadeUp .6s ease both .4s;
+    }
+
+    .hero-trust {
+      animation: fadeUp .6s ease both .55s;
+    }
+
+    .hero-photos {
+      animation: fadeUp .6s ease both .5s;
+    }
+
+    .hero-btn-primary {
+      animation: pulse 2s ease 1.5s;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: .3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: .4s;
+    }
+
+    .reveal-delay-5 {
+      transition-delay: .5s;
+    }
+
+    .reveal-delay-6 {
+      transition-delay: .6s;
+    }
+
+    /* ---- Mobile Sticky CTA ---- */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, .1);
+      padding: 10px 16px;
+      gap: 8px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .mobile-cta .btn {
+      flex: 1;
+      text-align: center;
+    }
+
+    .wa-float {
+      display: flex;
+      position: fixed;
+      bottom: 80px;
+      right: 16px;
+      z-index: 150;
+      width: 50px;
+      height: 50px;
+      background: #25D366;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: white;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, .35);
+      transition: transform .2s;
+      text-decoration: none;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 599px) {
+      .mobile-cta {
+        display: flex;
+      }
+
+      /* Hero: tighter, app-like */
+      .hero {
+        padding: 20px 0 0;
+      }
+
+      .hero-inner {
+        gap: 20px;
+        padding-bottom: 24px;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.25;
+      }
+
+      .hero-sub {
+        font-size: 13px;
+        margin-bottom: 16px;
+        line-height: 1.6;
+      }
+
+      .hero-ctas {
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .hero-btn-primary {
+        padding: 12px 0;
+        font-size: 14px;
+        width: 100%;
+        justify-content: center;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(92, 61, 153, .2);
+      }
+
+      .hero-btn-ghost {
+        padding: 10px 0;
+        font-size: 13px;
+        flex: 1;
+        justify-content: center;
+        border-radius: 12px;
+      }
+
+      .hero-trust {
+        gap: 10px;
+        margin-top: 0;
+      }
+
+      .hero-trust span {
+        font-size: 12px;
+      }
+
+      .hero-trust .check {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+      }
+
+      /* Hero image */
+      .hero-photos {
+        display: block;
+      }
+
+      .hero-main-image {
+        border-radius: 12px;
+      }
+
+      .hero-main-image img {
+        height: 80px;
+      }
+
+      /* Stats: compact */
+      .stats-bar {
+        padding: 12px 0;
+      }
+
+      .stat-num {
+        font-size: 1.15rem;
+      }
+
+      .stat-label {
+        font-size: 9px;
+      }
+
+      /* Facility strip */
+      .facility-photo-card {
+        flex: 0 0 180px;
+      }
+
+      .facility-photo-card img {
+        height: 110px;
+      }
+
+      .fpc-label {
+        font-size: 11px;
+      }
+
+      /* Sections: less padding */
+      .why-section,
+      .need-section,
+      .facility-section,
+      .reviews-section,
+      .faq-section {
+        padding: 28px 0;
+      }
+
+      /* Storage type cards: horizontal scroll for app feel */
+      .need-section h2 {
+        font-size: 1.2rem;
+        text-align: left;
+      }
+
+      .need-section .section-sub {
+        text-align: left;
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+
+      .need-grid {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+
+      .need-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .need-card {
+        flex: 0 0 150px;
+        scroll-snap-align: start;
+        border-radius: 12px;
+      }
+
+      .nc-img {
+        height: 90px;
+      }
+
+      .nc-body {
+        padding: 10px 12px 14px;
+      }
+
+      .nc-body h4 {
+        font-size: .8rem;
+      }
+
+      .nc-body p {
+        font-size: 10px;
+        margin-bottom: 6px;
+      }
+
+      .nc-link {
+        font-size: 11px;
+      }
+
+      /* Why cards: horizontal scroll */
+      .why-section h2 {
+        font-size: 1.2rem;
+        text-align: left;
+      }
+
+      .why-section .section-sub {
+        text-align: left;
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+
+      .why-grid {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+
+      .why-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .why-card {
+        flex: 0 0 200px;
+        scroll-snap-align: start;
+      }
+
+      .why-card-img {
+        height: 90px;
+      }
+
+      .why-card-body {
+        padding: 12px 12px 14px;
+      }
+
+      .why-card-body .why-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 8px;
+      }
+
+      .why-card-body .why-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .why-card-body h4 {
+        font-size: .8rem;
+      }
+
+      .why-card-body p {
+        font-size: 11px;
+      }
+
+      /* Facility section: stack images */
+      .facility-section {
+        padding: 28px 0;
+      }
+
+      .facility-section h2 {
+        font-size: 1.2rem;
+      }
+
+      .facility-img-grid {
+        gap: 6px;
+      }
+
+      .facility-img-grid img:first-child {
+        height: 140px;
+      }
+
+      .facility-img-grid img {
+        height: 90px;
+        border-radius: 10px;
+      }
+
+      .trust-list {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .trust-item {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+      /* Reviews: horizontal scroll */
+      .reviews-section h2 {
+        font-size: 1.2rem;
+      }
+
+      .review-grid {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+
+      .review-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .review-card {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+        padding: 16px;
+      }
+
+      .rc-text {
+        font-size: 12px;
+      }
+
+      .review-score {
+        margin-top: 14px;
+        padding: 16px;
+      }
+
+      .review-score .score-num {
+        font-size: 2rem;
+      }
+
+      .reviews-section {
+        padding-bottom: 100px;
+      }
+
+      /* FAQ: compact */
+      .faq-section h2 {
+        font-size: 1.2rem;
+      }
+
+      .faq-sidebar p {
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+
+      .faq-btn {
+        font-size: 13px;
+        padding: 12px 14px;
+      }
+
+      .faq-body {
+        font-size: 12px;
+        padding: 0 14px 12px;
+      }
+
+      /* CTA */
+      .cta-banner {
+        padding: 28px 0 100px;
+      }
+
+      .cta-banner h2 {
+        font-size: 1.2rem;
+      }
+
+      .cta-banner p {
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+
+      .cta-btns {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .cta-btns .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .hero-main-image img {
+        height: 260px;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .need-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .review-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cta-btns {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 56px 0 0;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1.1fr 1fr;
+        gap: 40px;
+      }
+
+      .hero-content {
+        text-align: left;
+      }
+
+      .hero-ctas {
+        justify-content: flex-start;
+      }
+
+      .hero-trust {
+        justify-content: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero-sub {
+        font-size: 16px;
+        margin-left: 0;
+      }
+
+      .facility-layout {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .faq-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      .facility-photo-card {
+        flex: 0 0 300px;
+      }
+
+      .cta-banner {
+        padding: 64px 0;
+      }
+
+      .wa-float {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .why-grid {
+        gap: 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg" alt="PurpleBox Storage" class="nav-logo-img" /></a>
-    <div class="nav-phone"><span class="phone-icon">📞</span> +971 54 224 9946</div>
-    <div class="nav-links">
-      <a href="storage.html">Self Storage</a>
-      <a href="pricing.html">Unit Sizes & Prices</a>
-      <a href="facility.html">Facility</a>
-      <a href="packing-moving.html">Moving</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact Us</a>
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg"
+          alt="PurpleBox Storage" class="nav-logo-img" /></a>
+      <div class="nav-phone"><span class="phone-icon">📞</span> +971 54 224 9946</div>
+      <div class="nav-links">
+        <a href="storage.html">Self Storage</a>
+        <a href="pricing.html">Unit Sizes & Prices</a>
+        <a href="facility.html">Facility</a>
+        <a href="packing-moving.html">Moving</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="nav-cta"><a href="reserve.html" class="btn btn-primary btn-sm">Book Now</a></div>
+      <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
     </div>
-    <div class="nav-cta"><a href="reserve.html" class="btn btn-primary btn-sm">Book Now</a></div>
-    <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
-  </div>
-</nav>
+  </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-phone">📞 +971 54 224 9946</div>
-  <a href="storage.html">Self Storage</a>
-  <a href="pricing.html">Unit Sizes &amp; Prices</a>
-  <a href="facility.html">Facility</a>
-  <a href="packing-moving.html">Moving</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact Us</a>
-  <a href="faq.html">FAQ</a>
-  <div class="mobile-menu-cta">
-    <a href="reserve.html" class="btn btn-primary btn-full">Book Now</a>
-    <a href="#wa" class="btn btn-wa btn-full">💬 WhatsApp Us</a>
-  </div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <h1>Premium Self-Storage in <span class="accent">Al Quoz, Dubai</span></h1>
-        <p class="hero-sub">Climate-controlled units from closet to villa size. Flexible monthly terms, no long contracts, no hidden fees.</p>
-        <div class="hero-ctas">
-          <a href="reserve.html" class="hero-btn-primary">Book Now</a>
-          <a href="#wa" class="hero-btn-ghost">💬 WhatsApp Us</a>
-          <a href="pricing.html" class="hero-btn-ghost">View Prices</a>
-        </div>
-        <div class="hero-trust">
-          <span><span class="check">✓</span> Climate-controlled</span>
-          <span><span class="check">✓</span> 24/7 access</span>
-          <span><span class="check">✓</span> Month-to-month</span>
-
-        </div>
-      </div>
-      <div class="hero-photos">
-        <div class="hero-photo-card">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80" alt="Storage hallway" />
-          <div class="hero-photo-label">Climate-Controlled</div>
-        </div>
-        <div class="hero-photo-card">
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80" alt="Modern facility" />
-          <div class="hero-photo-label">Modern Facility</div>
-        </div>
-        <div class="hero-photo-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="Organized storage" />
-          <div class="hero-photo-label">Organized Units</div>
-        </div>
-        <div class="hero-photo-card">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80" alt="Secure access" />
-          <div class="hero-photo-label">24/7 Secure Access</div>
-        </div>
-      </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-phone">📞 +971 54 224 9946</div>
+    <a href="storage.html">Self Storage</a>
+    <a href="pricing.html">Unit Sizes &amp; Prices</a>
+    <a href="facility.html">Facility</a>
+    <a href="packing-moving.html">Moving</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="faq.html">FAQ</a>
+    <div class="mobile-menu-cta">
+      <a href="reserve.html" class="btn btn-primary btn-full">Book Now</a>
+      <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">💬
+        WhatsApp Us</a>
     </div>
   </div>
-  <!-- Stats Bar inside hero -->
-  <div class="stats-bar">
+
+  <!-- HERO -->
+  <section class="hero">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Storage units</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">2,000+</div>
-          <div class="stat-label">Happy customers</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">4.9★</div>
-          <div class="stat-label">Google rating</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">24/7</div>
-          <div class="stat-label">Access & security</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1>Premium Self-Storage in <span class="accent">Al Quoz, Dubai</span></h1>
+          <p class="hero-sub">Climate-controlled units from closet to villa size. Flexible monthly terms, no long
+            contracts, no hidden fees.</p>
+          <div class="hero-ctas">
+            <a href="reserve.html" class="hero-btn-primary">Book Now</a>
+            <a href="https://wa.me/971542249946" class="hero-btn-ghost" target="_blank" rel="noopener noreferrer">💬
+              WhatsApp Us</a>
+            <a href="pricing.html" class="hero-btn-ghost">Estimate</a>
+          </div>
+          <div class="hero-trust">
+            <span><span class="check">✓</span> Climate-controlled</span>
+            <span><span class="check">✓</span> 24/7 access</span>
+            <span><span class="check">✓</span> Month-to-month</span>
 
-<!-- FACILITY PHOTO STRIP -->
-<section class="facility-strip">
-  <div class="facility-scroll">
-    <div class="facility-photo-card">
-      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Clean hallway" />
-      <div class="fpc-label">Climate-Controlled Units</div>
-    </div>
-    <div class="facility-photo-card">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Storage boxes" />
-      <div class="fpc-label">Organized Storage</div>
-    </div>
-    <div class="facility-photo-card">
-      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Modern facility" />
-      <div class="fpc-label">Modern Facility</div>
-    </div>
-    <div class="facility-photo-card">
-      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Secure access" />
-      <div class="fpc-label">24/7 Secure Access</div>
-    </div>
-    <div class="facility-photo-card">
-      <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=600&q=80" alt="Loading bay" />
-      <div class="fpc-label">Easy Loading Bay</div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT ARE YOU STORING -->
-<section class="need-section">
-  <div class="container">
-    <h2 class="reveal">Storage for every need</h2>
-    <p class="section-sub reveal">Whether you're an apartment dweller, villa owner, or business — we have the right unit for you.</p>
-    <div class="need-grid">
-      <a class="need-card reveal reveal-delay-1" href="furniture-storage-v2.html">
-        <img class="nc-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80" alt="Furniture storage" />
-        <div class="nc-body">
-          <h4>Furniture</h4>
-          <p>Between moves, renovating, or decluttering.</p>
-          <span class="nc-link">Estimate size <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-      <a class="need-card reveal reveal-delay-2" href="apartment-storage-v2.html">
-        <img class="nc-img" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&q=80" alt="Apartment storage" />
-        <div class="nc-body">
-          <h4>Apartment</h4>
-          <p>Reclaim your space. Store what you don't use daily.</p>
-          <span class="nc-link">Estimate size <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-      <a class="need-card reveal reveal-delay-3" href="villa-storage.html">
-        <img class="nc-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&q=80" alt="Villa storage" />
-        <div class="nc-body">
-          <h4>Villa</h4>
-          <p>Large units for full villa worth of items.</p>
-          <span class="nc-link">Estimate size <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-      <a class="need-card reveal reveal-delay-4" href="office-storage.html">
-        <img class="nc-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80" alt="Office storage" />
-        <div class="nc-body">
-          <h4>Office</h4>
-          <p>Downsizing, relocating, or going remote.</p>
-          <span class="nc-link">Estimate size <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-      <a class="need-card reveal reveal-delay-1" href="expat-storage.html">
-        <img class="nc-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80" alt="Expat storage" />
-        <div class="nc-body">
-          <h4>Expat</h4>
-          <p>Moving in or out of Dubai? We flex with you.</p>
-          <span class="nc-link">Learn more <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-      <a class="need-card reveal reveal-delay-2" href="storage-subpage.html">
-        <img class="nc-img" src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400&q=80" alt="Seasonal storage" />
-        <div class="nc-body">
-          <h4>Seasonal</h4>
-          <p>Summer clothes, holiday decor, sports gear.</p>
-          <span class="nc-link">Learn more <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-      <a class="need-card reveal reveal-delay-3" href="storage-subpage.html">
-        <img class="nc-img" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&q=80" alt="Business storage" />
-        <div class="nc-body">
-          <h4>Business</h4>
-          <p>Stock, samples, files. Cheaper than office space.</p>
-          <span class="nc-link">Learn more <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-      <a class="need-card reveal reveal-delay-4" href="packing-moving.html">
-        <img class="nc-img" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80" alt="Moving storage" />
-        <div class="nc-body">
-          <h4>Moving</h4>
-          <p>Pack, move, and store. One provider.</p>
-          <span class="nc-link">Learn more <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE PURPLEBOX -->
-<section class="why-section">
-  <div class="container">
-    <h2 class="reveal">Why choose PurpleBox?</h2>
-    <p class="section-sub reveal">Purpose-built premium storage, not a converted warehouse.</p>
-    <div class="why-grid">
-      <div class="why-card reveal reveal-delay-1">
-        <img class="why-card-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80" alt="Climate controlled" />
-        <div class="why-card-body">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z"/></svg></div>
-          <h4>Climate-Controlled</h4>
-          <p>AC + humidity control protects your belongings from Dubai heat, dust, and moisture damage.</p>
-        </div>
-      </div>
-      <div class="why-card reveal reveal-delay-2">
-        <img class="why-card-img" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80" alt="Pickup service" />
-        <div class="why-card-body">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <h4>Free Pickup Across Dubai</h4>
-          <p>We collect from your door — apartment, villa, or office. No van needed.</p>
-        </div>
-      </div>
-      <div class="why-card reveal reveal-delay-3">
-        <img class="why-card-img" src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80" alt="Flexible plans" />
-        <div class="why-card-body">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-          <h4>Flexible Monthly Plans</h4>
-          <p>No long-term contracts. Store month-to-month and cancel after the first month.</p>
-        </div>
-      </div>
-      <div class="why-card reveal reveal-delay-4">
-        <img class="why-card-img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80" alt="Security" />
-        <div class="why-card-body">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-          <h4>24/7 Access & CCTV</h4>
-          <p>Your unit, your key. Visit anytime. Round-the-clock surveillance.</p>
-        </div>
-      </div>
-      <div class="why-card reveal reveal-delay-5">
-        <img class="why-card-img" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80" alt="Central location" />
-        <div class="why-card-body">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h4>Central Al Quoz Location</h4>
-          <p>Easy to reach from anywhere in Dubai. Located in Al Quoz 2 with drive-up access.</p>
-        </div>
-      </div>
-      <div class="why-card reveal reveal-delay-6">
-        <img class="why-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="Any size" />
-        <div class="why-card-body">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 8l3-4h12l3 4"/><path d="M12 8v13"/></svg></div>
-          <h4>Personal & Business</h4>
-          <p>Units for every need — from personal decluttering to full business inventory.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- FACILITY -->
-<section class="facility-section">
-  <div class="container">
-    <div class="facility-layout reveal">
-      <div class="facility-img-grid">
-        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80" alt="Storage facility hallway" />
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80" alt="Secure units" />
-        <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80" alt="Loading area" />
-      </div>
-      <div class="facility-content">
-        <h2>Purpose-built in Al Quoz 2</h2>
-        <p>Designed from the ground up as a premium storage facility — not a converted warehouse. Every detail optimized for your belongings' safety.</p>
-        <div class="trust-list">
-          <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> AC + humidity control</div>
-          <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> 24/7 CCTV & security</div>
-          <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Individual unit locks</div>
-          <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Loading bay & trolleys</div>
-          <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Fire detection system</div>
-          <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Pest control</div>
-        </div>
-        <div class="flex gap-12 mt-24" style="flex-wrap:wrap;">
-          <a href="facility.html" class="btn btn-primary btn-sm">Tour Facility</a>
-          <a href="location.html" class="btn btn-ghost btn-sm">Directions</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews-section">
-  <div class="container">
-    <h2 class="reveal">Trusted by Dubai families & businesses</h2>
-    <div class="review-grid">
-      <div class="review-card reveal reveal-delay-1">
-        <div class="rc-header">
-          <img class="rc-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sarah" />
-          <div class="rc-meta">
-            <div class="rc-name">Sarah M. <span>— Jumeirah</span></div>
-            <div class="rc-stars">★★★★★</div>
           </div>
         </div>
-        <p class="rc-text">"Moving from a villa to an apartment — we needed somewhere to store half our furniture. PurpleBox was easy to set up and the team was incredibly helpful."</p>
-      </div>
-      <div class="review-card reveal reveal-delay-2">
-        <div class="rc-header">
-          <img class="rc-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="James" />
-          <div class="rc-meta">
-            <div class="rc-name">James T. <span>— Business Bay</span></div>
-            <div class="rc-stars">★★★★★</div>
-          </div>
-        </div>
-        <p class="rc-text">"As an expat I've moved several times. The flexibility here is exactly what you need — no long commitments, clean units, and the AC actually works."</p>
-      </div>
-      <div class="review-card reveal reveal-delay-3">
-        <div class="rc-header">
-          <img class="rc-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Reem" />
-          <div class="rc-meta">
-            <div class="rc-name">Reem A. <span>— DIFC</span></div>
-            <div class="rc-stars">★★★★★</div>
-          </div>
-        </div>
-        <p class="rc-text">"We use PurpleBox for our business inventory. Much cheaper than warehouse space and we have access whenever we need it. Highly recommend."</p>
-      </div>
-    </div>
-    <div class="review-score reveal">
-      <div class="score-num">4.9</div>
-      <div class="score-sub">★★★★★ Based on 120+ Google Reviews</div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section">
-  <div class="container">
-    <div class="faq-layout">
-      <div class="faq-sidebar reveal">
-        <h2>Common questions</h2>
-        <p>Can't find your answer? WhatsApp us — we reply fast.</p>
-        <a href="faq.html" class="btn btn-outline btn-sm">All FAQs</a>
-      </div>
-      <div class="faq-content">
-        <div class="faq-item reveal reveal-delay-1">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            How is storage priced? <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
-            <p>Monthly, based on unit size. No setup or admin fees. VAT at standard UAE rate. Cancel after the first month with no penalty.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-2">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            Can you pick up from my home? <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
-            <p>Yes. We offer free pickup across Dubai. Send your address and item list via WhatsApp and we'll quote within hours.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-3">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            Are units climate-controlled? <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
-            <p>All units have AC and humidity control. Dubai summers damage furniture, electronics, and documents — our facility prevents that.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-4">
-          <button class="faq-btn" onclick="toggleFaq(this)">
-            What's the minimum period? <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
-            <p>One month minimum. After that, extend month-to-month or lock in a longer period for a discount.</p>
+        <div class="hero-photos">
+          <div class="hero-main-image">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80"
+              alt="PurpleBox storage facility interior" />
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section class="cta-banner">
-  <div class="container">
-    <h2>Ready to free up your space?</h2>
-    <p>Reserve online or WhatsApp us. Setup takes minutes.</p>
-    <div class="cta-btns">
-      <a href="reserve.html" class="btn btn-lg" style="background:#fff;color:var(--ink);">Book Now</a>
-      <a href="#wa" class="btn btn-wa btn-lg">💬 WhatsApp Us</a>
-      <a href="contact.html" class="btn btn-lg" style="border:2px solid rgba(255,255,255,.3);color:white;background:transparent;">Contact Us</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg" alt="PurpleBox Storage" style="height:36px;filter:brightness(0) invert(1);" /></div>
-        <p class="footer-tagline">Premium climate-controlled self-storage in Al Quoz 2, Dubai.</p>
-        <div class="flex gap-12 mt-24" style="flex-wrap:wrap;">
-          <a href="#wa" class="btn btn-wa btn-sm">💬 WhatsApp</a>
-          <a href="tel:+971542249946" class="btn btn-ghost btn-sm" style="color:#ccc;border-color:#444;">📞 Call</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-heading">Storage</div>
-        <div class="footer-links">
-          <a href="storage.html">All storage types</a>
-          <a href="furniture-storage-v2.html">Furniture storage</a>
-          <a href="apartment-storage-v2.html">Apartment storage</a>
-          <a href="villa-storage.html">Villa storage</a>
-          <a href="office-storage.html">Office storage</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-heading">Services</div>
-        <div class="footer-links">
-          <a href="pricing.html">Pricing</a>
-          <a href="size-guide.html">Size Guide</a>
-          <a href="packing-moving.html">Packing & Moving</a>
-          <a href="store.html">Supplies Store</a>
-          <a href="facility.html">Our Facility</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-heading">Company</div>
-        <div class="footer-links">
-          <a href="about.html">About Us</a>
-          <a href="location.html">Location</a>
-          <a href="faq.html">FAQ</a>
-          <a href="contact.html">Contact</a>
-          <a href="investor.html">Investors</a>
+    <!-- Stats Bar inside hero -->
+    <div class="stats-bar">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Storage units</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2,000+</div>
+            <div class="stat-label">Happy customers</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">4.9★</div>
+            <div class="stat-label">Google rating</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">24/7</div>
+            <div class="stat-label">Access & security</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>&copy; 2025 PurpleBox Storage LLC · Al Quoz 2, Dubai, UAE</div>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
-        <a href="reserve.html">Book Now</a>
+  </section>
+
+  <!-- FACILITY PHOTO STRIP -->
+  <section class="facility-strip">
+    <div class="facility-scroll">
+      <div class="facility-photo-card">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Clean hallway" />
+        <div class="fpc-label">Climate Control</div>
+      </div>
+      <div class="facility-photo-card">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="CCTV security" />
+        <div class="fpc-label">24/7 CCTV</div>
+      </div>
+      <div class="facility-photo-card">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Secure access" />
+        <div class="fpc-label">24 Hours Access</div>
+      </div>
+      <div class="facility-photo-card">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Clean hallway" />
+        <div class="fpc-label">Secure</div>
       </div>
     </div>
+  </section>
+
+  <!-- WHAT ARE YOU STORING -->
+  <section class="need-section">
+    <div class="container">
+      <h2 class="reveal">Get a Quick Storage Estimate</h2>
+      <p class="section-sub reveal">Choose what you're storing below and we'll guide you to the right unit size.</p>
+      <div class="need-grid">
+        <a class="need-card reveal reveal-delay-1" href="furniture-storage-v2.html">
+          <img class="nc-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80"
+            alt="Furniture storage" />
+          <div class="nc-body">
+            <h4>Furniture</h4>
+            <p>Between moves, renovating, or decluttering.</p>
+            <span class="nc-link">Estimate size <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="need-card reveal reveal-delay-2" href="apartment-storage-v2.html">
+          <img class="nc-img" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&q=80"
+            alt="Apartment storage" />
+          <div class="nc-body">
+            <h4>Apartment</h4>
+            <p>Reclaim your space. Store what you don't use daily.</p>
+            <span class="nc-link">Estimate size <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="need-card reveal reveal-delay-3" href="villa-storage.html">
+          <img class="nc-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&q=80"
+            alt="Villa storage" />
+          <div class="nc-body">
+            <h4>Villa</h4>
+            <p>Large units for full villa worth of items.</p>
+            <span class="nc-link">Estimate size <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="need-card reveal reveal-delay-4" href="office-storage.html">
+          <img class="nc-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80"
+            alt="Office storage" />
+          <div class="nc-body">
+            <h4>Office</h4>
+            <p>Downsizing, relocating, or going remote.</p>
+            <span class="nc-link">Estimate size <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="need-card reveal reveal-delay-1" href="expat-storage.html">
+          <img class="nc-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80"
+            alt="Expat storage" />
+          <div class="nc-body">
+            <h4>Expat</h4>
+            <p>Moving in or out of Dubai? We flex with you.</p>
+            <span class="nc-link">Learn more <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="need-card reveal reveal-delay-2" href="storage-subpage.html">
+          <img class="nc-img" src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400&q=80"
+            alt="Seasonal storage" />
+          <div class="nc-body">
+            <h4>Seasonal</h4>
+            <p>Summer clothes, holiday decor, sports gear.</p>
+            <span class="nc-link">Learn more <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="need-card reveal reveal-delay-3" href="storage-subpage.html">
+          <img class="nc-img" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&q=80"
+            alt="Business storage" />
+          <div class="nc-body">
+            <h4>Business</h4>
+            <p>Stock, samples, files. Cheaper than office space.</p>
+            <span class="nc-link">Learn more <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></span>
+          </div>
+        </a>
+        <a class="need-card reveal reveal-delay-4" href="packing-moving.html">
+          <img class="nc-img" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80"
+            alt="Moving storage" />
+          <div class="nc-body">
+            <h4>Moving</h4>
+            <p>Pack, move, and store. One provider.</p>
+            <span class="nc-link">Learn more <svg viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE PURPLEBOX -->
+  <section class="why-section">
+    <div class="container">
+      <h2 class="reveal">Why choose PurpleBox?</h2>
+      <p class="section-sub reveal">Purpose-built premium storage, not a converted warehouse.</p>
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <img class="why-card-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80"
+            alt="Climate controlled" />
+          <div class="why-card-body">
+            <div class="why-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z" />
+              </svg></div>
+            <h4>Climate-Controlled</h4>
+            <p>AC + humidity control protects your belongings from Dubai heat, dust, and moisture damage.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <img class="why-card-img" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80"
+            alt="Pickup service" />
+          <div class="why-card-body">
+            <div class="why-icon"><svg viewBox="0 0 24 24">
+                <rect x="1" y="3" width="15" height="13" rx="1" />
+                <path d="M16 8h4l3 3v5h-7V8z" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg></div>
+            <h4>Pickup Service Available</h4>
+            <p>We can arrange pickup from your door — apartment, villa, or office.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <img class="why-card-img" src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80"
+            alt="Flexible plans" />
+          <div class="why-card-body">
+            <div class="why-icon"><svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg></div>
+            <h4>Flexible Monthly Plans</h4>
+            <p>No long-term contracts. Store month-to-month and cancel after the first month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FACILITY -->
+  <section class="facility-section">
+    <div class="container">
+      <div class="facility-layout reveal">
+        <div class="facility-img-grid">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
+            alt="Storage facility hallway" />
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80" alt="Secure units" />
+          <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80" alt="Loading area" />
+        </div>
+        <div class="facility-content">
+          <h2>Purpose-built in Al Quoz 2</h2>
+          <p>Designed from the ground up as a premium storage facility — not a converted warehouse. Every detail
+            optimized for your belongings' safety.</p>
+          <div class="trust-list">
+            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg></span> AC + humidity control</div>
+            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg></span> 24/7 CCTV & security</div>
+            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg></span> Individual unit locks</div>
+            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg></span> Loading bay & trolleys</div>
+            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg></span> Fire detection system</div>
+            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg></span> Pest control</div>
+          </div>
+          <div class="flex gap-12 mt-24" style="flex-wrap:wrap;">
+            <a href="facility.html" class="btn btn-primary btn-sm">Tour Facility</a>
+            <a href="location.html" class="btn btn-ghost btn-sm">Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <div class="container">
+      <h2 class="reveal">Trusted by Dubai families & businesses</h2>
+      <div class="review-grid">
+        <div class="review-card reveal reveal-delay-1">
+          <div class="rc-header">
+            <img class="rc-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
+              alt="Sarah" />
+            <div class="rc-meta">
+              <div class="rc-name">Sarah M. <span>— Jumeirah</span></div>
+              <div class="rc-stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="rc-text">"Moving from a villa to an apartment — we needed somewhere to store half our furniture.
+            PurpleBox was easy to set up and the team was incredibly helpful."</p>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="rc-header">
+            <img class="rc-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+              alt="James" />
+            <div class="rc-meta">
+              <div class="rc-name">James T. <span>— Business Bay</span></div>
+              <div class="rc-stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="rc-text">"As an expat I've moved several times. The flexibility here is exactly what you need — no
+            long commitments, clean units, and the AC actually works."</p>
+        </div>
+        <div class="review-card reveal reveal-delay-3">
+          <div class="rc-header">
+            <img class="rc-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80"
+              alt="Reem" />
+            <div class="rc-meta">
+              <div class="rc-name">Reem A. <span>— DIFC</span></div>
+              <div class="rc-stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="rc-text">"We use PurpleBox for our business inventory. Much cheaper than warehouse space and we have
+            access whenever we need it. Highly recommend."</p>
+        </div>
+      </div>
+      <div class="review-score reveal">
+        <div class="score-num">4.9</div>
+        <div class="score-sub">★★★★★ Based on 120+ Google Reviews</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-sidebar reveal">
+          <h2>Common questions</h2>
+          <p>Can't find your answer? WhatsApp us — we reply fast.</p>
+          <a href="faq.html" class="btn btn-outline btn-sm">All FAQs</a>
+        </div>
+        <div class="faq-content">
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-btn" onclick="toggleFaq(this)">
+              How is storage priced? <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>Monthly, based on unit size. No setup or admin fees. VAT at standard UAE rate. Cancel after the first
+                month with no penalty.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-btn" onclick="toggleFaq(this)">
+              Can you pick up from my home? <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>Yes. Pickup service is available in Dubai. Send your address and item list via WhatsApp and we'll quote
+                within hours.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-btn" onclick="toggleFaq(this)">
+              Are units climate-controlled? <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>All units have AC and humidity control. Dubai summers damage furniture, electronics, and documents —
+                our facility prevents that.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-4">
+            <button class="faq-btn" onclick="toggleFaq(this)">
+              What's the minimum period? <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>One month minimum. After that, extend month-to-month or lock in a longer period for a discount.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to free up your space?</h2>
+      <p>Reserve online or WhatsApp us. Setup takes minutes.</p>
+      <div class="cta-btns">
+        <a href="reserve.html" class="btn btn-lg" style="background:#fff;color:var(--ink);">Book Now</a>
+        <a href="https://wa.me/971542249946" class="btn btn-wa btn-lg" target="_blank" rel="noopener noreferrer">💬
+          WhatsApp Us</a>
+        <a href="contact.html" class="btn btn-lg"
+          style="border:2px solid rgba(255,255,255,.3);color:white;background:transparent;">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg"
+              alt="PurpleBox Storage" style="height:36px;filter:brightness(0) invert(1);" /></div>
+          <p class="footer-tagline">Premium climate-controlled self-storage in Al Quoz 2, Dubai.</p>
+          <div class="flex gap-12 mt-24" style="flex-wrap:wrap;">
+            <a href="https://wa.me/971542249946" class="btn btn-wa btn-sm" target="_blank" rel="noopener noreferrer">💬
+              WhatsApp</a>
+            <a href="tel:+971542249946" class="btn btn-ghost btn-sm" style="color:#ccc;border-color:#444;">📞 Call</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Storage</div>
+          <div class="footer-links">
+            <a href="storage.html">All storage types</a>
+            <a href="furniture-storage-v2.html">Furniture storage</a>
+            <a href="apartment-storage-v2.html">Apartment storage</a>
+            <a href="villa-storage.html">Villa storage</a>
+            <a href="office-storage.html">Office storage</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Services</div>
+          <div class="footer-links">
+            <a href="pricing.html">Pricing</a>
+            <a href="size-guide.html">Size Guide</a>
+            <a href="packing-moving.html">Packing & Moving</a>
+            <a href="store.html">Supplies Store</a>
+            <a href="facility.html">Our Facility</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="location.html">Location</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+            <a href="investor.html">Investors</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2025 PurpleBox Storage LLC · Al Quoz 2, Dubai, UAE</div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="reserve.html">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">💬</a>
+
+  <div class="mobile-cta">
+    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">💬
+      WhatsApp</a>
+    <a href="reserve.html" class="btn btn-primary btn-full">Book Now</a>
   </div>
-</footer>
 
-<a href="#wa" class="wa-float">💬</a>
-
-<div class="mobile-cta">
-  <a href="#wa" class="btn btn-wa btn-full">💬 WhatsApp</a>
-  <a href="reserve.html" class="btn btn-primary btn-full">Book Now</a>
-</div>
-
-<script>
-function toggleFaq(btn) {
-  var body = btn.nextElementSibling;
-  var isOpen = body.classList.contains('open');
-  document.querySelectorAll('.faq-body.open').forEach(function(b) {
-    b.classList.remove('open');
-    b.previousElementSibling.classList.remove('open');
-  });
-  if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
-}
-
-function toggleMobileMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-
-/* ---- Scroll Reveal ---- */
-var revealObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+  <script>
+    function toggleFaq(btn) {
+      var body = btn.nextElementSibling;
+      var isOpen = body.classList.contains('open');
+      document.querySelectorAll('.faq-body.open').forEach(function (b) {
+        b.classList.remove('open');
+        b.previousElementSibling.classList.remove('open');
+      });
+      if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
     }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach(function(el) {
-  revealObserver.observe(el);
-});
-
-/* ---- Smooth scroll ---- */
-document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    var target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
     }
-  });
-});
-</script>
+
+    /* ---- Scroll Reveal ---- */
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      revealObserver.observe(el);
+    });
+
+    /* ---- Smooth scroll ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>
