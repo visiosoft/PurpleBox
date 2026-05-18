@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Storage Tips & Guides Dubai — PurpleBox Blog</title>
+<meta name="description" content="Storage tips, moving guides, and Dubai living advice from PurpleBox. Learn how to pack, choose the right unit size, and protect your belongings." />
+<link rel="stylesheet" href="shared.css" />
+<style>
+/* ---- Blog Cards ---- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.blog-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.blog-card-img {
+  background: var(--cream);
+  border: 1.5px dashed var(--border);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+.blog-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.blog-card .blog-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--purple-lt);
+  color: var(--purple);
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.blog-card h3 {
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+.blog-card h3 a {
+  transition: color .15s;
+}
+.blog-card h3 a:hover {
+  color: var(--purple);
+}
+.blog-card .blog-excerpt {
+  font-size: 13px;
+  color: var(--ink-mid);
+  margin-bottom: 16px;
+  flex: 1;
+  line-height: 1.6;
+}
+.blog-card .blog-meta {
+  font-size: 12px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.blog-card .blog-read {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-top: auto;
+}
+
+/* ---- Featured Post ---- */
+.featured-post {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.featured-post .fp-img {
+  background: var(--cream);
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-lg);
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+.featured-post .fp-content { display: flex; flex-direction: column; justify-content: center; }
+.featured-post h2 { margin-bottom: 10px; }
+.featured-post h2 a:hover { color: var(--purple); }
+.featured-post .blog-excerpt { font-size: 15px; margin-bottom: 16px; }
+
+/* ---- Sidebar ---- */
+.blog-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.blog-sidebar .sidebar-card {
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.blog-sidebar .sidebar-card h4 {
+  margin-bottom: 14px;
+  font-size: .95rem;
+}
+.blog-sidebar .cat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.blog-sidebar .cat-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-mid);
+  transition: all .15s;
+}
+.blog-sidebar .cat-list a:hover {
+  background: var(--purple-lt);
+  color: var(--purple);
+}
+.blog-sidebar .cat-count {
+  font-size: 12px;
+  color: var(--ink-soft);
+  background: var(--white);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.blog-sidebar .popular-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.blog-sidebar .popular-item {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+}
+.blog-sidebar .popular-thumb {
+  width: 60px;
+  height: 48px;
+  background: var(--cream-dk);
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px dashed var(--border);
+}
+.blog-sidebar .popular-item h4 {
+  font-size: .85rem;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+.blog-sidebar .popular-item h4 a:hover { color: var(--purple); }
+.blog-sidebar .popular-item .blog-meta { font-size: 11px; }
+
+/* ---- Tablet ---- */
+@media (min-width: 600px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .featured-post { flex-direction: row; gap: 32px; }
+  .featured-post .fp-img { flex: 1.2; min-height: 280px; }
+  .featured-post .fp-content { flex: 1; }
+}
+
+/* ---- Desktop ---- */
+@media (min-width: 768px) {
+  .blog-layout { flex-direction: row; gap: 40px; }
+  .blog-main { flex: 1; }
+  .blog-sidebar { flex: 0 0 280px; }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+@media (min-width: 1024px) {
+  .blog-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg" alt="PurpleBox Storage" class="nav-logo-img" /></a>
+    <div class="nav-phone">
+      <span class="phone-icon">📞</span>
+      +971 54 224 9946
+    </div>
+    <div class="nav-links">
+      <a href="storage.html">Self Storage</a>
+      <a href="pricing.html">Unit Sizes & Prices</a>
+      <a href="facility.html">Facility</a>
+      <a href="packing-moving.html">Moving</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="nav-cta">
+      <a href="reserve.html" class="btn btn-primary btn-sm">Book Now</a>
+    </div>
+    <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-phone">📞 +971 54 224 9946</div>
+  <a href="storage.html">Self Storage</a>
+  <a href="pricing.html">Unit Sizes &amp; Prices</a>
+  <a href="facility.html">Facility</a>
+  <a href="packing-moving.html">Moving</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="blog.html">Blog</a>
+  <a href="faq.html">FAQ</a>
+  <div class="mobile-menu-cta">
+    <a href="reserve.html" class="btn btn-primary btn-full">Book Now</a>
+    <a href="#wa" class="btn btn-wa btn-full">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span> Blog</nav>
+    <h1>Storage Tips & Guides</h1>
+    <p>Practical advice on storing, packing, moving, and making the most of your space in Dubai.</p>
+  </div>
+</section>
+
+<!-- FEATURED POST -->
+<section class="section-sm">
+  <div class="container">
+    <div class="featured-post">
+      <div class="fp-img">Featured image<br>(800 × 500px)</div>
+      <div class="fp-content">
+        <span class="blog-tag" style="background:var(--purple);color:white;">Featured</span>
+        <h2><a href="blog-post.html">The complete guide to self-storage in Dubai: everything you need to know</a></h2>
+        <p class="blog-excerpt" style="color:var(--ink-mid);">From choosing the right size to understanding contracts and climate control — this guide covers everything first-time storage users in Dubai need to know.</p>
+        <div class="blog-meta">
+          <span>📅 May 8, 2026</span>
+          <span>·</span>
+          <span>8 min read</span>
+        </div>
+        <a href="blog-post.html" class="btn btn-primary btn-sm mt-16" style="width:fit-content;">Read Article</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG LISTING -->
+<section class="section">
+  <div class="container">
+    <div class="blog-layout">
+
+      <!-- MAIN -->
+      <div class="blog-main">
+        <h2 class="mb-24">Latest Articles</h2>
+        <div class="blog-grid">
+
+          <div class="card blog-card">
+            <div class="blog-card-img">Blog image<br>(600 × 400px)</div>
+            <div class="blog-card-body">
+              <span class="blog-tag">Moving Tips</span>
+              <h3><a href="blog-post.html">10 packing mistakes that damage your furniture (and how to avoid them)</a></h3>
+              <p class="blog-excerpt">Most furniture damage happens during packing, not transport. Here are the most common mistakes we see — and what to do instead.</p>
+              <div class="blog-meta">
+                <span>May 5, 2026</span>
+                <span>·</span>
+                <span>5 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card">
+            <div class="blog-card-img">Blog image<br>(600 × 400px)</div>
+            <div class="blog-card-body">
+              <span class="blog-tag">Size Guide</span>
+              <h3><a href="blog-post.html">What size storage unit do I need? A visual guide for Dubai apartments</a></h3>
+              <p class="blog-excerpt">Studio, 1-bed, 2-bed, or villa — here's exactly what fits in each unit size with real-life examples from our customers.</p>
+              <div class="blog-meta">
+                <span>Apr 28, 2026</span>
+                <span>·</span>
+                <span>4 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card">
+            <div class="blog-card-img">Blog image<br>(600 × 400px)</div>
+            <div class="blog-card-body">
+              <span class="blog-tag">Dubai Living</span>
+              <h3><a href="blog-post.html">Moving out of Dubai? Here's how to store your stuff while you're away</a></h3>
+              <p class="blog-excerpt">Expats leave Dubai for months or years at a time. Here's the most practical and affordable way to keep your belongings safe.</p>
+              <div class="blog-meta">
+                <span>Apr 20, 2026</span>
+                <span>·</span>
+                <span>6 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card">
+            <div class="blog-card-img">Blog image<br>(600 × 400px)</div>
+            <div class="blog-card-body">
+              <span class="blog-tag">Climate Control</span>
+              <h3><a href="blog-post.html">Why climate-controlled storage matters in Dubai (and what happens without it)</a></h3>
+              <p class="blog-excerpt">Temperatures above 45°C and humidity spikes destroy furniture, electronics, and documents. Here's what climate control actually does.</p>
+              <div class="blog-meta">
+                <span>Apr 12, 2026</span>
+                <span>·</span>
+                <span>4 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card">
+            <div class="blog-card-img">Blog image<br>(600 × 400px)</div>
+            <div class="blog-card-body">
+              <span class="blog-tag">Business</span>
+              <h3><a href="blog-post.html">Self-storage vs warehouse: which is better for your Dubai business?</a></h3>
+              <p class="blog-excerpt">If you're storing inventory, samples, or office furniture, the answer might surprise you. Here's a cost and flexibility comparison.</p>
+              <div class="blog-meta">
+                <span>Apr 5, 2026</span>
+                <span>·</span>
+                <span>5 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card blog-card">
+            <div class="blog-card-img">Blog image<br>(600 × 400px)</div>
+            <div class="blog-card-body">
+              <span class="blog-tag">How To</span>
+              <h3><a href="blog-post.html">How to declutter before a move: the 4-box method that actually works</a></h3>
+              <p class="blog-excerpt">Keep, store, donate, discard. This simple system makes decluttering fast and stress-free — even for a full villa.</p>
+              <div class="blog-meta">
+                <span>Mar 28, 2026</span>
+                <span>·</span>
+                <span>3 min read</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- LOAD MORE -->
+        <div class="text-center mt-32">
+          <a href="#" class="btn btn-outline">Load More Articles</a>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="blog-sidebar">
+
+        <!-- CATEGORIES -->
+        <div class="sidebar-card">
+          <h4>Categories</h4>
+          <div class="cat-list">
+            <a href="#">Moving Tips <span class="cat-count">8</span></a>
+            <a href="#">Size Guide <span class="cat-count">4</span></a>
+            <a href="#">Dubai Living <span class="cat-count">6</span></a>
+            <a href="#">Climate Control <span class="cat-count">3</span></a>
+            <a href="#">Business <span class="cat-count">5</span></a>
+            <a href="#">How To <span class="cat-count">7</span></a>
+            <a href="#">Packing <span class="cat-count">4</span></a>
+          </div>
+        </div>
+
+        <!-- POPULAR -->
+        <div class="sidebar-card">
+          <h4>Most Read</h4>
+          <div class="popular-list">
+            <div class="popular-item">
+              <div class="popular-thumb"></div>
+              <div>
+                <h4><a href="blog-post.html">Complete guide to self-storage in Dubai</a></h4>
+                <div class="blog-meta">8 min read</div>
+              </div>
+            </div>
+            <div class="popular-item">
+              <div class="popular-thumb"></div>
+              <div>
+                <h4><a href="blog-post.html">10 packing mistakes that damage furniture</a></h4>
+                <div class="blog-meta">5 min read</div>
+              </div>
+            </div>
+            <div class="popular-item">
+              <div class="popular-thumb"></div>
+              <div>
+                <h4><a href="blog-post.html">What size storage unit do I need?</a></h4>
+                <div class="blog-meta">4 min read</div>
+              </div>
+            </div>
+            <div class="popular-item">
+              <div class="popular-thumb"></div>
+              <div>
+                <h4><a href="blog-post.html">Why climate control matters in Dubai</a></h4>
+                <div class="blog-meta">4 min read</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="sidebar-card" style="background:var(--purple);color:white;">
+          <h4 style="color:white;">Need storage?</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.75);margin-bottom:16px;">Climate-controlled units in Al Quoz 2. Flexible monthly terms.</p>
+          <a href="reserve.html" class="btn btn-full" style="background:white;color:var(--purple);">Book Now</a>
+          <a href="#wa" class="btn btn-wa btn-full mt-8">💬 WhatsApp Us</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section style="background:var(--cream);padding:48px 0;">
+  <div class="container" style="max-width:600px;text-align:center;">
+    <h2 style="margin-bottom:8px;">Get storage tips in your inbox</h2>
+    <p style="font-size:14px;margin-bottom:20px;">One email per month. Packing hacks, Dubai moving tips, and exclusive offers.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+      <input type="email" class="form-input" placeholder="Your email address" style="max-width:320px;border-radius:50px;padding:12px 20px;" />
+      <button class="btn btn-primary">Subscribe</button>
+    </div>
+    <p style="font-size:11px;color:var(--ink-soft);margin-top:10px;">No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section style="background:var(--purple);padding:48px 0;text-align:center;">
+  <div class="container">
+    <h2 style="color:white;margin-bottom:10px;">Ready to store?</h2>
+    <p style="color:rgba(255,255,255,.75);margin-bottom:24px;">Reserve a unit online or WhatsApp us. Setup takes minutes.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="reserve.html" class="btn btn-lg" style="background:white;color:var(--purple);">Book Now</a>
+      <a href="#wa" class="btn btn-wa btn-lg">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg" alt="PurpleBox Storage" style="height:36px;filter:brightness(0) invert(1);" /></div>
+        <p class="footer-tagline">Premium, climate-controlled self-storage in Al Quoz 2, Dubai. Personal & business units. Flexible monthly terms.</p>
+        <div class="flex gap-12 mt-24" style="flex-wrap:wrap;">
+          <a href="#wa" class="btn btn-wa btn-sm">💬 WhatsApp</a>
+          <a href="tel:+971542249946" class="btn btn-ghost btn-sm" style="color:#ccc;border-color:#444;">📞 Call</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Storage</div>
+        <div class="footer-links">
+          <a href="storage.html">All storage types</a>
+          <a href="storage-subpage.html">Furniture storage</a>
+          <a href="storage-subpage.html">Apartment storage</a>
+          <a href="storage-subpage.html">Business storage</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Services</div>
+        <div class="footer-links">
+          <a href="pricing.html">Pricing</a>
+          <a href="size-guide.html">Size Guide</a>
+          <a href="packing-moving.html">Packing & Moving</a>
+          <a href="blog.html">Blog</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="location.html">Location</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2025 PurpleBox Storage LLC &middot; Al Quoz 2, Dubai, UAE</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="reserve.html">Book Now</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="#wa" class="wa-float">💬</a>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta">
+  <a href="#wa" class="btn btn-wa btn-full">💬 WhatsApp</a>
+  <a href="reserve.html" class="btn btn-primary btn-full">Book Now</a>
+</div>
+
+<script>
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
