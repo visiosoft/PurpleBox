@@ -2038,9 +2038,11 @@
             clip-rule="evenodd" />
         </svg><span class="call-label">+971 54 224 9946</span></a>
       <div class="nav-links">
+        <a href="storage.html">Self Storage</a>
         <a href="pricing.html">Unit Sizes & Prices</a>
         <a href="facility.html">Facility</a>
         <a href="packing-moving.html">Moving</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact Us</a>
       </div>
       <div class="nav-cta"><a href="reserve.html" class="btn btn-primary btn-sm">Book Now</a></div>
@@ -2088,49 +2090,28 @@
       </div>
     </div>
     <!-- Stats Bar inside hero -->
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-card reveal reveal-delay-1">
-          <img class="why-card-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80"
-            alt="Climate controlled" />
-          <div class="why-card-body">
-            <div class="why-icon"><svg viewBox="0 0 24 24">
-                <path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z" />
-              </svg></div>
-            <h4>Climate-Controlled</h4>
-            <p>AC + humidity control protects your belongings from Dubai heat, dust, and moisture damage.</p>
+    <div class="stats-bar">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num">300+</div>
+            <div class="stat-label">Storage units</div>
           </div>
-        </div>
-        <div class="why-card reveal reveal-delay-2">
-          <img class="why-card-img" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80"
-            alt="Pickup service" />
-          <div class="why-card-body">
-            <div class="why-icon"><svg viewBox="0 0 24 24">
-                <rect x="1" y="3" width="15" height="13" rx="1" />
-                <path d="M16 8h4l3 3v5h-7V8z" />
-                <circle cx="5.5" cy="18.5" r="2.5" />
-                <circle cx="18.5" cy="18.5" r="2.5" />
-              </svg></div>
-            <h4>Pickup Service Available</h4>
-            <p>We can arrange pickup from your door — apartment, villa, or office.</p>
+          <div class="stat-box">
+            <div class="stat-num">1,000+</div>
+            <div class="stat-label">Happy customers</div>
           </div>
-        </div>
-        <div class="why-card reveal reveal-delay-3">
-          <img class="why-card-img" src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80"
-            alt="Flexible plans" />
-          <div class="why-card-body">
-            <div class="why-icon"><svg viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="18" rx="2" />
-                <path d="M16 2v4M8 2v4M3 10h18" />
-              </svg></div>
-            <h4>Flexible Monthly Plans</h4>
-            <p>No long-term contracts. Store month-to-month and cancel after the first month.</p>
+          <div class="stat-box">
+            <div class="stat-num">4.9★</div>
+            <div class="stat-label">Google rating</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">24/7</div>
+            <div class="stat-label">Access & security</div>
           </div>
         </div>
       </div>
     </div>
-
-
   </section>
 
   <!-- FACILITY PHOTO STRIP -->
@@ -2253,6 +2234,109 @@
     </div>
   </section>
 
+  <!-- LEAD CAPTURE FORM -->
+  <section class="quote-section" id="get-quote">
+    <div class="container">
+      <div class="quote-inner">
+        <div class="quote-copy reveal">
+          <h2>Get a Free Storage Quote</h2>
+          <p>Tell us what you're storing and we'll WhatsApp you the best unit option and price — usually within 15
+            minutes.</p>
+          <div class="quote-perks">
+            <div class="quote-perk"><span>✓</span> No commitment required</div>
+            <div class="quote-perk"><span>✓</span> Instant WhatsApp reply</div>
+            <div class="quote-perk"><span>✓</span> First month 20% off for new customers</div>
+            <div class="quote-perk"><span>✓</span> Free size advice from our team</div>
+          </div>
+        </div>
+        <form class="quote-form reveal reveal-delay-1" id="quoteForm" onsubmit="submitQuoteForm(event)">
+          <h3>Send us your details</h3>
+          <div class="form-group">
+            <label for="q-name">Your Name</label>
+            <input type="text" id="q-name" placeholder="e.g. Ahmed Al Rashid" required />
+          </div>
+          <div class="form-group">
+            <label for="q-type">What are you storing?</label>
+            <select id="q-type" required>
+              <option value="">-- Select type --</option>
+              <option>Furniture</option>
+              <option>Apartment contents</option>
+              <option>Villa contents</option>
+              <option>Office equipment</option>
+              <option>Business inventory</option>
+              <option>Seasonal items</option>
+              <option>Expat belongings</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="q-duration">How long do you need storage?</label>
+            <select id="q-duration">
+              <option value="">-- Select duration --</option>
+              <option>1–3 months</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option>More than a year</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="q-phone">Your WhatsApp Number</label>
+            <input type="tel" id="q-phone" placeholder="+971 5X XXX XXXX" required />
+          </div>
+          <button class="form-submit" type="submit">Get My Free Quote</button>
+          <p class="form-note">We reply via WhatsApp — usually within 15 minutes.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE PURPLEBOX -->
+  <section class="why-section">
+    <div class="container">
+      <h2 class="reveal">Why choose PurpleBox?</h2>
+      <p class="section-sub reveal">Purpose-built premium storage, not a converted warehouse.</p>
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <img class="why-card-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80"
+            alt="Climate controlled" />
+          <div class="why-card-body">
+            <div class="why-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z" />
+              </svg></div>
+            <h4>Climate-Controlled</h4>
+            <p>AC + humidity control protects your belongings from Dubai heat, dust, and moisture damage.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <img class="why-card-img" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80"
+            alt="Pickup service" />
+          <div class="why-card-body">
+            <div class="why-icon"><svg viewBox="0 0 24 24">
+                <rect x="1" y="3" width="15" height="13" rx="1" />
+                <path d="M16 8h4l3 3v5h-7V8z" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg></div>
+            <h4>Pickup Service Available</h4>
+            <p>We can arrange pickup from your door — apartment, villa, or office.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <img class="why-card-img" src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80"
+            alt="Flexible plans" />
+          <div class="why-card-body">
+            <div class="why-icon"><svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg></div>
+            <h4>Flexible Monthly Plans</h4>
+            <p>No long-term contracts. Store month-to-month and cancel after the first month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <!-- FACILITY -->

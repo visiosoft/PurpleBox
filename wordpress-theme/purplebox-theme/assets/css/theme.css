@@ -1,0 +1,55 @@
+/* WordPress-specific compatibility layer on top of shared.css */
+
+body {
+    background: #fff;
+}
+
+.site-main {
+    min-height: 60vh;
+}
+
+.nav-logo .custom-logo {
+    height: 38px;
+    width: auto;
+}
+
+.nav-logo .custom-logo-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.prose {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+    margin-bottom: 12px;
+}
+
+.prose p {
+    margin-bottom: 14px;
+}
+
+.wp-block-image img {
+    border-radius: 12px;
+}
+
+.page-hero {
+    background: var(--cream);
+    padding: 40px 0 48px;
+}
+
+.hero-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    .hero-btns {
+        flex-direction: row;
+    }
+}
