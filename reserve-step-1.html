@@ -1,322 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>purplebox Reservation - Step 1</title>
-  <link rel="stylesheet" href="reserve-flow.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>purplebox Reservation - Step 1</title>
+    <link rel="stylesheet" href="reserve-flow.css" />
 </head>
+
 <body data-step="1">
-  <main>
-    <section class="reservation-shell">
-      <div class="mobile-hero">
-        <div class="brand">
-          <div class="brand-mark">P</div>
-          <div class="brand-word">purplebox</div>
+    <nav class="site-nav" aria-label="Primary">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html" aria-label="purplebox home">
+                <span class="brand-mark">P</span>
+                <span class="brand-word">purplebox</span>
+            </a>
+            <a href="tel:+971542249946" class="nav-phone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                        d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8A19.5 19.5 0 0 1 5.2 12.8A19.8 19.8 0 0 1 2 4.2A2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7" />
+                </svg>
+                +971 54 224 9946
+            </a>
+            <div class="nav-links">
+                <a href="reserve-step-1.html">Book Unit</a>
+                <a href="store.html">Shop Now</a>
+                <a href="packing-moving.html">Packing & Moving</a>
+                <a href="contact.html">Community</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button type="button" class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+            </button>
         </div>
-        <div class="hero-box-wrap">
-          <svg viewBox="0 0 220 220" width="200" height="200" aria-label="Open purple storage box">
-            <ellipse cx="110" cy="176" rx="68" ry="16" fill="rgba(0,0,0,0.22)" />
-            <polygon points="110,44 166,72 110,102 54,72" fill="url(#top1)" />
-            <polygon points="54,72 110,102 110,160 54,130" fill="url(#left1)" />
-            <polygon points="166,72 110,102 110,160 166,130" fill="url(#right1)" />
-            <polygon points="86,38 112,20 175,52 148,70" fill="#b6a2ff" />
-            <rect x="74" y="116" width="72" height="14" rx="6" fill="#fff" />
-            <text x="110" y="126" text-anchor="middle" font-size="10" font-weight="800" fill="#37236f">SARA · M</text>
-            <defs>
-              <linearGradient id="top1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ede9fe" />
-                <stop offset="1" stop-color="#c4b5fd" />
-              </linearGradient>
-              <linearGradient id="left1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#a78bfa" />
-                <stop offset="1" stop-color="#7c3aed" />
-              </linearGradient>
-              <linearGradient id="right1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#8b5cf6" />
-                <stop offset="1" stop-color="#5b21b6" />
-              </linearGradient>
-            </defs>
-          </svg>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="reserve-step-1.html">Book Unit</a>
+        <a href="storage.html">Self Storage</a>
+        <a href="pricing.html">Unit Sizes & Prices</a>
+        <a href="facility.html">Facility</a>
+        <a href="packing-moving.html">Moving</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+        <div class="mobile-menu-cta">
+            <a class="btn btn-primary" href="reserve-step-1.html">Book Now</a>
+            <a class="btn btn-ghost" href="https://wa.me/971542249946" target="_blank"
+                rel="noopener noreferrer">WhatsApp</a>
         </div>
-        <p class="hero-caption">Tell us who you are and when you need the unit.</p>
-        <div class="progress-dots" aria-label="Step progress">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
+    </div>
 
-      <div class="form-sheet">
-        <div class="step-head">
-          <div>
-            <p class="eyebrow">Step 01 · Of 03</p>
-            <h1>Your details</h1>
-            <p class="subtitle">Quick details before we prepare your move-in.</p>
-          </div>
-          <div class="state-chip">75 sq ft · M Selected</div>
-        </div>
-
-        <form id="step1Form" class="form-grid" action="reserve-step-2.html" method="get">
-          <input type="hidden" id="unitLabel" name="unitLabel" value="SARA · M" />
-          <input type="hidden" id="unitSize" name="unitSize" value="75 sq ft (M)" />
-          <input type="hidden" id="monthlyRent" name="monthlyRent" value="499" />
-          <input type="hidden" id="promoCode" name="promoCode" value="FIRST20" />
-
-          <div class="field">
-            <label for="fullName">Full name</label>
-            <input id="fullName" name="fullName" type="text" required placeholder="Sara Al Marri" />
-          </div>
-
-          <div class="two-col">
-            <div class="field">
-              <label for="mobile">Mobile</label>
-              <input id="mobile" name="mobile" type="tel" required placeholder="+971 50 234 5678" />
+    <main>
+        <section class="reservation-shell">
+            <div class="mobile-hero">
+                <div class="brand">
+                    <div class="brand-mark">P</div>
+                    <div class="brand-word">purplebox</div>
+                </div>
+                <div class="hero-box-wrap">
+                    <svg viewBox="0 0 220 220" width="200" height="200" aria-label="Open purple storage box">
+                        <ellipse cx="110" cy="176" rx="68" ry="16" fill="rgba(0,0,0,0.22)" />
+                        <polygon points="110,44 166,72 110,102 54,72" fill="url(#top1)" />
+                        <polygon points="54,72 110,102 110,160 54,130" fill="url(#left1)" />
+                        <polygon points="166,72 110,102 110,160 166,130" fill="url(#right1)" />
+                        <polygon points="86,38 112,20 175,52 148,70" fill="#b6a2ff" />
+                        <rect x="74" y="116" width="72" height="14" rx="6" fill="#fff" />
+                        <text x="110" y="126" text-anchor="middle" font-size="10" font-weight="800" fill="#37236f">SARA
+                            · M</text>
+                        <defs>
+                            <linearGradient id="top1" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#ede9fe" />
+                                <stop offset="1" stop-color="#c4b5fd" />
+                            </linearGradient>
+                            <linearGradient id="left1" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#a78bfa" />
+                                <stop offset="1" stop-color="#7c3aed" />
+                            </linearGradient>
+                            <linearGradient id="right1" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#8b5cf6" />
+                                <stop offset="1" stop-color="#5b21b6" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <p class="hero-caption">Tell us who you are and when you need the unit.</p>
+                <div class="progress-dots" aria-label="Step progress">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
-            <div class="field">
-              <label for="emirate">Emirate</label>
-              <select id="emirate" name="emirate" required>
-                <option value="Dubai">Dubai</option>
-                <option value="Abu Dhabi">Abu Dhabi</option>
-                <option value="Sharjah">Sharjah</option>
-                <option value="Ajman">Ajman</option>
-                <option value="RAK">RAK</option>
-                <option value="Fujairah">Fujairah</option>
-                <option value="UAQ">UAQ</option>
-              </select>
-            </div>
-          </div>
 
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="sara.almarri@example.ae" />
-          </div>
+            <div class="form-sheet">
+                <div class="step-head">
+                    <div>
+                        <p class="eyebrow">Step 01 · Of 03</p>
+                        <h1>Your details</h1>
+                        <p class="subtitle">Quick details before we prepare your move-in.</p>
+                    </div>
+                    <div class="state-chip">75 sq ft · M Selected</div>
+                </div>
 
-          <fieldset class="field">
-            <legend class="legend">Storing for</legend>
-            <input id="storingFor" name="storingFor" type="hidden" value="Personal" />
-            <div class="segmented" data-segmented data-target="storingFor" role="radiogroup" aria-label="Storing for">
-              <button type="button" role="radio" aria-checked="true" data-value="Personal">
-                Personal
-                <small>Home, moving, declutter</small>
-              </button>
-              <button type="button" role="radio" aria-checked="false" data-value="Business">
-                Business
-                <small>Inventory, archives</small>
-              </button>
-            </div>
-          </fieldset>
+                <form id="step1Form" class="form-grid" action="reserve-step-2.html" method="get">
+                    <input type="hidden" id="unitLabel" name="unitLabel" value="SARA · M" />
+                    <input type="hidden" id="unitSize" name="unitSize" value="75 sq ft (M)" />
+                    <input type="hidden" id="monthlyRent" name="monthlyRent" value="499" />
+                    <input type="hidden" id="promoCode" name="promoCode" value="FIRST20" />
 
-          <fieldset class="field">
-            <legend class="legend">Move-in date</legend>
-            <div class="chips">
-              <button type="button" data-date-chip="today">Today <small></small></button>
-              <button type="button" data-date-chip="tomorrow">Tomorrow <small></small></button>
-              <button type="button" data-date-chip="week">Next week <small></small></button>
-            </div>
-            <input id="moveInDate" name="moveInDate" type="date" required />
-          </fieldset>
+                    <div class="field">
+                        <label for="fullName">Full name</label>
+                        <input id="fullName" name="fullName" type="text" required placeholder="Sara Al Marri" />
+                    </div>
 
-          <div class="sticky-bar">
-            <div>
-              <p class="total-txt">Running total</p>
-              <p class="total-val" id="runningTotal">AED 399</p>
-            </div>
-            <button id="step1Next" class="btn btn-primary" type="submit" disabled>Continue</button>
-          </div>
-        </form>
-      </div>
+                    <div class="two-col">
+                        <div class="field">
+                            <label for="mobile">Mobile</label>
+                            <input id="mobile" name="mobile" type="tel" required placeholder="+971 50 234 5678" />
+                        </div>
+                        <div class="field">
+                            <label for="emirate">Emirate</label>
+                            <select id="emirate" name="emirate" required>
+                                <option value="Dubai">Dubai</option>
+                                <option value="Abu Dhabi">Abu Dhabi</option>
+                                <option value="Sharjah">Sharjah</option>
+                                <option value="Ajman">Ajman</option>
+                                <option value="RAK">RAK</option>
+                                <option value="Fujairah">Fujairah</option>
+                                <option value="UAQ">UAQ</option>
+                            </select>
+                        </div>
+                    </div>
 
-      <aside class="desktop-left">
-        <div class="brand">
-          <div class="brand-mark">P</div>
-          <div class="brand-word">purplebox</div>
-        </div>
-        <div class="desk-progress" aria-label="Step progress">
-          <div class="st active"><i>1</i> Your details</div>
-          <div class="st"><i>2</i> Supplies & discount</div>
-          <div class="st"><i>3</i> Review & send</div>
-        </div>
-        <div class="desk-illus">
-          <svg viewBox="0 0 220 220" width="220" height="220" aria-label="Open purple storage box">
-            <ellipse cx="110" cy="176" rx="68" ry="16" fill="rgba(0,0,0,0.22)" />
-            <polygon points="110,44 166,72 110,102 54,72" fill="url(#top1d)" />
-            <polygon points="54,72 110,102 110,160 54,130" fill="url(#left1d)" />
-            <polygon points="166,72 110,102 110,160 166,130" fill="url(#right1d)" />
-            <polygon points="86,38 112,20 175,52 148,70" fill="#b6a2ff" />
-            <rect x="74" y="116" width="72" height="14" rx="6" fill="#fff" />
-            <text x="110" y="126" text-anchor="middle" font-size="10" font-weight="800" fill="#37236f">SARA · M</text>
-            <defs>
-              <linearGradient id="top1d" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ede9fe" />
-                <stop offset="1" stop-color="#c4b5fd" />
-              </linearGradient>
-              <linearGradient id="left1d" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#a78bfa" />
-                <stop offset="1" stop-color="#7c3aed" />
-              </linearGradient>
-              <linearGradient id="right1d" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#8b5cf6" />
-                <stop offset="1" stop-color="#5b21b6" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <p class="hero-caption" style="color:#6f7f95">Reserve in under 60 seconds. No payment required.</p>
-        </div>
-      </aside>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required placeholder="sara.almarri@example.ae" />
+                    </div>
 
-      <section class="desktop-right">
-        <div class="step-head">
-          <div>
-            <p class="eyebrow">Step 01 · Of 03</p>
-            <h1>Your details</h1>
-            <p class="subtitle">Quick details before we prepare your move-in.</p>
-          </div>
-          <div class="state-chip">75 sq ft · M Selected</div>
-        </div>
-        <form id="step1FormDesktop" class="form-grid" action="reserve-step-2.html" method="get">
-          <input type="hidden" name="unitLabel" value="SARA · M" />
-          <input type="hidden" name="unitSize" value="75 sq ft (M)" />
-          <input type="hidden" name="monthlyRent" value="499" />
-          <input type="hidden" name="promoCode" value="FIRST20" />
+                    <fieldset class="field">
+                        <legend class="legend">Storing for</legend>
+                        <input id="storingFor" name="storingFor" type="hidden" value="Personal" />
+                        <div class="segmented" data-segmented data-target="storingFor" role="radiogroup"
+                            aria-label="Storing for">
+                            <button type="button" role="radio" aria-checked="true" data-value="Personal">
+                                Personal
+                                <small>Home, moving, declutter</small>
+                            </button>
+                            <button type="button" role="radio" aria-checked="false" data-value="Business">
+                                Business
+                                <small>Inventory, archives</small>
+                            </button>
+                        </div>
+                    </fieldset>
 
-          <div class="field">
-            <label for="fullNameD">Full name</label>
-            <input id="fullNameD" name="fullName" type="text" required placeholder="Sara Al Marri" />
-          </div>
-          <div class="two-col">
-            <div class="field">
-              <label for="mobileD">Mobile</label>
-              <input id="mobileD" name="mobile" type="tel" required placeholder="+971 50 234 5678" />
-            </div>
-            <div class="field">
-              <label for="emirateD">Emirate</label>
-              <select id="emirateD" name="emirate" required>
-                <option value="Dubai">Dubai</option>
-                <option value="Abu Dhabi">Abu Dhabi</option>
-                <option value="Sharjah">Sharjah</option>
-                <option value="Ajman">Ajman</option>
-                <option value="RAK">RAK</option>
-                <option value="Fujairah">Fujairah</option>
-                <option value="UAQ">UAQ</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="emailD">Email</label>
-            <input id="emailD" name="email" type="email" required placeholder="sara.almarri@example.ae" />
-          </div>
-          <fieldset class="field">
-            <legend class="legend">Storing for</legend>
-            <input id="storingForD" name="storingFor" type="hidden" value="Personal" />
-            <div class="segmented" data-segmented data-target="storingForD" role="radiogroup" aria-label="Storing for desktop">
-              <button type="button" role="radio" aria-checked="true" data-value="Personal">Personal<small>Home, moving, declutter</small></button>
-              <button type="button" role="radio" aria-checked="false" data-value="Business">Business<small>Inventory, archives</small></button>
-            </div>
-          </fieldset>
-          <fieldset class="field">
-            <legend class="legend">Move-in date</legend>
-            <div class="chips">
-              <button type="button" data-date-chip="today">Today <small></small></button>
-              <button type="button" data-date-chip="tomorrow">Tomorrow <small></small></button>
-              <button type="button" data-date-chip="week">Next week <small></small></button>
-            </div>
-            <input id="moveInDateD" name="moveInDate" type="date" required />
-          </fieldset>
-          <div class="sticky-bar">
-            <div>
-              <p class="total-txt">Running total</p>
-              <p class="total-val">AED 399</p>
-            </div>
-            <div style="display:flex;gap:.45rem;">
-              <a class="btn btn-ghost" href="index-v2.html">Back</a>
-              <button class="btn btn-primary" type="submit">Continue</button>
-            </div>
-          </div>
-        </form>
-      </section>
-    </section>
+                    <fieldset class="field">
+                        <legend class="legend">Move-in date</legend>
+                        <div class="chips">
+                            <button type="button" data-date-chip="today">Today <small></small></button>
+                            <button type="button" data-date-chip="tomorrow">Tomorrow <small></small></button>
+                            <button type="button" data-date-chip="week">Next week <small></small></button>
+                        </div>
+                        <input id="moveInDate" name="moveInDate" type="date" required />
+                    </fieldset>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <section class="brand-col">
-          <div class="brand"><div class="brand-mark" style="width:1.62rem;height:1.62rem;font-size:.8rem;">P</div><div class="brand-word" style="font-size:.95rem;">purplebox</div></div>
-          <p class="f-tag">Climate-controlled, secure self-storage in Dubai. Personal &amp; business units, packing supplies and pickup.</p>
-          <div class="brand-lines">
-            <a href="tel:80026948"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8A19.5 19.5 0 0 1 5.2 12.8A19.8 19.8 0 0 1 2 4.2A2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7"/></svg>800-BOX-IT</a>
-            <a href="mailto:hello@purplebox.ae"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8l9 6 9-6"/></svg>hello@purplebox.ae</a>
-          </div>
+                    <div class="sticky-bar">
+                        <div>
+                            <p class="total-txt">Running total</p>
+                            <p class="total-val" id="runningTotal">AED 399</p>
+                        </div>
+                        <button id="step1Next" class="btn btn-primary" type="submit" disabled>Continue</button>
+                    </div>
+                </form>
+            </div>
+
+            <aside class="desktop-left">
+                <div class="brand">
+                    <div class="brand-mark">P</div>
+                    <div class="brand-word">purplebox</div>
+                </div>
+                <div class="desk-progress" aria-label="Step progress">
+                    <div class="st active"><i>1</i> Your details</div>
+                    <div class="st"><i>2</i> Supplies & discount</div>
+                    <div class="st"><i>3</i> Review & send</div>
+                </div>
+                <div class="desk-illus">
+                    <svg viewBox="0 0 220 220" width="220" height="220" aria-label="Open purple storage box">
+                        <ellipse cx="110" cy="176" rx="68" ry="16" fill="rgba(0,0,0,0.22)" />
+                        <polygon points="110,44 166,72 110,102 54,72" fill="url(#top1d)" />
+                        <polygon points="54,72 110,102 110,160 54,130" fill="url(#left1d)" />
+                        <polygon points="166,72 110,102 110,160 166,130" fill="url(#right1d)" />
+                        <polygon points="86,38 112,20 175,52 148,70" fill="#b6a2ff" />
+                        <rect x="74" y="116" width="72" height="14" rx="6" fill="#fff" />
+                        <text x="110" y="126" text-anchor="middle" font-size="10" font-weight="800" fill="#37236f">SARA
+                            · M</text>
+                        <defs>
+                            <linearGradient id="top1d" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#ede9fe" />
+                                <stop offset="1" stop-color="#c4b5fd" />
+                            </linearGradient>
+                            <linearGradient id="left1d" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#a78bfa" />
+                                <stop offset="1" stop-color="#7c3aed" />
+                            </linearGradient>
+                            <linearGradient id="right1d" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#8b5cf6" />
+                                <stop offset="1" stop-color="#5b21b6" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <p class="hero-caption" style="color:#6f7f95">Reserve in under 60 seconds. No payment required.</p>
+                </div>
+            </aside>
+
+            <section class="desktop-right">
+                <div class="step-head">
+                    <div>
+                        <p class="eyebrow">Step 01 · Of 03</p>
+                        <h1>Your details</h1>
+                        <p class="subtitle">Quick details before we prepare your move-in.</p>
+                    </div>
+                    <div class="state-chip">75 sq ft · M Selected</div>
+                </div>
+                <form id="step1FormDesktop" class="form-grid" action="reserve-step-2.html" method="get">
+                    <input type="hidden" name="unitLabel" value="SARA · M" />
+                    <input type="hidden" name="unitSize" value="75 sq ft (M)" />
+                    <input type="hidden" name="monthlyRent" value="499" />
+                    <input type="hidden" name="promoCode" value="FIRST20" />
+
+                    <div class="field">
+                        <label for="fullNameD">Full name</label>
+                        <input id="fullNameD" name="fullName" type="text" required placeholder="Sara Al Marri" />
+                    </div>
+                    <div class="two-col">
+                        <div class="field">
+                            <label for="mobileD">Mobile</label>
+                            <input id="mobileD" name="mobile" type="tel" required placeholder="+971 50 234 5678" />
+                        </div>
+                        <div class="field">
+                            <label for="emirateD">Emirate</label>
+                            <select id="emirateD" name="emirate" required>
+                                <option value="Dubai">Dubai</option>
+                                <option value="Abu Dhabi">Abu Dhabi</option>
+                                <option value="Sharjah">Sharjah</option>
+                                <option value="Ajman">Ajman</option>
+                                <option value="RAK">RAK</option>
+                                <option value="Fujairah">Fujairah</option>
+                                <option value="UAQ">UAQ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="emailD">Email</label>
+                        <input id="emailD" name="email" type="email" required placeholder="sara.almarri@example.ae" />
+                    </div>
+                    <fieldset class="field">
+                        <legend class="legend">Storing for</legend>
+                        <input id="storingForD" name="storingFor" type="hidden" value="Personal" />
+                        <div class="segmented" data-segmented data-target="storingForD" role="radiogroup"
+                            aria-label="Storing for desktop">
+                            <button type="button" role="radio" aria-checked="true"
+                                data-value="Personal">Personal<small>Home, moving, declutter</small></button>
+                            <button type="button" role="radio" aria-checked="false"
+                                data-value="Business">Business<small>Inventory, archives</small></button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="field">
+                        <legend class="legend">Move-in date</legend>
+                        <div class="chips">
+                            <button type="button" data-date-chip="today">Today <small></small></button>
+                            <button type="button" data-date-chip="tomorrow">Tomorrow <small></small></button>
+                            <button type="button" data-date-chip="week">Next week <small></small></button>
+                        </div>
+                        <input id="moveInDateD" name="moveInDate" type="date" required />
+                    </fieldset>
+                    <div class="sticky-bar">
+                        <div>
+                            <p class="total-txt">Running total</p>
+                            <p class="total-val">AED 399</p>
+                        </div>
+                        <div style="display:flex;gap:.45rem;">
+                            <a class="btn btn-ghost" href="index.html">Back</a>
+                            <button class="btn btn-primary" type="submit">Continue</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
         </section>
 
-        <section class="visit-col">
-          <div class="loc-card">
-            <svg class="map" viewBox="0 0 112 112" aria-label="Dubai map">
-              <defs><radialGradient id="sea1" cx="50%" cy="36%" r="70%"><stop offset="0%" stop-color="#0d1828"/><stop offset="100%" stop-color="#070d18"/></radialGradient></defs>
-              <rect width="112" height="112" fill="url(#sea1)"/>
-              <path d="M81 6 L98 13 L103 25 L95 40 L86 58 L77 68 L69 76 L56 90 L40 100 L26 106 L12 108 L7 94 L11 78 L19 64 L31 53 L42 43 L56 31 L65 22 L74 12 Z" fill="#13233a"/>
-              <path d="M19 96 C32 80,46 64,62 50 C72 42,80 34,90 22" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-dasharray="4 4"/>
-              <circle cx="57" cy="57" r="4.5" fill="#a78bfa"/>
-              <circle cx="57" cy="57" r="8" fill="none" stroke="#a78bfa" stroke-opacity="0.65"><animate attributeName="r" values="7;16" dur="2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.65;0" dur="2s" repeatCount="indefinite"/></circle>
-            </svg>
-            <div class="loc-meta">
-              <p class="f-eyebrow">Visit us</p>
-              <p class="f-title">Al Quoz Facility</p>
-              <address>Warehouse 12, Al Quoz Industrial 3, Dubai</address>
-              <p class="open"><i></i>Open now · Sat-Thu, 8am-9pm</p>
-              <a class="dir-btn" href="https://maps.google.com/?q=Al+Quoz+Industrial+3+Dubai" target="_blank" rel="noopener">Directions</a>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <section class="brand-col">
+                    <div class="brand">
+                        <div class="brand-mark" style="width:1.62rem;height:1.62rem;font-size:.8rem;">P</div>
+                        <div class="brand-word" style="font-size:.95rem;">purplebox</div>
+                    </div>
+                    <p class="f-tag">Climate-controlled, secure self-storage in Dubai. Personal &amp; business units,
+                        packing supplies and pickup.</p>
+                    <div class="brand-lines">
+                        <a href="tel:80026948"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path
+                                    d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8A19.5 19.5 0 0 1 5.2 12.8A19.8 19.8 0 0 1 2 4.2A2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7" />
+                            </svg>800-BOX-IT</a>
+                        <a href="mailto:hello@purplebox.ae"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <rect x="3" y="5" width="18" height="14" rx="2" />
+                                <path d="M3 8l9 6 9-6" />
+                            </svg>hello@purplebox.ae</a>
+                    </div>
+                </section>
+
+                <section class="visit-col">
+                    <div class="loc-card">
+                        <svg class="map" viewBox="0 0 112 112" aria-label="Dubai map">
+                            <defs>
+                                <radialGradient id="sea1" cx="50%" cy="36%" r="70%">
+                                    <stop offset="0%" stop-color="#0d1828" />
+                                    <stop offset="100%" stop-color="#070d18" />
+                                </radialGradient>
+                            </defs>
+                            <rect width="112" height="112" fill="url(#sea1)" />
+                            <path
+                                d="M81 6 L98 13 L103 25 L95 40 L86 58 L77 68 L69 76 L56 90 L40 100 L26 106 L12 108 L7 94 L11 78 L19 64 L31 53 L42 43 L56 31 L65 22 L74 12 Z"
+                                fill="#13233a" />
+                            <path d="M19 96 C32 80,46 64,62 50 C72 42,80 34,90 22" fill="none" stroke="#7c3aed"
+                                stroke-width="2.2" stroke-dasharray="4 4" />
+                            <circle cx="57" cy="57" r="4.5" fill="#a78bfa" />
+                            <circle cx="57" cy="57" r="8" fill="none" stroke="#a78bfa" stroke-opacity="0.65">
+                                <animate attributeName="r" values="7;16" dur="2s" repeatCount="indefinite" />
+                                <animate attributeName="stroke-opacity" values="0.65;0" dur="2s"
+                                    repeatCount="indefinite" />
+                            </circle>
+                        </svg>
+                        <div class="loc-meta">
+                            <p class="f-eyebrow">Visit us</p>
+                            <p class="f-title">Al Quoz Facility</p>
+                            <address>Warehouse 12, Al Quoz Industrial 3, Dubai</address>
+                            <p class="open"><i></i>Open now · Sat-Thu, 8am-9pm</p>
+                            <a class="dir-btn" href="https://maps.google.com/?q=Warehouse+12+Al+Quoz+Industrial+3+Dubai"
+                                target="_blank" rel="noopener noreferrer">Directions</a>
+                        </div>
+                    </div>
+                </section>
+
+                <nav class="link-col" aria-label="Storage links">
+                    <p class="f-eyebrow">Storage</p>
+                    <ul>
+                        <li><a href="storage.html">Personal</a></li>
+                        <li><a href="business-storage.html">Business</a></li>
+                        <li><a href="size-guide.html">Estimator</a></li>
+                        <li><a href="moving-storage.html">Pickup service</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="link-col" aria-label="Company links">
+                    <p class="f-eyebrow">Company</p>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="faq.html">Help centre</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pricing.html">Insurance</a></li>
+                    </ul>
+                </nav>
+
+                <section class="f-contact" aria-label="Contact chips">
+                    <a class="f-chip" href="tel:80026948">800-BOX-IT</a>
+                    <a class="f-chip" href="mailto:hello@purplebox.ae">hello@purplebox.ae</a>
+                </section>
+
+                <section class="f-social" aria-label="Social links">
+                    <a href="https://www.instagram.com" aria-label="Instagram"><svg width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.2" cy="6.8" r="1" />
+                        </svg></a>
+                    <a href="https://x.com" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor">
+                            <path d="M4 4l16 16" />
+                            <path d="M20 4L9.5 14.5" />
+                            <path d="M14.5 9.5L20 20" />
+                        </svg></a>
+                    <a href="https://www.linkedin.com" aria-label="LinkedIn"><svg width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="3" />
+                            <path d="M8 10v7" />
+                            <path d="M8 7h.01" />
+                            <path d="M12 17v-4a2 2 0 0 1 4 0v4" />
+                        </svg></a>
+                    <a href="https://wa.me/971542249946" aria-label="WhatsApp"><svg width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
+                        </svg></a>
+                </section>
+
+                <div class="f-legal"><span>© 2026 purplebox Storage LLC</span><span class="f-legal-links"><a
+                            href="#">Privacy</a><span>·</span><a href="#">Terms</a></span></div>
             </div>
-          </div>
-        </section>
+            <div class="f-bottom">
+                <span>© 2026 purplebox Storage LLC</span>
+                <div class="f-bottom-right">
+                    <div class="f-social" aria-hidden="true">
+                        <a href="https://www.instagram.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                        <a href="https://x.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path d="M4 4l16 16" />
+                            </svg></a>
+                        <a href="https://www.linkedin.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <rect x="3" y="3" width="18" height="18" rx="3" />
+                            </svg></a>
+                        <a href="https://wa.me/971542249946"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
+                            </svg></a>
+                    </div>
+                    <span class="f-legal-links"><a href="#">Privacy</a><span>·</span><a href="#">Terms</a></span>
+                </div>
+            </div>
+        </footer>
+    </main>
 
-        <nav class="link-col" aria-label="Storage links">
-          <p class="f-eyebrow">Storage</p>
-          <ul>
-            <li><a href="storage.html">Personal</a></li>
-            <li><a href="business-storage.html">Business</a></li>
-            <li><a href="size-guide.html">Estimator</a></li>
-            <li><a href="moving-storage.html">Pickup service</a></li>
-          </ul>
-        </nav>
-
-        <nav class="link-col" aria-label="Company links">
-          <p class="f-eyebrow">Company</p>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="faq.html">Help centre</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="pricing.html">Insurance</a></li>
-          </ul>
-        </nav>
-
-        <section class="f-contact" aria-label="Contact chips">
-          <a class="f-chip" href="tel:80026948">800-BOX-IT</a>
-          <a class="f-chip" href="mailto:hello@purplebox.ae">hello@purplebox.ae</a>
-        </section>
-
-        <section class="f-social" aria-label="Social links">
-          <a href="https://instagram.com" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
-          <a href="https://x.com" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4l16 16"/><path d="M20 4L9.5 14.5"/><path d="M14.5 9.5L20 20"/></svg></a>
-          <a href="https://linkedin.com" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7"/><path d="M8 7h.01"/><path d="M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
-          <a href="https://wa.me/97140000000" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z"/></svg></a>
-        </section>
-
-        <div class="f-legal"><span>© 2026 purplebox Storage LLC</span><span class="f-legal-links"><a href="#">Privacy</a><span>·</span><a href="#">Terms</a></span></div>
-      </div>
-      <div class="f-bottom">
-        <span>© 2026 purplebox Storage LLC</span>
-        <div class="f-bottom-right">
-          <div class="f-social" aria-hidden="true">
-            <a href="https://instagram.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-            <a href="https://x.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4l16 16"/></svg></a>
-            <a href="https://linkedin.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="3"/></svg></a>
-            <a href="https://wa.me/97140000000"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z"/></svg></a>
-          </div>
-          <span class="f-legal-links"><a href="#">Privacy</a><span>·</span><a href="#">Terms</a></span>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script src="reserve-flow.js"></script>
+    <script src="reserve-flow.js"></script>
 </body>
+
 </html>

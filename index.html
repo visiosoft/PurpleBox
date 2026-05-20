@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,179 +47,251 @@
       src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXXX&ev=PageView&noscript=1" alt="" /></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Manrope:wght@700;800&family=Space+Grotesk:wght@700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="shared.css" />
   <style>
-    body {
-      background: #fff;
+    /* ---- Root Variables ---- */
+    :root {
+      --purple: #1976d2;
+      --purple-dk: #1565c0;
+      --purple-lt: #e3f2fd;
+      --cream: #ffffff;
+      --border: #dfe3ea;
+      --ink: #1f2937;
+      --ink-mid: #4b5563;
+      --ink-soft: #6b7280;
     }
 
-    /* ---- Hero ---- */
+    html,
+    body {
+      background: #ffffff !important;
+    }
+
+    body {
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      color: var(--ink);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      letter-spacing: 0;
+    }
+
+    /* ---- Hero (Glofox-style: full-bleed two-column) ---- */
     .hero {
-      background: #fff;
-      padding: 48px 0 0;
+      background: #ffffff;
       overflow: hidden;
-      position: relative;
-      border-bottom: 1px solid var(--border);
+      padding: 0;
     }
 
     .hero-inner {
-      position: relative;
-      z-index: 2;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 32px;
-      align-items: center;
-      padding-bottom: 40px;
+      min-height: 440px;
     }
 
+    /* ---- Left content ---- */
     .hero-content {
-      text-align: center;
+      padding: 44px 24px 40px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
     }
 
     .hero h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--ink);
-      line-height: 1.2;
+      font-size: clamp(2.4rem, 8vw, 3.8rem);
+      font-weight: 900;
+      color: #111827;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       margin-bottom: 16px;
     }
 
+    .hero h1 .location-pill {
+      display: inline-block;
+      margin-top: 0.14em;
+      padding: 0.08em 0.38em 0.14em;
+      border-radius: 0.4em;
+      background: linear-gradient(135deg, #fff5d6 0%, #ffe49b 100%);
+      box-shadow: 0 8px 18px rgba(166, 120, 0, 0.2);
+    }
+
     .hero h1 .accent {
-      color: var(--purple);
+      color: #111827;
     }
 
     .hero-sub {
-      font-size: 16px;
-      color: var(--ink);
-      margin-bottom: 24px;
-      line-height: 1.7;
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px 0;
+      max-width: 440px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
+    }
+
+    .hero-sub li {
+      font-size: 15px;
+      color: #000000;
+      line-height: 1.5;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(30, 64, 175, 0.22);
+      border-radius: 999px;
+      background: transparent;
+      font-weight: 600;
+    }
+
+    .hero-sub .feature-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #1d4ed8;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 18px;
+    }
+
+    .hero-sub .feature-icon svg {
+      width: 11px;
+      height: 11px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .hero-ctas {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .hero-ctas {
+        display: block;
+        margin-bottom: 36px;
+      }
     }
 
     .hero-btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 14px 28px;
-      background: var(--purple);
+      padding: 14px 32px;
+      background: #1976d2;
       color: #fff;
-      border-radius: 14px;
-      font-size: 15px;
+      border-radius: 10px;
+      font-size: 16px;
       font-weight: 700;
       text-decoration: none;
-      transition: all .2s;
-      box-shadow: 0 4px 20px rgba(92, 61, 153, .25);
+      transition: background .2s;
     }
 
     .hero-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(92, 61, 153, .3);
+      background: #1565c0;
     }
 
-    .hero-btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 14px 24px;
-      background: transparent;
-      border: 1.5px solid var(--border);
-      color: var(--ink);
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all .2s;
+    /* Review row (Glofox-style) */
+    .hero-review-row {
+      display: none;
     }
 
-    .hero-btn-ghost:hover {
-      background: var(--cream);
-      border-color: var(--purple);
+    @media (min-width: 768px) {
+      .hero-review-row {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
     }
 
-    .hero-trust {
+    .hero-review {
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
+      flex-direction: column;
+      gap: 3px;
     }
 
-    .hero-trust span {
-      font-size: 13px;
-      color: var(--ink-mid);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .rev-stars {
+      color: #f5a623;
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+
+    .rev-text {
+      font-size: 12px;
+      color: #6b7280;
       font-weight: 500;
     }
 
-    .hero-trust .check {
-      width: 20px;
-      height: 20px;
-      background: var(--purple-lt);
-      border-radius: 50%;
+    .rev-source {
+      font-size: 12px;
+      font-weight: 700;
+      color: #374151;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--purple);
-      font-weight: 700;
+      gap: 5px;
+      margin-top: 1px;
     }
 
-    /* ---- Hero Image ---- */
-    .hero-photos {
+    /* ---- Right: full-bleed image ---- */
+    .hero-banner {
       position: relative;
-      z-index: 2;
-    }
-
-    .hero-main-image {
-      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 34px rgba(0, 0, 0, .08);
+      min-height: 300px;
+      background: #111;
+      border: 1px solid #d6e4f7;
+      border-radius: 16px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
     }
 
-    .hero-main-image img {
+    .hero-banner video {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: 100px;
-      min-height: 0;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
 
+
+
     /* ---- Stats Bar ---- */
     .stats-bar {
-      background: var(--cream);
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      padding: 16px 0;
       position: relative;
       z-index: 2;
-      border-top: 1px solid var(--border);
-      padding: 20px 0;
     }
 
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
+      gap: 12px;
     }
 
     .stat-box {
       text-align: center;
+      padding: 12px 8px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 5px rgba(15, 23, 42, 0.06);
     }
 
     .stat-num {
-      font-size: 1.6rem;
+      font-size: 1.45rem;
       font-weight: 800;
-      color: var(--purple);
+      color: #1565c0;
       line-height: 1;
     }
 
@@ -232,60 +304,21 @@
 
     /* ---- Facility Strip ---- */
     .facility-strip {
-      padding: 0;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .facility-scroll {
-      display: flex;
-      gap: 0;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .facility-scroll::-webkit-scrollbar {
       display: none;
-    }
-
-    .facility-photo-card {
-      flex: 0 0 260px;
-      scroll-snap-align: start;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .facility-photo-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      display: block;
-      transition: transform .4s;
-    }
-
-    .facility-photo-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .fpc-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 8px 14px;
-      background: linear-gradient(transparent, rgba(0, 0, 0, .6));
-      font-size: 12px;
-      font-weight: 600;
-      color: #fff;
     }
 
     /* ---- Why Section ---- */
     .why-section {
-      padding: 48px 0;
-      background: var(--cream);
-      border-top: 1px solid var(--border);
+      padding: 56px 0;
+      background: #ffffff;
+      border: none;
+    }
+
+    .why-section .container {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 34px 28px;
     }
 
     .why-section h2 {
@@ -308,15 +341,14 @@
 
     .why-card {
       background: #fff;
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid var(--border);
-      transition: transform .3s, box-shadow .3s;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow .3s;
     }
 
     .why-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
     }
 
     .why-card-img {
@@ -360,11 +392,698 @@
       color: var(--ink-mid);
     }
 
+    /* ---- Choose Your Unit ---- */
+    .choose-unit-section {
+      padding: 24px 0;
+      background: #ffffff;
+    }
+
+    .choose-unit-section .container {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+    }
+
+    .choose-unit-header {
+      margin-bottom: 18px;
+    }
+
+    .choose-unit-header h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0e1b2c;
+    }
+
+    .choose-unit-header p {
+      margin: 0;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #5b6b82;
+      max-width: 620px;
+    }
+
+    .unit-category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .unit-category-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .unit-row-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .unit-row-eyebrow {
+      margin: 0 0 5px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1e6fff;
+    }
+
+    .unit-row-title {
+      margin: 0 0 4px;
+      font-size: 16px;
+      font-weight: 800;
+      color: #0e1b2c;
+    }
+
+    .unit-row-sub {
+      margin: 0;
+      font-size: 12px;
+      color: #5b6b82;
+    }
+
+    .unit-row-link {
+      flex-shrink: 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e6fff;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .unit-row-link:hover {
+      color: #0a56d8;
+    }
+
+    .unit-card-scroller {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 2px 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .unit-card-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .unit-card {
+      width: 178px;
+      flex: 0 0 178px;
+      background: #ffffff;
+      border: 1px solid #e6ebf2;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .unit-card-media {
+      position: relative;
+      height: 108px;
+      background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 45%, #e0f2fe 100%);
+    }
+
+    .unit-card-media.business {
+      background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 50%, #dbeafe 100%);
+    }
+
+    .unit-card-badge,
+    .unit-card-popular {
+      position: absolute;
+      top: 10px;
+      font-weight: 700;
+      line-height: 1;
+      border-radius: 8px;
+      padding: 4px 8px;
+    }
+
+    .unit-card-badge {
+      left: 10px;
+      font-size: 11px;
+      color: #ffffff;
+      background: rgba(14, 27, 44, 0.85);
+    }
+
+    .unit-card-popular {
+      right: 10px;
+      font-size: 10px;
+      color: #ffffff;
+      background: #22c55e;
+    }
+
+    .unit-card-body {
+      padding: 10px 12px 12px;
+    }
+
+    .unit-card-size {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #0e1b2c;
+    }
+
+    .unit-card-hint {
+      min-height: 32px;
+      margin: 0 0 10px;
+      font-size: 11.5px;
+      line-height: 1.35;
+      color: #5b6b82;
+    }
+
+    .unit-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .unit-card-price {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0e1b2c;
+    }
+
+    .unit-card-price span {
+      font-size: 11px;
+      font-weight: 500;
+      color: #5b6b82;
+    }
+
+    .unit-card-book {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eef3ff;
+      color: #0a3aa6;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .unit-card-book:hover {
+      background: #dde8ff;
+    }
+
+    /* ---- Pack Like a Pro ---- */
+    .pack-pro-section {
+      padding: 24px 0;
+      background: #ffffff;
+    }
+
+    .pack-pro-section .container {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+    }
+
+    .pack-pro-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .pack-pro-title h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0e1b2c;
+    }
+
+    .pack-pro-title p {
+      margin: 0;
+      font-size: 13.5px;
+      color: #5b6b82;
+      line-height: 1.45;
+    }
+
+    .pack-pro-shopall {
+      flex-shrink: 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e6fff;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .pack-pro-shopall:hover {
+      color: #0a56d8;
+    }
+
+    .pack-pro-filters {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      margin: 0 0 10px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .pack-pro-filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pack-filter-chip {
+      border: 1px solid #e6ebf2;
+      background: #ffffff;
+      color: #1f2d44;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .pack-filter-chip.is-active {
+      background: #0e1b2c;
+      color: #ffffff;
+      border-color: #0e1b2c;
+    }
+
+    .pack-pro-scroller {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 2px 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .pack-pro-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pack-bundle-card {
+      position: relative;
+      width: 200px;
+      min-height: 252px;
+      flex: 0 0 200px;
+      border-radius: 14px;
+      padding: 14px;
+      color: #ffffff;
+      background: linear-gradient(140deg, #1a2438, #0e1b2c);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pack-bundle-card::after {
+      content: '';
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      right: -34px;
+      bottom: -34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(93, 132, 255, 0.45), rgba(14, 27, 44, 0));
+      pointer-events: none;
+    }
+
+    .pack-bundle-eyebrow {
+      margin: 0 0 6px;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .pack-bundle-title {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .pack-bundle-desc {
+      margin: 0;
+      font-size: 11.5px;
+      color: #ffffff;
+      line-height: 1.4;
+      max-width: 158px;
+    }
+
+    .pack-bundle-bottom {
+      position: relative;
+      z-index: 1;
+      margin-top: 12px;
+    }
+
+    .pack-bundle-price {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .pack-bundle-price span {
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.6;
+      text-decoration: line-through;
+    }
+
+    .pack-bundle-btn {
+      border: 0;
+      background: #ffffff;
+      color: #1f2937;
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .pack-product-card {
+      width: 148px;
+      min-height: 252px;
+      flex: 0 0 148px;
+      background: #ffffff;
+      border: 1px solid #e6ebf2;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.045);
+    }
+
+    .pack-product-photo {
+      position: relative;
+      height: 120px;
+      background: #f6f4ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .pack-product-photo svg {
+      width: 72px;
+      height: 72px;
+      opacity: 0.95;
+    }
+
+    .pack-product-tag {
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      background: #ffffff;
+      border: 1px solid #e6ebf2;
+      border-radius: 6px;
+      padding: 3px 6px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #1f2d44;
+      line-height: 1;
+    }
+
+    .pack-save-btn {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid #dbe3ee;
+      background: #ffffff;
+      color: #7b8798;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .pack-save-btn svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .pack-save-btn.is-saved {
+      color: #ef4444;
+      border-color: #f3c2c2;
+    }
+
+    .pack-save-btn.is-saved svg {
+      fill: currentColor;
+    }
+
+    .pack-product-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 10px 12px 12px;
+    }
+
+    .pack-product-name {
+      margin: 0 0 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0e1b2c;
+      line-height: 1.25;
+    }
+
+    .pack-product-spec {
+      margin: 0;
+      font-size: 10.5px;
+      color: #5b6b82;
+      line-height: 1.4;
+      min-height: 30px;
+    }
+
+    .pack-product-footer {
+      margin-top: auto;
+      padding-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .pack-product-price {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0e1b2c;
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .pack-product-price .was {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #93a1b3;
+      text-decoration: line-through;
+    }
+
+    .pack-add-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 0;
+      background: #0e1b2c;
+      color: #ffffff;
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pack-add-btn.is-adding,
+    .pack-bundle-btn.is-adding {
+      animation: packPulse 0.22s ease;
+    }
+
+    @keyframes packPulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(0.9);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .pack-pro-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 10, 18, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+      z-index: 1200;
+    }
+
+    .pack-pro-drawer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1201;
+      transform: translateY(102%);
+      transition: transform 0.24s ease;
+      background: #ffffff;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      box-shadow: 0 -18px 36px rgba(15, 23, 42, 0.2);
+      padding: 16px 16px 20px;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .pack-pro-drawer.is-open {
+      transform: translateY(0);
+    }
+
+    .pack-pro-drawer-backdrop.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .pack-drawer-close {
+      border: 0;
+      background: #eef3ff;
+      color: #1b2f4a;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-left: auto;
+      display: block;
+    }
+
+    .pack-drawer-name {
+      margin: 8px 0 4px;
+      font-size: 19px;
+      font-weight: 800;
+      color: #0e1b2c;
+      letter-spacing: -0.01em;
+    }
+
+    .pack-drawer-meta {
+      margin: 0 0 12px;
+      font-size: 12px;
+      color: #5b6b82;
+    }
+
+    .pack-drawer-price {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #0e1b2c;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .pack-drawer-price span {
+      font-size: 12px;
+      font-weight: 600;
+      color: #93a1b3;
+      text-decoration: line-through;
+    }
+
+    .pack-drawer-add {
+      border: 0;
+      background: #0e1b2c;
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .nav-cart {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid #d6e4f7;
+      background: #f8fbff;
+      color: #1d4ed8;
+      text-decoration: none;
+      margin-left: 6px;
+      flex-shrink: 0;
+    }
+
+    .nav-cart svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nav-cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: #0e1b2c;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 17px;
+      text-align: center;
+      display: none;
+    }
+
+    .nav-cart-badge.has-items {
+      display: block;
+    }
 
     /* ---- Storage Types ---- */
     .need-section {
-      padding: 48px 0;
-      background: #fff;
+      padding: 56px 0;
+      background: #ffffff;
+    }
+
+    .need-section .container {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 34px 28px;
     }
 
     .need-section h2 {
@@ -387,17 +1106,16 @@
 
     .need-card {
       background: #fff;
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid var(--border);
+      border: 1px solid #e2e8f0;
       text-decoration: none;
       display: block;
-      transition: transform .3s, box-shadow .3s;
+      transition: box-shadow .3s;
     }
 
     .need-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(92, 61, 153, .12);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
     }
 
     .nc-img {
@@ -447,11 +1165,16 @@
       stroke-width: 2;
     }
 
-
     /* ---- Facility Feature ---- */
     .facility-section {
-      padding: 48px 0;
-      background: #fff;
+      background: #ffffff;
+    }
+
+    .facility-section .container {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 34px 28px;
     }
 
     .facility-layout {
@@ -510,6 +1233,7 @@
       background: var(--cream);
       border-radius: 10px;
       font-weight: 500;
+      border: 1px solid #e2e8f0;
     }
 
     .trust-check {
@@ -531,11 +1255,75 @@
       stroke-width: 3;
     }
 
+    /* ---- Map Section ---- */
+    .map-section {
+      padding: 56px 0;
+      background: #ffffff;
+    }
+
+    .map-section .container {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 34px 28px;
+    }
+
+    .map-section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .map-copy h2 {
+      margin-bottom: 12px;
+    }
+
+    .map-copy>p {
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .map-nearby {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .map-nearby-item {
+      font-size: 13px;
+      color: var(--ink-mid);
+    }
+
+    .map-iframe {
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 340px;
+      box-shadow: none;
+      border: 1px solid #e2e8f0;
+    }
+
+    .map-iframe iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      border: none;
+      display: block;
+    }
+
     /* ---- Reviews ---- */
     .reviews-section {
-      padding: 48px 0;
-      background: var(--cream);
-      border-top: 1px solid var(--border);
+      padding: 16px 0;
+      background: #ffffff;
+    }
+
+    .reviews-section .container {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 34px 28px;
     }
 
     .reviews-section h2 {
@@ -551,15 +1339,14 @@
 
     .review-card {
       background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
       padding: 20px;
-      transition: transform .3s, box-shadow .3s;
+      transition: box-shadow .3s;
     }
 
     .review-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
     }
 
     .rc-header {
@@ -569,12 +1356,17 @@
       margin-bottom: 12px;
     }
 
-    .rc-avatar {
-      width: 40px;
-      height: 40px;
+    .rc-initial {
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--purple-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
     }
 
     .rc-meta {
@@ -610,8 +1402,8 @@
       margin-top: 20px;
       padding: 20px;
       background: #fff;
-      border-radius: 14px;
-      border: 1px solid var(--border);
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
     }
 
     .review-score .score-num {
@@ -629,8 +1421,15 @@
 
     /* ---- FAQ ---- */
     .faq-section {
-      padding: 48px 0;
-      background: #fff;
+      padding: 16px 0;
+      background: #ffffff;
+    }
+
+    .faq-section .container {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 34px 28px;
     }
 
     .faq-layout {
@@ -650,7 +1449,7 @@
     }
 
     .faq-item {
-      border: 1px solid var(--border);
+      border: 1px solid #e2e8f0;
       border-radius: 12px;
       margin-bottom: 8px;
       overflow: hidden;
@@ -710,8 +1509,8 @@
 
     /* ---- CTA Banner ---- */
     .cta-banner {
-      background: var(--ink);
-      padding: 48px 0;
+      background: #1565c0;
+      padding: 48px 0 56px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -722,7 +1521,7 @@
       position: absolute;
       inset: 0;
       background: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80') center/cover no-repeat;
-      opacity: .06;
+      opacity: .07;
       pointer-events: none;
     }
 
@@ -733,13 +1532,13 @@
 
     .cta-banner h2 {
       color: #fff;
-      font-size: 1.5rem;
+      font-size: 2rem;
       margin-bottom: 10px;
     }
 
     .cta-banner p {
-      color: rgba(255, 255, 255, .6);
-      margin-bottom: 24px;
+      color: rgba(255, 255, 255, .9);
+      margin-bottom: 18px;
       font-size: 15px;
     }
 
@@ -748,6 +1547,28 @@
       gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    /* ---- Trust Badges ---- */
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .trust-badge {
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, .9);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
     }
 
     /* ---- Animations ---- */
@@ -760,40 +1581,6 @@
       to {
         opacity: 1;
         transform: translateY(0);
-      }
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(.92);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.04);
-      }
-    }
-
-    @keyframes shimmer {
-      0% {
-        background-position: -200% 0;
-      }
-
-      100% {
-        background-position: 200% 0;
       }
     }
 
@@ -813,12 +1600,8 @@
       animation: fadeUp .6s ease both .55s;
     }
 
-    .hero-photos {
-      animation: fadeUp .6s ease both .5s;
-    }
-
-    .hero-btn-primary {
-      animation: pulse 2s ease 1.5s;
+    .hero-banner {
+      animation: fadeUp .6s ease both .3s;
     }
 
     .reveal {
@@ -856,7 +1639,258 @@
       transition-delay: .6s;
     }
 
-    /* ---- Mobile Sticky CTA ---- */
+    /* ---- Offer Bar ---- */
+    .offer-bar {
+      background: #eff6ff;
+      color: #1e3a8a;
+      border-bottom: 1px solid #dbeafe;
+      text-align: center;
+      padding: 8px 40px 8px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .offer-highlight {
+      color: #1d4ed8;
+    }
+
+    .offer-bar a {
+      background: #1976d2;
+      color: #fff;
+      border: 1px solid #1976d2;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-weight: 600;
+      font-size: 12px;
+      text-decoration: none;
+      margin-left: 6px;
+      display: inline-block;
+      transition: background .15s;
+    }
+
+    .offer-bar a:hover {
+      background: #1565c0;
+    }
+
+    .offer-bar-close {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #1e3a8a;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+    }
+
+    /* ---- Nav overrides ---- */
+    .site-nav {
+      background: #ffffff;
+      border-bottom: none;
+      backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .nav-logo-img {
+      height: 42px;
+      width: auto;
+    }
+
+    .nav-links {
+      gap: 6px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 10px 12px;
+      border-radius: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+      letter-spacing: .01em;
+      transition: color .2s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 6px;
+      height: 2px;
+      border-radius: 2px;
+      background: #1d4ed8;
+      transform: scaleX(0);
+      transform-origin: left;
+      opacity: .7;
+      transition: transform .22s ease, opacity .22s ease;
+    }
+
+    .nav-links a:hover {
+      color: #0f172a;
+      background: transparent;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      display: none;
+      background: #1d4ed8;
+      color: #ffffff !important;
+      padding: 10px 20px !important;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-block;
+      }
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: #1565c0 !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.active {
+      color: #1d4ed8;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .nav-links a.active::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    .nav-phone {
+      border: 1px solid #d6e4f7;
+      background: #f7fbff;
+      color: #1d4ed8 !important;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+    }
+
+    .nav-phone:hover {
+      background: #eaf2ff;
+      color: #1e40af !important;
+      border-color: #bfd5f3;
+    }
+
+    .nav-hamburger {
+      padding: 8px;
+      border: 1px solid #dbe3ee;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    .nav-hamburger span {
+      width: 18px;
+      background: #1f2937;
+    }
+
+    .mobile-menu {
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      padding: 14px 18px 20px;
+    }
+
+    .mobile-menu a {
+      border-bottom: 1px solid #edf2f7;
+      padding: 13px 4px;
+      font-size: 15px;
+      color: #1f2937;
+    }
+
+    .mobile-menu a:hover {
+      color: #0f172a;
+      background: #f8fbff;
+    }
+
+    .mobile-menu .mobile-phone {
+      border: 1px solid #d6e4f7;
+      border-radius: 10px;
+      background: #eef5ff;
+      color: #1d4ed8;
+      margin-bottom: 12px;
+      padding: 12px;
+      font-weight: 700;
+      justify-content: center;
+    }
+
+    .mobile-menu .mobile-phone:hover {
+      background: #e2eeff;
+      color: #1e40af;
+    }
+
+    .mobile-menu-cta {
+      margin-top: 18px;
+      gap: 10px;
+    }
+
+    .mobile-menu-cta .btn {
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    /* ---- Buttons ---- */
+    .btn,
+    .hero-btn-primary,
+    .hero-btn-ghost,
+    .form-submit {
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: none;
+    }
+
+    .btn-primary,
+    .form-submit,
+    .btn-wa {
+      background: #1976d2;
+      border-color: #1976d2;
+      color: #fff;
+    }
+
+    .btn-primary:hover,
+    .form-submit:hover,
+    .btn-wa:hover {
+      background: #1565c0;
+      border-color: #1565c0;
+    }
+
+    .btn-ghost,
+    .btn-outline {
+      background: #fff;
+      color: #334155;
+      border: 1px solid #cfd8e3;
+    }
+
+    /* ---- Mobile sticky CTA ---- */
     .mobile-cta {
       display: none;
       position: fixed;
@@ -906,78 +1940,80 @@
         display: flex;
       }
 
-      /* Hero: tighter, app-like */
-      .hero {
-        padding: 20px 0 0;
+      .mobile-cta .btn-wa {
+        background: #25d366;
+        border: 1px solid #25d366;
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
       }
 
-      .hero-inner {
-        gap: 20px;
-        padding-bottom: 24px;
+      .mobile-cta .btn-wa svg {
+        width: 15px;
+        height: 15px;
+        fill: currentColor;
+        flex: 0 0 15px;
+      }
+
+      .mobile-cta .btn-primary {
+        background: transparent;
+        border: 1px solid #cfd8e3;
+        color: #334155;
+      }
+
+      .mobile-cta .btn-primary:hover {
+        background: #f8fbff;
+        border-color: #bfd5f3;
+        color: #1e293b;
+      }
+
+      .hero-content {
+        padding: 32px 20px 14px 20px;
       }
 
       .hero h1 {
-        font-size: 1.5rem;
-        line-height: 1.25;
+        font-size: 2.1rem;
       }
 
       .hero-sub {
-        font-size: 13px;
-        margin-bottom: 16px;
-        line-height: 1.6;
+        font-size: 14px;
+        margin-bottom: 10px;
       }
 
       .hero-ctas {
-        gap: 8px;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
       }
 
       .hero-btn-primary {
-        padding: 12px 0;
-        font-size: 14px;
         width: 100%;
         justify-content: center;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(92, 61, 153, .2);
+        font-size: 15px;
+        padding: 13px 24px;
       }
 
-      .hero-btn-ghost {
-        padding: 10px 0;
-        font-size: 13px;
-        flex: 1;
-        justify-content: center;
-        border-radius: 12px;
+      .hero-banner {
+        min-height: 280px;
+        width: calc(100% - 24px);
+        margin: 0 auto 8px;
+        max-width: 460px;
       }
 
-      .hero-trust {
-        gap: 10px;
-        margin-top: 0;
+      .unit-row-header {
+        align-items: flex-end;
+        flex-direction: row;
+        justify-content: space-between;
       }
 
-      .hero-trust span {
-        font-size: 12px;
+      .choose-unit-section .container,
+      .choose-unit-container,
+      .pack-pro-section .container {
+
+        margin-left: 10px;
+        margin-right: 10px;
       }
 
-      .hero-trust .check {
-        width: 18px;
-        height: 18px;
-        font-size: 10px;
-      }
-
-      /* Hero image */
-      .hero-photos {
-        display: block;
-      }
-
-      .hero-main-image {
-        border-radius: 12px;
-      }
-
-      .hero-main-image img {
-        height: 80px;
-      }
-
-      /* Stats: compact */
       .stats-bar {
         padding: 12px 0;
       }
@@ -990,38 +2026,26 @@
         font-size: 9px;
       }
 
-      /* Facility strip */
-      .facility-photo-card {
-        flex: 0 0 180px;
-      }
-
-      .facility-photo-card img {
-        height: 110px;
-      }
-
-      .fpc-label {
-        font-size: 11px;
-      }
-
-      /* Sections: less padding */
       .why-section,
       .need-section,
+      .pack-pro-section,
       .facility-section,
       .reviews-section,
-      .faq-section {
-        padding: 28px 0;
+      .faq-section,
+      .map-section {
+        padding-top: 28px;
+        padding-bottom: 28px;
       }
 
-      /* Storage type cards: horizontal scroll for app feel */
-      .need-section h2 {
-        font-size: 1.2rem;
-        text-align: left;
-      }
-
-      .need-section .section-sub {
-        text-align: left;
-        font-size: 13px;
-        margin-bottom: 16px;
+      .why-section .container,
+      .need-section .container,
+      .pack-pro-section .container,
+      .facility-section .container,
+      .reviews-section .container,
+      .faq-section .container,
+      .map-section .container {
+        padding-top: 22px;
+        padding-bottom: 22px;
       }
 
       .need-grid {
@@ -1065,18 +2089,6 @@
         font-size: 11px;
       }
 
-      /* Why cards: horizontal scroll */
-      .why-section h2 {
-        font-size: 1.2rem;
-        text-align: left;
-      }
-
-      .why-section .section-sub {
-        text-align: left;
-        font-size: 13px;
-        margin-bottom: 16px;
-      }
-
       .why-grid {
         display: flex;
         gap: 10px;
@@ -1100,42 +2112,6 @@
         height: 90px;
       }
 
-      .why-card-body {
-        padding: 12px 12px 14px;
-      }
-
-      .why-card-body .why-icon {
-        width: 32px;
-        height: 32px;
-        margin-bottom: 8px;
-      }
-
-      .why-card-body .why-icon svg {
-        width: 16px;
-        height: 16px;
-      }
-
-      .why-card-body h4 {
-        font-size: .8rem;
-      }
-
-      .why-card-body p {
-        font-size: 11px;
-      }
-
-      /* Facility section: stack images */
-      .facility-section {
-        padding: 28px 0;
-      }
-
-      .facility-section h2 {
-        font-size: 1.2rem;
-      }
-
-      .facility-img-grid {
-        gap: 6px;
-      }
-
       .facility-img-grid img:first-child {
         height: 140px;
       }
@@ -1153,11 +2129,6 @@
       .trust-item {
         font-size: 12px;
         padding: 8px 10px;
-      }
-
-      /* Reviews: horizontal scroll */
-      .reviews-section h2 {
-        font-size: 1.2rem;
       }
 
       .review-grid {
@@ -1184,27 +2155,12 @@
         font-size: 12px;
       }
 
-      .review-score {
-        margin-top: 14px;
-        padding: 16px;
-      }
-
-      .review-score .score-num {
-        font-size: 2rem;
-      }
-
       .reviews-section {
         padding-bottom: 100px;
       }
 
-      /* FAQ: compact */
-      .faq-section h2 {
-        font-size: 1.2rem;
-      }
-
-      .faq-sidebar p {
-        font-size: 13px;
-        margin-bottom: 12px;
+      .map-section-inner {
+        grid-template-columns: 1fr;
       }
 
       .faq-btn {
@@ -1217,13 +2173,12 @@
         padding: 0 14px 12px;
       }
 
-      /* CTA */
       .cta-banner {
         padding: 28px 0 100px;
       }
 
       .cta-banner h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       .cta-banner p {
@@ -1240,12 +2195,13 @@
         width: 100%;
         text-align: center;
       }
+
+      .pack-pro-header {
+        align-items: flex-start;
+      }
     }
 
     @media (min-width: 600px) {
-      .hero-main-image img {
-        height: 260px;
-      }
 
       .why-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1258,20 +2214,18 @@
       .review-grid {
         grid-template-columns: repeat(3, 1fr);
       }
-
-      .cta-btns {
-        flex-direction: row;
-      }
     }
 
     @media (min-width: 768px) {
       .hero {
-        padding: 56px 0 0;
+        padding: 0;
       }
 
       .hero-inner {
-        grid-template-columns: 1.1fr 1fr;
-        gap: 40px;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+        padding-bottom: 24px;
       }
 
       .hero-content {
@@ -1286,17 +2240,28 @@
         justify-content: flex-start;
       }
 
-      .hero-price {
-        justify-content: flex-start;
-      }
-
       .hero h1 {
-        font-size: 2.4rem;
+        font-size: 3.35rem;
       }
 
       .hero-sub {
         font-size: 16px;
         margin-left: 0;
+        margin-right: 0;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr 1fr;
+        min-height: 440px;
+      }
+
+      .hero-content {
+        padding: 48px 40px 48px max(40px, calc((100vw - 1200px) / 2 + 40px));
+      }
+
+      .hero-banner {
+        min-height: 440px;
+        max-height: 500px;
       }
 
       .facility-layout {
@@ -1311,12 +2276,10 @@
         align-items: start;
       }
 
-      .facility-photo-card {
-        flex: 0 0 300px;
-      }
-
-      .cta-banner {
-        padding: 64px 0;
+      .map-section-inner {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 40px;
+        align-items: stretch;
       }
 
       .wa-float {
@@ -1325,706 +2288,24 @@
     }
 
     @media (min-width: 1024px) {
-      .hero h1 {
-        font-size: 2.8rem;
-      }
-
-      .why-grid {
-        gap: 16px;
-      }
-    }
-
-    /* ---- Offer Bar ---- */
-    .offer-bar {
-      background: linear-gradient(90deg, #5e35b1, #7c4dff);
-      color: #fff;
-      text-align: center;
-      padding: 10px 40px 10px 16px;
-      font-size: 14px;
-      font-weight: 600;
-      position: sticky;
-      top: 0;
-      z-index: 200;
-    }
-
-    .offer-highlight {
-      color: #ffeb3b;
-      font-weight: 800;
-    }
-
-    .offer-bar a {
-      color: #4a2f00;
-      background: #ffeb3b;
-      border: 1px solid #f6d80e;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-weight: 800;
-      text-decoration: none;
-      margin-left: 6px;
-      display: inline-block;
-      transition: transform .15s, box-shadow .15s;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
-    }
-
-    .offer-bar a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, .2);
-    }
-
-    .offer-bar-close {
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, .7);
-      font-size: 20px;
-      cursor: pointer;
-      padding: 4px;
-      line-height: 1;
-    }
-
-    /* ---- Hero Price ---- */
-    .hero-price {
-      margin: 12px 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .hero-price-badge {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 1;
-      border: 1px solid transparent;
-    }
-
-    .hero-price-badge.price {
-      background: linear-gradient(135deg, #ffed4a, #ffc107);
-      color: #5d3a00;
-      border-color: #f3b300;
-      box-shadow: 0 6px 18px rgba(255, 193, 7, .35);
-    }
-
-    .hero-price-badge.contract {
-      background: #eef7ff;
-      color: #0f4f8b;
-      border-color: #bfdef7;
-    }
-
-    .hero-price-badge.fees {
-      background: #effcf4;
-      color: #146c3f;
-      border-color: #bdeccf;
-    }
-
-    /* ---- Review Initials Avatar ---- */
-    .rc-initial {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      flex-shrink: 0;
-    }
-
-    /* ---- Lead Quote Form ---- */
-    .quote-section {
-      background: #f8f6ff;
-      padding: 72px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .quote-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .quote-copy h2 {
-      margin-bottom: 12px;
-    }
-
-    .quote-copy>p {
-      color: var(--ink-mid);
-      line-height: 1.7;
-    }
-
-    .quote-perks {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .quote-perk {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--ink);
-    }
-
-    .quote-perk span {
-      color: var(--purple);
-      font-weight: 700;
-    }
-
-    .quote-form {
-      background: #fff;
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 4px 24px rgba(94, 53, 177, .08);
-      border: 1px solid var(--border);
-    }
-
-    .quote-form h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: var(--ink);
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-
-    .form-group select,
-    .form-group input {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      font-size: 14px;
-      color: var(--ink);
-      background: #fff;
-      outline: none;
-      transition: border-color .2s;
-      box-sizing: border-box;
-      font-family: inherit;
-    }
-
-    .form-group select:focus,
-    .form-group input:focus {
-      border-color: var(--purple);
-    }
-
-    .form-submit {
-      width: 100%;
-      padding: 14px;
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .2s;
-      font-family: inherit;
-    }
-
-    .form-submit:hover {
-      background: #4527a0;
-    }
-
-    .form-note {
-      font-size: 12px;
-      color: var(--ink-mid);
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 767px) {
-      .quote-inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-    }
-
-    /* ---- Map Section ---- */
-    .map-section {
-      padding: 72px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .map-section-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 40px;
-      align-items: stretch;
-    }
-
-    .map-copy h2 {
-      margin-bottom: 12px;
-    }
-
-    .map-copy>p {
-      color: var(--ink-mid);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .map-nearby {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 16px;
-    }
-
-    .map-nearby-item {
-      font-size: 13px;
-      color: var(--ink-mid);
-    }
-
-    .map-iframe {
-      border-radius: 16px;
-      overflow: hidden;
-      min-height: 340px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
-    }
-
-    .map-iframe iframe {
-      width: 100%;
-      height: 100%;
-      min-height: 340px;
-      border: none;
-      display: block;
-    }
-
-    @media (max-width: 767px) {
-      .map-section-inner {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---- Trust Badges ---- */
-    .trust-badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .trust-badge {
-      background: rgba(255, 255, 255, .12);
-      border: 1px solid rgba(255, 255, 255, .2);
-      border-radius: 40px;
-      padding: 7px 16px;
-      font-size: 13px;
-      color: rgba(255, 255, 255, .9);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    /* ---- Clean Material Pass ---- */
-    :root {
-      --purple: #1976d2;
-      --purple-dk: #1565c0;
-      --purple-lt: #e3f2fd;
-      --cream: #f5f7fb;
-      --border: #dfe3ea;
-      --ink: #1f2937;
-      --ink-mid: #4b5563;
-      --ink-soft: #6b7280;
-    }
-
-    body {
-      font-family: 'Roboto', 'Segoe UI', sans-serif;
-      color: var(--ink);
-      background: #f7f9fc;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      letter-spacing: 0;
-    }
-
-    .site-nav {
-      background: rgba(255, 255, 255, .98);
-      box-shadow: 0 1px 8px rgba(15, 23, 42, .06);
-    }
-
-    .offer-bar {
-      background: #eff6ff;
-      color: #1e3a8a;
-      border-bottom: 1px solid #dbeafe;
-      font-weight: 500;
-    }
-
-    .offer-highlight {
-      color: #1d4ed8;
-    }
-
-    .offer-bar a {
-      background: #1976d2;
-      color: #fff;
-      border-color: #1976d2;
-      box-shadow: none;
-      font-weight: 600;
-    }
-
-    .offer-bar-close {
-      color: #1e3a8a;
-    }
-
-    .btn,
-    .hero-btn-primary,
-    .hero-btn-ghost,
-    .form-submit {
-      border-radius: 10px;
-      font-weight: 600;
-      box-shadow: none;
-    }
-
-    .hero-btn-primary,
-    .btn-primary,
-    .form-submit {
-      background: #1976d2;
-    }
-
-    .hero-btn-primary:hover,
-    .btn-primary:hover,
-    .form-submit:hover {
-      background: #1565c0;
-      box-shadow: none;
-      transform: none;
-    }
-
-    .hero-btn-ghost {
-      background: #fff;
-      border-color: #d1d5db;
-      color: #374151;
-    }
-
-    .hero,
-    .need-section,
-    .why-section,
-    .facility-section,
-    .reviews-section,
-    .faq-section,
-    .quote-section,
-    .map-section {
-      background: #fff;
-    }
-
-    .facility-strip {
-      display: none;
-    }
-
-    .stat-box,
-    .need-card,
-    .why-card,
-    .review-card,
-    .quote-form,
-    .map-iframe,
-    .faq-item,
-    .trust-item {
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 1px 5px rgba(15, 23, 42, .06);
-      border-radius: 12px;
-    }
-
-    .hero-price-badge.price {
-      background: #e3f2fd;
-      color: #0b57a4;
-      border-color: #bbdefb;
-      box-shadow: none;
-    }
-
-    .hero-price-badge.contract,
-    .hero-price-badge.fees {
-      background: #f8fafc;
-      color: #334155;
-      border-color: #e2e8f0;
-    }
-
-    .cta-banner {
-      background: #1565c0;
-    }
-
-    .cta-banner::before {
-      opacity: .07;
-    }
-
-    .trust-badge {
-      background: rgba(255, 255, 255, .18);
-      border-color: rgba(255, 255, 255, .26);
-      font-weight: 500;
-    }
-
-    /* ---- Clean Material Pass V2 ---- */
-    body {
-      background: #f3f6fb;
-      color: #1f2937;
-    }
-
-    .site-nav {
-      border-bottom: 1px solid #e5e7eb;
-      box-shadow: 0 1px 4px rgba(15, 23, 42, .06);
-    }
-
-    .offer-bar {
-      font-size: 13px;
-      padding: 8px 40px 8px 12px;
-      background: #eff6ff;
-      color: #1e3a8a;
-      position: relative;
-      top: auto;
-    }
-
-    .offer-bar a {
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-size: 12px;
-    }
-
-    .hero {
-      padding: 56px 0 0;
-      border-bottom: none;
-    }
-
-    .hero-inner {
-      gap: 24px;
-      padding-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-size: 2.15rem;
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-
-    .hero-sub {
-      font-size: 15px;
-      line-height: 1.65;
-      color: #475569;
-      max-width: 580px;
-    }
-
-    .hero-main-image {
-      border-radius: 16px;
-      border-color: #e2e8f0;
-      box-shadow: 0 6px 24px rgba(15, 23, 42, .08);
-    }
-
-    .hero-main-image img {
-      height: 260px;
-      min-height: 260px;
-    }
-
-    .stats-bar {
-      background: #ffffff;
-      border-top: 1px solid #e5e7eb;
-      padding: 16px 0;
-    }
-
-    .stats-grid {
-      gap: 12px;
-    }
-
-    .stat-box {
-      padding: 12px 8px;
-      border-radius: 12px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
-
-    .stat-num {
-      font-size: 1.45rem;
-      color: #1565c0;
-    }
-
-    .need-section,
-    .quote-section,
-    .why-section,
-    .facility-section,
-    .map-section,
-    .reviews-section,
-    .faq-section {
-      padding-top: 56px;
-      padding-bottom: 56px;
-      border: none;
-      background: transparent;
-    }
-
-    .need-section .container,
-    .quote-section .container,
-    .why-section .container,
-    .facility-section .container,
-    .map-section .container,
-    .reviews-section .container,
-    .faq-section .container {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      padding-top: 34px;
-      padding-bottom: 34px;
-    }
-
-    .need-card,
-    .why-card,
-    .review-card,
-    .faq-item,
-    .quote-form,
-    .map-iframe,
-    .trust-item {
-      border-color: #e2e8f0;
-      box-shadow: none;
-      border-radius: 12px;
-    }
-
-    .need-card:hover,
-    .why-card:hover,
-    .review-card:hover {
-      transform: none;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, .08);
-    }
-
-    .btn,
-    .hero-btn-primary,
-    .hero-btn-ghost,
-    .form-submit,
-    .cta-btns .btn {
-      border-radius: 10px;
-      padding: 12px 18px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .hero-btn-primary,
-    .btn-primary,
-    .form-submit,
-    .btn-wa {
-      background: #1976d2;
-      border-color: #1976d2;
-      color: #fff;
-    }
-
-    .hero-btn-primary:hover,
-    .btn-primary:hover,
-    .form-submit:hover,
-    .btn-wa:hover {
-      background: #1565c0;
-      border-color: #1565c0;
-    }
-
-    .hero-btn-ghost,
-    .btn-ghost,
-    .btn-outline {
-      background: #fff;
-      color: #334155;
-      border: 1px solid #cfd8e3;
-    }
-
-    .cta-banner {
-      background: #1565c0;
-      padding: 48px 0 56px;
-    }
-
-    .cta-banner h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .cta-banner p {
-      color: rgba(255, 255, 255, .9);
-      margin-bottom: 18px;
-    }
-
-    .trust-badges {
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .trust-badge {
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 12px;
-      background: rgba(255, 255, 255, .16);
-    }
-
-    @media (min-width: 768px) {
-      .hero h1 {
-        font-size: 2.6rem;
-      }
-
-      .hero-main-image img {
-        height: 360px;
-        min-height: 360px;
-      }
-    }
-
-    @media (max-width: 767px) {
-
-      .need-section,
-      .quote-section,
-      .why-section,
-      .facility-section,
-      .map-section,
-      .reviews-section,
-      .faq-section {
-        padding-top: 28px;
-        padding-bottom: 28px;
-      }
-
-      .need-section .container,
-      .quote-section .container,
-      .why-section .container,
-      .facility-section .container,
-      .map-section .container,
-      .reviews-section .container,
-      .faq-section .container {
-        padding-top: 22px;
-        padding-bottom: 22px;
+      .hero-inner {
+        grid-template-columns: 1fr 0.9fr;
+        min-height: 480px;
       }
 
       .hero h1 {
-        font-size: 1.9rem;
+        font-size: 3.8rem;
       }
 
-      .hero-main-image img {
-        height: 220px;
-        min-height: 220px;
+      .hero-banner {
+        min-height: 480px;
+        max-height: 520px;
       }
     }
   </style>
 </head>
 
-<body>
-
-  <!-- OFFER BAR -->
-  <div class="offer-bar" id="offerBar">
-    First month <strong class="offer-highlight">20% off</strong> - limited units available this month.
-    <a href="https://wa.me/971542249946?text=Hi%2C%20I%27d%20like%20to%20claim%20the%2020%25%20first-month%20offer"
-      target="_blank" rel="noopener noreferrer">Claim on WhatsApp →</a>
-    <button class="offer-bar-close" onclick="document.getElementById('offerBar').style.display='none'"
-      aria-label="Close">×</button>
-  </div>
+<body style="background-color:#ffffff !important;">
 
   <!-- NAV -->
   <nav class="site-nav">
@@ -2038,12 +2319,20 @@
             clip-rule="evenodd" />
         </svg><span class="call-label">+971 54 224 9946</span></a>
       <div class="nav-links">
-        <a href="pricing.html">Unit Sizes & Prices</a>
-        <a href="facility.html">Facility</a>
-        <a href="packing-moving.html">Moving</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="reserve-step-1.html">Book Unit</a>
+        <a href="facility.html">Shop Now</a>
+        <a href="packing-moving.html">Packing & Moving</a>
+        <a href="contact.html">Community</a>
+        <a href="contact.html">Contact</a>
       </div>
-      <div class="nav-cta"><a href="reserve.html" class="btn btn-primary btn-sm">Book Now</a></div>
+      <a href="store.html" class="nav-cart" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="9" cy="20" r="1.5"></circle>
+          <circle cx="17" cy="20" r="1.5"></circle>
+          <path d="M3 4h2l1.5 10h11l2-7H7"></path>
+        </svg>
+        <span class="nav-cart-badge" id="shopCartBadge">0</span>
+      </a>
       <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -2063,314 +2352,238 @@
     <a href="contact.html">Contact Us</a>
     <a href="faq.html">FAQ</a>
     <div class="mobile-menu-cta">
-      <a href="reserve.html" class="btn btn-primary btn-full">Book Now</a>
+      <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
       <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
         rel="noopener noreferrer">WhatsApp Us</a>
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <h1>Premium Self-Storage in <span class="accent">Al Quoz, Dubai</span></h1>
-          <p class="hero-sub">Climate-controlled units from closet to villa size. Flexible monthly terms, no long
-            contracts, no hidden fees.</p>
+  <!-- HERO — Glofox-style full-bleed two-column -->
+  <section class="hero" style="background-color:#ffffff !important;">
+    <div class="hero-inner">
 
+      <!-- Left: copy -->
+      <div class="hero-content">
+        <h1>Premium Self-Storage<br>in <span class="location-pill">Al Quoz, Dubai.</span></h1>
+        <ul class="hero-sub">
+          <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg></span>24/7 Access</li>
+          <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8" />
+              </svg></span>Air Conditioned </li>
+
+          <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <rect x="2" y="7" width="10" height="7" rx="1" />
+                <path d="M12 9h4l2 2v3h-6V9z" />
+                <circle cx="7" cy="16" r="1.5" />
+                <circle cx="15" cy="16" r="1.5" />
+              </svg></span>Packing & Moving</li>
+          <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <rect x="6" y="3" width="12" height="18" rx="2" />
+                <path d="M12 7v10M9 10l3-3 3 3M9 14l3 3 3-3" />
+              </svg></span>Elevators Access</li>
+
+        </ul>
+        <div class="hero-ctas">
+          <a href="reserve-step-1.html" class="hero-btn-primary">Book Your Unit →</a>
         </div>
-        <div class="hero-photos">
-          <div class="hero-main-image">
-            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80"
-              alt="PurpleBox storage facility interior" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Stats Bar inside hero -->
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-card reveal reveal-delay-1">
-          <img class="why-card-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80"
-            alt="Climate controlled" />
-          <div class="why-card-body">
-            <div class="why-icon"><svg viewBox="0 0 24 24">
-                <path d="M12 22s-8-4.5-8-11V5l8-3 8 3v6c0 6.5-8 11-8 11z" />
-              </svg></div>
-            <h4>Climate-Controlled</h4>
-            <p>AC + humidity control protects your belongings from Dubai heat, dust, and moisture damage.</p>
-          </div>
-        </div>
-        <div class="why-card reveal reveal-delay-2">
-          <img class="why-card-img" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80"
-            alt="Pickup service" />
-          <div class="why-card-body">
-            <div class="why-icon"><svg viewBox="0 0 24 24">
-                <rect x="1" y="3" width="15" height="13" rx="1" />
-                <path d="M16 8h4l3 3v5h-7V8z" />
-                <circle cx="5.5" cy="18.5" r="2.5" />
-                <circle cx="18.5" cy="18.5" r="2.5" />
-              </svg></div>
-            <h4>Pickup Service Available</h4>
-            <p>We can arrange pickup from your door — apartment, villa, or office.</p>
-          </div>
-        </div>
-        <div class="why-card reveal reveal-delay-3">
-          <img class="why-card-img" src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80"
-            alt="Flexible plans" />
-          <div class="why-card-body">
-            <div class="why-icon"><svg viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="18" rx="2" />
-                <path d="M16 2v4M8 2v4M3 10h18" />
-              </svg></div>
-            <h4>Flexible Monthly Plans</h4>
-            <p>No long-term contracts. Store month-to-month and cancel after the first month.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </section>
-
-  <!-- FACILITY PHOTO STRIP -->
-  <section class="facility-strip">
-    <div class="facility-scroll">
-      <div class="facility-photo-card">
-        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Clean hallway" />
-        <div class="fpc-label">Climate Control</div>
-      </div>
-      <div class="facility-photo-card">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="CCTV security" />
-        <div class="fpc-label">24/7 CCTV</div>
-      </div>
-      <div class="facility-photo-card">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Secure access" />
-        <div class="fpc-label">24 Hours Access</div>
-      </div>
-      <div class="facility-photo-card">
-        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Clean hallway" />
-        <div class="fpc-label">Secure</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT ARE YOU STORING -->
-  <section class="need-section">
-    <div class="container">
-      <h2 class="reveal">Get a Quick Storage Estimate</h2>
-      <p class="section-sub reveal">Choose what you're storing below and we'll guide you to the right unit size.</p>
-      <div class="need-grid">
-        <a class="need-card reveal reveal-delay-1" href="furniture-storage-v2.html">
-          <img class="nc-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80"
-            alt="Furniture storage" />
-          <div class="nc-body">
-            <h4>Furniture</h4>
-            <p>Between moves, renovating, or decluttering.</p>
-            <span class="nc-link">Estimate size <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></span>
-          </div>
-        </a>
-        <a class="need-card reveal reveal-delay-2" href="apartment-storage-v2.html">
-          <img class="nc-img" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&q=80"
-            alt="Apartment storage" />
-          <div class="nc-body">
-            <h4>Apartment</h4>
-            <p>Reclaim your space. Store what you don't use daily.</p>
-            <span class="nc-link">Estimate size <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></span>
-          </div>
-        </a>
-        <a class="need-card reveal reveal-delay-3" href="villa-storage.html">
-          <img class="nc-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&q=80"
-            alt="Villa storage" />
-          <div class="nc-body">
-            <h4>Villa</h4>
-            <p>Large units for full villa worth of items.</p>
-            <span class="nc-link">Estimate size <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></span>
-          </div>
-        </a>
-        <a class="need-card reveal reveal-delay-4" href="office-storage.html">
-          <img class="nc-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80"
-            alt="Office storage" />
-          <div class="nc-body">
-            <h4>Office</h4>
-            <p>Downsizing, relocating, or going remote.</p>
-            <span class="nc-link">Estimate size <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></span>
-          </div>
-        </a>
-        <a class="need-card reveal reveal-delay-1" href="expat-storage.html">
-          <img class="nc-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80"
-            alt="Expat storage" />
-          <div class="nc-body">
-            <h4>Expat</h4>
-            <p>Moving in or out of Dubai? We flex with you.</p>
-            <span class="nc-link">Learn more <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></span>
-          </div>
-        </a>
-        <a class="need-card reveal reveal-delay-2" href="storage-subpage.html">
-          <img class="nc-img" src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400&q=80"
-            alt="Seasonal storage" />
-          <div class="nc-body">
-            <h4>Seasonal</h4>
-            <p>Summer clothes, holiday decor, sports gear.</p>
-            <span class="nc-link">Learn more <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></span>
-          </div>
-        </a>
-        <a class="need-card reveal reveal-delay-3" href="storage-subpage.html">
-          <img class="nc-img" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&q=80"
-            alt="Business storage" />
-          <div class="nc-body">
-            <h4>Business</h4>
-            <p>Stock, samples, files. Cheaper than office space.</p>
-            <span class="nc-link">Learn more <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></span>
-          </div>
-        </a>
-        <a class="need-card reveal reveal-delay-4" href="packing-moving.html">
-          <img class="nc-img" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80"
-            alt="Moving storage" />
-          <div class="nc-body">
-            <h4>Moving</h4>
-            <p>Pack, move, and store. One provider.</p>
-            <span class="nc-link">Learn more <svg viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- FACILITY -->
-  <section class="facility-section">
-    <div class="container">
-      <div class="facility-layout reveal">
-        <div class="facility-img-grid">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
-            alt="Storage facility hallway" />
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80" alt="Secure units" />
-          <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80" alt="Loading area" />
-        </div>
-        <div class="facility-content">
-          <h2>Purpose-built in Al Quoz 2</h2>
-          <p>Designed from the ground up as a premium storage facility — not a converted warehouse. Every detail
-            optimized for your belongings' safety.</p>
-          <div class="trust-list">
-            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg></span> AC + humidity control</div>
-            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg></span> 24/7 CCTV & security</div>
-            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg></span> Individual unit locks</div>
-            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg></span> Loading bay & trolleys</div>
-            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg></span> Fire detection system</div>
-            <div class="trust-item"><span class="trust-check"><svg viewBox="0 0 24 24">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg></span> Pest control</div>
-          </div>
-          <div class="flex gap-12 mt-24" style="flex-wrap:wrap;">
-            <a href="facility.html" class="btn btn-primary btn-sm">Tour Facility</a>
-            <a href="location.html" class="btn btn-ghost btn-sm">Directions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOCATION MAP -->
-  <section class="map-section">
-    <div class="container">
-      <div class="map-section-inner">
-        <div class="map-copy reveal">
-          <h2>Conveniently located in Al Quoz 2, Dubai</h2>
-          <p>Easily accessible from Sheikh Zayed Road, Emirates Road, and Al Khail Road — central to most Dubai
-            neighborhoods.</p>
-          <a href="location.html" class="btn btn-primary btn-sm">Get Full Directions</a>
-          <div class="map-nearby">
-            <div class="map-nearby-item">5 min from Mall of the Emirates</div>
-            <div class="map-nearby-item">10 min from Dubai Marina & JBR</div>
-            <div class="map-nearby-item">10 min from Downtown Dubai & DIFC</div>
-            <div class="map-nearby-item">15 min from JVC, JVT & Motor City</div>
-            <div class="map-nearby-item">Easy access from Al Barsha & Umm Suqeim</div>
-          </div>
-        </div>
-        <div class="map-iframe reveal reveal-delay-1">
-          <iframe src="https://maps.google.com/maps?q=Al+Quoz+2,+Dubai,+UAE&output=embed&z=15" loading="lazy"
-            allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-            title="PurpleBox Storage location in Al Quoz 2, Dubai">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section class="reviews-section">
-    <div class="container">
-      <h2 class="reveal">Trusted by Dubai families & businesses</h2>
-      <div class="review-grid">
-        <div class="review-card reveal reveal-delay-1">
-          <div class="rc-header">
-            <div class="rc-initial" style="background:#7c4dff;">S</div>
-            <div class="rc-meta">
-              <div class="rc-name">Sarah M. <span>— Jumeirah</span></div>
-              <div class="rc-stars">★★★★★</div>
+        <!-- Review badges -->
+        <div class="hero-review-row">
+          <div class="hero-review">
+            <div class="rev-stars">★★★★★</div>
+            <div class="rev-text">4.9/5 — from 120+ reviews</div>
+            <div class="rev-source">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  fill="#4285f4" />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34a853" />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#fbbc05" />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#ea4335" />
+              </svg>
+              Google Reviews
             </div>
           </div>
-          <p class="rc-text">"Moving from a villa to an apartment — we needed somewhere to store half our furniture.
-            PurpleBox was easy to set up and the team was incredibly helpful."</p>
-        </div>
-        <div class="review-card reveal reveal-delay-2">
-          <div class="rc-header">
-            <div class="rc-initial" style="background:#1976d2;">J</div>
-            <div class="rc-meta">
-              <div class="rc-name">James T. <span>— Business Bay</span></div>
-              <div class="rc-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="rc-text">"As an expat I've moved several times. The flexibility here is exactly what you need — no
-            long commitments, clean units, and the AC actually works."</p>
-        </div>
-        <div class="review-card reveal reveal-delay-3">
-          <div class="rc-header">
-            <div class="rc-initial" style="background:#00897b;">R</div>
-            <div class="rc-meta">
-              <div class="rc-name">Reem A. <span>— DIFC</span></div>
-              <div class="rc-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="rc-text">"We use PurpleBox for our business inventory. Much cheaper than warehouse space and we have
-            access whenever we need it. Highly recommend."</p>
         </div>
       </div>
-      <div class="review-score reveal">
-        <div class="score-num">4.9</div>
-        <div class="score-sub">★★★★★ Based on 120+ Google Reviews</div>
+
+      <!-- Right: full-bleed image + video + floating card -->
+      <div class="hero-banner">
+        <video id="heroVideo" poster="purplebox_storage_sharp_optimized.webp" muted loop playsinline preload="none">
+          <source src="video.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FACILITY PHOTO STRIP (hidden by default via CSS) -->
+  <section class="facility-strip"></section>
+
+
+  <!-- CHOOSE YOUR UNIT -->
+  <section class="choose-unit-section">
+    <div class="container">
+      <div class="choose-unit-header">
+        <h2>Choose Your Unit</h2>
+        <p>Browse units by what you're storing. Transparent pricing, move in same-day.</p>
+      </div>
+
+      <div class="unit-category-list">
+        <div class="unit-category-row">
+          <div class="unit-row-header">
+            <div>
+              <p class="unit-row-sub">Sized for apartments, homes, and furniture between moves.</p>
+            </div>
+            <a href="pricing.html" class="unit-row-link">See all →</a>
+          </div>
+
+          <div class="unit-card-scroller">
+            <article class="unit-card">
+              <div class="unit-card-media">
+                <span class="unit-card-badge">XS</span>
+              </div>
+              <div class="unit-card-body">
+                <h4 class="unit-card-size">10 sq ft</h4>
+                <p class="unit-card-hint">Studio essentials, boxes, suitcases.</p>
+                <div class="unit-card-footer">
+                  <div class="unit-card-price">AED 199 <span>/mo</span></div>
+                  <a href="reserve-step-1.html" class="unit-card-book">Book →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="unit-card">
+              <div class="unit-card-media">
+                <span class="unit-card-badge">SS </span>
+                <span class="unit-card-popular">Popular</span>
+              </div>
+              <div class="unit-card-body">
+                <h4 class="unit-card-size">25 sq ft</h4>
+                <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
+                <div class="unit-card-footer">
+                  <div class="unit-card-price">AED 349 <span>/mo</span></div>
+                  <a href="reserve-step-1.html" class="unit-card-book">Book →</a>
+                </div>
+              </div>
+            </article>
+            <article class="unit-card">
+              <div class="unit-card-media">
+                <span class="unit-card-badge">S </span>
+                <span class="unit-card-popular">Popular</span>
+              </div>
+              <div class="unit-card-body">
+                <h4 class="unit-card-size">50 sq ft</h4>
+                <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
+                <div class="unit-card-footer">
+                  <div class="unit-card-price">AED 349 <span>/mo</span></div>
+                  <a href="reserve-step-1.html" class="unit-card-book">Book →</a>
+                </div>
+              </div>
+            </article>
+            <article class="unit-card">
+              <div class="unit-card-media">
+                <span class="unit-card-badge">M</span>
+              </div>
+              <div class="unit-card-body">
+                <h4 class="unit-card-size">75 sq ft</h4>
+                <p class="unit-card-hint">Fits a 2-bedroom apartment.</p>
+                <div class="unit-card-footer">
+                  <div class="unit-card-price">AED 499 <span>/mo</span></div>
+                  <a href="reserve-step-1.html" class="unit-card-book">Book →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="unit-card">
+              <div class="unit-card-media">
+                <span class="unit-card-badge">L</span>
+              </div>
+              <div class="unit-card-body">
+                <h4 class="unit-card-size">100 sq ft</h4>
+                <p class="unit-card-hint">Fits a small villa / 3-bed home.</p>
+                <div class="unit-card-footer">
+                  <div class="unit-card-price">AED 699 <span>/mo</span></div>
+                  <a href="reserve-step-1.html" class="unit-card-book">Book →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="unit-card">
+              <div class="unit-card-media">
+                <span class="unit-card-badge">XL</span>
+              </div>
+              <div class="unit-card-body">
+                <h4 class="unit-card-size">150 sq ft</h4>
+                <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
+                <div class="unit-card-footer">
+                  <div class="unit-card-price">AED 999 <span>/mo</span></div>
+                  <a href="reserve-step-1.html" class="unit-card-book">Book →</a>
+                </div>
+              </div>
+            </article>
+            <article class="unit-card">
+              <div class="unit-card-media" style="background: url('images/200.jpeg') center/cover no-repeat;">
+                <span class="unit-card-badge">XXL</span>
+              </div>
+              <div class="unit-card-body">
+                <h4 class="unit-card-size">200 sq ft</h4>
+                <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
+                <div class="unit-card-footer">
+                  <div class="unit-card-price">AED 999 <span>/mo</span></div>
+                  <a href="reserve-step-1.html" class="unit-card-book">Book →</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
+  <!-- PACK LIKE A PRO -->
+  <section class="pack-pro-section">
+    <div class="container">
+      <div class="pack-pro-header">
+        <div class="pack-pro-title">
+          <h2>Pack Like a Pro</h2>
+          <p>Boxes, tape, locks &amp; supplies - delivered with your unit.</p>
+        </div>
+        <a href="store.html" class="pack-pro-shopall" id="shopAllLink">Shop all →</a>
+      </div>
+
+      <div class="pack-pro-filters" id="packFilters">
+        <button type="button" class="pack-filter-chip is-active" data-cat="All">All</button>
+        <button type="button" class="pack-filter-chip" data-cat="Boxes">Boxes</button>
+        <button type="button" class="pack-filter-chip" data-cat="Packing">Packing</button>
+        <button type="button" class="pack-filter-chip" data-cat="Locks">Locks</button>
+      </div>
+
+      <div class="pack-pro-scroller" id="packProProducts"></div>
+    </div>
+  </section>
+
+  <div class="pack-pro-drawer-backdrop" id="packDrawerBackdrop" aria-hidden="true"></div>
+  <aside class="pack-pro-drawer" id="packDrawer" aria-hidden="true">
+    <button class="pack-drawer-close" id="packDrawerClose" aria-label="Close quick view">×</button>
+    <p class="pack-drawer-meta" id="packDrawerCat"></p>
+    <h3 class="pack-drawer-name" id="packDrawerName"></h3>
+    <p class="pack-drawer-meta" id="packDrawerSpec"></p>
+    <p class="pack-drawer-price" id="packDrawerPrice"></p>
+    <button class="pack-drawer-add" id="packDrawerAdd">Add to cart</button>
+  </aside>
   <!-- FAQ -->
   <section class="faq-section">
     <div class="container">
@@ -2421,79 +2634,529 @@
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2>Ready to free up your space?</h2>
-      <p>Reserve online or WhatsApp us. Setup takes minutes.</p>
-      <div class="cta-btns">
-        <a href="reserve.html" class="btn btn-lg" style="background:#fff;color:var(--ink);">Book Now</a>
-        <a href="https://wa.me/971542249946" class="btn btn-wa btn-lg" target="_blank"
-          rel="noopener noreferrer">WhatsApp Us</a>
-        <a href="contact.html" class="btn btn-lg"
-          style="border:2px solid rgba(255,255,255,.3);color:white;background:transparent;">Contact Us</a>
-      </div>
-      <div class="trust-badges">
-        <div class="trust-badge">Licensed UAE Business</div>
-        <div class="trust-badge">Fully Insured Facility</div>
-        <div class="trust-badge">4.9 Google Rating</div>
-        <div class="trust-badge">VAT Registered</div>
-        <div class="trust-badge">Dubai-based since 2021</div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- FOOTER -->
-  <footer class="site-footer">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap");
+
+    .pbx-footer-shell {
+      width: 100%;
+      background: transparent;
+    }
+
+    .pbx-footer {
+      --pbx-bg: #0e1b2c;
+      --pbx-text: rgba(255, 255, 255, 0.94);
+      --pbx-muted: rgba(255, 255, 255, 0.55);
+      --pbx-muted-2: rgba(255, 255, 255, 0.6);
+      --pbx-card: rgba(255, 255, 255, 0.04);
+      --pbx-border: rgba(255, 255, 255, 0.08);
+      --pbx-purple: #7c3aed;
+      --pbx-lavender: #a78bfa;
+      --pbx-lilac: #c4b5fd;
+      --pbx-success: #22c55e;
+      --pbx-success-soft: #86efac;
+      width: 100%;
+      background: var(--pbx-bg);
+      color: var(--pbx-text);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      padding: 22px 18px 16px;
+      border-radius: 14px;
+    }
+
+    .pbx-footer * {
+      box-sizing: border-box;
+    }
+
+    .pbx-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .pbx-brand-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #7c3aed, #3a2a6b);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    }
+
+    .pbx-wordmark {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .pbx-tagline {
+      margin: 8px 0 14px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: var(--pbx-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pbx-location {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid var(--pbx-border);
+      background: var(--pbx-card);
+      margin-bottom: 14px;
+    }
+
+    .pbx-map {
+      width: 112px;
+      height: 112px;
+      flex: 0 0 112px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .pbx-location-meta {
+      min-width: 0;
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pbx-eyebrow {
+      margin: 0 0 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--pbx-lilac);
+      opacity: 0.95;
+    }
+
+    .pbx-facility {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .pbx-address {
+      margin: 5px 0 7px;
+      font-size: 11px;
+      line-height: 1.35;
+      color: var(--pbx-muted-2);
+      font-style: normal;
+    }
+
+    .pbx-open {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--pbx-success-soft);
+      font-weight: 500;
+    }
+
+    .pbx-open-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--pbx-success);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+      animation: pbxPulse 1.8s ease-out infinite;
+    }
+
+    .pbx-directions {
+      margin-top: auto;
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 0;
+      border-radius: 8px;
+      padding: 7px 9px;
+      background: #fff;
+      color: #111827;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .pbx-directions svg {
+      width: 13px;
+      height: 13px;
+      stroke-width: 2;
+    }
+
+    .pbx-link-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .pbx-link-grid ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 7px;
+    }
+
+    .pbx-link-grid a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .pbx-link-grid a:hover,
+    .pbx-link-grid a:focus-visible {
+      color: #fff;
+    }
+
+    .pbx-contact {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pbx-chip {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: 10px;
+      border: 1px solid var(--pbx-border);
+      background: var(--pbx-card);
+      padding: 9px 8px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.9);
+      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .pbx-chip svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.9;
+      flex: 0 0 auto;
+    }
+
+    .pbx-social {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pbx-social a {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      border: 1px solid var(--pbx-border);
+      background: var(--pbx-card);
+      display: grid;
+      place-items: center;
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+    }
+
+    .pbx-social svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 1.9;
+    }
+
+    .pbx-legal {
+      border-top: 1px solid var(--pbx-border);
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .pbx-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .pbx-legal a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+    }
+
+    .pbx-legal a:hover,
+    .pbx-legal a:focus-visible {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    @keyframes pbxPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .pbx-footer {
+        padding: 28px 24px 18px;
+        border-radius: 14px;
+        display: grid;
+        grid-template-columns: minmax(320px, 1.2fr) minmax(240px, 1fr) minmax(220px, 0.95fr);
+        grid-template-areas:
+          "brand links contact"
+          "tagline links social"
+          "location links social"
+          "legal legal legal";
+        column-gap: 18px;
+        row-gap: 14px;
+      }
+
+      .pbx-brand {
+        grid-area: brand;
+      }
+
+      .pbx-tagline {
+        grid-area: tagline;
+        align-self: start;
+        margin: 0;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        max-width: 96%;
+        line-height: 1.45;
+      }
+
+      .pbx-location {
+        grid-area: location;
+        margin: 0;
+      }
+
+      .pbx-link-grid {
+        grid-area: links;
+        margin: 0;
+        align-content: start;
+      }
+
+      .pbx-contact {
+        grid-area: contact;
+        margin: 0;
+        align-self: start;
+      }
+
+      .pbx-social {
+        grid-area: social;
+        margin: 0;
+        align-self: end;
+      }
+
+      .pbx-legal {
+        grid-area: legal;
+        margin-top: 2px;
+      }
+    }
+
+    @media (min-width: 980px) {
+      .pbx-footer {
+        padding: 32px 30px 20px;
+        grid-template-columns: minmax(360px, 1.3fr) minmax(260px, 1fr) minmax(240px, 0.9fr);
+        column-gap: 22px;
+      }
+
+      .pbx-map {
+        width: 120px;
+        height: 120px;
+        flex-basis: 120px;
+      }
+
+      .pbx-location-meta {
+        min-height: 120px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 899px) {
+      .pbx-contact {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <footer class="pbx-footer-shell" aria-label="Footer">
     <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg"
-              alt="PurpleBox Storage" style="height:36px;filter:brightness(0) invert(1);" /></div>
-          <p class="footer-tagline">Premium climate-controlled self-storage in Al Quoz 2, Dubai.</p>
-          <div class="flex gap-12 mt-24" style="flex-wrap:wrap;">
-            <a href="https://wa.me/971542249946" class="btn btn-wa btn-sm" target="_blank"
-              rel="noopener noreferrer">WhatsApp</a>
-            <a href="tel:+971542249946" class="btn btn-ghost btn-sm" style="color:#ccc;border-color:#444;">Call</a>
-          </div>
+      <div class="pbx-footer">
+        <div class="pbx-brand" aria-label="purplebox brand">
+          <div class="pbx-brand-logo" aria-hidden="true">P</div>
+          <p class="pbx-wordmark">purplebox</p>
         </div>
-        <div>
-          <div class="footer-heading">Storage</div>
-          <div class="footer-links">
-            <a href="storage.html">All storage types</a>
-            <a href="furniture-storage-v2.html">Furniture storage</a>
-            <a href="apartment-storage-v2.html">Apartment storage</a>
-            <a href="villa-storage.html">Villa storage</a>
-            <a href="office-storage.html">Office storage</a>
+
+        <p class="pbx-tagline">Climate-controlled, secure self-storage in Dubai. Personal &amp; business units, packing
+          supplies and pickup.</p>
+
+        <section class="pbx-location" aria-label="Facility location">
+          <svg class="pbx-map" viewBox="0 0 112 112" role="img"
+            aria-label="Stylized mini-map of Dubai with Al Quoz marker" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="pbxSeaGrad" cx="50%" cy="36%" r="70%">
+                <stop offset="0%" stop-color="#0d1828" />
+                <stop offset="100%" stop-color="#070d18" />
+              </radialGradient>
+              <filter id="pbxPinShadow" x="-40%" y="-40%" width="180%" height="180%">
+                <feDropShadow dx="0" dy="1.4" stdDeviation="1.2" flood-color="#2b175f" flood-opacity="0.7" />
+              </filter>
+            </defs>
+
+            <rect x="0" y="0" width="112" height="112" fill="url(#pbxSeaGrad)" />
+            <path
+              d="M81 6 L98 13 L103 25 L95 40 L86 58 L77 68 L69 76 L56 90 L40 100 L26 106 L12 108 L7 94 L11 78 L19 64 L31 53 L42 43 L56 31 L65 22 L74 12 Z"
+              fill="#13233a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" />
+            <path d="M19 96 C32 80, 46 64, 62 50 C72 42, 80 34, 90 22" fill="none" stroke="#7c3aed" stroke-width="2.2"
+              stroke-linecap="round" stroke-dasharray="4 4" />
+            <circle cx="28" cy="28" r="1.2" fill="rgba(255,255,255,0.45)" />
+            <circle cx="44" cy="22" r="1" fill="rgba(255,255,255,0.35)" />
+            <circle cx="69" cy="34" r="1.1" fill="rgba(255,255,255,0.4)" />
+            <circle cx="58" cy="61" r="1.2" fill="rgba(255,255,255,0.5)" />
+            <circle cx="36" cy="76" r="1" fill="rgba(255,255,255,0.35)" />
+
+            <g transform="translate(57 57)" filter="url(#pbxPinShadow)">
+              <circle cx="0" cy="0" r="4.5" fill="#a78bfa" />
+              <path
+                d="M0 -7 C3 -7 5.5 -4.7 5.5 -1.8 C5.5 1.5 1.9 5.3 0 8.2 C-1.9 5.3 -5.5 1.5 -5.5 -1.8 C-5.5 -4.7 -3 -7 0 -7 Z"
+                fill="#a78bfa" />
+              <circle cx="0" cy="0" r="10" fill="none" stroke="#a78bfa" stroke-opacity="0.7" stroke-width="1.2">
+                <animate attributeName="r" values="6;17" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="stroke-opacity" values="0.65;0" dur="2s" repeatCount="indefinite" />
+              </circle>
+            </g>
+          </svg>
+
+          <div class="pbx-location-meta">
+            <p class="pbx-eyebrow">Visit Us</p>
+            <p class="pbx-facility">Al Quoz Facility</p>
+            <address class="pbx-address">Warehouse 12, Al Quoz Industrial 3, Dubai</address>
+            <p class="pbx-open"><span class="pbx-open-dot" aria-hidden="true"></span>Open now - Sat-Thu, 8am-9pm</p>
+            <a class="pbx-directions" href="https://maps.google.com/?q=Warehouse+12+Al+Quoz+Industrial+3+Dubai"
+              target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M21 3L11 13" />
+                <path d="M21 3L14.5 21L11 13L3 9.5L21 3Z" />
+              </svg>
+              Directions
+            </a>
           </div>
+        </section>
+
+        <div class="pbx-link-grid">
+          <nav aria-label="Storage links">
+            <p class="pbx-eyebrow">Storage</p>
+            <ul>
+              <li><a href="storage.html">Personal</a></li>
+              <li><a href="business-storage.html">Business</a></li>
+              <li><a href="size-guide.html">Estimator</a></li>
+              <li><a href="moving-storage.html">Pickup service</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Company links">
+            <p class="pbx-eyebrow">Company</p>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="faq.html">Help centre</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="pricing.html">Insurance</a></li>
+            </ul>
+          </nav>
         </div>
-        <div>
-          <div class="footer-heading">Services</div>
-          <div class="footer-links">
-            <a href="pricing.html">Pricing</a>
-            <a href="size-guide.html">Size Guide</a>
-            <a href="packing-moving.html">Packing & Moving</a>
-            <a href="store.html">Supplies Store</a>
-            <a href="facility.html">Our Facility</a>
+
+        <section class="pbx-contact" aria-label="Inline contact options">
+          <a class="pbx-chip" href="tel:80026948">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path
+                d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8A19.5 19.5 0 0 1 5.2 12.8A19.8 19.8 0 0 1 2 4.2A2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
+            </svg>
+            800-BOX-IT
+          </a>
+          <a class="pbx-chip" href="mailto:hello@purplebox.ae">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="M3 8l9 6 9-6" />
+            </svg>
+            hello@purplebox.ae
+          </a>
+        </section>
+
+        <section class="pbx-social" aria-label="Social media links">
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1" />
+            </svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M4 4l16 16" />
+              <path d="M20 4L9.5 14.5" />
+              <path d="M14.5 9.5L20 20" />
+              <path d="M4 20l5.5-10.5" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+              <path d="M8 10v7" />
+              <path d="M8 7h.01" />
+              <path d="M12 17v-4a2 2 0 0 1 4 0v4" />
+              <path d="M12 10v7" />
+            </svg>
+          </a>
+          <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
+              <path
+                d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z" />
+            </svg>
+          </a>
+        </section>
+
+        <div class="pbx-legal">
+          <span>&copy; 2026 purplebox Storage LLC</span>
+          <div class="pbx-legal-links">
+            <a href="#">Privacy</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="#">Terms</a>
           </div>
-        </div>
-        <div>
-          <div class="footer-heading">Company</div>
-          <div class="footer-links">
-            <a href="about.html">About Us</a>
-            <a href="location.html">Location</a>
-            <a href="faq.html">FAQ</a>
-            <a href="contact.html">Contact</a>
-            <a href="investor.html">Investors</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div>&copy; 2025 PurpleBox Storage LLC · Al Quoz 2, Dubai, UAE</div>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-          <a href="reserve.html">Book Now</a>
         </div>
       </div>
     </div>
@@ -2502,9 +3165,12 @@
   <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">💬</a>
 
   <div class="mobile-cta">
-    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
-      rel="noopener noreferrer">WhatsApp</a>
-    <a href="reserve.html" class="btn btn-primary btn-full">Book Now</a>
+    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer"><svg
+        viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M20.52 3.48A11.8 11.8 0 0 0 12.11 0C5.63 0 .37 5.27.37 11.74c0 2.07.54 4.09 1.57 5.87L0 24l6.58-1.9a11.7 11.7 0 0 0 5.53 1.41h.01c6.47 0 11.74-5.27 11.74-11.74 0-3.14-1.22-6.1-3.34-8.29zM12.12 21.5h-.01a9.74 9.74 0 0 1-4.96-1.36l-.36-.21-3.9 1.13 1.16-3.8-.24-.39a9.73 9.73 0 0 1-1.5-5.13c0-5.37 4.37-9.74 9.75-9.74 2.6 0 5.05 1.01 6.89 2.86a9.66 9.66 0 0 1 2.85 6.88c0 5.37-4.37 9.74-9.74 9.74zm5.34-7.3c-.29-.14-1.7-.84-1.97-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.28-1.41-.84-.75-1.41-1.67-1.57-1.95-.17-.29-.02-.44.12-.58.12-.12.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.17 3.01c.14.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" />
+      </svg>WhatsApp</a>
+    <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
   </div>
 
   <script>
@@ -2516,25 +3182,6 @@
         b.previousElementSibling.classList.remove('open');
       });
       if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
-    }
-
-    function submitQuoteForm(event) {
-      if (event) event.preventDefault();
-      var name = document.getElementById('q-name').value.trim();
-      var type = document.getElementById('q-type').value;
-      var duration = document.getElementById('q-duration').value;
-      var phone = document.getElementById('q-phone').value.trim();
-      if (!name || !type || !phone) {
-        alert('Please fill in your name, storage type, and WhatsApp number.');
-        return;
-      }
-      var msg = 'Hi PurpleBox! I would like a free storage quote.\n\nName: ' + name +
-        '\nStoring: ' + type +
-        '\nDuration: ' + (duration || 'Not specified') +
-        '\nMy number: ' + phone;
-      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-      if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'Quote Form' });
-      window.location.href = 'https://wa.me/971542249946?text=' + encodeURIComponent(msg);
     }
 
     function toggleMobileMenu() {
@@ -2565,7 +3212,325 @@
         }
       });
     });
+
+    /* ---- Hero video: load after page ready, poster shows until it plays ---- */
+    (function () {
+      var video = document.getElementById('heroVideo');
+      if (!video) return;
+
+      function loadVideo() {
+        video.preload = 'auto';
+        video.load();
+        video.play().catch(function () {
+          // autoplay blocked — poster stays visible, no error shown
+        });
+      }
+
+      if (document.readyState === 'complete') {
+        loadVideo();
+      } else {
+        window.addEventListener('load', loadVideo);
+      }
+    })();
+
+    (function () {
+      var PRODUCTS = [
+        { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 × 30 × 30 cm', price: 'AED 8' },
+        { id: 'md', cat: 'Boxes', name: 'Medium Box', spec: '50 × 40 × 40 cm', price: 'AED 12', tag: 'Bestseller' },
+        { id: 'lg', cat: 'Boxes', name: 'Large Box', spec: '60 × 45 × 45 cm', price: 'AED 16' },
+        { id: 'war', cat: 'Boxes', name: 'Wardrobe Box', spec: 'With hanging rail', price: 'AED 38' },
+        { id: 'book', cat: 'Boxes', name: 'Book Box', spec: 'Heavy-duty, small', price: 'AED 10' },
+        { id: 'flat', cat: 'Boxes', name: 'Picture Box', spec: 'For art & mirrors', price: 'AED 28' },
+        { id: 'tape', cat: 'Packing', name: 'Packing Tape', spec: '50 m × 48 mm', price: 'AED 9', was: 'AED 12' },
+        { id: 'disp', cat: 'Packing', name: 'Tape Dispenser', spec: 'Heavy-duty', price: 'AED 22' },
+        { id: 'bub', cat: 'Packing', name: 'Bubble Wrap', spec: '10 m roll', price: 'AED 25' },
+        { id: 'paper', cat: 'Packing', name: 'Packing Paper', spec: '5 kg bundle', price: 'AED 18' },
+        { id: 'foam', cat: 'Packing', name: 'Foam Sheets', spec: 'Pack of 20', price: 'AED 20' },
+        { id: 'mark', cat: 'Packing', name: 'Marker Pen', spec: 'Permanent, black', price: 'AED 5' },
+        { id: 'label', cat: 'Packing', name: 'Fragile Labels', spec: 'Pack of 50', price: 'AED 7' },
+        { id: 'pad', cat: 'Locks', name: 'Padlock', spec: '50 mm hardened steel', price: 'AED 35' },
+        { id: 'disc', cat: 'Locks', name: 'Disc Lock', spec: 'Pick-resistant', price: 'AED 55' },
+        { id: 'cab', cat: 'Locks', name: 'Cable Lock', spec: '1.2 m steel', price: 'AED 28' },
+        { id: 'seal', cat: 'Locks', name: 'Security Seals', spec: 'Pack of 10', price: 'AED 12' }
+      ];
+
+      var BUNDLE = {
+        eyebrow: 'Save 20%',
+        title: '1-Bedroom Moving Kit',
+        desc: '15 boxes, 2 tape rolls, bubble wrap, marker & labels.',
+        price: 'AED 189',
+        was: 'AED 235'
+      };
+
+      var section = document.getElementById('packProProducts');
+      var filtersWrap = document.getElementById('packFilters');
+      if (!section || !filtersWrap) return;
+
+      var shopAllLink = document.getElementById('shopAllLink');
+      var cartBadge = document.getElementById('shopCartBadge');
+      var drawer = document.getElementById('packDrawer');
+      var drawerBackdrop = document.getElementById('packDrawerBackdrop');
+      var drawerClose = document.getElementById('packDrawerClose');
+      var drawerCat = document.getElementById('packDrawerCat');
+      var drawerName = document.getElementById('packDrawerName');
+      var drawerSpec = document.getElementById('packDrawerSpec');
+      var drawerPrice = document.getElementById('packDrawerPrice');
+      var drawerAdd = document.getElementById('packDrawerAdd');
+
+      var activeCat = 'All';
+      var activeProduct = null;
+      var savedIds = new Set(JSON.parse(localStorage.getItem('pbSavedProducts') || '[]'));
+      var cartCount = parseInt(localStorage.getItem('pbCartCount') || '0', 10);
+
+      function productIcon(cat) {
+        if (cat === 'Packing') {
+          return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
+            '<circle cx="28" cy="42" r="15" fill="#cdd7e6"></circle>' +
+            '<circle cx="28" cy="42" r="7" fill="#f7fafc"></circle>' +
+            '<circle cx="49" cy="34" r="13" fill="#b9c7db"></circle>' +
+            '<circle cx="49" cy="34" r="6" fill="#f7fafc"></circle>' +
+            '<rect x="18" y="54" width="44" height="12" rx="6" fill="#f5b74f"></rect>' +
+            '<rect x="22" y="58" width="36" height="4" rx="2" fill="#f9e2b5"></rect>' +
+            '</svg>';
+        }
+        if (cat === 'Locks') {
+          return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
+            '<path d="M24 36v-6c0-9 7-16 16-16s16 7 16 16v6" fill="none" stroke="#7a879a" stroke-width="6" stroke-linecap="round"></path>' +
+            '<rect x="20" y="34" width="40" height="30" rx="8" fill="#9aa8bd"></rect>' +
+            '<rect x="24" y="38" width="32" height="22" rx="6" fill="#c2cede"></rect>' +
+            '<circle cx="40" cy="49" r="4" fill="#6f7b8f"></circle>' +
+            '<rect x="38.5" y="49" width="3" height="8" rx="1.5" fill="#6f7b8f"></rect>' +
+            '</svg>';
+        }
+        return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
+          '<rect x="13" y="30" width="54" height="34" rx="6" fill="#c89c63"></rect>' +
+          '<path d="M13 30l27-14 27 14-27 13-27-13Z" fill="#e0b27a"></path>' +
+          '<rect x="38" y="24" width="4" height="36" fill="#b68248"></rect>' +
+          '<rect x="34" y="39" width="12" height="4" rx="2" fill="#f3d7af"></rect>' +
+          '</svg>';
+      }
+
+      function updateShopAllHref() {
+        if (!shopAllLink) return;
+        var href = 'store.html';
+        if (activeCat !== 'All') {
+          href += '?category=' + encodeURIComponent(activeCat);
+        }
+        shopAllLink.setAttribute('href', href);
+      }
+
+      function updateCartBadge() {
+        if (!cartBadge) return;
+        cartBadge.textContent = String(cartCount);
+        if (cartCount > 0) {
+          cartBadge.classList.add('has-items');
+        } else {
+          cartBadge.classList.remove('has-items');
+        }
+      }
+
+      function pulseButton(button) {
+        if (!button) return;
+        button.classList.remove('is-adding');
+        button.offsetHeight;
+        button.classList.add('is-adding');
+        setTimeout(function () {
+          button.classList.remove('is-adding');
+        }, 260);
+      }
+
+      function persistSaved() {
+        localStorage.setItem('pbSavedProducts', JSON.stringify(Array.from(savedIds)));
+      }
+
+      function addToCart(item, sourceButton) {
+        cartCount += 1;
+        localStorage.setItem('pbCartCount', String(cartCount));
+
+        var cartPayload = JSON.parse(localStorage.getItem('pbCartItems') || '[]');
+        cartPayload.push({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          cat: item.cat,
+          qty: 1,
+          addedAt: Date.now()
+        });
+        localStorage.setItem('pbCartItems', JSON.stringify(cartPayload));
+
+        if (window.PurpleBoxCart && typeof window.PurpleBoxCart.addItem === 'function') {
+          window.PurpleBoxCart.addItem(item);
+        } else if (window.cartStore && typeof window.cartStore.addItem === 'function') {
+          window.cartStore.addItem(item);
+        }
+
+        pulseButton(sourceButton);
+        updateCartBadge();
+      }
+
+      function openDrawer(product) {
+        activeProduct = product;
+        drawerCat.textContent = product.cat;
+        drawerName.textContent = product.name;
+        drawerSpec.textContent = product.spec;
+        drawerPrice.innerHTML = product.price + (product.was ? ' <span>' + product.was + '</span>' : '');
+        drawer.classList.add('is-open');
+        drawerBackdrop.classList.add('is-open');
+        drawer.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('is-open');
+        drawerBackdrop.classList.remove('is-open');
+        drawer.setAttribute('aria-hidden', 'true');
+      }
+
+      function renderProducts() {
+        var filtered = activeCat === 'All'
+          ? PRODUCTS
+          : PRODUCTS.filter(function (item) { return item.cat === activeCat; });
+
+        var bundleHtml = '' +
+          '<article class="pack-bundle-card">' +
+          '<div class="pack-bundle-top">' +
+          '<p class="pack-bundle-eyebrow">' + BUNDLE.eyebrow + '</p>' +
+          '<h3 class="pack-bundle-title">' + BUNDLE.title + '</h3>' +
+          '<p class="pack-bundle-desc">' + BUNDLE.desc + '</p>' +
+          '</div>' +
+          '<div class="pack-bundle-bottom">' +
+          '<p class="pack-bundle-price">' + BUNDLE.price + ' <span>' + BUNDLE.was + '</span></p>' +
+          '<button type="button" class="pack-bundle-btn" data-bundle-add="1">Add bundle →</button>' +
+          '</div>' +
+          '</article>';
+
+        var itemsHtml = filtered.map(function (item) {
+          var savedClass = savedIds.has(item.id) ? ' is-saved' : '';
+          return '' +
+            '<article class="pack-product-card" data-id="' + item.id + '">' +
+            '<div class="pack-product-photo">' +
+            (item.tag ? '<span class="pack-product-tag">' + item.tag + '</span>' : '') +
+            '<button type="button" class="pack-save-btn' + savedClass + '" data-save-id="' + item.id + '" aria-label="Save ' + item.name + '">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.8-4.3-9.2-8C1.1 10.6 2.2 7 5.6 7c2.1 0 3.4 1.2 4.4 2.4C11 8.2 12.3 7 14.4 7c3.4 0 4.5 3.6 2.8 6-2.4 3.7-9.2 8-9.2 8Z"></path></svg>' +
+            '</button>' +
+            productIcon(item.cat) +
+            '</div>' +
+            '<div class="pack-product-main" data-open-id="' + item.id + '" tabindex="0" role="button" aria-label="Open details for ' + item.name + '">' +
+            '<h4 class="pack-product-name">' + item.name + '</h4>' +
+            '<p class="pack-product-spec">' + item.spec + '</p>' +
+            '<div class="pack-product-footer">' +
+            '<div class="pack-product-price">' + item.price + (item.was ? ' <span class="was">' + item.was + '</span>' : '') + '</div>' +
+            '<button type="button" class="pack-add-btn" data-add-id="' + item.id + '" aria-label="Add ' + item.name + ' to cart">+</button>' +
+            '</div>' +
+            '</div>' +
+            '</article>';
+        }).join('');
+
+        section.innerHTML = bundleHtml + itemsHtml;
+        updateShopAllHref();
+      }
+
+      filtersWrap.addEventListener('click', function (event) {
+        var chip = event.target.closest('.pack-filter-chip');
+        if (!chip) return;
+        activeCat = chip.getAttribute('data-cat') || 'All';
+        filtersWrap.querySelectorAll('.pack-filter-chip').forEach(function (button) {
+          button.classList.remove('is-active');
+        });
+        chip.classList.add('is-active');
+        renderProducts();
+      });
+
+      section.addEventListener('click', function (event) {
+        var saveBtn = event.target.closest('[data-save-id]');
+        if (saveBtn) {
+          var saveId = saveBtn.getAttribute('data-save-id');
+          if (savedIds.has(saveId)) {
+            savedIds.delete(saveId);
+            saveBtn.classList.remove('is-saved');
+          } else {
+            savedIds.add(saveId);
+            saveBtn.classList.add('is-saved');
+          }
+          persistSaved();
+          return;
+        }
+
+        var addBtn = event.target.closest('[data-add-id]');
+        if (addBtn) {
+          var addId = addBtn.getAttribute('data-add-id');
+          var addItem = PRODUCTS.find(function (p) { return p.id === addId; });
+          if (addItem) {
+            addToCart(addItem, addBtn);
+          }
+          return;
+        }
+
+        var bundleBtn = event.target.closest('[data-bundle-add]');
+        if (bundleBtn) {
+          addToCart({
+            id: 'bundle-1br',
+            cat: 'Bundle',
+            name: BUNDLE.title,
+            price: BUNDLE.price
+          }, bundleBtn);
+          return;
+        }
+
+        var openEl = event.target.closest('[data-open-id]');
+        if (openEl) {
+          var openId = openEl.getAttribute('data-open-id');
+          var item = PRODUCTS.find(function (p) { return p.id === openId; });
+          if (item) {
+            openDrawer(item);
+          }
+        }
+      });
+
+      section.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        var openEl = event.target.closest('[data-open-id]');
+        if (!openEl) return;
+        var openId = openEl.getAttribute('data-open-id');
+        var item = PRODUCTS.find(function (p) { return p.id === openId; });
+        if (item) {
+          event.preventDefault();
+          openDrawer(item);
+        }
+      });
+
+      drawerClose.addEventListener('click', closeDrawer);
+      drawerBackdrop.addEventListener('click', closeDrawer);
+      drawerAdd.addEventListener('click', function () {
+        if (!activeProduct) return;
+        addToCart(activeProduct, drawerAdd);
+      });
+
+      updateCartBadge();
+      renderProducts();
+    })();
   </script>
+
+  <!-- Force pure white — last rule wins cascade over shared.css -->
+  <style>
+    html,
+    body,
+    .hero,
+    .stats-bar,
+    .why-section,
+    .why-section .container,
+    .need-section,
+    .need-section .container,
+    .facility-section,
+    .facility-section .container,
+    .map-section,
+    .map-section .container,
+    .reviews-section,
+    .reviews-section .container,
+    .faq-section,
+    .faq-section .container {
+      background-color: #ffffff !important;
+    }
+  </style>
 </body>
 
 </html>
