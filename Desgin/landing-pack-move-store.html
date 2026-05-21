@@ -235,8 +235,12 @@
     .btn-wa-lg svg { width: 20px; height: 20px; fill: #fff; }
 
     /* ============ FOOTER ============ */
-    .lp-footer { background: #060d1a; color: rgba(255,255,255,.4); text-align: center; padding: 24px 16px; font-size: 12px; }
-    .lp-footer a { color: rgba(255,255,255,.6); }
+    .lp-footer { background: #060d1a; color: rgba(255,255,255,.4); text-align: center; padding: 28px 16px 24px; font-size: 12px; }
+    .lp-footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+    .lp-footer a:hover { color: rgba(255,255,255,.9); }
+    .footer-links { display: flex; justify-content: center; gap: 18px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-weight: 500; }
+    .footer-sep { color: rgba(255,255,255,.15); }
 
     /* ============ MOBILE STICKY ============ */
     .mobile-sticky { position: fixed; bottom: 0; left: 0; right: 0; background: var(--navy); padding: 10px 16px; display: flex; gap: 10px; z-index: 200; box-shadow: 0 -4px 24px rgba(0,0,0,.3); }
@@ -643,7 +647,16 @@
   <!-- Footer -->
   <footer class="lp-footer">
     <div class="container">
-      <p>&copy; 2026 PurpleBox Storage LLC. Al Quoz 2, Dubai, UAE. <a href="tel:+971542249946">+971 54 224 9946</a></p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <span class="footer-sep">|</span>
+        <a href="about.html">About Us</a>
+        <span class="footer-sep">|</span>
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="footer-sep">|</span>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p>&copy; 2026 Short Term Storage L.L.C. Al Quoz 2, Dubai, UAE. <a href="tel:+971542249946">+971 54 224 9946</a></p>
     </div>
   </footer>
 

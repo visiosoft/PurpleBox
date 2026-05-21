@@ -128,12 +128,12 @@
     }
 
     const PRODUCTS = [
-        { id: 'medium_box', name: 'Medium Box', spec: '50×40×40 cm', price: 12 },
-        { id: 'tape_roll', name: 'Tape Roll', spec: '50 m × 48 mm', price: 9 },
+        { id: 'medium_box', name: 'Medium Box', spec: '50x40x40 cm', price: 12 },
+        { id: 'tape_roll', name: 'Tape Roll', spec: '50 m x 48 mm', price: 9 },
         { id: 'padlock', name: 'Padlock', spec: '50 mm steel', price: 35 },
         { id: 'bubble_wrap', name: 'Bubble Wrap', spec: '10 m roll', price: 25 },
         { id: 'wardrobe_box', name: 'Wardrobe Box', spec: 'With rail', price: 38 },
-        { id: 'large_box', name: 'Large Box', spec: '60×45×45 cm', price: 16 }
+        { id: 'large_box', name: 'Large Box', spec: '60x45x45 cm', price: 16 }
     ];
 
     function setupStep2() {
@@ -248,7 +248,7 @@
             storingFor: pick('storingFor', 'Personal'),
             moveInDate: pick('moveInDate', toYMD(addDays(7))),
             unitSize: pick('unitSize', '75 sq ft (M)'),
-            unitLabel: pick('unitLabel', 'SARA · M'),
+            unitLabel: pick('unitLabel', 'SARA - M'),
             monthlyRent: Number(pick('monthlyRent', 499)),
             promoCode: pick('promoCode', 'FIRST20')
         };
@@ -273,37 +273,37 @@
         const due = Number(p.get('dueToday') || (data.monthlyRent - discount + suppliesTotal));
 
         const supplyLines = PRODUCTS.filter(function (it) { return qty[it.id] > 0; }).map(function (it) {
-            return '• ' + it.name + ' × ' + qty[it.id] + ' — ' + fmtAED(it.price * qty[it.id]);
+            return '- ' + it.name + ' x ' + qty[it.id] + ' - ' + fmtAED(it.price * qty[it.id]);
         });
 
         const supplyCount = PRODUCTS.reduce(function (sum, it) { return sum + (qty[it.id] || 0); }, 0);
 
         const text = [
-            'Hi purplebox 👋',
+            'Hi purplebox',
             '',
             "I'd like to reserve a storage unit:",
             '',
             '📦 UNIT',
-            '• Size: ' + data.unitSize,
-            '• Move-in: ' + fmtInputDate(data.moveInDate),
-            '• Facility: purplebox Al Quoz',
+            '- Size: ' + data.unitSize,
+            '- Move-in: ' + fmtInputDate(data.moveInDate),
+            '- Facility: purplebox Al Quoz',
             '',
             '➕ SUPPLIES',
-            supplyLines.length ? supplyLines.join('\n') : '• No supplies selected',
+            supplyLines.length ? supplyLines.join('\n') : '- No supplies selected',
             '',
             '💰 PRICING',
-            '• Monthly rent: ' + fmtAED(data.monthlyRent) + '/m',
-            '• 20% off first month: -' + fmtAED(discount),
-            '• Supplies: ' + fmtAED(suppliesTotal),
-            '• Due today: ' + fmtAED(due),
-            '• Promo: ' + data.promoCode,
+            '- Monthly rent: ' + fmtAED(data.monthlyRent) + '/m',
+            '- 20% off first month: -' + fmtAED(discount),
+            '- Supplies: ' + fmtAED(suppliesTotal),
+            '- Due today: ' + fmtAED(due),
+            '- Promo: ' + data.promoCode,
             '',
             '👤 MY DETAILS',
-            '• Name: ' + data.fullName,
-            '• Mobile: ' + data.mobile,
-            '• Email: ' + data.email,
-            '• Emirate: ' + data.emirate,
-            '• Storing for: ' + data.storingFor,
+            '- Name: ' + data.fullName,
+            '- Mobile: ' + data.mobile,
+            '- Email: ' + data.email,
+            '- Emirate: ' + data.emirate,
+            '- Storing for: ' + data.storingFor,
             '',
             'Please confirm availability and the next steps. Thanks!'
         ].join('\n');
@@ -315,7 +315,7 @@
             rStore: data.storingFor,
             rUnit: data.unitSize,
             rMove: fmtInputDate(data.moveInDate),
-            rSupplies: supplyCount + ' items · ' + fmtAED(suppliesTotal),
+            rSupplies: supplyCount + ' items - ' + fmtAED(suppliesTotal),
             rPromo: data.promoCode,
             dueBig: fmtAED(due),
             runningTotal: fmtAED(due),
@@ -333,9 +333,34 @@
 
         const wa = document.getElementById('waLink');
         const mail = document.getElementById('mailLink');
+        const reserveAction = document.getElementById('reserveAction');
         const encoded = encodeURIComponent(text);
-        if (wa) wa.href = 'https://wa.me/97140000000?text=' + encoded;
-        if (mail) mail.href = 'mailto:bookings@purplebox.ae?subject=' + encodeURIComponent('Storage reservation — ' + data.unitSize) + '&body=' + encoded;
+        const waUrl = 'https://wa.me/97140000000?text=' + encoded;
+        const mailUrl = 'mailto:bookings@purplebox.ae?subject=' + encodeURIComponent('Storage reservation - ' + data.unitSize) + '&body=' + encoded;
+
+        if (wa) wa.href = waUrl;
+        if (mail) mail.href = mailUrl;
+
+        if (reserveAction) {
+            reserveAction.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Trigger WhatsApp in a new tab and mail client with the same prefilled summary.
+                window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+                const mailIntent = document.createElement('a');
+                mailIntent.href = mailUrl;
+                mailIntent.style.display = 'none';
+                document.body.appendChild(mailIntent);
+                mailIntent.click();
+                mailIntent.remove();
+
+                const nextHref = reserveAction.getAttribute('href') || 'index.html';
+                setTimeout(function () {
+                    window.location.href = nextHref;
+                }, 250);
+            });
+        }
     }
 
     function init() {

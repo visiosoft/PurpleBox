@@ -189,6 +189,12 @@ main {
     font-size: 1rem;
 }
 
+.brand-logo {
+    display: block;
+    width: auto;
+    height: 1.9rem;
+}
+
 .hero-box-wrap {
     display: grid;
     place-items: center;
@@ -663,8 +669,49 @@ textarea:focus {
 
 .send-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0.55rem;
+}
+
+.checkout-trust {
+    border: 1px solid var(--hair);
+    border-radius: 0.85rem;
+    padding: 0.7rem;
+    background: #f8fbff;
+}
+
+.checkout-trust-title {
+    margin: 0 0 0.45rem;
+    font-size: 0.72rem;
+    color: #1d4ed8;
+    font-weight: 700;
+}
+
+.checkout-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.pay-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.55rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.45rem;
+    border: 1px solid #d9e5f6;
+    background: #fff;
+    color: #1f2937;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.pay-chip.stripe {
+    color: #635bff;
+    border-color: #d9d7ff;
+    background: #f3f2ff;
 }
 
 .send-btn {

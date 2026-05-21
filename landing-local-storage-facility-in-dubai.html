@@ -967,12 +967,33 @@
       background: #0a1120;
       color: rgba(255, 255, 255, .5);
       text-align: center;
-      padding: 24px 16px;
+      padding: 28px 16px 24px;
       font-size: 12px;
     }
 
     .lp-footer a {
       color: rgba(255, 255, 255, .7);
+      text-decoration: none;
+    }
+
+    .lp-footer a:hover {
+      color: rgba(255, 255, 255, .95);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-weight: 500;
+    }
+
+    .footer-sep {
+      color: rgba(255, 255, 255, .2);
     }
 
     /* ---- Mobile Sticky ---- */
@@ -1397,8 +1418,16 @@ Saskia Evraert.</div>
   <!-- Footer -->
   <footer class="lp-footer">
     <div class="container">
-      <p>&copy; 2026 Short Term Storage L.L.C. Al Quoz 2, Dubai, UAE. <a href="tel:+971542249946">+971 54 224 9946</a>
-      </p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <span class="footer-sep">|</span>
+        <a href="about.html">About Us</a>
+        <span class="footer-sep">|</span>
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="footer-sep">|</span>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p>&copy; 2026 Short Term Storage L.L.C. Al Quoz 2, Dubai, UAE. <a href="tel:+971542249946">+971 54 224 9946</a></p>
     </div>
   </footer>
 
