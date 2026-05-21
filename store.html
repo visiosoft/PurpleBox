@@ -37,8 +37,7 @@
       min-height: 210px;
       border: 1px solid #d7e0f0;
       position: relative;
-      background: linear-gradient(125deg, rgba(22, 32, 58, 0.78), rgba(92, 61, 153, 0.82)),
-        url('images/9-1536x1152.webp') center/cover no-repeat;
+      background: url('images/9-1536x1152.webp') center/cover no-repeat;
       display: grid;
       align-items: end;
     }
@@ -396,16 +395,7 @@
       </div>
 
       <div class="shop-banner" aria-label="Store hero banner">
-        <div class="shop-banner-content">
-          <p class="shop-banner-kicker">Bundle and save</p>
-          <h2>Complete moving kits, boxes and protective packing in one place</h2>
-          <p>Build your cart in minutes and checkout directly on WhatsApp for quick confirmation.</p>
-          <div class="shop-banner-points">
-            <span>Same-day pickup</span>
-            <span>Best seller bundles</span>
-            <span>Move-ready supplies</span>
-          </div>
-        </div>
+        <div class="shop-banner-content"></div>
       </div>
     </div>
   </section>
@@ -413,13 +403,6 @@
   <section class="section" style="padding-top:22px;">
     <div class="container">
       <div class="shop-toolbar">
-        <input id="shopSearch" class="shop-search" type="search" placeholder="Search products..." />
-        <select id="shopSort" class="shop-sort">
-          <option value="featured">Sort: Featured</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="name-asc">Name: A-Z</option>
-        </select>
         <div class="shop-chips" id="shopFilters"></div>
       </div>
 
@@ -473,16 +456,12 @@
       ];
 
       var state = {
-        query: '',
         cat: 'All',
-        sort: 'featured',
         cart: loadCart()
       };
 
       var grid = document.getElementById('shopGrid');
       var filterWrap = document.getElementById('shopFilters');
-      var search = document.getElementById('shopSearch');
-      var sort = document.getElementById('shopSort');
       var cartItems = document.getElementById('cartItems');
       var cartTotal = document.getElementById('cartTotal');
       var emptyCart = document.getElementById('emptyCart');
@@ -557,18 +536,8 @@
       function filteredProducts() {
         var list = PRODUCTS.filter(function (p) {
           var catOk = state.cat === 'All' || p.cat === state.cat;
-          var q = state.query.trim().toLowerCase();
-          var queryOk = !q || p.name.toLowerCase().includes(q) || p.spec.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q);
-          return catOk && queryOk;
+          return catOk;
         });
-
-        if (state.sort === 'price-asc') {
-          list.sort(function (a, b) { return parsePrice(a.price) - parsePrice(b.price); });
-        } else if (state.sort === 'price-desc') {
-          list.sort(function (a, b) { return parsePrice(b.price) - parsePrice(a.price); });
-        } else if (state.sort === 'name-asc') {
-          list.sort(function (a, b) { return a.name.localeCompare(b.name); });
-        }
 
         return list;
       }
@@ -677,16 +646,6 @@
         if (!chip) return;
         state.cat = chip.getAttribute('data-cat') || 'All';
         renderFilters();
-        renderGrid();
-      });
-
-      search.addEventListener('input', function () {
-        state.query = search.value || '';
-        renderGrid();
-      });
-
-      sort.addEventListener('change', function () {
-        state.sort = sort.value || 'featured';
         renderGrid();
       });
 

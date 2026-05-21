@@ -185,7 +185,7 @@
             const due = rent - discount + supplies;
 
             const fields = {
-                sumRent: fmtAED(rent),
+                sumRent: fmtAED(rent) + '/m',
                 sumDisc: '-' + fmtAED(discount),
                 sumSupplies: fmtAED(supplies),
                 sumDue: fmtAED(due),
@@ -292,7 +292,7 @@
             supplyLines.length ? supplyLines.join('\n') : '• No supplies selected',
             '',
             '💰 PRICING',
-            '• Monthly rent: ' + fmtAED(data.monthlyRent),
+            '• Monthly rent: ' + fmtAED(data.monthlyRent) + '/m',
             '• 20% off first month: -' + fmtAED(discount),
             '• Supplies: ' + fmtAED(suppliesTotal),
             '• Due today: ' + fmtAED(due),

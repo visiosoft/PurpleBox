@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>We Pack, Move & Store Everything — PurpleBox Storage Dubai</title>
+  <meta name="description"
+    content="PurpleBox handles everything — packing, moving, and storing. 3 simple steps. Climate-controlled units in Al Quoz, Dubai. Get a free quote today." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-XXXXXXXXXX');</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1a2e;
+      --navy-mid: #112240;
+      --navy-lt: #1a3058;
+      --blue: #2d7ff9;
+      --blue-dk: #1a6bef;
+      --blue-lt: #e8f1ff;
+      --cyan: #00d4ff;
+      --gold: #fbbf24;
+      --gold-dk: #f59e0b;
+      --ink: #1f2937;
+      --ink-mid: #4b5563;
+      --ink-soft: #6b7280;
+      --border: #e5e7eb;
+      --white: #ffffff;
+      --green: #25D366;
+      --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--ink); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+    /* ============ TOP BAR ============ */
+    .top-bar { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .top-bar-inner { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; font-size: 12px; color: rgba(255,255,255,.55); }
+    .top-bar a { color: rgba(255,255,255,.75); display: flex; align-items: center; gap: 5px; }
+    .top-bar svg { width: 13px; height: 13px; fill: currentColor; }
+
+    /* ============ HEADER ============ */
+    .lp-header { background: var(--navy); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+    .lp-header .container { display: flex; align-items: center; justify-content: space-between; }
+    .lp-logo { height: 36px; filter: brightness(0) invert(1); }
+    .header-cta { padding: 10px 24px; background: var(--blue); color: #fff; border-radius: 8px; font-size: 13px; font-weight: 700; transition: background .2s; }
+    .header-cta:hover { background: var(--blue-dk); }
+
+    /* ============ HERO ============ */
+    .hero {
+      background: linear-gradient(165deg, #070e1a 0%, var(--navy) 35%, var(--navy-mid) 70%, var(--navy-lt) 100%);
+      color: #fff;
+      padding: 64px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Decorative glow orbs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      right: -120px; top: -180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,127,249,.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      left: 20%; bottom: -200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,255,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(45,127,249,.15); border: 1px solid rgba(45,127,249,.3); border-radius: 99px; padding: 7px 16px; font-size: 12px; font-weight: 700; color: var(--cyan); margin-bottom: 20px; letter-spacing: .03em; }
+    .hero-badge svg { width: 15px; height: 15px; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 900; line-height: 1.08; margin-bottom: 20px; letter-spacing: -0.03em; }
+    .hero h1 .highlight { color: var(--gold); }
+    .hero-desc { font-size: 16px; color: rgba(255,255,255,.7); margin-bottom: 32px; max-width: 500px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 15px 32px; background: var(--blue); color: #fff; border-radius: 10px; font-size: 16px; font-weight: 700; transition: background .2s, transform .15s; box-shadow: 0 8px 24px rgba(45,127,249,.3); }
+    .btn-primary:hover { background: var(--blue-dk); transform: translateY(-1px); }
+    .btn-wa { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--green); color: #fff; border-radius: 10px; font-size: 15px; font-weight: 700; transition: opacity .2s; }
+    .btn-wa:hover { opacity: .9; }
+    .btn-wa svg { width: 20px; height: 20px; fill: #fff; }
+    .hero-trust { display: flex; gap: 24px; flex-wrap: wrap; }
+    .hero-trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,.6); }
+    .hero-trust-item svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 2; }
+
+    /* Hero visual — right side image/illustration placeholder */
+    .hero-visual { position: relative; min-height: 320px; display: flex; align-items: center; justify-content: center; }
+    .hero-visual-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 32px; width: 100%; text-align: center; backdrop-filter: blur(8px); }
+    .hero-visual-card img { border-radius: 14px; width: 100%; height: auto; box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+    /* Floating mini cards on visual */
+    .float-card { position: absolute; background: var(--white); border-radius: 12px; padding: 10px 14px; box-shadow: 0 12px 32px rgba(0,0,0,.2); display: flex; align-items: center; gap: 10px; z-index: 2; }
+    .float-card.fc-1 { top: 10px; right: -10px; }
+    .float-card.fc-2 { bottom: 20px; left: -10px; }
+    .float-card .fc-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .float-card .fc-icon.pack { background: #ede9fe; }
+    .float-card .fc-icon.store { background: #dbeafe; }
+    .float-card .fc-icon svg { width: 18px; height: 18px; }
+    .float-card strong { font-size: 12px; display: block; }
+    .float-card span { font-size: 10px; color: var(--ink-soft); }
+
+    /* ============ 3 STEPS SECTION ============ */
+    .steps-section { padding: 72px 0 80px; background: var(--white); position: relative; }
+    .steps-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 99px; }
+    .steps-header { text-align: center; margin-bottom: 48px; }
+    .steps-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; }
+    .steps-eyebrow svg { width: 16px; height: 16px; }
+    .steps-header h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.02em; }
+    .steps-header h2 .accent { color: var(--blue); }
+    .steps-header p { font-size: 15px; color: var(--ink-mid); max-width: 540px; margin: 0 auto; }
+
+    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 24px; position: relative; }
+
+    /* Connector line between steps */
+    .steps-connector { display: none; }
+
+    .step-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 36px 28px; text-align: center; position: relative; transition: box-shadow .3s, transform .3s; }
+    .step-card:hover { box-shadow: 0 16px 48px rgba(45,127,249,.12); transform: translateY(-4px); }
+
+    .step-num { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 900; margin: 0 auto 20px; position: relative; z-index: 1; }
+    .step-card:nth-child(1) .step-num { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: var(--navy); box-shadow: 0 8px 24px rgba(251,191,36,.3); }
+    .step-card:nth-child(2) .step-num { background: linear-gradient(135deg, var(--blue), #1a6bef); color: #fff; box-shadow: 0 8px 24px rgba(45,127,249,.3); }
+    .step-card:nth-child(3) .step-num { background: linear-gradient(135deg, #10b981, #059669); color: #fff; box-shadow: 0 8px 24px rgba(16,185,129,.3); }
+
+    .step-icon { width: 80px; height: 80px; border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+    .step-card:nth-child(1) .step-icon { background: #fffbeb; }
+    .step-card:nth-child(2) .step-icon { background: #eff6ff; }
+    .step-card:nth-child(3) .step-icon { background: #ecfdf5; }
+    .step-icon svg { width: 40px; height: 40px; }
+
+    .step-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .step-card p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; max-width: 300px; margin: 0 auto; }
+
+    .step-tag { display: inline-block; margin-top: 16px; background: #f3f4f6; border-radius: 99px; padding: 6px 14px; font-size: 11px; font-weight: 700; color: var(--ink-mid); }
+
+    /* ============ FEATURES STRIP ============ */
+    .features-strip { padding: 48px 0; background: var(--navy); color: #fff; }
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .feature-item { display: flex; align-items: flex-start; gap: 14px; padding: 18px 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; }
+    .feature-item .fi-icon { width: 42px; height: 42px; background: rgba(45,127,249,.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .feature-item .fi-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 2; }
+    .feature-item strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .feature-item span { font-size: 12px; color: rgba(255,255,255,.55); line-height: 1.5; }
+
+    /* ============ LEAD FORM SECTION ============ */
+    .form-section { padding: 64px 0; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+    .form-section-inner { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
+    .form-copy h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .form-copy p { font-size: 15px; color: var(--ink-mid); margin-bottom: 20px; line-height: 1.7; }
+    .form-copy-list { list-style: none; display: grid; gap: 10px; }
+    .form-copy-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--ink-mid); }
+    .form-copy-list .chk { width: 24px; height: 24px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .form-copy-list .chk svg { width: 13px; height: 13px; }
+
+    .lead-form { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px; box-shadow: 0 16px 48px rgba(0,0,0,.07); }
+    .lead-form h3 { font-size: 20px; font-weight: 800; margin-bottom: 4px; text-align: center; }
+    .lead-form .form-sub { font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 22px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 600; color: var(--ink-mid); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .05em; }
+    .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; background: #f9fafb; transition: border-color .2s; font-family: var(--font); }
+    .form-group input:focus, .form-group select:focus { border-color: var(--blue); background: var(--white); outline: none; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-submit { width: 100%; padding: 15px; background: var(--blue); color: #fff; border: 0; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background .2s; font-family: var(--font); }
+    .form-submit:hover { background: var(--blue-dk); }
+    .form-divider { display: flex; align-items: center; gap: 12px; margin: 16px 0; color: var(--ink-soft); font-size: 12px; }
+    .form-divider::before, .form-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .wa-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; background: var(--green); color: #fff; border: 0; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: opacity .2s; }
+    .wa-btn:hover { opacity: .9; }
+    .wa-btn svg { width: 18px; height: 18px; fill: #fff; }
+
+    /* ============ PRICING ============ */
+    .pricing-section { padding: 64px 0; background: var(--white); }
+    .pricing-section h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 800; text-align: center; margin-bottom: 8px; }
+    .pricing-section .section-sub { text-align: center; font-size: 14px; color: var(--ink-mid); margin-bottom: 36px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .p-card { border: 1px solid var(--border); border-radius: 16px; background: var(--white); overflow: hidden; transition: box-shadow .3s; position: relative; }
+    .p-card:hover { box-shadow: 0 10px 28px rgba(45,127,249,.1); }
+    .p-card.featured { border-color: var(--blue); }
+    .p-card.featured::before { content: 'POPULAR'; position: absolute; top: 0; left: 0; right: 0; background: var(--blue); color: #fff; font-size: 10px; font-weight: 800; text-align: center; padding: 5px; letter-spacing: .08em; }
+    .p-card.featured .p-top { padding-top: 30px; }
+    .p-top { padding: 22px 16px 14px; text-align: center; }
+    .p-size { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; }
+    .p-name { font-size: 18px; font-weight: 800; margin: 4px 0 2px; }
+    .p-fits { font-size: 11px; color: var(--ink-soft); min-height: 16px; }
+    .p-mid { padding: 0 16px 16px; text-align: center; border-top: 1px solid var(--border); margin-top: 12px; padding-top: 14px; }
+    .p-price { font-size: 30px; font-weight: 900; color: var(--ink); line-height: 1; }
+    .p-price span { font-size: 13px; font-weight: 500; color: var(--ink-soft); }
+    .p-includes { font-size: 10px; color: var(--ink-soft); margin-top: 4px; }
+    .p-cta { display: block; margin: 12px 16px 16px; padding: 11px; background: var(--navy); color: #fff; border-radius: 10px; font-size: 13px; font-weight: 700; text-align: center; transition: background .2s; }
+    .p-cta:hover { background: var(--navy-mid); }
+    .p-card.featured .p-cta { background: var(--blue); }
+    .p-card.featured .p-cta:hover { background: var(--blue-dk); }
+
+    /* ============ REVIEWS ============ */
+    .reviews-section { padding: 64px 0; background: #f8fafc; }
+    .reviews-section h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 800; text-align: center; margin-bottom: 8px; }
+    .reviews-section .section-sub { text-align: center; font-size: 14px; color: var(--ink-mid); margin-bottom: 32px; }
+    .review-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .rv-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+    .rv-stars { color: #f59e0b; font-size: 15px; letter-spacing: 2px; margin-bottom: 10px; }
+    .rv-card p { font-size: 14px; color: var(--ink-mid); margin-bottom: 12px; line-height: 1.65; }
+    .rv-author { font-size: 13px; font-weight: 700; }
+    .rv-tag { font-size: 11px; color: var(--ink-soft); }
+
+    /* ============ FAQ ============ */
+    .faq-section { padding: 56px 0; background: var(--white); }
+    .faq-section h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 800; text-align: center; margin-bottom: 32px; }
+    .faq-list { max-width: 700px; margin: 0 auto; display: grid; gap: 10px; }
+    .faq-item { background: #f9fafb; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .faq-btn { width: 100%; border: 0; background: transparent; text-align: left; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink); font-family: var(--font); }
+    .faq-icon { font-size: 18px; color: var(--ink-soft); transition: transform .2s; }
+    .faq-body { display: none; padding: 0 18px 16px; font-size: 13px; color: var(--ink-mid); line-height: 1.7; }
+    .faq-item.open .faq-body { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* ============ FINAL CTA ============ */
+    .final-cta { background: linear-gradient(135deg, #070e1a, var(--navy), var(--navy-mid)); padding: 60px 0; text-align: center; position: relative; overflow: hidden; }
+    .final-cta::before { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(45,127,249,.15), transparent 70%); }
+    .final-cta h2 { color: #fff; font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 900; margin-bottom: 12px; position: relative; letter-spacing: -0.02em; }
+    .final-cta p { color: rgba(255,255,255,.65); font-size: 15px; margin-bottom: 28px; position: relative; }
+    .final-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 15px 32px; background: #fff; color: var(--navy); border-radius: 10px; font-size: 15px; font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .btn-wa-lg { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--green); color: #fff; border-radius: 10px; font-size: 15px; font-weight: 700; }
+    .btn-wa-lg svg { width: 20px; height: 20px; fill: #fff; }
+
+    /* ============ FOOTER ============ */
+    .lp-footer { background: #060d1a; color: rgba(255,255,255,.4); text-align: center; padding: 24px 16px; font-size: 12px; }
+    .lp-footer a { color: rgba(255,255,255,.6); }
+
+    /* ============ MOBILE STICKY ============ */
+    .mobile-sticky { position: fixed; bottom: 0; left: 0; right: 0; background: var(--navy); padding: 10px 16px; display: flex; gap: 10px; z-index: 200; box-shadow: 0 -4px 24px rgba(0,0,0,.3); }
+    .mobile-sticky a { flex: 1; text-align: center; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 700; }
+    .mobile-sticky .ms-wa { background: var(--green); color: #fff; }
+    .mobile-sticky .ms-cta { background: var(--blue); color: #fff; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (min-width: 768px) {
+      .hero-grid { grid-template-columns: 1.1fr .9fr; }
+      .steps-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+      .steps-connector { display: block; position: absolute; top: 90px; left: 16%; right: 16%; height: 2px; background: linear-gradient(90deg, var(--gold), var(--blue), #10b981); z-index: 0; border-radius: 99px; }
+      .step-card { z-index: 1; }
+      .features-grid { grid-template-columns: repeat(4, 1fr); }
+      .form-section-inner { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+      .review-grid { grid-template-columns: repeat(3, 1fr); }
+      .mobile-sticky { display: none; }
+      body { padding-bottom: 0; }
+    }
+    @media (max-width: 767px) {
+      body { padding-bottom: 68px; }
+      .hero { padding: 40px 0 48px; }
+      .hero-visual { min-height: 240px; }
+      .float-card { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .top-bar { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Info Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <a href="tel:+971542249946"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd"/></svg> +971 54 224 9946</a>
+        <span>Al Quoz 2, Dubai, UAE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="lp-header">
+    <div class="container">
+      <img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg" alt="PurpleBox Storage" class="lp-logo" />
+      <a href="#getQuote" class="header-cta">Get Free Quote</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left: Copy -->
+        <div>
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Dubai's All-in-One Storage Solution
+          </div>
+          <h1>We <span class="highlight">Pack</span>, <span class="highlight">Move</span> &amp; <span class="highlight">Store</span> Everything.</h1>
+          <p class="hero-desc">Stop coordinating between movers, packers, and storage companies. PurpleBox handles it all — from your doorstep to a secure, climate-controlled unit in Al Quoz.</p>
+          <div class="hero-btns">
+            <a href="#getQuote" class="btn-primary">Get Free Quote →</a>
+            <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20packing%2C%20moving%20and%20storage%20help" class="btn-wa" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+              WhatsApp Us
+            </a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-trust-item">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Fully insured
+            </div>
+            <div class="hero-trust-item">
+              <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+              500+ happy customers
+            </div>
+            <div class="hero-trust-item">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.9 Google rating
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual -->
+        <div class="hero-visual">
+          <div class="hero-visual-card">
+            <img src="images/9-1536x1152.webp" alt="PurpleBox climate-controlled storage facility in Al Quoz Dubai" loading="eager" />
+          </div>
+          <!-- Floating accent cards -->
+          <div class="float-card fc-1">
+            <div class="fc-icon pack">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+            </div>
+            <div><strong>Pro Packing</strong><span>Materials included</span></div>
+          </div>
+          <div class="float-card fc-2">
+            <div class="fc-icon store">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div><strong>Secure Storage</strong><span>24/7 CCTV + AC</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 STEPS ============ -->
+  <section class="steps-section">
+    <div class="container">
+      <div class="steps-header">
+        <div class="steps-eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          How It Works
+        </div>
+        <h2>3 Easy Steps. <span class="accent">We Handle Everything.</span></h2>
+        <p>No need to juggle movers, packers, and storage. One team, one call, everything sorted.</p>
+      </div>
+
+      <div class="steps-grid">
+        <!-- Connector line (desktop only) -->
+        <div class="steps-connector"></div>
+
+        <!-- Step 1: Pack -->
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="12" y="24" width="40" height="28" rx="3" stroke="#f59e0b" stroke-width="3" fill="#fffbeb"/>
+              <path d="M12 32h40" stroke="#f59e0b" stroke-width="2.5"/>
+              <path d="M28 32v20M36 32v20" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3 2"/>
+              <path d="M22 24l10-12 10 12" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <rect x="26" y="36" width="12" height="8" rx="1.5" stroke="#d97706" stroke-width="2" fill="#fef3c7"/>
+            </svg>
+          </div>
+          <h3>We Pack</h3>
+          <p>Our team arrives with premium packing materials. Furniture, electronics, fragile items — everything packed safely by professionals.</p>
+          <span class="step-tag">Materials included in the price</span>
+        </div>
+
+        <!-- Step 2: Move -->
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="4" y="22" width="36" height="22" rx="3" stroke="#2d7ff9" stroke-width="3" fill="#eff6ff"/>
+              <path d="M40 28h12a4 4 0 0 1 3.46 2l4 7H40V28z" stroke="#2d7ff9" stroke-width="3" fill="#dbeafe"/>
+              <circle cx="16" cy="48" r="5" stroke="#2d7ff9" stroke-width="3" fill="#eff6ff"/>
+              <circle cx="48" cy="48" r="5" stroke="#2d7ff9" stroke-width="3" fill="#eff6ff"/>
+              <path d="M21 44h22" stroke="#2d7ff9" stroke-width="2.5"/>
+              <path d="M12 30h16M12 36h12" stroke="#1a6bef" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+            </svg>
+          </div>
+          <h3>We Move</h3>
+          <p>Fully insured transport from your doorstep to our Al Quoz facility. Careful handling with GPS-tracked vehicles.</p>
+          <span class="step-tag">Pickup from anywhere in Dubai</span>
+        </div>
+
+        <!-- Step 3: Store -->
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="8" y="14" width="48" height="38" rx="4" stroke="#10b981" stroke-width="3" fill="#ecfdf5"/>
+              <path d="M8 24h48" stroke="#10b981" stroke-width="2.5"/>
+              <rect x="16" y="30" width="12" height="16" rx="2" stroke="#059669" stroke-width="2" fill="#d1fae5"/>
+              <rect x="36" y="30" width="12" height="16" rx="2" stroke="#059669" stroke-width="2" fill="#d1fae5"/>
+              <circle cx="22" cy="38" r="2" fill="#059669"/>
+              <circle cx="42" cy="38" r="2" fill="#059669"/>
+              <path d="M28 18h8" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M20 10l12-0 12 0" stroke="#10b981" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+            </svg>
+          </div>
+          <h3>We Store</h3>
+          <p>Climate-controlled, 24/7 CCTV-monitored units. Access your belongings anytime you need them. Month-to-month flexibility.</p>
+          <span class="step-tag">From AED 199/month</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES STRIP ============ -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="fi-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/></svg></div>
+          <div><strong>Climate Controlled</strong><span>AC-cooled units protect against Dubai heat</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="fi-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div><strong>24/7 Security</strong><span>CCTV monitoring + individual unit locks</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="fi-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div><strong>No Contracts</strong><span>Flexible month-to-month. Cancel anytime.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="fi-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div><strong>WhatsApp Support</strong><span>Fast replies. Real people, not bots.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEAD FORM ============ -->
+  <section class="form-section" id="getQuote">
+    <div class="container">
+      <div class="form-section-inner">
+        <div class="form-copy">
+          <h2>Get a Free Quote in 2 Minutes</h2>
+          <p>Tell us what you need packed, moved, or stored. We'll send you a clear, all-inclusive price — no surprises.</p>
+          <ul class="form-copy-list">
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Free on-site assessment available</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Professional packing materials included</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Fully insured transport to our facility</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Same-day move-in possible</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>One team handles everything — no subcontractors</li>
+          </ul>
+        </div>
+
+        <div class="lead-form">
+          <h3>Get Your Pack + Move + Store Quote</h3>
+          <p class="form-sub">We'll reply within 30 minutes with a complete price.</p>
+          <form action="#" onsubmit="return handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone / WhatsApp</label>
+                <input type="tel" id="phone" name="phone" placeholder="+971 5X XXX XXXX" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option value="pack-move-store">Full service: Pack + Move + Store</option>
+                <option value="move-store">Move + Store only</option>
+                <option value="store-only">Storage only (I'll bring items)</option>
+                <option value="pack-only">Packing service only</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="items">What are you storing?</label>
+              <select id="items" name="items">
+                <option value="">Select closest match...</option>
+                <option value="studio">Studio / 1-bed apartment</option>
+                <option value="2bed">2-bedroom apartment</option>
+                <option value="3bed">3-bedroom apartment / townhouse</option>
+                <option value="villa">Villa (4+ bedrooms)</option>
+                <option value="office">Office furniture / equipment</option>
+                <option value="few-items">Just a few items or boxes</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit">Get My Free Quote →</button>
+          </form>
+          <div class="form-divider">or chat now</div>
+          <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20a%20pack%2C%20move%20and%20store%20quote" class="wa-btn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+            WhatsApp for Instant Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="pricing-section">
+    <div class="container">
+      <h2>Storage Units — All Sizes Available</h2>
+      <p class="section-sub">Pack + move service can be added to any unit. All units include AC, CCTV, and 24/7 access.</p>
+      <div class="pricing-grid">
+        <div class="p-card">
+          <div class="p-top">
+            <div class="p-size">25 sq ft</div>
+            <div class="p-name">Compact</div>
+            <div class="p-fits">Boxes, seasonal items</div>
+          </div>
+          <div class="p-mid">
+            <div class="p-price">199 <span>AED/mo</span></div>
+            <div class="p-includes">AC + CCTV + access included</div>
+          </div>
+          <a href="#getQuote" class="p-cta">Get Quote</a>
+        </div>
+        <div class="p-card featured">
+          <div class="p-top">
+            <div class="p-size">50 sq ft</div>
+            <div class="p-name">Standard</div>
+            <div class="p-fits">1-bed apartment</div>
+          </div>
+          <div class="p-mid">
+            <div class="p-price">399 <span>AED/mo</span></div>
+            <div class="p-includes">AC + CCTV + access included</div>
+          </div>
+          <a href="#getQuote" class="p-cta">Get Quote</a>
+        </div>
+        <div class="p-card">
+          <div class="p-top">
+            <div class="p-size">100 sq ft</div>
+            <div class="p-name">Large</div>
+            <div class="p-fits">2-bed apartment</div>
+          </div>
+          <div class="p-mid">
+            <div class="p-price">699 <span>AED/mo</span></div>
+            <div class="p-includes">AC + CCTV + access included</div>
+          </div>
+          <a href="#getQuote" class="p-cta">Get Quote</a>
+        </div>
+        <div class="p-card">
+          <div class="p-top">
+            <div class="p-size">200 sq ft</div>
+            <div class="p-name">XL</div>
+            <div class="p-fits">Villa / business</div>
+          </div>
+          <div class="p-mid">
+            <div class="p-price">1,199 <span>AED/mo</span></div>
+            <div class="p-includes">AC + CCTV + access included</div>
+          </div>
+          <a href="#getQuote" class="p-cta">Get Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="reviews-section">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <p class="section-sub">Real reviews from people who used our Pack + Move + Store service.</p>
+      <div class="review-grid">
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p>"One call and they handled everything — packed my entire 2-bed apartment, moved it, and stored it. I didn't lift a finger. Worth every dirham."</p>
+          <div class="rv-author">Sarah L.</div>
+          <div class="rv-tag">Full service — apartment move</div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p>"Moving between villas and needed temporary storage. PurpleBox packed, moved, and stored everything professionally. The packing quality was hotel-level."</p>
+          <div class="rv-author">Ahmed & Noor K.</div>
+          <div class="rv-tag">Villa move — 3 months storage</div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p>"I've used 3 different storage companies in Dubai. PurpleBox is the only one that handles packing and moving too. So much easier and the price was fair."</p>
+          <div class="rv-author">David T.</div>
+          <div class="rv-tag">Business inventory storage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">Do I have to use all 3 services (pack, move, store)? <span class="faq-icon">+</span></button>
+          <div class="faq-body">No. You can mix and match. Need just storage? That works. Want us to move and store but you'll pack yourself? Also fine. Our quote covers exactly what you need.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">Are packing materials included in the price? <span class="faq-icon">+</span></button>
+          <div class="faq-body">Yes. When you book our packing service, we bring all materials — boxes, bubble wrap, tape, furniture covers. Everything is included in the quoted price.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">Is the move insured? <span class="faq-icon">+</span></button>
+          <div class="faq-body">Yes. All items are covered during packing, transport, and storage. We handle your belongings with care and everything is insured throughout the process.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">How fast can you do a full pack + move + store? <span class="faq-icon">+</span></button>
+          <div class="faq-body">For most apartments, same-day or next-day service is available. Villas typically need 1-2 days notice. WhatsApp us with your address and item list for an accurate timeline.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="this.parentElement.classList.toggle('open')">Can I access my stored items after they're in the unit? <span class="faq-icon">+</span></button>
+          <div class="faq-body">Absolutely. You get 24/7 access to your storage unit with your own lock and key. Visit anytime to retrieve or add items.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready? We'll Handle Everything.</h2>
+      <p>Get a free, all-inclusive quote for packing, moving, and storage. One team, one price, zero stress.</p>
+      <div class="final-btns">
+        <a href="#getQuote" class="btn-white">Get Free Quote →</a>
+        <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20packing%2C%20moving%20and%20storage%20help" class="btn-wa-lg" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="lp-footer">
+    <div class="container">
+      <p>&copy; 2026 PurpleBox Storage LLC. Al Quoz 2, Dubai, UAE. <a href="tel:+971542249946">+971 54 224 9946</a></p>
+    </div>
+  </footer>
+
+  <!-- Mobile Sticky -->
+  <div class="mobile-sticky">
+    <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20pack%20move%20store%20service" class="ms-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="#getQuote" class="ms-cta">Get Free Quote</a>
+  </div>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value;
+      var phone = document.getElementById('phone').value;
+      var service = document.getElementById('service').value;
+      var items = document.getElementById('items').value;
+      var msg = 'Hi, I need help with: ' + service + '. Storing: ' + items + '. Name: ' + name + ', Phone: ' + phone;
+      window.open('https://wa.me/971542249946?text=' + encodeURIComponent(msg), '_blank');
+    }
+  </script>
+
+</body>
+</html>

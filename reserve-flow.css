@@ -163,7 +163,7 @@ main {
     background: radial-gradient(circle at 78% 18%, rgba(167, 139, 250, 0.28) 0%, rgba(167, 139, 250, 0) 45%),
         radial-gradient(circle at 10% 72%, rgba(109, 40, 217, 0.22) 0%, rgba(109, 40, 217, 0) 42%), #0e1b2c;
     color: #fff;
-    padding: 1.3rem 1.2rem 4.4rem;
+    padding: 1.3rem 1.2rem 3.7rem;
 }
 
 .brand {
@@ -192,6 +192,11 @@ main {
 .hero-box-wrap {
     display: grid;
     place-items: center;
+}
+
+.hero-box-wrap svg {
+    width: min(108px, 40vw);
+    height: auto;
 }
 
 .hero-caption {
@@ -225,7 +230,7 @@ main {
 }
 
 .form-sheet {
-    margin-top: -2.85rem;
+    margin-top: -4.9rem;
     background: #fff;
     border-radius: 1.5rem 1.5rem 0 0;
     padding: 1.1rem 1rem 0;
@@ -1008,6 +1013,11 @@ textarea:focus {
         margin: 1.2rem 0 0;
         display: grid;
         place-items: center;
+    }
+
+    .desk-illus svg {
+        width: 168px;
+        height: auto;
     }
 
     .form-grid {

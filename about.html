@@ -1,143 +1,630 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About PurpleBox — Premium Storage Dubai</title>
-<meta name="description" content="Built because storage in Dubai felt hidden, complicated, or expensive. PurpleBox is premium, purpose-built and still feels easy." />
-<link rel="stylesheet" href="shared.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About PurpleBox — Premium Storage Dubai</title>
+  <meta name="description"
+    content="Built because storage in Dubai felt hidden, complicated, or expensive. PurpleBox is premium, purpose-built and still feels easy." />
+  <link rel="stylesheet" href="shared.css" />
   <link rel="stylesheet" href="templates/layout-template.css" />
+  <style>
+    .about-hero {
+      background: linear-gradient(140deg, #f6f2ff 0%, #f8f9ff 56%, #ffffff 100%);
+      padding: 36px 0 22px;
+    }
+
+    .about-shell {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-panel {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 10px 26px rgba(42, 32, 71, 0.08);
+      overflow: hidden;
+    }
+
+    .about-copy {
+      padding: 22px;
+      order: 1;
+    }
+
+    .about-copy p {
+      font-size: 15px;
+      margin-bottom: 14px;
+      max-width: 62ch;
+    }
+
+    .about-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .about-stat {
+      border-radius: 12px;
+      border: 1px solid #e8e7f3;
+      background: #faf9ff;
+      padding: 12px;
+    }
+
+    .about-stat strong {
+      display: block;
+      color: var(--purple);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .about-stat span {
+      font-size: 12px;
+      color: #586783;
+    }
+
+    .about-visual {
+      min-height: 260px;
+      background:
+        linear-gradient(150deg, rgba(20, 29, 50, 0.62), rgba(92, 61, 153, 0.48)),
+        url('images/9-1536x1152.webp') center/cover no-repeat;
+      display: grid;
+      align-items: end;
+      padding: 20px;
+      order: -1;
+    }
+
+    .about-visual-note {
+      background: rgba(255, 255, 255, 0.94);
+      color: #243651;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 12px;
+      max-width: 240px;
+      border: 1px solid #d9deea;
+    }
+
+    .value-card {
+      border-radius: 14px;
+      border: 1px solid #e4e8f1;
+      background: #fff;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(20, 35, 58, 0.05);
+    }
+
+    .value-card p {
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .mv-card {
+      border-radius: 14px;
+      border: 1px solid #e1e7f2;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .mv-card p {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .mv-card h3 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mv-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #f2ecff;
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .story-band {
+      background: linear-gradient(145deg, #111b2d 0%, #20345a 58%, #24427a 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .story-band h2,
+    .story-band p,
+    .story-band h3 {
+      color: #fff;
+    }
+
+    .story-band p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .story-points {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .story-point {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 13px;
+    }
+
+    .tour-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .tour-video {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #dfe5f1;
+      background: #000;
+      min-height: 260px;
+    }
+
+    .tour-video iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      border: 0;
+      display: block;
+    }
+
+    .tour-aside {
+      border: 1px solid #e0e5f1;
+      border-radius: 16px;
+      background: #fff;
+      padding: 16px;
+    }
+
+    .tour-aside p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .tour-list {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 16px;
+    }
+
+    .tour-list span {
+      border-radius: 999px;
+      background: #f3f6ff;
+      border: 1px solid #d9e2f8;
+      padding: 7px 10px;
+      font-size: 12px;
+      color: #334867;
+      width: fit-content;
+    }
+
+    .about-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .about-contact-card {
+      border: 1px solid #dfe4ef;
+      border-radius: 14px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    .about-contact-card p {
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .social-grid {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid #dfe5f2;
+      background: #fff;
+      color: #2c3f5f;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 5px 14px rgba(27, 43, 67, 0.08);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-2px);
+      border-color: #bfcbe2;
+    }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    .about-final {
+      background: linear-gradient(135deg, #5c3d99, #7f5acc);
+      padding: 42px 0;
+      text-align: center;
+    }
+
+    .about-final h2 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .about-final p {
+      color: rgba(255, 255, 255, 0.84);
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .about-faq-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .about-faq-item {
+      border: 1px solid #dde4f0;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .about-faq-btn {
+      width: 100%;
+      border: 0;
+      background: #fff;
+      text-align: left;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      color: #1f304b;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .about-faq-icon {
+      color: #6f7f98;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .about-faq-body {
+      display: none;
+      border-top: 1px solid #ecf0f7;
+      padding: 0 16px 14px;
+    }
+
+    .about-faq-body p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #51617c;
+    }
+
+    .about-faq-item.open .about-faq-body {
+      display: block;
+    }
+
+    .about-faq-item.open .about-faq-icon {
+      color: #334867;
+    }
+
+    @media (min-width: 860px) {
+      .about-shell {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: stretch;
+      }
+
+      .about-copy,
+      .about-visual {
+        order: 0;
+      }
+
+      .about-stat-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .story-points {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .tour-grid {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+
+      .tour-video,
+      .tour-video iframe {
+        min-height: 340px;
+      }
+
+      .about-contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .mv-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 
-<div data-site-header></div>
+  <div data-site-header></div>
 
 
-<!-- HERO -->
-<section class="page-hero">
-  <div class="container">
-    <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span> About</nav>
-    <div class="grid-2" style="align-items:center;gap:28px;">
-      <div>
-        <h1>About PurpleBox</h1>
-        <p style="margin:16px 0 28px;">We built PurpleBox because storage in Dubai felt either hidden, complicated, or expensive. We wanted something premium that still feels easy — for the millions of people moving in, out, and around this city every year.</p>
-        <div class="hero-btns">
-          <a href="reserve.html" class="btn btn-primary btn-lg">Get a Quote</a>
-          <a href="contact.html" class="btn btn-ghost btn-lg">Book a Visit</a>
+  <section class="about-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span> About</nav>
+      <div class="about-shell">
+        <div class="about-panel about-copy">
+          <p class="label mb-8">Who We Are</p>
+          <h1>About PurpleBox</h1>
+          <p>We built PurpleBox because self-storage in Dubai often felt confusing, hidden, or difficult to trust. Our
+            goal is simple: premium storage that feels clear, fast, and reliable from first message to move-in day.</p>
+          <p>Today, we support families, expats, and businesses with secure units, practical moving support, and a team
+            that responds quickly when life changes.</p>
+          <div class="flex gap-12" style="flex-wrap:wrap;margin-top:20px;">
+            <a href="reserve-step-1.html" class="btn btn-primary btn-lg">Reserve a Unit</a>
+            <a href="about.html" class="btn btn-ghost btn-lg">About Us</a>
+          </div>
+          <div class="about-stat-grid">
+            <div class="about-stat"><strong>24/7</strong><span>CCTV monitoring</span></div>
+            <div class="about-stat"><strong>AC</strong><span>Climate-controlled units</span></div>
+            <div class="about-stat"><strong>Flexible</strong><span>Month-to-month storage</span></div>
+            <div class="about-stat"><strong>Fast</strong><span>Quick WhatsApp support</span></div>
+          </div>
         </div>
-      </div>
-      <div class="img-placeholder" style="min-height:300px;">Founder / facility photo<br>(800 × 600px)</div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY SELF-STORAGE -->
-<section class="section">
-  <div class="container">
-    <p class="label mb-8">Our philosophy</p>
-    <h2 class="mb-24">Why self-storage — done right</h2>
-    <div class="grid-3">
-      <div class="card">
-        <div style="font-size:32px;margin-bottom:12px;">📅</div>
-        <h3 style="margin-bottom:8px;">Flexibility</h3>
-        <p>Month-to-month terms. No warehouse contracts, no 12-month lock-ins. Store for a week or a year — it's your choice.</p>
-      </div>
-      <div class="card">
-        <div style="font-size:32px;margin-bottom:12px;">🔒</div>
-        <h3 style="margin-bottom:8px;">Security</h3>
-        <p>Built-for-purpose facility, not a basement or parking lot. 24/7 CCTV, individual unit locks, and staff on-site.</p>
-      </div>
-      <div class="card">
-        <div style="font-size:32px;margin-bottom:12px;">🚚</div>
-        <h3 style="margin-bottom:8px;">Service</h3>
-        <p>Pickup, packing, moving — one provider. We handle the heavy work so you don't have to coordinate five different companies.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OUR PROCESS -->
-<section class="section" style="background:var(--cream);">
-  <div class="container">
-    <p class="label mb-8 text-center">How it works</p>
-    <h2 class="mb-24 text-center">Our process</h2>
-    <div class="grid-4">
-      <div class="card" style="text-align:center;">
-        <div class="step-num">Step 01</div>
-        <div style="font-size:32px;margin:12px 0;">💬</div>
-        <h3 style="margin-bottom:8px;">Tell us what you need</h3>
-        <p>WhatsApp us, fill a form, or call. We'll help you figure out the right size and service in minutes.</p>
-      </div>
-      <div class="card" style="text-align:center;">
-        <div class="step-num">Step 02</div>
-        <div style="font-size:32px;margin:12px 0;">📦</div>
-        <h3 style="margin-bottom:8px;">Choose your unit</h3>
-        <p>Pick from our size options. Visit the facility or reserve online — no commitment yet.</p>
-      </div>
-      <div class="card" style="text-align:center;">
-        <div class="step-num">Step 03</div>
-        <div style="font-size:32px;margin:12px 0;">🚚</div>
-        <h3 style="margin-bottom:8px;">Move in or schedule pickup</h3>
-        <p>Bring your items yourself or let us collect. We work around your timeline.</p>
-      </div>
-      <div class="card" style="text-align:center;">
-        <div class="step-num">Step 04</div>
-        <div style="font-size:32px;margin:12px 0;">🔄</div>
-        <h3 style="margin-bottom:8px;">Flex up or down anytime</h3>
-        <p>Need more space? Less? Moving out? Just let us know — no fuss, no penalties after month 1.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FACILITY COMMITMENT -->
-<section class="section">
-  <div class="container">
-    <p class="label mb-8">The facility</p>
-    <h2 class="mb-16">Our commitment to the space</h2>
-    <div class="grid-2" style="align-items:center;gap:40px;">
-      <div class="img-placeholder" style="min-height:260px;">Facility interior shots<br>(800 × 520px)</div>
-      <div>
-        <p style="margin-bottom:20px;font-size:15px;">Cleanliness, security, climate, accessibility. Every detail in our Al Quoz 2 facility is intentional. We don't cut corners on the things that protect your belongings.</p>
-        <p style="margin-bottom:20px;font-size:15px;">Come visit — we'll show you the units, the security setup, the loading bay, and answer any question you have. No sales pressure. Just a walkthrough.</p>
-        <div class="flex gap-12" style="flex-wrap:wrap;">
-          <a href="reserve.html" class="btn btn-primary">Book a Visit</a>
-          <a href="facility.html" class="btn btn-outline">Tour the Facility</a>
+        <div class="about-visual about-panel">
+          <div class="about-visual-note">Al Quoz facility, loading access, and secure corridors designed for easier
+            move-ins.</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section style="background:var(--purple);padding:48px 0;text-align:center;">
-  <div class="container">
-    <h2 style="color:white;margin-bottom:16px;">Start storing today</h2>
-    <p style="color:rgba(255,255,255,.8);margin-bottom:28px;">Reserve online or WhatsApp us for a quick chat about your needs.</p>
-    <div class="flex gap-12" style="justify-content:center;flex-wrap:wrap;">
-      <a href="reserve.html" class="btn btn-lg" style="background:white;color:var(--purple);">Book Now</a>
-      <a href="#wa" class="btn btn-wa btn-lg">💬 WhatsApp</a>
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <p class="label mb-8">Mission & Vision</p>
+      <h2 class="mb-16">What drives PurpleBox</h2>
+      <div class="mv-grid mb-24">
+        <article class="mv-card">
+          <h3><span class="mv-badge">M</span>Mission statement</h3>
+          <p>To make storage in Dubai simple, secure, and reliable by combining premium facilities, clear pricing, and
+            responsive support that removes stress from every move.</p>
+        </article>
+        <article class="mv-card">
+          <h3><span class="mv-badge">V</span>Vision statement</h3>
+          <p>To become Dubai's most trusted storage brand, known for customer-first service, modern infrastructure, and
+            a seamless experience from first contact to move-out.</p>
+        </article>
+      </div>
+
+      <div class="story-band">
+        <p class="label" style="color:#d5c8ff;">Our Story</p>
+        <h2 style="margin-top:8px;">Built for a city that is always moving</h2>
+        <p style="margin-top:10px;">Dubai is dynamic, and storage needs change fast. PurpleBox was built to remove
+          friction from that journey with better access, faster communication, and service that actually feels personal.
+        </p>
+        <div class="story-points">
+          <div class="story-point"><strong>2019-2021:</strong> Team developed the storage + moving support model.</div>
+          <div class="story-point"><strong>2022:</strong> Expanded unit options for apartment and villa moves.</div>
+          <div class="story-point"><strong>Today:</strong> Serving households and businesses from Al Quoz.</div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="label mb-8">Facility Tour</p>
+      <h2 class="mb-16">See the space before you reserve</h2>
+      <div class="tour-grid">
+        <div class="tour-video">
+          <video controls preload="metadata" poster="purplebox_storage_sharp_optimized.webp"
+            style="width:100%;height:100%;object-fit:cover;display:block;">
+            <source src="video.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-final">
+    <div class="container">
+      <h2>Ready to get started?</h2>
+      <p>Reserve your unit now, or contact us and we will help you choose the right size in minutes.</p>
+      <div class="flex gap-12" style="justify-content:center;flex-wrap:wrap;">
+        <a href="reserve-step-1.html" class="btn btn-lg" style="background:white;color:var(--purple);">Reserve a
+          Unit</a>
+        <a href="https://wa.me/971542249946" class="btn btn-wa btn-lg" target="_blank"
+          rel="noopener noreferrer">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:8px;">
+    <div class="container">
+      <p class="label mb-8">About Us</p>
+      <h2 class="mb-16">Talk to our team directly</h2>
+      <div class="about-contact-grid">
+        <div class="about-contact-card">
+          <h3>Call</h3>
+          <p>Speak with us for quick size guidance and availability checks.</p>
+          <a href="tel:+971542249946" class="btn btn-ghost btn-sm mt-8">+971 54 224 9946</a>
+        </div>
+        <div class="about-contact-card">
+          <h3>WhatsApp</h3>
+          <p>Share photos or item lists and get a fast recommendation.</p>
+          <a href="https://wa.me/971542249946" class="btn btn-wa btn-sm mt-8" target="_blank"
+            rel="noopener noreferrer">Chat on WhatsApp</a>
+        </div>
+        <div class="about-contact-card">
+          <h3>Visit Us</h3>
+          <p>Warehouse 12, Al Quoz Industrial 3, Dubai. Facility tours available.</p>
+          <a href="about.html" class="btn btn-outline btn-sm mt-8">Get Directions</a>
+        </div>
+      </div>
+
+      <p class="label mb-8" style="margin-top:26px;">Our Social Media</p>
+      <h2 class="mb-16">Follow PurpleBox online</h2>
+      <div class="social-grid">
+        <a class="social-icon" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.2" cy="6.8" r="1" />
+          </svg>
+        </a>
+        <a class="social-icon" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3" />
+            <path d="M8 10v7" />
+            <path d="M8 7h.01" />
+            <path d="M12 17v-4a2 2 0 0 1 4 0v4" />
+            <path d="M12 10v7" />
+          </svg>
+        </a>
+        <a class="social-icon" href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 4l16 16" />
+            <path d="M20 4L9.5 14.5" />
+            <path d="M14.5 9.5L20 20" />
+            <path d="M4 20l5.5-10.5" />
+          </svg>
+        </a>
+        <a class="social-icon" href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer"
+          aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
+            <path
+              d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:4px;">
+    <div class="container">
+      <p class="label mb-8">FAQs</p>
+      <h2 class="mb-16">Frequently asked questions</h2>
+      <div class="about-faq-wrap">
+        <div class="about-faq-item">
+          <button class="about-faq-btn" onclick="toggleFaq(this)">
+            <span>Can I reserve a unit without paying immediately?</span>
+            <span class="about-faq-icon">+</span>
+          </button>
+          <div class="about-faq-body">
+            <p>Yes. You can complete a soft reservation first, and our team will confirm availability and next steps
+              before payment.</p>
+          </div>
+        </div>
+        <div class="about-faq-item">
+          <button class="about-faq-btn" onclick="toggleFaq(this)">
+            <span>Do you provide pickup and moving support?</span>
+            <span class="about-faq-icon">+</span>
+          </button>
+          <div class="about-faq-body">
+            <p>Yes, we offer pickup and moving support in Dubai. Share your location and item details and we will guide
+              you quickly.</p>
+          </div>
+        </div>
+        <div class="about-faq-item">
+          <button class="about-faq-btn" onclick="toggleFaq(this)">
+            <span>Are your storage units climate-controlled?</span>
+            <span class="about-faq-icon">+</span>
+          </button>
+          <div class="about-faq-body">
+            <p>Yes, all units are climate-controlled to help protect furniture, electronics, and sensitive items from
+              heat and humidity.</p>
+          </div>
+        </div>
+        <div class="about-faq-item">
+          <button class="about-faq-btn" onclick="toggleFaq(this)">
+            <span>Can I visit the facility before booking?</span>
+            <span class="about-faq-icon">+</span>
+          </button>
+          <div class="about-faq-body">
+            <p>Absolutely. You can contact us to arrange a tour at our Al Quoz facility and see the setup before you
+              reserve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-site-footer></div>
+
+  <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">💬</a>
+
+  <div class="mobile-cta">
+    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
+      rel="noopener noreferrer">WhatsApp</a>
+    <a href="reserve-step-1.html" class="btn btn-primary btn-full">Reserve</a>
   </div>
-</section>
+  <script>
+    function toggleFaq(btn) {
+      var item = btn.closest('.about-faq-item');
+      if (!item) return;
+      var icon = btn.querySelector('.about-faq-icon');
+      var isOpen = item.classList.contains('open');
 
+      document.querySelectorAll('.about-faq-item.open').forEach(function (el) {
+        el.classList.remove('open');
+        var i = el.querySelector('.about-faq-icon');
+        if (i) i.textContent = '+';
+      });
 
-<div data-site-footer></div>
+      if (!isOpen) {
+        item.classList.add('open');
+        if (icon) icon.textContent = '-';
+      }
+    }
 
-<a href="#wa" class="wa-float">💬</a>
-
-<div class="mobile-cta">
-  <a href="#wa" class="btn btn-wa btn-full">💬 WhatsApp</a>
-  <a href="reserve.html" class="btn btn-primary btn-full">Reserve</a>
-</div>
-<script>
-function toggleMobileMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-</script>
-<script src="templates/layout-loader.js"></script>
+    function toggleMobileMenu() {
+      document.getElementById("mobileMenu").classList.toggle("open");
+    }
+  </script>
+  <script src="templates/layout-loader.js"></script>
 </body>
+
 </html>
-
-
