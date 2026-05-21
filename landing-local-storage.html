@@ -1148,7 +1148,7 @@
       <h2>More than 300+ Private Storage Units in Dubai </h2>
       <p class="section-sub">From a few boxes to an entire villa. Pick the size that fits your life.</p>
       <div class="units-grid">
-        <div class="unit-card">
+        <div class="unit-card" data-size-value="small-25">
           <div class="unit-top">
             <div class="unit-size">25 sqft</div>
             <div class="unit-label">Compact</div>
@@ -1158,10 +1158,10 @@
           </div>
           <div class="unit-bottom">
             <div class="unit-fits">Boxes, seasonal gear, sports equipment</div>
-            <a href="#leadForm" class="unit-cta">Reserve Now</a>
+            <a href="#leadForm" class="unit-cta" data-size-value="small-25">Reserve Now</a>
           </div>
         </div>
-        <div class="unit-card">
+        <div class="unit-card" data-size-value="average-50">
           <div class="unit-top">
             <div class="unit-size">50 sqft</div>
             <div class="unit-label">Standard — Most Popular</div>
@@ -1171,10 +1171,10 @@
           </div>
           <div class="unit-bottom">
             <div class="unit-fits">Studio or 1-bedroom apartment</div>
-            <a href="#leadForm" class="unit-cta">Reserve Now</a>
+            <a href="#leadForm" class="unit-cta" data-size-value="average-50">Reserve Now</a>
           </div>
         </div>
-        <div class="unit-card">
+        <div class="unit-card" data-size-value="large-100">
           <div class="unit-top">
             <div class="unit-size">100 sqft</div>
             <div class="unit-label">Large</div>
@@ -1185,10 +1185,10 @@
           <div class="unit-bottom">
             <div class="unit-fits">2-bedroom apartment or small office</div>
 
-            <a href="#leadForm" class="unit-cta">Reserve Now</a>
+            <a href="#leadForm" class="unit-cta" data-size-value="large-100">Reserve Now</a>
           </div>
         </div>
-        <div class="unit-card">
+        <div class="unit-card" data-size-value="xxl-200">
           <div class="unit-top">
             <div class="unit-size">200 sqft</div>
             <div class="unit-label">Extra Large</div>
@@ -1198,7 +1198,7 @@
           </div>
           <div class="unit-bottom">
             <div class="unit-fits">Villa furniture, full business inventory</div>
-            <a href="#leadForm" class="unit-cta">Reserve Now</a>
+            <a href="#leadForm" class="unit-cta" data-size-value="xxl-200">Reserve Now</a>
           </div>
         </div>
       </div>
@@ -1275,7 +1275,7 @@
           <span><svg viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
-            </svg> Reply &lt;30 min</span>
+            </svg> Reply &lt;15 min</span>
           <span><svg viewBox="0 0 24 24">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
               <path d="M22 4 12 14.01l-3-3" />
@@ -1320,24 +1320,28 @@
       <div class="review-grid">
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p>"Best local storage facility in Dubai. The staff knows me by name now. Clean units, fair prices, and they
-            genuinely care about your stuff."</p>
-          <div class="author">Amir H.</div>
-          <div class="tag">Storing business inventory — 8 months</div>
+          <p>"Excellent experience with Purplebox Storage. The team, and especially Mahmoud, were extremely responsive, professional and always ready to help. Everything was handled smoothly and efficiently from start to finish. A special thanks as well to Amin, the owner, for his presence, kindness and flexibility throughout the process.
+You can truly feel a high level of professionalism and genuine customer care. Highly recommended!
+SR"</p>
+          <div class="author">Sidi Rahhaoui</div>
+          <div class="tag">Storing business inventory — 2 Days</div>
         </div>
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p>"We compared 4 local storage facilities before choosing PurpleBox. Better units, better price, and the only
-            one that actually answered our call on the first try."</p>
-          <div class="author">Rachel & Tom W.</div>
-          <div class="tag">Expat family — villa storage</div>
+          <p>"From the very first contact until the actual moving and storage service, everything was absolutely excellent. The team at Purple Box Storage was professional, responsive, organized, and incredibly helpful throughout the entire process. Everything was handled smoothly and made the entire experience completely stress-free.
+
+I can truly only recommend this fantastic service to anyone looking for reliable storage and moving support in Dubai. Thank you again for the outstanding support and excellent customer service!"</p>
+          <div class="author">
+
+
+Saskia Evraert.</div>
+          <div class="tag">Local Guid - 3 Days</div>
         </div>
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p>"Needed a local mini storage for my apartment move. PurpleBox had availability same day and helped me pick
-            the right size. No upselling, just honest advice."</p>
-          <div class="author">Deepa M.</div>
-          <div class="tag">Apartment storage — 3 months</div>
+          <p>"Hello everybody. Due to situation on middle east my family and I needed to move to another country temporarly (I can work remotly). And in one week I understood that I need to keep my belongings somewhere. I start to search storage companies in Google. I have found 4-5 companies which I like."</p>
+          <div class="author">Oleksii Zubrilkin</div>
+          <div class="tag">Apartment storage — 4 Days</div>
         </div>
       </div>
     </div>
@@ -1406,6 +1410,31 @@
   </div>
 
   <script>
+    function initUnitCardSelection() {
+      var sizeSelect = document.getElementById('size');
+      if (!sizeSelect) return;
+
+      var applySize = function (selectedSize) {
+        if (!selectedSize) return;
+        sizeSelect.value = selectedSize;
+        sizeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      };
+
+      var unitCards = document.querySelectorAll('.unit-card[data-size-value]');
+      unitCards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          applySize(card.getAttribute('data-size-value'));
+        });
+      });
+
+      var unitCtas = document.querySelectorAll('.unit-cta[data-size-value]');
+      unitCtas.forEach(function (cta) {
+        cta.addEventListener('click', function () {
+          applySize(cta.getAttribute('data-size-value'));
+        });
+      });
+    }
+
     function handleSubmit(e) {
       e.preventDefault();
       var name = document.getElementById('name').value;
@@ -1415,6 +1444,8 @@
       var msg = 'Hi, I need local storage. Name: ' + name + ', Phone: ' + phone + ', Size: ' + size + ', When: ' + when;
       window.open('https://wa.me/971542249946?text=' + encodeURIComponent(msg), '_blank');
     }
+
+    initUnitCardSelection();
   </script>
 
 </body>
