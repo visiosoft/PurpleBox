@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Unit | PurpleBox Storage Dubai</title>
+    <meta name="description"
+        content="Select your storage unit size and continue reservation with PurpleBox in Dubai." />
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+        body {
+            background: #ffffff !important;
+        }
+
+        .book-page {
+            padding: 22px 0 88px;
+            background: #fff;
+        }
+
+        .book-hero {
+            border: 1px solid #dfe3ea;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+        .book-eyebrow {
+            margin: 0 0 8px;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #1976d2;
+            font-weight: 700;
+        }
+
+        .book-hero h1 {
+            margin: 0;
+            font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+            line-height: 1.12;
+            color: #111827;
+            letter-spacing: -0.02em;
+            font-weight: 900;
+        }
+
+        .book-hero p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: #4b5563;
+            max-width: 760px;
+            line-height: 1.6;
+        }
+
+        .unit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .book-card {
+            border: 1px solid #e1e6ef;
+            border-radius: 14px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(17, 24, 39, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card-media {
+            height: 156px;
+            background: linear-gradient(145deg, #f7f9fc, #eef3f9);
+            border-bottom: 1px solid #e7edf6;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .book-badge {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #fff;
+            background: #1d4ed8;
+            border-radius: 999px;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+
+        .book-popular {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #92400e;
+            background: #fef3c7;
+            border-radius: 999px;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+
+        .book-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .book-card-body {
+            padding: 11px 10px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            height: 100%;
+        }
+
+        .book-size {
+            margin: 0;
+            color: #111827;
+            font-size: 15px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .book-fit {
+            margin: 0;
+            color: #475569;
+            font-size: 12px;
+            line-height: 1.42;
+            min-height: 34px;
+        }
+
+        .book-meta {
+            margin: 0;
+            color: #6b7280;
+            font-size: 11px;
+            line-height: 1.35;
+        }
+
+        .book-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 4px;
+        }
+
+        .book-price {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 900;
+            color: #111827;
+            line-height: 1;
+        }
+
+        .book-price span {
+            color: #6b7280;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 2px;
+        }
+
+        .book-select {
+            border-radius: 10px;
+            background: #1976d2;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 8px 10px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .book-page {
+                padding-top: 30px;
+            }
+
+            .book-hero {
+                padding: 26px;
+            }
+
+            .unit-grid {
+                gap: 14px;
+            }
+
+            .book-card-media {
+                height: 184px;
+            }
+
+            .book-card-body {
+                padding: 14px;
+                gap: 8px;
+            }
+
+            .book-size {
+                font-size: 18px;
+            }
+
+            .book-fit {
+                font-size: 13px;
+            }
+
+            .book-price {
+                font-size: 16px;
+            }
+
+            .book-select {
+                font-size: 13px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .unit-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+
+            .book-card-media {
+                height: 210px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="templates/layout-template.css" />
+</head>
+
+<body style="background-color:#ffffff !important;">
+
+    <div data-site-header></div>
+
+
+    <main class="book-page">
+        <section class="container">
+            <div class="book-hero">
+                <p class="book-eyebrow">Book Your Storage Unit</p>
+                <h1>Select The Right Unit Size</h1>
+                <p>Compare all available unit sizes and choose what fits your move, home, or business stock. Continue to
+                    reservation in one tap.</p>
+            </div>
+
+            <div class="unit-grid">
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">XS</span><img class="book-thumb"
+                            src="images/9-1536x1152.webp" alt="10 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">10 sq ft</h3>
+                        <p class="book-fit">Studio essentials, boxes, suitcases.</p>
+                        <p class="book-meta">Ideal for decluttering a studio.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 199 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=XS&unitSize=10%20sq%20ft&monthlyRent=199">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">SS</span><span
+                            class="book-popular">Popular</span><img class="book-thumb" src="images/9-1536x1152.webp"
+                            alt="25 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">25 sq ft</h3>
+                        <p class="book-fit">Fits a 1-bedroom apartment.</p>
+                        <p class="book-meta">Great for furniture during moves.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 349 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=SS&unitSize=25%20sq%20ft&monthlyRent=349">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">S</span><span
+                            class="book-popular">Popular</span><img class="book-thumb" src="images/9-1536x1152.webp"
+                            alt="50 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">50 sq ft</h3>
+                        <p class="book-fit">Fits a 1-bedroom apartment.</p>
+                        <p class="book-meta">Best for boxes, appliances, and extras.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 349 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=S&unitSize=50%20sq%20ft&monthlyRent=349">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">M</span><img class="book-thumb"
+                            src="images/9-1536x1152.webp" alt="75 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">75 sq ft</h3>
+                        <p class="book-fit">Fits a 2-bedroom apartment.</p>
+                        <p class="book-meta">Good balance of space and price.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 499 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=M&unitSize=75%20sq%20ft&monthlyRent=499">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">L</span><img class="book-thumb"
+                            src="images/9-1536x1152.webp" alt="100 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">100 sq ft</h3>
+                        <p class="book-fit">Fits a small villa / 3-bed home.</p>
+                        <p class="book-meta">For larger furniture sets and cartons.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 699 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=L&unitSize=100%20sq%20ft&monthlyRent=699">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">XL</span><img class="book-thumb"
+                            src="images/200.jpeg" alt="150 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">150 sq ft</h3>
+                        <p class="book-fit">Full villa contents, 4-bed home.</p>
+                        <p class="book-meta">Large household storage volume.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 999 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=XL&unitSize=150%20sq%20ft&monthlyRent=999">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">XXL</span><img class="book-thumb"
+                            src="images/200.jpeg" alt="200 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">200 sq ft</h3>
+                        <p class="book-fit">Full villa contents, 4-bed home.</p>
+                        <p class="book-meta">Maximum space for major moves.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 999 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=XXL&unitSize=200%20sq%20ft&monthlyRent=999">Select</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+
+    <div data-site-footer></div>
+
+
+    <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">ðŸ’¬</a>
+
+    <div class="mobile-cta">
+        <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
+            rel="noopener noreferrer">WhatsApp</a>
+        <a href="book-unit.html" class="btn btn-primary btn-full">Book Unit</a>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+    </script>
+    <script src="templates/layout-loader.js"></script>
+</body>
+
+</html>
