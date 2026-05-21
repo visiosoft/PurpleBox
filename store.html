@@ -1,231 +1,740 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Packing Supplies & Moving Boxes Dubai | PurpleBox Store</title>
-<meta name="description" content="Quality packing supplies in Dubai — boxes, bubble wrap, tape, stretch wrap, locks and moving kits. Pickup at our Al Quoz facility or delivered with your move." />
-<link rel="stylesheet" href="shared.css" />
-<style>
-.cat-card { text-align:center; cursor:pointer; transition:transform .15s; }
-.cat-card:hover { transform:translateY(-3px); }
-.product-card .prod-name {  font-size:1.1rem; margin:10px 0 4px; }
-.product-card .prod-price { font-size:13px; font-weight:600; color:var(--ink-soft); margin-bottom:14px; }
-.product-card .prod-btns { display:flex; gap:8px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PurpleBox Shop - Packing Supplies</title>
+  <meta name="description"
+    content="Shop packing supplies, moving boxes and locks. Add products to cart and checkout with PurpleBox." />
+  <link rel="stylesheet" href="shared.css" />
   <link rel="stylesheet" href="templates/layout-template.css" />
+  <style>
+    .shop-hero {
+      background: linear-gradient(140deg, #ffffff 0%, #eff4ff 55%, #e9ecff 100%);
+      padding: 26px 0 18px;
+    }
+
+    .shop-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .shop-kpi {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 13px;
+      color: #3a4a61;
+    }
+
+    .shop-banner {
+      margin-top: 14px;
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 210px;
+      border: 1px solid #d7e0f0;
+      position: relative;
+      background: linear-gradient(125deg, rgba(22, 32, 58, 0.78), rgba(92, 61, 153, 0.82)),
+        url('images/9-1536x1152.webp') center/cover no-repeat;
+      display: grid;
+      align-items: end;
+    }
+
+    .shop-banner-content {
+      padding: 18px;
+      color: #fff;
+    }
+
+    .shop-banner-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      opacity: 0.9;
+      margin-bottom: 6px;
+    }
+
+    .shop-banner h2 {
+      color: #fff;
+      font-size: clamp(1.3rem, 1.8vw, 2rem);
+      margin: 0 0 6px;
+      line-height: 1.15;
+    }
+
+    .shop-banner p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 13px;
+      margin: 0;
+      max-width: 620px;
+    }
+
+    .shop-banner-points {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .shop-banner-points span {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .shop-toolbar {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .shop-search,
+    .shop-sort {
+      width: 100%;
+      border: 1px solid #d8dfed;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    .shop-chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .shop-chip {
+      border: 1px solid #d8dfed;
+      background: #fff;
+      color: #2c3f5e;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .shop-chip.is-active {
+      background: #5c3d99;
+      border-color: #5c3d99;
+      color: #fff;
+    }
+
+    .shop-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .shop-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      gap: 9px;
+    }
+
+    .shop-media {
+      border-radius: 10px;
+      background: linear-gradient(155deg, #f3f6fd 0%, #e8eef8 100%);
+      border: 1px solid #e0e7f1;
+      height: 95px;
+      display: grid;
+      place-items: center;
+      color: #4f5f78;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .shop-title {
+      font-size: 15px;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .shop-spec {
+      margin: 0;
+      font-size: 12px;
+      color: #66758d;
+      line-height: 1.3;
+    }
+
+    .shop-price {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1f2f4a;
+    }
+
+    .shop-price .was {
+      font-size: 12px;
+      color: #8b97aa;
+      text-decoration: line-through;
+      margin-left: 5px;
+      font-weight: 500;
+    }
+
+    .shop-actions {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 8px;
+    }
+
+    .shop-qty {
+      border: 1px solid #d8dfed;
+      border-radius: 9px;
+      padding: 8px;
+      font-size: 13px;
+      background: #fff;
+      width: 100%;
+    }
+
+    .shop-add {
+      border: 0;
+      border-radius: 10px;
+      background: #5c3d99;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 9px;
+    }
+
+    .shop-add:hover {
+      background: #432d72;
+    }
+
+    .shop-summary {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      position: sticky;
+      top: 86px;
+      height: fit-content;
+    }
+
+    .shop-summary h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .cart-items {
+      display: grid;
+      gap: 8px;
+      max-height: 280px;
+      overflow: auto;
+      margin: 10px 0;
+    }
+
+    .cart-item {
+      border: 1px solid #e3e8f1;
+      border-radius: 10px;
+      padding: 9px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .cart-item p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .cart-item .name {
+      font-weight: 700;
+      color: #253651;
+      font-size: 13px;
+    }
+
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .cart-controls button {
+      width: 22px;
+      height: 22px;
+      border: 1px solid #ccd5e5;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .shop-total {
+      border-top: 1px solid #e3e8f1;
+      margin-top: 8px;
+      padding-top: 10px;
+      font-size: 13px;
+    }
+
+    .shop-total strong {
+      display: block;
+      margin-top: 3px;
+      font-size: 19px;
+      color: #1f2f4a;
+    }
+
+    .shop-checkout {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .shop-btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .shop-btn-primary {
+      background: #5c3d99;
+      color: #fff;
+    }
+
+    .shop-btn-wa {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .shop-btn-ghost {
+      background: #f3f6fb;
+      color: #2f4061;
+      border: 1px solid #d9e0ee;
+    }
+
+    .cart-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eef2ff;
+      border: 1px solid #d8def5;
+      color: #32476b;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .shop-empty {
+      color: #6d7d95;
+      font-size: 12px;
+    }
+
+    @media (min-width: 760px) {
+      .shop-shell {
+        grid-template-columns: 1.3fr 0.7fr;
+      }
+
+      .shop-toolbar {
+        grid-template-columns: 1fr 200px;
+        align-items: center;
+      }
+
+      .shop-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1080px) {
+      .shop-layout {
+        grid-template-columns: 1fr 300px;
+        align-items: start;
+      }
+
+      .shop-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div data-site-header></div>
 
-
-<div data-site-header></div>
-
-
-<!-- HERO -->
-<section class="page-hero">
-  <div class="container">
-    <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span> Store</nav>
-    <div class="grid-2" style="align-items:center;gap:28px;">
-      <div>
-        <h1>Packing supplies & moving kits</h1>
-        <p style="margin:16px 0 28px;">Quality boxes, tape, wrap and bundles. Pickup at our Al Quoz facility or delivered with your move.</p>
-        <div class="hero-btns">
-          <a href="#products" class="btn btn-primary btn-lg">Browse Products</a>
-          <a href="packing-moving.html" class="btn btn-ghost btn-lg">Full Moving Service →</a>
+  <section class="shop-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span> Store</nav>
+      <div class="shop-shell">
+        <div>
+          <p class="label mb-8">PurpleBox Supplies</p>
+          <h1 style="margin-bottom:10px;">Shop packing supplies</h1>
+          <p style="font-size:14px;max-width:640px;">Select products, choose quantities, and add to cart. Same products
+            and prices from home page shop section.</p>
+        </div>
+        <div class="shop-kpi">
+          <div class="cart-pill">Cart items: <span id="shopItemCount">0</span></div>
+          <p style="margin-top:8px;font-size:12px;">Pickup at Al Quoz or combine with moving service.</p>
         </div>
       </div>
-      <div class="card card-accent" style="padding:24px;">
-        <h3 style="margin-bottom:10px;">Buying for a full move?</h3>
-        <p style="margin-bottom:16px;">Bundle packing supplies with our moving service and get a discount on both.</p>
-        <a href="#wa" class="btn btn-primary btn-full">Request Bundle Quote</a>
+
+      <div class="shop-banner" aria-label="Store hero banner">
+        <div class="shop-banner-content">
+          <p class="shop-banner-kicker">Bundle and save</p>
+          <h2>Complete moving kits, boxes and protective packing in one place</h2>
+          <p>Build your cart in minutes and checkout directly on WhatsApp for quick confirmation.</p>
+          <div class="shop-banner-points">
+            <span>Same-day pickup</span>
+            <span>Best seller bundles</span>
+            <span>Move-ready supplies</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CATEGORIES -->
-<section class="section">
-  <div class="container">
-    <p class="label mb-8">Shop by category</p>
-    <h2 class="mb-24">Categories</h2>
-    <div class="grid-4">
-      <div class="card cat-card">
-        <div class="img-placeholder" style="height:80px;margin-bottom:12px;">📦</div>
-        <h3 style="margin-bottom:4px;">Boxes</h3>
-        <div style="font-size:13px;color:var(--purple);font-weight:600;">Browse →</div>
+  <section class="section" style="padding-top:22px;">
+    <div class="container">
+      <div class="shop-toolbar">
+        <input id="shopSearch" class="shop-search" type="search" placeholder="Search products..." />
+        <select id="shopSort" class="shop-sort">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name: A-Z</option>
+        </select>
+        <div class="shop-chips" id="shopFilters"></div>
       </div>
-      <div class="card cat-card">
-        <div class="img-placeholder" style="height:80px;margin-bottom:12px;">🎀</div>
-        <h3 style="margin-bottom:4px;">Tape</h3>
-        <div style="font-size:13px;color:var(--purple);font-weight:600;">Browse →</div>
-      </div>
-      <div class="card cat-card">
-        <div class="img-placeholder" style="height:80px;margin-bottom:12px;">🫧</div>
-        <h3 style="margin-bottom:4px;">Bubble wrap</h3>
-        <div style="font-size:13px;color:var(--purple);font-weight:600;">Browse →</div>
-      </div>
-      <div class="card cat-card">
-        <div class="img-placeholder" style="height:80px;margin-bottom:12px;">🌀</div>
-        <h3 style="margin-bottom:4px;">Stretch wrap</h3>
-        <div style="font-size:13px;color:var(--purple);font-weight:600;">Browse →</div>
-      </div>
-      <div class="card cat-card">
-        <div class="img-placeholder" style="height:80px;margin-bottom:12px;">📄</div>
-        <h3 style="margin-bottom:4px;">Packing paper</h3>
-        <div style="font-size:13px;color:var(--purple);font-weight:600;">Browse →</div>
-      </div>
-      <div class="card cat-card">
-        <div class="img-placeholder" style="height:80px;margin-bottom:12px;">🔒</div>
-        <h3 style="margin-bottom:4px;">Locks</h3>
-        <div style="font-size:13px;color:var(--purple);font-weight:600;">Browse →</div>
-      </div>
-      <div class="card cat-card">
-        <div class="img-placeholder" style="height:80px;margin-bottom:12px;">🏷️</div>
-        <h3 style="margin-bottom:4px;">Labels</h3>
-        <div style="font-size:13px;color:var(--purple);font-weight:600;">Browse →</div>
-      </div>
-      <div class="card cat-card">
-        <div class="img-placeholder" style="height:80px;margin-bottom:12px;">🎁</div>
-        <h3 style="margin-bottom:4px;">Moving kits</h3>
-        <div style="font-size:13px;color:var(--purple);font-weight:600;">Browse →</div>
+
+      <div class="shop-layout">
+        <div id="shopGrid" class="shop-grid"></div>
+        <aside class="shop-summary">
+          <h3>Your Cart</h3>
+          <div id="cartItems" class="cart-items"></div>
+          <p id="emptyCart" class="shop-empty">No items yet. Add products to get started.</p>
+          <div class="shop-total">
+            Subtotal
+            <strong id="cartTotal">AED 0</strong>
+          </div>
+          <div class="shop-checkout">
+            <button id="checkoutWa" class="shop-btn shop-btn-wa" type="button">Checkout on WhatsApp</button>
+            <button id="clearCart" class="shop-btn shop-btn-ghost" type="button">Clear cart</button>
+          </div>
+        </aside>
       </div>
     </div>
+  </section>
+
+  <div data-site-footer></div>
+  <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">💬</a>
+  <div class="mobile-cta">
+    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
+      rel="noopener noreferrer">WhatsApp</a>
+    <a href="reserve-step-1.html" class="btn btn-primary btn-full">Reserve</a>
   </div>
-</section>
 
-<!-- PRODUCTS -->
-<section class="section" style="background:var(--cream);" id="products">
-  <div class="container">
-    <p class="label mb-8">Popular products</p>
-    <h2 class="mb-24">All products</h2>
-    <div class="grid-4">
-      <!-- Row 1 -->
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Small box</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Medium box</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Large box</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Wardrobe box</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <!-- Row 2 -->
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Bubble wrap roll</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Stretch wrap</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Packing tape</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Packing paper</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <!-- Row 3 -->
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Padlock</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card">
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Box labels</div>
-        <div class="prod-price">AED __</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card" style="border-color:var(--purple);">
-        <span class="tag" style="margin-bottom:8px;display:inline-block;">Best value</span>
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Moving kit (small)</div>
-        <div class="prod-price">AED __ (bundle)</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-      <div class="card product-card" style="border-color:var(--purple);">
-        <span class="tag" style="margin-bottom:8px;display:inline-block;">Best value</span>
-        <div class="img-placeholder" style="height:100px;"></div>
-        <div class="prod-name">Moving kit (large)</div>
-        <div class="prod-price">AED __ (bundle)</div>
-        <div class="prod-btns"><a href="#wa" class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Inquire</a><a href="#wa" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Buy</a></div>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    (function () {
+      var PRODUCTS = [
+        { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 x 30 x 30 cm', price: 'AED 8' },
+        { id: 'md', cat: 'Boxes', name: 'Medium Box', spec: '50 x 40 x 40 cm', price: 'AED 12', tag: 'Bestseller' },
+        { id: 'lg', cat: 'Boxes', name: 'Large Box', spec: '60 x 45 x 45 cm', price: 'AED 16' },
+        { id: 'war', cat: 'Boxes', name: 'Wardrobe Box', spec: 'With hanging rail', price: 'AED 38' },
+        { id: 'book', cat: 'Boxes', name: 'Book Box', spec: 'Heavy-duty, small', price: 'AED 10' },
+        { id: 'flat', cat: 'Boxes', name: 'Picture Box', spec: 'For art & mirrors', price: 'AED 28' },
+        { id: 'tape', cat: 'Packing', name: 'Packing Tape', spec: '50 m x 48 mm', price: 'AED 9', was: 'AED 12' },
+        { id: 'disp', cat: 'Packing', name: 'Tape Dispenser', spec: 'Heavy-duty', price: 'AED 22' },
+        { id: 'bub', cat: 'Packing', name: 'Bubble Wrap', spec: '10 m roll', price: 'AED 25' },
+        { id: 'paper', cat: 'Packing', name: 'Packing Paper', spec: '5 kg bundle', price: 'AED 18' },
+        { id: 'foam', cat: 'Packing', name: 'Foam Sheets', spec: 'Pack of 20', price: 'AED 20' },
+        { id: 'mark', cat: 'Packing', name: 'Marker Pen', spec: 'Permanent, black', price: 'AED 5' },
+        { id: 'label', cat: 'Packing', name: 'Fragile Labels', spec: 'Pack of 50', price: 'AED 7' },
+        { id: 'pad', cat: 'Locks', name: 'Padlock', spec: '50 mm hardened steel', price: 'AED 35' },
+        { id: 'disc', cat: 'Locks', name: 'Disc Lock', spec: 'Pick-resistant', price: 'AED 55' },
+        { id: 'cab', cat: 'Locks', name: 'Cable Lock', spec: '1.2 m steel', price: 'AED 28' },
+        { id: 'seal', cat: 'Locks', name: 'Security Seals', spec: 'Pack of 10', price: 'AED 12' }
+      ];
 
-<!-- CROSS-SELL -->
-<section class="section">
-  <div class="container">
-    <div class="grid-2" style="gap:24px;">
-      <div class="card" style="padding:28px;">
-        <h3 style="margin-bottom:10px;">🚚 Need help packing?</h3>
-        <p style="margin-bottom:20px;">Our team can pack and wrap for you. Add it to any move or storage booking.</p>
-        <a href="packing-moving.html" class="btn btn-ghost btn-full">Packing & Moving →</a>
-      </div>
-      <div class="card" style="padding:28px;">
-        <h3 style="margin-bottom:10px;">🛋️ Storing furniture?</h3>
-        <p style="margin-bottom:20px;">See our climate-controlled furniture storage options in Al Quoz 2.</p>
-        <a href="storage-subpage.html" class="btn btn-ghost btn-full">Furniture Storage →</a>
-      </div>
-    </div>
-  </div>
-</section>
+      var state = {
+        query: '',
+        cat: 'All',
+        sort: 'featured',
+        cart: loadCart()
+      };
 
-<!-- CTA -->
-<section style="background:var(--purple);padding:48px 0;text-align:center;">
-  <div class="container">
-    <h2 style="color:white;margin-bottom:16px;">Get a bundle quote</h2>
-    <p style="color:rgba(255,255,255,.8);margin-bottom:28px;">Bundle packing supplies with moving service for the best price.</p>
-    <div class="flex gap-12" style="justify-content:center;flex-wrap:wrap;">
-      <a href="#wa" class="btn btn-lg" style="background:white;color:var(--purple);">Request Bundle Quote</a>
-      <a href="#wa" class="btn btn-wa btn-lg">💬 WhatsApp</a>
-    </div>
-  </div>
-</section>
+      var grid = document.getElementById('shopGrid');
+      var filterWrap = document.getElementById('shopFilters');
+      var search = document.getElementById('shopSearch');
+      var sort = document.getElementById('shopSort');
+      var cartItems = document.getElementById('cartItems');
+      var cartTotal = document.getElementById('cartTotal');
+      var emptyCart = document.getElementById('emptyCart');
+      var clearCart = document.getElementById('clearCart');
+      var checkoutWa = document.getElementById('checkoutWa');
+      var shopItemCount = document.getElementById('shopItemCount');
 
+      function parsePrice(v) {
+        var n = String(v || '').replace(/[^0-9.]/g, '');
+        return Number(n || 0);
+      }
 
-<div data-site-footer></div>
+      function formatAed(n) {
+        return 'AED ' + Math.round(n);
+      }
 
-<a href="#wa" class="wa-float">💬</a>
+      function loadCart() {
+        try {
+          var data = JSON.parse(localStorage.getItem('pbCartItems') || '[]');
+          if (!Array.isArray(data)) return [];
+          return data.map(function (x) {
+            return {
+              id: x.id,
+              name: x.name,
+              price: x.price,
+              cat: x.cat,
+              qty: Number(x.qty || 1)
+            };
+          }).filter(function (x) { return x.id && x.name && x.price; });
+        } catch (e) {
+          return [];
+        }
+      }
 
-<div class="mobile-cta">
-  <a href="#wa" class="btn btn-wa btn-full">💬 WhatsApp</a>
-  <a href="reserve.html" class="btn btn-primary btn-full">Reserve</a>
-</div>
-<script>
-function toggleMobileMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-</script>
-<script src="templates/layout-loader.js"></script>
+      function saveCart() {
+        localStorage.setItem('pbCartItems', JSON.stringify(state.cart));
+        var count = state.cart.reduce(function (t, x) { return t + x.qty; }, 0);
+        localStorage.setItem('pbCartCount', String(count));
+      }
+
+      function syncHeaderBadge() {
+        var count = state.cart.reduce(function (t, x) { return t + x.qty; }, 0);
+        var badge = document.getElementById('shopCartBadge');
+        if (!badge) return false;
+        badge.textContent = String(count);
+        if (count > 0) {
+          badge.classList.add('has-items');
+        } else {
+          badge.classList.remove('has-items');
+        }
+        return true;
+      }
+
+      function syncHeaderBadgeSoon() {
+        if (syncHeaderBadge()) return;
+        setTimeout(syncHeaderBadge, 200);
+        setTimeout(syncHeaderBadge, 600);
+        setTimeout(syncHeaderBadge, 1200);
+      }
+
+      function categories() {
+        var cats = Array.from(new Set(PRODUCTS.map(function (p) { return p.cat; })));
+        return ['All'].concat(cats);
+      }
+
+      function renderFilters() {
+        filterWrap.innerHTML = categories().map(function (c) {
+          return '<button type="button" class="shop-chip' + (state.cat === c ? ' is-active' : '') + '" data-cat="' + c + '">' + c + '</button>';
+        }).join('');
+      }
+
+      function filteredProducts() {
+        var list = PRODUCTS.filter(function (p) {
+          var catOk = state.cat === 'All' || p.cat === state.cat;
+          var q = state.query.trim().toLowerCase();
+          var queryOk = !q || p.name.toLowerCase().includes(q) || p.spec.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q);
+          return catOk && queryOk;
+        });
+
+        if (state.sort === 'price-asc') {
+          list.sort(function (a, b) { return parsePrice(a.price) - parsePrice(b.price); });
+        } else if (state.sort === 'price-desc') {
+          list.sort(function (a, b) { return parsePrice(b.price) - parsePrice(a.price); });
+        } else if (state.sort === 'name-asc') {
+          list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+        }
+
+        return list;
+      }
+
+      function renderGrid() {
+        var list = filteredProducts();
+        grid.innerHTML = list.map(function (item) {
+          return '' +
+            '<article class="shop-card" data-id="' + item.id + '">' +
+            '<div class="shop-media">' + (item.tag ? item.tag : item.cat) + '</div>' +
+            '<h3 class="shop-title">' + item.name + '</h3>' +
+            '<p class="shop-spec">' + item.spec + '</p>' +
+            '<p class="shop-price">' + item.price + (item.was ? '<span class="was">' + item.was + '</span>' : '') + '</p>' +
+            '<div class="shop-actions">' +
+            '<select class="shop-qty" data-qty-id="' + item.id + '">' +
+            '<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>' +
+            '</select>' +
+            '<button type="button" class="shop-add" data-add-id="' + item.id + '">Add to cart</button>' +
+            '</div>' +
+            '</article>';
+        }).join('');
+      }
+
+      function upsertCart(item, qty) {
+        var existing = state.cart.find(function (x) { return x.id === item.id; });
+        if (existing) {
+          existing.qty += qty;
+        } else {
+          state.cart.push({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            cat: item.cat,
+            qty: qty
+          });
+        }
+        saveCart();
+        renderCart();
+        syncHeaderBadgeSoon();
+      }
+
+      function changeQty(id, delta) {
+        var item = state.cart.find(function (x) { return x.id === id; });
+        if (!item) return;
+        item.qty += delta;
+        if (item.qty <= 0) {
+          state.cart = state.cart.filter(function (x) { return x.id !== id; });
+        }
+        saveCart();
+        renderCart();
+        syncHeaderBadgeSoon();
+      }
+
+      function cartSubtotal() {
+        return state.cart.reduce(function (sum, item) {
+          return sum + parsePrice(item.price) * item.qty;
+        }, 0);
+      }
+
+      function renderCart() {
+        var count = state.cart.reduce(function (t, x) { return t + x.qty; }, 0);
+        shopItemCount.textContent = String(count);
+
+        if (!state.cart.length) {
+          cartItems.innerHTML = '';
+          emptyCart.style.display = 'block';
+        } else {
+          emptyCart.style.display = 'none';
+          cartItems.innerHTML = state.cart.map(function (item) {
+            return '' +
+              '<div class="cart-item" data-cart-id="' + item.id + '">' +
+              '<div>' +
+              '<p class="name">' + item.name + '</p>' +
+              '<p>' + item.price + ' · ' + item.cat + '</p>' +
+              '<div class="cart-controls">' +
+              '<button type="button" data-minus-id="' + item.id + '">-</button>' +
+              '<span>' + item.qty + '</span>' +
+              '<button type="button" data-plus-id="' + item.id + '">+</button>' +
+              '</div>' +
+              '</div>' +
+              '<p>' + formatAed(parsePrice(item.price) * item.qty) + '</p>' +
+              '</div>';
+          }).join('');
+        }
+
+        cartTotal.textContent = formatAed(cartSubtotal());
+      }
+
+      function buildCheckoutMessage() {
+        if (!state.cart.length) {
+          return 'Hello PurpleBox, I want to order packing supplies. Please share available products.';
+        }
+
+        var lines = ['Hello PurpleBox, I want to order these supplies:', ''];
+        state.cart.forEach(function (item, idx) {
+          lines.push((idx + 1) + '. ' + item.name + ' x' + item.qty + ' (' + item.price + ')');
+        });
+        lines.push('');
+        lines.push('Subtotal: ' + formatAed(cartSubtotal()));
+        lines.push('Please confirm availability and delivery/pickup options.');
+        return lines.join('\n');
+      }
+
+      filterWrap.addEventListener('click', function (e) {
+        var chip = e.target.closest('[data-cat]');
+        if (!chip) return;
+        state.cat = chip.getAttribute('data-cat') || 'All';
+        renderFilters();
+        renderGrid();
+      });
+
+      search.addEventListener('input', function () {
+        state.query = search.value || '';
+        renderGrid();
+      });
+
+      sort.addEventListener('change', function () {
+        state.sort = sort.value || 'featured';
+        renderGrid();
+      });
+
+      grid.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-add-id]');
+        if (!btn) return;
+        var id = btn.getAttribute('data-add-id');
+        var qtySelect = grid.querySelector('[data-qty-id="' + id + '"]');
+        var qty = Number(qtySelect ? qtySelect.value : 1);
+        var product = PRODUCTS.find(function (p) { return p.id === id; });
+        if (!product) return;
+        upsertCart(product, Math.max(1, qty));
+        btn.textContent = 'Added';
+        setTimeout(function () { btn.textContent = 'Add to cart'; }, 500);
+      });
+
+      cartItems.addEventListener('click', function (e) {
+        var plus = e.target.closest('[data-plus-id]');
+        if (plus) {
+          changeQty(plus.getAttribute('data-plus-id'), 1);
+          return;
+        }
+
+        var minus = e.target.closest('[data-minus-id]');
+        if (minus) {
+          changeQty(minus.getAttribute('data-minus-id'), -1);
+        }
+      });
+
+      clearCart.addEventListener('click', function () {
+        state.cart = [];
+        saveCart();
+        renderCart();
+        syncHeaderBadgeSoon();
+      });
+
+      checkoutWa.addEventListener('click', function () {
+        var text = encodeURIComponent(buildCheckoutMessage());
+        window.open('https://wa.me/971542249946?text=' + text, '_blank', 'noopener');
+      });
+
+      renderFilters();
+      renderGrid();
+      renderCart();
+      syncHeaderBadgeSoon();
+    })();
+  </script>
+  <script src="templates/layout-loader.js"></script>
 </body>
+
 </html>
-
-
