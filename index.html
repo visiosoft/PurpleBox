@@ -50,7 +50,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Manrope:wght@700;800&family=Space+Grotesk:wght@700;800&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="css/shared.css" />
   <style>
     /* ---- Root Variables ---- */
     :root {
@@ -799,6 +799,13 @@
       width: 72px;
       height: 72px;
       opacity: 0.95;
+    }
+
+    .pack-product-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .pack-product-tag {
@@ -2414,8 +2421,9 @@
 
       <!-- Right: full-bleed image + video + floating card -->
       <div class="hero-banner">
-        <video id="heroVideo" poster="purplebox_storage_sharp_optimized.webp" muted loop playsinline preload="none">
-          <source src="video.mp4" type="video/mp4" />
+        <video id="heroVideo" poster="images/purplebox_storage_sharp_optimized.webp" muted loop playsinline
+          preload="none">
+          <source src="images/video.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -3229,15 +3237,12 @@
 
     (function () {
       var PRODUCTS = [
-        { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 × 30 × 30 cm', price: 'AED 8' },
-        { id: 'md', cat: 'Boxes', name: 'Medium Box', spec: '50 × 40 × 40 cm', price: 'AED 12', tag: 'Bestseller' },
-        { id: 'lg', cat: 'Boxes', name: 'Large Box', spec: '60 × 45 × 45 cm', price: 'AED 16' },
-        { id: 'war', cat: 'Boxes', name: 'Wardrobe Box', spec: 'With hanging rail', price: 'AED 38' },
-        { id: 'book', cat: 'Boxes', name: 'Book Box', spec: 'Heavy-duty, small', price: 'AED 10' },
-        { id: 'flat', cat: 'Boxes', name: 'Picture Box', spec: 'For art & mirrors', price: 'AED 28' },
+        { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 × 30 × 30 cm', price: 'AED 8', image: 'images/bubble-box-small.jpg' },
+        { id: 'md', cat: 'Boxes', name: 'Medium Box', spec: '50 × 40 × 40 cm', price: 'AED 12', tag: 'Bestseller', image: 'images/bubble-box-medium.jpg' },
+        { id: 'lg', cat: 'Boxes', name: 'Large Box', spec: '60 × 45 × 45 cm', price: 'AED 16', image: 'images/box-large.jpg' },
         { id: 'tape', cat: 'Packing', name: 'Packing Tape', spec: '50 m × 48 mm', price: 'AED 9', was: 'AED 12' },
         { id: 'disp', cat: 'Packing', name: 'Tape Dispenser', spec: 'Heavy-duty', price: 'AED 22' },
-        { id: 'bub', cat: 'Packing', name: 'Bubble Wrap', spec: '10 m roll', price: 'AED 25' },
+        { id: 'bub', cat: 'Packing', name: 'Bubble Wrap', spec: '10 m roll', price: 'AED 25', image: 'images/buble-wrap.jpg' },
         { id: 'paper', cat: 'Packing', name: 'Packing Paper', spec: '5 kg bundle', price: 'AED 18' },
         { id: 'foam', cat: 'Packing', name: 'Foam Sheets', spec: 'Pack of 20', price: 'AED 20' },
         { id: 'mark', cat: 'Packing', name: 'Marker Pen', spec: 'Permanent, black', price: 'AED 5' },
@@ -3302,6 +3307,13 @@
           '<rect x="38" y="24" width="4" height="36" fill="#b68248"></rect>' +
           '<rect x="34" y="39" width="12" height="4" rx="2" fill="#f3d7af"></rect>' +
           '</svg>';
+      }
+
+      function productVisual(item) {
+        if (item.image) {
+          return '<img src="' + item.image + '" alt="' + item.name + '" loading="lazy">';
+        }
+        return productIcon(item.cat);
       }
 
       function updateShopAllHref() {
@@ -3406,7 +3418,7 @@
             '<button type="button" class="pack-save-btn' + savedClass + '" data-save-id="' + item.id + '" aria-label="Save ' + item.name + '">' +
             '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.8-4.3-9.2-8C1.1 10.6 2.2 7 5.6 7c2.1 0 3.4 1.2 4.4 2.4C11 8.2 12.3 7 14.4 7c3.4 0 4.5 3.6 2.8 6-2.4 3.7-9.2 8-9.2 8Z"></path></svg>' +
             '</button>' +
-            productIcon(item.cat) +
+            productVisual(item) +
             '</div>' +
             '<div class="pack-product-main" data-open-id="' + item.id + '" tabindex="0" role="button" aria-label="Open details for ' + item.name + '">' +
             '<h4 class="pack-product-name">' + item.name + '</h4>' +
