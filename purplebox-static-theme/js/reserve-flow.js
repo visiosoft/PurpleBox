@@ -331,34 +331,110 @@
             }
         });
 
-        const wa = document.getElementById('waLink');
-        const mail = document.getElementById('mailLink');
         const reserveAction = document.getElementById('reserveAction');
-        const encoded = encodeURIComponent(text);
-        const waUrl = 'https://wa.me/97140000000?text=' + encoded;
-        const mailUrl = 'mailto:bookings@purplebox.ae?subject=' + encodeURIComponent('Storage reservation - ' + data.unitSize) + '&body=' + encoded;
+        const leadConfig = window.PBXLeadConfig || {};
 
-        if (wa) wa.href = waUrl;
-        if (mail) mail.href = mailUrl;
+        function showLeadNotice(type, message) {
+            var parent = reserveAction ? reserveAction.closest('.sticky-bar') : null;
+            if (!parent) return;
+
+            var notice = document.getElementById('reserveLeadNotice');
+            if (!notice) {
+                notice = document.createElement('div');
+                notice.id = 'reserveLeadNotice';
+                notice.style.marginTop = '12px';
+                notice.style.borderRadius = '10px';
+                notice.style.fontSize = '13px';
+                notice.style.lineHeight = '1.5';
+                parent.parentNode.insertBefore(notice, parent.nextSibling);
+            }
+
+            if (type === 'success') {
+                notice.style.background = '#f3f8ff';
+                notice.style.border = '1px solid #c7ddff';
+                notice.style.color = '#143461';
+                notice.style.padding = '16px';
+                notice.innerHTML =
+                    '<div style="display:flex;align-items:flex-start;gap:12px;">' +
+                    '<div style="width:28px;height:28px;min-width:28px;border-radius:999px;background:#22c55e;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;">✓</div>' +
+                    '<div>' +
+                    '<h4 style="margin:0 0 6px;font-size:16px;line-height:1.3;color:#0f172a;">Request received</h4>' +
+                    '<p style="margin:0 0 8px;color:#334155;">Your request has been prepared for contact@purplebox.ae. Our representative will contact you within the next 15 minutes to confirm your storage needs and recommend the best unit.</p>' +
+                    '<p style="margin:0 0 10px;color:#475569;font-size:12px;">Need help right away? Start a live WhatsApp chat or call us now.</p>' +
+                    '<div style="display:flex;gap:8px;flex-wrap:wrap;">' +
+                    '<a href="tel:+971542249946" style="display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:8px;border:1px solid #93c5fd;background:#fff;color:#1e3a8a;text-decoration:none;font-weight:700;font-size:12px;">Call Now</a>' +
+                    '<a href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20my%20reservation%20request%20and%20need%20quick%20help" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:8px;border:1px solid #86efac;background:#ecfdf3;color:#166534;text-decoration:none;font-weight:700;font-size:12px;">Chat Right Away</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+            } else {
+                notice.style.background = '#fef2f2';
+                notice.style.border = '1px solid #fca5a5';
+                notice.style.color = '#991b1b';
+                notice.style.padding = '12px 14px';
+                notice.textContent = message;
+            }
+            notice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function submitLeadForm() {
+            var form = document.createElement('form');
+            form.method = 'post';
+            form.action = leadConfig.submitUrl || '/wp-admin/admin-post.php';
+            form.style.display = 'none';
+
+            var payload = {
+                action: leadConfig.submitAction || 'pbx_submit_reservation_form',
+                pbx_lead_nonce: leadConfig.formNonce || '',
+                source_page_name: 'Reserve Step 3',
+                full_name: data.fullName,
+                mobile: data.mobile,
+                email: data.email,
+                emirate: data.emirate,
+                storing_for: data.storingFor,
+                move_in_date: data.moveInDate,
+                unit_size: data.unitSize,
+                unit_label: data.unitLabel,
+                monthly_rent: String(data.monthlyRent),
+                promo_code: data.promoCode,
+                supplies_total: String(suppliesTotal),
+                due_today: String(due),
+                supplies_text: supplyLines.length ? supplyLines.join('\n') : 'No supplies selected',
+                summary_text: text,
+                source_page: window.location.href.split('#')[0]
+            };
+
+            Object.keys(payload).forEach(function (key) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = payload[key];
+                form.appendChild(input);
+            });
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        if (leadConfig.leadSubmitted === '1') {
+            showLeadNotice('success', leadConfig.leadMessage || 'Request received.');
+            if (reserveAction) {
+                reserveAction.textContent = 'Submitted';
+                reserveAction.setAttribute('aria-disabled', 'true');
+            }
+        }
+
+        if (leadConfig.leadSubmitted === '0') {
+            showLeadNotice('error', leadConfig.leadMessage || 'We could not submit your reservation right now. Please try again in a moment.');
+        }
 
         if (reserveAction) {
             reserveAction.addEventListener('click', function (e) {
                 e.preventDefault();
-
-                // Trigger WhatsApp in a new tab and mail client with the same prefilled summary.
-                window.open(waUrl, '_blank', 'noopener,noreferrer');
-
-                const mailIntent = document.createElement('a');
-                mailIntent.href = mailUrl;
-                mailIntent.style.display = 'none';
-                document.body.appendChild(mailIntent);
-                mailIntent.click();
-                mailIntent.remove();
-
-                const nextHref = reserveAction.getAttribute('href') || 'index.html';
-                setTimeout(function () {
-                    window.location.href = nextHref;
-                }, 250);
+                reserveAction.classList.add('is-loading');
+                reserveAction.setAttribute('aria-disabled', 'true');
+                reserveAction.textContent = 'Submitting...';
+                submitLeadForm();
             });
         }
     }

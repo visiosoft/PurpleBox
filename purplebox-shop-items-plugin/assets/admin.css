@@ -1,0 +1,38 @@
+.pbx-wrap .pbx-items-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.pbx-wrap .pbx-item-row {
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    background: #fff;
+    padding: 16px;
+}
+
+.pbx-wrap .pbx-item-row h3 {
+    margin-top: 0;
+}
+
+.pbx-wrap .pbx-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pbx-wrap .pbx-grid label {
+    display: grid;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.pbx-wrap .pbx-grid input {
+    width: 100%;
+}
+
+@media (max-width: 782px) {
+    .pbx-wrap .pbx-grid {
+        grid-template-columns: 1fr;
+    }
+}

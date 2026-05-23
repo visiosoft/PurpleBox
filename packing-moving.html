@@ -286,8 +286,8 @@
 
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg"
-          alt="PurpleBox Storage" class="nav-logo-img" /></a>
+      <a href="index.html" class="nav-logo"><img src="images/logo-1.svg" alt="PurpleBox Storage"
+          class="nav-logo-img" /></a>
       <a href="tel:+971542249946" class="nav-phone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
           viewBox="0 0 24 24" fill="currentColor">
           <path fill-rule="evenodd"
@@ -620,6 +620,7 @@
       var form = event.currentTarget;
       var data = new FormData(form);
       var services = data.getAll("services");
+      var leadConfig = window.PBXLeadConfig || {};
 
       var lines = [
         "Hello PurpleBox, I need a moving quote.",
@@ -634,8 +635,62 @@
         "Inventory Notes: " + (data.get("items") || "None")
       ];
 
-      var message = encodeURIComponent(lines.join("\n"));
-      window.open("https://wa.me/971542249946?text=" + message, "_blank", "noopener");
+      var payload = new URLSearchParams();
+      payload.set("action", "pbx_submit_reservation");
+      payload.set("nonce", leadConfig.nonce || "");
+      payload.set("source_page_name", "Packing & Moving Quote");
+      payload.set("source_page", window.location.href.split("#")[0]);
+      payload.set("full_name", data.get("fullName") || "");
+      payload.set("mobile", data.get("phone") || "");
+      payload.set("email", "");
+      payload.set("emirate", "Dubai");
+      payload.set("storing_for", "Packing & Moving");
+      payload.set("move_in_date", data.get("moveDate") || "");
+      payload.set("unit_size", data.get("moveType") || "");
+      payload.set("unit_label", "Packing Request");
+      payload.set("monthly_rent", "0");
+      payload.set("promo_code", "");
+      payload.set("supplies_total", "0");
+      payload.set("due_today", "0");
+      payload.set("supplies_text", services.length ? services.join(", ") : "Not specified");
+      payload.set("summary_text", lines.join("\n"));
+
+      fetch(leadConfig.ajaxUrl || "/wp-admin/admin-ajax.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },
+        credentials: "same-origin",
+        body: payload.toString()
+      }).catch(function () {
+        // Keep UX non-blocking.
+      });
+
+      form.reset();
+
+      var existing = document.getElementById("pmLeadSuccess");
+      if (existing) {
+        existing.remove();
+      }
+
+      var box = document.createElement("div");
+      box.id = "pmLeadSuccess";
+      box.style.marginTop = "14px";
+      box.style.padding = "14px";
+      box.style.border = "1px solid #86efac";
+      box.style.background = "#ecfdf3";
+      box.style.borderRadius = "12px";
+      box.style.color = "#14532d";
+      box.style.fontSize = "13px";
+      box.style.lineHeight = "1.5";
+      box.innerHTML =
+        '<strong style="display:block;margin-bottom:6px;">Request received</strong>' +
+        'Your quote request has been sent to our team. We will contact you shortly.' +
+        '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">' +
+        '<a href="tel:+971542249946" style="display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:8px;border:1px solid #93c5fd;background:#fff;color:#1e3a8a;text-decoration:none;font-weight:700;font-size:12px;">Call Now</a>' +
+        '<a href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20a%20packing%20and%20moving%20quote%20request" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:8px;border:1px solid #86efac;background:#fff;color:#166534;text-decoration:none;font-weight:700;font-size:12px;">Chat Right Away</a>' +
+        '</div>';
+
+      form.parentNode.appendChild(box);
+      box.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
   </script>
   <script src="templates/layout-loader.js"></script>

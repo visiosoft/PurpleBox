@@ -1528,6 +1528,7 @@
       var size = document.getElementById('size').value;
       var when = document.getElementById('when').value;
       var msg = 'Hi, I just submitted the storage form. Name: ' + name + ', Phone: ' + phone + ', Size: ' + size + ', When: ' + when;
+      var leadConfig = window.PBXLeadConfig || {};
       var emailSubject = 'New Local Storage Reservation Request';
       var emailBody = [
         'A new local storage reservation request was submitted.',
@@ -1547,6 +1548,43 @@
       if (successChatLink) {
         successChatLink.href = 'https://wa.me/971542249946?text=' + encodeURIComponent(msg);
       }
+
+      var payload = new URLSearchParams();
+      payload.set('action', 'pbx_submit_reservation');
+      payload.set('nonce', leadConfig.nonce || '');
+      payload.set('source_page_name', 'Landing - Local Storage Dubai');
+      payload.set('source_page', window.location.href.split('#')[0]);
+      payload.set('full_name', name);
+      payload.set('mobile', phone);
+      payload.set('email', '');
+      payload.set('emirate', 'Dubai');
+      payload.set('storing_for', 'Local Storage Inquiry');
+      payload.set('move_in_date', when);
+      payload.set('unit_size', size || 'Not selected');
+      payload.set('unit_label', 'Landing Inquiry');
+      payload.set('monthly_rent', '0');
+      payload.set('promo_code', '');
+      payload.set('supplies_total', '0');
+      payload.set('due_today', '0');
+      payload.set('supplies_text', 'No supplies selected');
+      payload.set('summary_text', [
+        'Landing lead submitted',
+        'Name: ' + name,
+        'Phone: ' + phone,
+        'Storage size: ' + (size || 'Not selected'),
+        'Timing: ' + when
+      ].join('\n'));
+
+      var submitUrl = leadConfig.ajaxUrl || '/wp-admin/admin-ajax.php';
+
+      fetch(submitUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+        credentials: 'same-origin',
+        body: payload.toString()
+      }).catch(function () {
+        // Keep UX non-blocking: still show success panel, and user can call/chat immediately.
+      });
 
       if (form) {
         form.style.display = 'none';
