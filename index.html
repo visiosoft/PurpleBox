@@ -3287,7 +3287,11 @@
       var activeCat = 'All';
       var activeProduct = null;
       var savedIds = new Set(JSON.parse(localStorage.getItem('pbSavedProducts') || '[]'));
-      var cartCount = parseInt(localStorage.getItem('pbCartCount') || '0', 10);
+      var badgeSeed = parseInt((cartBadge && cartBadge.textContent) ? cartBadge.textContent : '0', 10);
+      if (isNaN(badgeSeed)) badgeSeed = 0;
+      var storedCartCount = localStorage.getItem('pbCartCount');
+      var cartCount = storedCartCount === null ? badgeSeed : parseInt(storedCartCount || '0', 10);
+      if (isNaN(cartCount)) cartCount = badgeSeed;
 
       function productIcon(cat) {
         if (cat === 'Packing') {
@@ -3326,7 +3330,8 @@
 
       function updateShopAllHref() {
         if (!shopAllLink) return;
-        var href = 'store.html';
+        var cfg = window.PBXPackProConfig || {};
+        var href = cfg.shopUrl || 'store.html';
         if (activeCat !== 'All') {
           href += '?category=' + encodeURIComponent(activeCat);
         }
@@ -3341,6 +3346,52 @@
         } else {
           cartBadge.classList.remove('has-items');
         }
+      }
+
+      function showAddedToast(name) {
+        var existing = document.getElementById('packAddedToast');
+        if (existing) {
+          existing.remove();
+        }
+
+        var toast = document.createElement('div');
+        toast.id = 'packAddedToast';
+        toast.style.position = 'fixed';
+        toast.style.right = '16px';
+        toast.style.bottom = '16px';
+        toast.style.zIndex = '9999';
+        toast.style.background = '#111827';
+        toast.style.color = '#ffffff';
+        toast.style.padding = '10px 12px';
+        toast.style.borderRadius = '10px';
+        toast.style.boxShadow = '0 10px 24px rgba(0,0,0,0.25)';
+        toast.style.fontSize = '13px';
+        toast.style.fontWeight = '600';
+        toast.textContent = (name || 'Item') + ' added to cart';
+        document.body.appendChild(toast);
+
+        setTimeout(function () {
+          toast.remove();
+        }, 1800);
+      }
+
+      function postPackApi(action, data) {
+        var cfg = window.PBXPackProConfig || {};
+        var payload = new URLSearchParams();
+        payload.set('action', action);
+        payload.set('nonce', cfg.nonce || '');
+        Object.keys(data || {}).forEach(function (key) {
+          payload.set(key, String(data[key]));
+        });
+
+        return fetch(cfg.ajaxUrl || '/wp-admin/admin-ajax.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+          credentials: 'same-origin',
+          body: payload.toString()
+        }).then(function (res) {
+          return res.json();
+        });
       }
 
       function pulseButton(button) {
@@ -3358,6 +3409,30 @@
       }
 
       function addToCart(item, sourceButton) {
+        if (item && /^wc-\d+$/.test(String(item.id || ''))) {
+          var productId = Number(String(item.id).replace('wc-', '')) || 0;
+          if (productId > 0) {
+            postPackApi('pbx_store_cart_add', { product_id: productId, qty: 1 }).then(function (res) {
+              if (res && res.success && res.data) {
+                cartCount = Number(res.data.count || (cartCount + 1));
+              } else {
+                cartCount += 1;
+              }
+              localStorage.setItem('pbCartCount', String(cartCount));
+              updateCartBadge();
+              pulseButton(sourceButton);
+              showAddedToast(item.name);
+            }).catch(function () {
+              cartCount += 1;
+              localStorage.setItem('pbCartCount', String(cartCount));
+              updateCartBadge();
+              pulseButton(sourceButton);
+              showAddedToast(item.name);
+            });
+            return;
+          }
+        }
+
         cartCount += 1;
         localStorage.setItem('pbCartCount', String(cartCount));
 
@@ -3380,6 +3455,7 @@
 
         pulseButton(sourceButton);
         updateCartBadge();
+        showAddedToast(item.name);
       }
 
       function openDrawer(product) {

@@ -1,8 +1,5 @@
 <?php
-// Required fallback template for WordPress theme validation.
-// Static page rendering is handled in functions.php via template_include.
-
-status_header(404);
+// Fallback template for routes not served from /static-pages.
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -11,10 +8,20 @@ status_header(404);
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<main style="max-width: 780px; margin: 80px auto; padding: 0 16px; font-family: Arial, sans-serif; line-height: 1.6;">
+<main style="max-width: 900px; margin: 48px auto; padding: 0 16px; font-family: Arial, sans-serif; line-height: 1.6;">
+<?php if (have_posts()) : ?>
+    <?php while (have_posts()) : the_post(); ?>
+        <article>
+            <h1><?php the_title(); ?></h1>
+            <div><?php the_content(); ?></div>
+        </article>
+    <?php endwhile; ?>
+<?php else : ?>
+    <?php status_header(404); ?>
     <h1>Page Not Found</h1>
-    <p>This theme serves static files from the static-pages folder.</p>
+    <p>This page could not be found.</p>
     <p><a href="<?php echo esc_url(home_url('/')); ?>">Return to home page</a></p>
+<?php endif; ?>
 </main>
 <?php wp_footer(); ?>
 </body>
