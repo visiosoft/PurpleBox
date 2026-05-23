@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Unit | PurpleBox Storage Dubai</title>
+    <meta name="description"
+        content="Select your storage unit size and continue reservation with PurpleBox in Dubai." />
+    <link rel="stylesheet" href="css/shared.css" />
+    <style>
+        body {
+            background: #ffffff !important;
+        }
+
+        .book-page {
+            padding: 22px 0 88px;
+            background: #fff;
+        }
+
+        .book-hero {
+            border: 1px solid #dfe3ea;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+        .book-eyebrow {
+            margin: 0 0 8px;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #1976d2;
+            font-weight: 700;
+        }
+
+        .book-hero h1 {
+            margin: 0;
+            font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+            line-height: 1.12;
+            color: #111827;
+            letter-spacing: -0.02em;
+            font-weight: 900;
+        }
+
+        .book-hero p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: #4b5563;
+            max-width: 760px;
+            line-height: 1.6;
+        }
+
+        .unit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .book-card {
+            border: 1px solid #e1e6ef;
+            border-radius: 14px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(17, 24, 39, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card-media {
+            height: 170px;
+            background: linear-gradient(145deg, #f7f9fc, #eef3f9);
+            border-bottom: 1px solid #e7edf6;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .book-badge {
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #fff;
+            background: #1d4ed8;
+            border-radius: 999px;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+
+        .book-popular {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #92400e;
+            background: #fef3c7;
+            border-radius: 999px;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+
+        .book-thumb {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .book-card-body {
+            padding: 11px 10px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            height: 100%;
+        }
+
+        .book-size {
+            margin: 0;
+            color: #111827;
+            font-size: 15px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .book-fit {
+            margin: 0;
+            color: #475569;
+            font-size: 12px;
+            line-height: 1.42;
+            min-height: 34px;
+        }
+
+        .book-meta {
+            margin: 0;
+            color: #6b7280;
+            font-size: 11px;
+            line-height: 1.35;
+        }
+
+        .book-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 4px;
+        }
+
+        .book-price {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 900;
+            color: #111827;
+            line-height: 1;
+        }
+
+        .book-price span {
+            color: #6b7280;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 2px;
+        }
+
+        .book-select {
+            border-radius: 10px;
+            background: #1976d2;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 8px 10px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .book-page {
+                padding-top: 30px;
+            }
+
+            .book-hero {
+                padding: 26px;
+            }
+
+            .unit-grid {
+                gap: 14px;
+            }
+
+            .book-card-media {
+                height: 170px;
+            }
+
+            .book-card-body {
+                padding: 14px;
+                gap: 8px;
+            }
+
+            .book-size {
+                font-size: 18px;
+            }
+
+            .book-fit {
+                font-size: 13px;
+            }
+
+            .book-price {
+                font-size: 16px;
+            }
+
+            .book-select {
+                font-size: 13px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .unit-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+
+            .book-card-media {
+                height: 170px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/layout-template.css" />
+</head>
+
+<body style="background-color:#ffffff !important;">
+
+    <!-- Site Header (inlined from templates/header.html) -->
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg"
+                    alt="PurpleBox Storage" class="nav-logo-img" /></a>
+            <a href="tel:+971542249946" class="nav-phone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+                        clip-rule="evenodd" />
+                </svg><span class="call-label">+971 54 224 9946</span></a>
+            <div class="nav-links">
+                <a href="book-unit.html">Book Unit</a>
+                <a href="store.html">Shop Now</a>
+                <a href="packing-moving.html">Packing & Moving</a>
+                <a href="about.html">Community</a>
+                <a href="about.html">About</a>
+            </div>
+            <a href="store.html" class="nav-cart" aria-label="Open cart">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="9" cy="20" r="1.5"></circle>
+                    <circle cx="17" cy="20" r="1.5"></circle>
+                    <path d="M3 4h2l1.5 10h11l2-7H7"></path>
+                </svg>
+                <span class="nav-cart-badge" id="shopCartBadge">0</span>
+            </a>
+            <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="tel:+971542249946" class="mobile-phone"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+                    clip-rule="evenodd" />
+            </svg> +971 54 224 9946</a>
+        <a href="storage.html">Self Storage</a>
+        <a href="pricing.html">Unit Sizes &amp; Prices</a>
+        <a href="facility.html">Facility</a>
+        <a href="packing-moving.html">Moving</a>
+        <a href="about.html">About</a>
+        <a href="about.html">About Us</a>
+        <a href="faq.html">FAQ</a>
+        <div class="mobile-menu-cta">
+            <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
+            <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
+                rel="noopener noreferrer">WhatsApp Us</a>
+        </div>
+    </div>
+
+
+    <main class="book-page">
+        <section class="container">
+            <div class="book-hero">
+                <p class="book-eyebrow">Book Your Storage Unit</p>
+                <h1>Select The Right Unit Size</h1>
+                <p>Compare all available unit sizes and choose what fits your move, home, or business stock. Continue to
+                    reservation in one tap.</p>
+            </div>
+
+            <div class="unit-grid">
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">XS</span><img class="book-thumb"
+                            src="images/10_sq_.jpg" alt="10 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">10 sq ft</h3>
+                        <p class="book-fit">Studio essentials, boxes, suitcases.</p>
+                        <p class="book-meta">Ideal for decluttering a studio.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 199 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=XS&unitSize=10%20sq%20ft&monthlyRent=199">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">SS</span><span
+                            class="book-popular">Popular</span><img class="book-thumb" src="images/25_sq_ft.jpg"
+                            alt="25 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">25 sq ft</h3>
+                        <p class="book-fit">Fits a 1-bedroom apartment.</p>
+                        <p class="book-meta">Great for furniture during moves.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 349 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=SS&unitSize=25%20sq%20ft&monthlyRent=349">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">S</span><span
+                            class="book-popular">Popular</span><img class="book-thumb" src="images/50_sq_ft.jpg"
+                            alt="50 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">50 sq ft</h3>
+                        <p class="book-fit">Fits a 1-bedroom apartment.</p>
+                        <p class="book-meta">Best for boxes, appliances, and extras.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 349 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=S&unitSize=50%20sq%20ft&monthlyRent=349">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">M</span><img class="book-thumb"
+                            src="images/75_sq_.jpg" alt="75 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">75 sq ft</h3>
+                        <p class="book-fit">Fits a 2-bedroom apartment.</p>
+                        <p class="book-meta">Good balance of space and price.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 499 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=M&unitSize=75%20sq%20ft&monthlyRent=499">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">L</span><img class="book-thumb"
+                            src="images/100_sq.jpg" alt="100 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">100 sq ft</h3>
+                        <p class="book-fit">Fits a small villa / 3-bed home.</p>
+                        <p class="book-meta">For larger furniture sets and cartons.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 699 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=L&unitSize=100%20sq%20ft&monthlyRent=699">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">XL</span><img class="book-thumb"
+                            src="images/150_sq.jpg" alt="150 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">150 sq ft</h3>
+                        <p class="book-fit">Full villa contents, 4-bed home.</p>
+                        <p class="book-meta">Large household storage volume.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 999 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=XL&unitSize=150%20sq%20ft&monthlyRent=999">Select</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="book-card-media"><span class="book-badge">XXL</span><img class="book-thumb"
+                            src="images/200_sq.jpg" alt="200 sq ft storage unit" /></div>
+                    <div class="book-card-body">
+                        <h3 class="book-size">200 sq ft</h3>
+                        <p class="book-fit">Full villa contents, 4-bed home.</p>
+                        <p class="book-meta">Maximum space for major moves.</p>
+                        <div class="book-card-footer">
+                            <p class="book-price">AED 999 <span>/mo</span></p><a class="book-select"
+                                href="reserve-step-1.html?unitLabel=XXL&unitSize=200%20sq%20ft&monthlyRent=999">Select</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="pbx-footer-shell" aria-label="Footer">
+        <div class="container">
+            <div class="pbx-footer">
+                <div class="pbx-brand" aria-label="purplebox brand">
+                    <div class="pbx-brand-logo" aria-hidden="true">P</div>
+                    <p class="pbx-wordmark">purplebox</p>
+                </div>
+
+                <p class="pbx-tagline">Climate-controlled, secure self-storage in Dubai. Personal &amp; business units,
+                    packing
+                    supplies and pickup.</p>
+
+                <section class="pbx-location" aria-label="Facility location">
+                    <svg class="pbx-map" viewBox="0 0 112 112" role="img"
+                        aria-label="Stylized mini-map of Dubai with Al Quoz marker" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="pbxSeaGrad" cx="50%" cy="36%" r="70%">
+                                <stop offset="0%" stop-color="#0d1828" />
+                                <stop offset="100%" stop-color="#070d18" />
+                            </radialGradient>
+                            <filter id="pbxPinShadow" x="-40%" y="-40%" width="180%" height="180%">
+                                <feDropShadow dx="0" dy="1.4" stdDeviation="1.2" flood-color="#2b175f"
+                                    flood-opacity="0.7" />
+                            </filter>
+                        </defs>
+                        <rect x="0" y="0" width="112" height="112" fill="url(#pbxSeaGrad)" />
+                        <path
+                            d="M81 6 L98 13 L103 25 L95 40 L86 58 L77 68 L69 76 L56 90 L40 100 L26 106 L12 108 L7 94 L11 78 L19 64 L31 53 L42 43 L56 31 L65 22 L74 12 Z"
+                            fill="#13233a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" />
+                        <path d="M19 96 C32 80, 46 64, 62 50 C72 42, 80 34, 90 22" fill="none" stroke="#7c3aed"
+                            stroke-width="2.2" stroke-linecap="round" stroke-dasharray="4 4" />
+                        <circle cx="28" cy="28" r="1.2" fill="rgba(255,255,255,0.45)" />
+                        <circle cx="44" cy="22" r="1" fill="rgba(255,255,255,0.35)" />
+                        <circle cx="69" cy="34" r="1.1" fill="rgba(255,255,255,0.4)" />
+                        <circle cx="58" cy="61" r="1.2" fill="rgba(255,255,255,0.5)" />
+                        <circle cx="36" cy="76" r="1" fill="rgba(255,255,255,0.35)" />
+                        <g transform="translate(57 57)" filter="url(#pbxPinShadow)">
+                            <circle cx="0" cy="0" r="4.5" fill="#a78bfa" />
+                            <path
+                                d="M0 -7 C3 -7 5.5 -4.7 5.5 -1.8 C5.5 1.5 1.9 5.3 0 8.2 C-1.9 5.3 -5.5 1.5 -5.5 -1.8 C-5.5 -4.7 -3 -7 0 -7 Z"
+                                fill="#a78bfa" />
+                            <circle cx="0" cy="0" r="10" fill="none" stroke="#a78bfa" stroke-opacity="0.7"
+                                stroke-width="1.2">
+                                <animate attributeName="r" values="6;17" dur="2s" repeatCount="indefinite" />
+                                <animate attributeName="stroke-opacity" values="0.65;0" dur="2s"
+                                    repeatCount="indefinite" />
+                            </circle>
+                        </g>
+                    </svg>
+
+                    <div class="pbx-location-meta">
+                        <p class="pbx-eyebrow">Visit Us</p>
+                        <p class="pbx-facility">Al Quoz Facility</p>
+                        <address class="pbx-address">Warehouse 12, Al Quoz Industrial 3, Dubai</address>
+                        <p class="pbx-open"><span class="pbx-open-dot" aria-hidden="true"></span>Open now - Sat-Thu,
+                            8am-9pm</p>
+                        <a class="pbx-directions"
+                            href="https://maps.google.com/?q=Warehouse+12+Al+Quoz+Industrial+3+Dubai" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M21 3L11 13" />
+                                <path d="M21 3L14.5 21L11 13L3 9.5L21 3Z" />
+                            </svg>
+                            Directions
+                        </a>
+                    </div>
+                </section>
+
+                <div class="pbx-link-grid">
+                    <nav aria-label="Storage links">
+                        <p class="pbx-eyebrow">Storage</p>
+                        <ul>
+                            <li><a href="storage.html">Personal</a></li>
+                            <li><a href="business-storage.html">Business</a></li>
+                            <li><a href="size-guide.html">Estimator</a></li>
+                            <li><a href="moving-storage.html">Pickup service</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav aria-label="Company links">
+                        <p class="pbx-eyebrow">Company</p>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="faq.html">Help centre</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="pricing.html">Insurance</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <section class="pbx-contact" aria-label="Inline contact options">
+                    <a class="pbx-chip" href="tel:80026948">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path
+                                d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8A19.5 19.5 0 0 1 5.2 12.8A19.8 19.8 0 0 1 2 4.2A2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
+                        </svg>
+                        800-BOX-IT
+                    </a>
+                    <a class="pbx-chip" href="mailto:hello@purplebox.ae">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <path d="M3 8l9 6 9-6" />
+                        </svg>
+                        hello@purplebox.ae
+                    </a>
+                </section>
+
+                <section class="pbx-social" aria-label="Social media links">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.2" cy="6.8" r="1" />
+                        </svg></a>
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X"><svg
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M4 4l16 16" />
+                            <path d="M20 4L9.5 14.5" />
+                            <path d="M14.5 9.5L20 20" />
+                            <path d="M4 20l5.5-10.5" />
+                        </svg></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="3" />
+                            <path d="M8 10v7" />
+                            <path d="M8 7h.01" />
+                            <path d="M12 17v-4a2 2 0 0 1 4 0v4" />
+                            <path d="M12 10v7" />
+                        </svg></a>
+                    <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
+                            <path
+                                d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z" />
+                        </svg></a>
+                </section>
+
+                <div class="pbx-legal">
+                    <span>&copy; 2026 Short Term Storage L.L.C.</span>
+                    <div class="pbx-legal-links">
+                        <a href="privacy.html">Privacy</a>
+                        <span aria-hidden="true">&middot;</span>
+                        <a href="#">Terms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">ðŸ’¬</a>
+
+    <div class="mobile-cta">
+        <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
+            rel="noopener noreferrer">WhatsApp</a>
+        <a href="book-unit.html" class="btn btn-primary btn-full">Book Unit</a>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+    </script>
+    <script src="templates/layout-loader.js"></script>
+</body>
+
+</html>
