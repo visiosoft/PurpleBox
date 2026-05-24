@@ -341,9 +341,16 @@ function purplebox_static_inject_layout_partials($html) {
     }
 
     if (file_exists($footer_file)) {
+        $footer_html = file_get_contents($footer_file);
         $html = preg_replace(
             '/<div\s+data-site-footer\s*><\/div>/i',
-            file_get_contents($footer_file),
+            $footer_html,
+            $html
+        );
+
+        $html = preg_replace(
+            '/<footer\s+class="pbx-footer-shell"[\s\S]*?<\/footer>/i',
+            $footer_html,
             $html
         );
     }

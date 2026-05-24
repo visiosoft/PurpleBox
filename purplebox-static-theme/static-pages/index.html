@@ -42,6 +42,24 @@
       (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', 'XXXXXXXXXXXXXXXX');
     fbq('track', 'PageView');
+  </script> <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56Z5JGR6');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Event snippet for Contact conversion page -->
+  <script>
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17982250932/XkuhCMmSpoAcELS_zf5C',
+      'value': 1.0,
+      'currency': 'AED'
+    });
   </script>
   <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXXX&ev=PageView&noscript=1" alt="" /></noscript>
@@ -2594,7 +2612,7 @@
     <button class="pack-drawer-add" id="packDrawerAdd">Add to cart</button>
   </aside>
   <!-- FAQ -->
-  <section class="faq-section">
+  <section class="faq-section" id="faq">
     <div class="container">
       <div class="faq-layout">
         <div class="faq-sidebar reveal">
@@ -3083,12 +3101,12 @@
 
         <div class="pbx-link-grid">
           <nav aria-label="Storage links">
-            <p class="pbx-eyebrow">Storage</p>
+            <p class="pbx-eyebrow">Quick Links</p>
             <ul>
-              <li><a href="storage.html">Personal</a></li>
-              <li><a href="business-storage.html">Business</a></li>
-              <li><a href="size-guide.html">Estimator</a></li>
-              <li><a href="moving-storage.html">Pickup service</a></li>
+              <li><a href="book-unit.html">Reserve Unit</a></li>
+              <li><a href="store.html">Shop Now</a></li>
+              <li><a href="packing-moving.html">Packing & Moving</a></li>
+              <li><a href="blog">About Us</a></li>
             </ul>
           </nav>
 
@@ -3098,7 +3116,7 @@
               <li><a href="about.html">About</a></li>
               <li><a href="faq.html">Help centre</a></li>
               <li><a href="about.html">Contact</a></li>
-              <li><a href="pricing.html">Insurance</a></li>
+              <li><a href="#">Location</a></li>
             </ul>
           </nav>
         </div>
@@ -3112,13 +3130,13 @@
             </svg>
             800-BOX-IT
           </a>
-          <a class="pbx-chip" href="mailto:hello@purplebox.ae">
+          <a class="pbx-chip" href="mailto:contact@purplebox.ae">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="2" />
               <path d="M3 8l9 6 9-6" />
             </svg>
-            hello@purplebox.ae
+            contact@purplebox.ae
           </a>
         </section>
 
