@@ -1,6 +1,28 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+$cart_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/store.html');
+$cart_count = 0;
+if (function_exists('WC') && WC() && WC()->cart) {
+    $cart_count = (int) WC()->cart->get_cart_contents_count();
+}
+$theme_uri = get_template_directory_uri();
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+
 <nav class="site-nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.png"
+    <a href="<?php echo esc_url(home_url('/index.html')); ?>" class="nav-logo"><img src="<?php echo esc_url($theme_uri . '/images/logo-1.svg'); ?>"
         alt="PurpleBox Storage" class="nav-logo-img" /></a>
     <a href="tel:+971542249946" class="nav-phone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
         viewBox="0 0 24 24" fill="currentColor">
@@ -9,19 +31,19 @@
           clip-rule="evenodd" />
       </svg><span class="call-label">+971 54 224 9946</span></a>
     <div class="nav-links">
-      <a href="book-unit.html">Reserve Unit</a>
-      <a href="store.html">Shop Now</a>
-      <a href="packing-moving.html">Packing & Moving</a>
-      <a href="/blog/">Community</a>
-      <a href="about.html">Contact</a>
+      <a href="<?php echo esc_url(home_url('/book-unit.html')); ?>">Reserve Unit</a>
+      <a href="<?php echo esc_url(home_url('/store.html')); ?>">Shop Now</a>
+      <a href="<?php echo esc_url(home_url('/packing-moving.html')); ?>">Packing &amp; Moving</a>
+      <a href="<?php echo esc_url(home_url('/blog/')); ?>">Community</a>
+      <a href="<?php echo esc_url(home_url('/contact.html')); ?>">Contact</a>
     </div>
-    <a href="store.html" class="nav-cart" aria-label="Open cart">
+    <a href="<?php echo esc_url($cart_url); ?>" class="nav-cart" aria-label="Open cart">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="9" cy="20" r="1.5"></circle>
         <circle cx="17" cy="20" r="1.5"></circle>
         <path d="M3 4h2l1.5 10h11l2-7H7"></path>
       </svg>
-      <span class="nav-cart-badge" id="shopCartBadge">0</span>
+      <span class="nav-cart-badge<?php echo $cart_count > 0 ? ' has-items' : ''; ?>" id="shopCartBadge"><?php echo (int) $cart_count; ?></span>
     </a>
     <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
   </div>
@@ -34,13 +56,13 @@
         d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
         clip-rule="evenodd" />
     </svg> +971 54 224 9946</a>
-  <a href="book-unit.html">Reserve Unit</a>
-  <a href="store.html">Shop Now</a>
-  <a href="packing-moving.html">Packing &amp; Moving</a>
-  <a href="/blog/">Community</a>
-  <a href="about.html">Contact</a>
+  <a href="<?php echo esc_url(home_url('/book-unit.html')); ?>">Reserve Unit</a>
+  <a href="<?php echo esc_url(home_url('/store.html')); ?>">Shop Now</a>
+  <a href="<?php echo esc_url(home_url('/packing-moving.html')); ?>">Packing &amp; Moving</a>
+  <a href="<?php echo esc_url(home_url('/blog/')); ?>">Community</a>
+  <a href="<?php echo esc_url(home_url('/contact.html')); ?>">Contact</a>
   <div class="mobile-menu-cta">
-    <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
+    <a href="<?php echo esc_url(home_url('/reserve-step-1.html')); ?>" class="btn btn-primary btn-full">Book Now</a>
     <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp
       Us</a>
   </div>

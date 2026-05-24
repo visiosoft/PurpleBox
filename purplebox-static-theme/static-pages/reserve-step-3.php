@@ -3,10 +3,22 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$html_file = __DIR__ . '/reserve-step-3.html';
-if (!file_exists($html_file)) {
-    status_header(404);
-    echo 'Reserve page not found.';
+$html_candidates = [
+    __DIR__ . '/reserve-step-3.html',
+    get_template_directory() . '/static-pages/reserve-step-3.html',
+    ABSPATH . 'reserve-step-3.html',
+];
+
+$html_file = '';
+foreach ($html_candidates as $candidate) {
+    if (is_string($candidate) && $candidate !== '' && file_exists($candidate)) {
+        $html_file = $candidate;
+        break;
+    }
+}
+
+if ($html_file === '') {
+    wp_safe_redirect(home_url('/reserve-step-2.html'));
     exit;
 }
 

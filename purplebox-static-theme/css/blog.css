@@ -1,0 +1,370 @@
+.pbx-blog-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #eff4ff 45%, #e7edff 100%);
+    padding: 28px 0 22px;
+    border-bottom: 1px solid #dde5f3;
+}
+
+.pbx-blog-container {
+    width: min(1720px, 100% - 32px);
+    margin: 0 auto;
+}
+
+/* Normalize typography inside blog templates to avoid inherited oversized styles. */
+.pbx-blog-hero,
+.pbx-blog-shell,
+.pbx-single-shell {
+    color: #1f2f4a;
+}
+
+.pbx-blog-hero p,
+.pbx-blog-shell p,
+.pbx-single-shell p,
+.pbx-blog-shell li,
+.pbx-single-shell li {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0;
+}
+
+.pbx-blog-shell h1,
+.pbx-blog-shell h2,
+.pbx-blog-shell h3,
+.pbx-single-shell h1,
+.pbx-single-shell h2,
+.pbx-single-shell h3,
+.pbx-single-shell h4 {
+    letter-spacing: 0;
+    line-height: 1.25;
+    color: #1f2f4a;
+}
+
+.pbx-blog-hero-inner h1 {
+    max-width: 920px;
+    margin-bottom: 10px;
+    font-size: clamp(1.9rem, 3.2vw, 3rem);
+    line-height: 1.12;
+}
+
+.pbx-blog-intro {
+    max-width: 720px;
+    font-size: 14px;
+    color: #4b5b74;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.pbx-blog-shell,
+.pbx-single-shell {
+    background: #f6f8fc;
+}
+
+.pbx-blog-layout,
+.pbx-single-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.pbx-blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.pbx-post-card {
+    background: #fff;
+    border: 1px solid #dce5f2;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(20, 33, 61, 0.06);
+}
+
+.pbx-post-link {
+    display: grid;
+    grid-template-columns: 1fr;
+    color: inherit;
+}
+
+.pbx-post-thumb {
+    height: 210px;
+    background: #edf2ff;
+    overflow: hidden;
+}
+
+.pbx-post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pbx-post-thumb-fallback {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(145deg, #d9ccff 0%, #aa93f5 100%);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.pbx-post-body {
+    padding: 14px;
+}
+
+.pbx-post-meta {
+    margin: 0 0 7px;
+    font-size: 12px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.pbx-post-body h2 {
+    margin: 0 0 7px;
+    font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+    line-height: 1.3;
+}
+
+.pbx-post-excerpt {
+    margin: 0;
+    font-size: 13px;
+    color: #4b5b74;
+}
+
+.pbx-read-more {
+    display: inline-block;
+    margin-top: 11px;
+    color: #5c3d99;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pbx-blog-aside {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+}
+
+.pbx-side-card {
+    background: #fff;
+    border: 1px solid #dce5f2;
+    border-radius: 14px;
+    padding: 13px;
+}
+
+.pbx-side-card h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+.pbx-side-card ul {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pbx-side-card li,
+.pbx-side-card a {
+    font-size: 13px;
+    color: #465875;
+}
+
+.pbx-pagination {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pbx-pagination .page-numbers {
+    border: 1px solid #d5deed;
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #314562;
+}
+
+.pbx-pagination .page-numbers.current {
+    background: #5c3d99;
+    color: #fff;
+    border-color: #5c3d99;
+}
+
+.pbx-post-empty {
+    background: #fff;
+    border: 1px solid #dce5f2;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.pbx-post-empty h2 {
+    margin: 0 0 8px;
+}
+
+.pbx-post-empty p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.pbx-single-article {
+    background: #fff;
+    border: 1px solid #dce5f2;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(20, 33, 61, 0.06);
+}
+
+.pbx-single-thumb {
+    max-height: 420px;
+    overflow: hidden;
+}
+
+.pbx-single-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pbx-single-content {
+    padding: 18px;
+}
+
+.pbx-single-content p,
+.pbx-single-content li {
+    font-size: 15px;
+    color: #384d6e;
+    line-height: 1.7;
+}
+
+.pbx-single-content a {
+    color: #5c3d99;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.pbx-single-content h2,
+.pbx-single-content h3,
+.pbx-single-content h4 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.pbx-single-content ul,
+.pbx-single-content ol {
+    margin: 10px 0 12px 18px;
+}
+
+.pbx-single-content ul {
+    list-style: disc;
+}
+
+.pbx-single-content ol {
+    list-style: decimal;
+}
+
+.pbx-single-content blockquote {
+    border-left: 4px solid #d8def5;
+    margin: 14px 0;
+    padding: 8px 12px;
+    background: #f7f9ff;
+    border-radius: 0 8px 8px 0;
+    color: #4b5b74;
+}
+
+.pbx-single-content img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+.pbx-single-footer {
+    border-top: 1px solid #e3e9f4;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pbx-single-cats a {
+    display: inline-block;
+    border: 1px solid #d6deed;
+    border-radius: 999px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #304560;
+    margin-right: 6px;
+}
+
+@media (min-width: 760px) {
+    .pbx-blog-container {
+        width: min(1740px, 100% - 48px);
+    }
+
+    .pbx-blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pbx-post-link {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .pbx-post-thumb {
+        height: 100%;
+        min-height: 100%;
+    }
+
+    .pbx-blog-hero p,
+    .pbx-blog-shell p,
+    .pbx-single-shell p,
+    .pbx-blog-shell li,
+    .pbx-single-shell li {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1040px) {
+
+    .pbx-blog-container {
+        width: min(1840px, 100% - 64px);
+    }
+
+    .pbx-blog-layout,
+    .pbx-single-layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        align-items: start;
+    }
+
+    .pbx-blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .pbx-blog-aside {
+        position: sticky;
+        top: 88px;
+    }
+}
+
+@media (min-width: 1420px) {
+    .pbx-blog-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .pbx-post-link {
+        grid-template-columns: 1fr;
+    }
+
+    .pbx-post-thumb {
+        min-height: 220px;
+    }
+}

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -37,7 +37,7 @@
       min-height: 210px;
       border: 1px solid #d7e0f0;
       position: relative;
-      background: url('images/9-1536x1152.webp') center/cover no-repeat;
+      background: url('wp-content/uploads/2026/05/shop_banner.png') center/cover no-repeat;
       display: grid;
       align-items: end;
     }
@@ -423,7 +423,7 @@
         <a href="book-unit.html">Reserve Unit</a>
         <a href="store.html">Shop Now</a>
         <a href="packing-moving.html">Packing & Moving</a>
-        <a href="about.html">Community</a>
+        <a href="/blog/">Community</a>
         <a href="about.html">Contact</a>
       </div>
       <a href="store.html" class="nav-cart" aria-label="Open cart">
@@ -448,7 +448,7 @@
     <a href="book-unit.html">Reserve Unit</a>
     <a href="store.html">Shop Now</a>
     <a href="packing-moving.html">Packing &amp; Moving</a>
-    <a href="about.html">Community</a>
+    <a href="/blog/">Community</a>
     <a href="about.html">Contact</a>
     <div class="mobile-menu-cta">
       <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
@@ -460,7 +460,7 @@
 
   <section class="shop-hero">
     <div class="container">
-      <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span> Store</nav>
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>�</span> Store</nav>
       <div class="shop-shell">
         <div>
           <p class="label mb-8">PurpleBox Supplies</p>
@@ -583,7 +583,7 @@
               <li><a href="book-unit.html">Book Unit</a></li>
               <li><a href="store.html">Shop Now</a></li>
               <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
-              <li><a href="about.html">Community</a></li>
+              <li><a href="/blog/">Community</a></li>
               <li><a href="about.html">About</a></li>
             </ul>
           </nav>
@@ -594,7 +594,7 @@
               <li><a href="book-unit.html">Book Unit</a></li>
               <li><a href="store.html">Shop Now</a></li>
               <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
-              <li><a href="about.html">Community</a></li>
+              <li><a href="/blog/">Community</a></li>
               <li><a href="about.html">About</a></li>
             </ul>
           </nav>
@@ -663,7 +663,7 @@
       </div>
     </div>
   </footer>
-  <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">💬</a>
+  <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">??</a>
   <div class="mobile-cta">
     <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
       rel="noopener noreferrer">WhatsApp</a>
@@ -672,7 +672,7 @@
 
   <script>
     (function () {
-      /* ─── PRODUCTS ─── */
+      /* --- PRODUCTS --- */
       var PRODUCTS = [
         { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 x 30 x 30 cm', price: 'AED 8', image: 'images/bubble-box-small.jpg' },
         { id: 'md', cat: 'Boxes', name: 'Medium Box', spec: '50 x 40 x 40 cm', price: 'AED 12', tag: 'Bestseller', image: 'images/bubble-box-medium.jpg' },
@@ -693,13 +693,13 @@
         { id: 'seal', cat: 'Locks', name: 'Security Seals', spec: 'Pack of 10', price: 'AED 12' }
       ];
 
-      /* ─── STATE ─── */
+      /* --- STATE --- */
       var STORE_CONFIG = window.PBXStoreConfig || {};
       var WOO_ENABLED = !!STORE_CONFIG.wooEnabled;
       var state = { cat: 'All', cart: loadCart() };
       var wooMeta = { count: 0, subtotalLabel: 'AED 0', subtotalNum: 0 };
 
-      /* ─── DOM REFS ─── */
+      /* --- DOM REFS --- */
       var grid = document.getElementById('shopGrid');
       var filterWrap = document.getElementById('shopFilters');
       var cartItems = document.getElementById('cartItems');
@@ -709,7 +709,7 @@
       var checkoutProceed = document.getElementById('checkoutProceed');
       var shopItemCount = document.getElementById('shopItemCount');
 
-      /* ─── HELPERS ─── */
+      /* --- HELPERS --- */
       function parsePrice(v) {
         var raw = String(v || '');
         var tmp = document.createElement('textarea');
@@ -831,7 +831,7 @@
         return chain.then(function () { return true; });
       }
 
-      /* ─── CART PERSISTENCE ─── */
+      /* --- CART PERSISTENCE --- */
       function loadCart() {
         try {
           var data = JSON.parse(localStorage.getItem('pbCartItems') || '[]');
@@ -848,7 +848,7 @@
         localStorage.setItem('pbCartCount', String(count));
       }
 
-      /* ─── HEADER BADGE SYNC ─── */
+      /* --- HEADER BADGE SYNC --- */
       function syncHeaderBadge() {
         var count = WOO_ENABLED ? wooMeta.count : state.cart.reduce(function (t, x) { return t + x.qty; }, 0);
         var badge = document.getElementById('shopCartBadge');
@@ -863,7 +863,7 @@
         setTimeout(syncHeaderBadge, 600);
       }
 
-      /* ─── FILTERS ─── */
+      /* --- FILTERS --- */
       function categories() {
         return ['All'].concat(Array.from(new Set(PRODUCTS.map(function (p) { return p.cat; }))));
       }
@@ -873,7 +873,7 @@
         }).join('');
       }
 
-      /* ─── PRODUCT GRID ─── */
+      /* --- PRODUCT GRID --- */
       function renderGrid() {
         var list = PRODUCTS.filter(function (p) { return state.cat === 'All' || p.cat === state.cat; });
         grid.innerHTML = list.map(function (item) {
@@ -897,7 +897,7 @@
         }).join('');
       }
 
-      /* ─── CART MUTATIONS ─── */
+      /* --- CART MUTATIONS --- */
       function upsertCart(item, qty) {
         if (WOO_ENABLED && isWooProductId(item.id)) {
           var productId = extractWooProductId(item.id);
@@ -950,7 +950,7 @@
         return state.cart.reduce(function (s, i) { return s + parsePrice(i.price) * i.qty; }, 0);
       }
 
-      /* ─── RENDER CART ─── */
+      /* --- RENDER CART --- */
       function renderCart() {
         var count = WOO_ENABLED ? wooMeta.count : state.cart.reduce(function (t, x) { return t + x.qty; }, 0);
         shopItemCount.textContent = String(count);
@@ -989,7 +989,7 @@
         window.location.href = checkoutUrl;
       }
 
-      /* ─── EVENT LISTENERS ─── */
+      /* --- EVENT LISTENERS --- */
       filterWrap.addEventListener('click', function (e) {
         var chip = e.target.closest('[data-cat]');
         if (!chip) return;
@@ -1006,7 +1006,7 @@
         var product = PRODUCTS.find(function (p) { return p.id === id; });
         if (!product) return;
         upsertCart(product, Math.max(1, qty));
-        btn.textContent = 'Added ✓';
+        btn.textContent = 'Added ?';
         btn.style.background = '#059669';
         setTimeout(function () { btn.textContent = 'Add to cart'; btn.style.background = ''; }, 800);
       });
@@ -1036,7 +1036,7 @@
 
       checkoutProceed.addEventListener('click', proceedToCheckout);
 
-      /* ─── INIT ─── */
+      /* --- INIT --- */
       renderFilters();
       renderGrid();
       renderCart();

@@ -1,3 +1,8 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+?>
 <footer class="pbx-footer-shell" aria-label="Footer">
   <div class="container">
     <div class="pbx-footer">
@@ -65,22 +70,22 @@
         <nav aria-label="Main menu links">
           <p class="pbx-eyebrow">Menu</p>
           <ul>
-            <li><a href="book-unit.html">Book Unit</a></li>
-            <li><a href="store.html">Shop Now</a></li>
-            <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
-            <li><a href="/blog/">Community</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="<?php echo esc_url(home_url('/book-unit.html')); ?>">Book Unit</a></li>
+            <li><a href="<?php echo esc_url(home_url('/store.html')); ?>">Shop Now</a></li>
+            <li><a href="<?php echo esc_url(home_url('/packing-moving.html')); ?>">Packing &amp; Moving</a></li>
+            <li><a href="<?php echo esc_url(home_url('/blog/')); ?>">Community</a></li>
+            <li><a href="<?php echo esc_url(home_url('/about.html')); ?>">About</a></li>
           </ul>
         </nav>
 
         <nav aria-label="Main menu quick links">
           <p class="pbx-eyebrow">Quick Links</p>
           <ul>
-            <li><a href="book-unit.html">Book Unit</a></li>
-            <li><a href="store.html">Shop Now</a></li>
-            <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
-            <li><a href="/blog/">Community</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="<?php echo esc_url(home_url('/book-unit.html')); ?>">Book Unit</a></li>
+            <li><a href="<?php echo esc_url(home_url('/store.html')); ?>">Shop Now</a></li>
+            <li><a href="<?php echo esc_url(home_url('/packing-moving.html')); ?>">Packing &amp; Moving</a></li>
+            <li><a href="<?php echo esc_url(home_url('/blog/')); ?>">Community</a></li>
+            <li><a href="<?php echo esc_url(home_url('/about.html')); ?>">About</a></li>
           </ul>
         </nav>
       </div>
@@ -137,7 +142,7 @@
       <div class="pbx-legal">
         <span>&copy; 2026 Short Term Storage L.L.C.</span>
         <div class="pbx-legal-links">
-          <a href="privacy.html">Privacy</a>
+          <a href="<?php echo esc_url(home_url('/privacy.html')); ?>">Privacy</a>
           <span aria-hidden="true">&middot;</span>
           <a href="#">Terms</a>
         </div>
@@ -145,3 +150,11 @@
     </div>
   </div>
 </footer>
+<a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">💬</a>
+<div class="mobile-cta">
+  <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  <a href="<?php echo esc_url(home_url('/reserve-step-1.html')); ?>" class="btn btn-primary btn-full">Reserve</a>
+</div>
+<?php wp_footer(); ?>
+</body>
+</html>

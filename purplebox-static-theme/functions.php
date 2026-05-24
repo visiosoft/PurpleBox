@@ -9,6 +9,10 @@ function purplebox_static_resolve_slug() {
         return 'index';
     }
 
+    if (function_exists('get_query_var') && (int) get_query_var('purplebox_static_reserve_step_3') === 1) {
+        return 'reserve-step-3';
+    }
+
     global $wp;
 
     $slug = '';
@@ -28,6 +32,11 @@ function purplebox_static_resolve_slug() {
         $slug = substr($slug, 0, -5);
     }
 
+    // Normalize a common typo seen in inbound links.
+    if ($slug === 'reserve.-step-3') {
+        $slug = 'reserve-step-3';
+    }
+
     return trim($slug, '/');
 }
 
@@ -36,6 +45,9 @@ function purplebox_static_resolve_slug() {
  */
 function purplebox_static_register_index_rewrite() {
     add_rewrite_rule('^index\.html?$', 'index.php?purplebox_static_index=1', 'top');
+    add_rewrite_rule('^reserve-step-3\.html?$', 'index.php?purplebox_static_reserve_step_3=1', 'top');
+    add_rewrite_rule('^reserve-step-3/?$', 'index.php?purplebox_static_reserve_step_3=1', 'top');
+    add_rewrite_rule('^reserve\.\-step\-3/?$', 'index.php?purplebox_static_reserve_step_3=1', 'top');
 }
 
 /**
@@ -43,6 +55,7 @@ function purplebox_static_register_index_rewrite() {
  */
 function purplebox_static_register_query_vars($vars) {
     $vars[] = 'purplebox_static_index';
+    $vars[] = 'purplebox_static_reserve_step_3';
     return $vars;
 }
 
@@ -53,7 +66,13 @@ function purplebox_static_preserve_index_html_canonical($redirect_url, $requeste
     $path = parse_url((string) $requested_url, PHP_URL_PATH);
     if (is_string($path)) {
         $trimmed = strtolower(trim($path, '/'));
-        if ($trimmed === 'index.html' || $trimmed === 'index.php') {
+        if (
+            $trimmed === 'index.html' ||
+            $trimmed === 'index.php' ||
+            $trimmed === 'reserve-step-3.html' ||
+            $trimmed === 'reserve-step-3' ||
+            $trimmed === 'reserve.-step-3'
+        ) {
             return false;
         }
     }
@@ -119,6 +138,89 @@ add_filter('redirect_canonical', 'purplebox_static_preserve_index_html_canonical
 add_action('after_switch_theme', 'purplebox_static_setup_front_page_on_theme_switch');
 add_action('init', 'purplebox_static_maybe_setup_front_page');
 add_action('init', 'purplebox_static_maybe_flush_rewrites', 20);
+
+/**
+ * Enqueue shared assets for native WordPress templates (home/single/archive/page).
+ */
+function purplebox_static_enqueue_theme_assets() {
+    $theme_uri = get_template_directory_uri();
+
+    wp_enqueue_style(
+        'purplebox-shared',
+        $theme_uri . '/css/shared.css',
+        [],
+        '1.0.0'
+    );
+
+    wp_enqueue_style(
+        'purplebox-layout-template',
+        $theme_uri . '/css/layout-template.css',
+        ['purplebox-shared'],
+        '1.0.0'
+    );
+
+    wp_enqueue_style(
+        'purplebox-theme',
+        $theme_uri . '/style.css',
+        ['purplebox-layout-template'],
+        '1.0.0'
+    );
+
+    if (is_home() || is_single() || is_archive() || is_search() || is_page('blog') || is_page_template('template-blog.php')) {
+        wp_enqueue_style(
+            'purplebox-blog',
+            $theme_uri . '/css/blog.css',
+            ['purplebox-theme'],
+            '1.0.0'
+        );
+    }
+
+    wp_enqueue_script(
+        'purplebox-layout-loader',
+        $theme_uri . '/templates/layout-loader.js',
+        [],
+        '1.0.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'purplebox_static_enqueue_theme_assets');
+
+/**
+ * Ensure a Blog page exists and is configured as the posts page.
+ */
+function purplebox_static_maybe_setup_posts_page() {
+    if (get_option('purplebox_static_posts_page_initialized') === '1') {
+        return;
+    }
+
+    $posts_page_id = (int) get_option('page_for_posts');
+    if ($posts_page_id > 0 && get_post_status($posts_page_id)) {
+        update_option('purplebox_static_posts_page_initialized', '1', false);
+        return;
+    }
+
+    $blog_page = get_page_by_path('blog', OBJECT, 'page');
+    if (!$blog_page) {
+        $blog_page_id = wp_insert_post([
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => 'Blog',
+            'post_name' => 'blog',
+            'post_content' => '',
+        ]);
+
+        if (!is_wp_error($blog_page_id) && (int) $blog_page_id > 0) {
+            $blog_page = get_post((int) $blog_page_id);
+        }
+    }
+
+    if ($blog_page && isset($blog_page->ID)) {
+        update_option('page_for_posts', (int) $blog_page->ID);
+    }
+
+    update_option('purplebox_static_posts_page_initialized', '1', false);
+}
+add_action('init', 'purplebox_static_maybe_setup_posts_page', 21);
 
 /**
  * Convert relative local asset paths to absolute theme URLs.
