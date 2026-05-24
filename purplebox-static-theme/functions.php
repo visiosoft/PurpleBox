@@ -5,6 +5,10 @@
  * Resolve a request path into a static page slug.
  */
 function purplebox_static_resolve_slug() {
+    if (function_exists('get_query_var') && (int) get_query_var('purplebox_static_index') === 1) {
+        return 'index';
+    }
+
     global $wp;
 
     $slug = '';
@@ -28,19 +32,101 @@ function purplebox_static_resolve_slug() {
 }
 
 /**
+ * Register /index.html alias so it always resolves through WordPress.
+ */
+function purplebox_static_register_index_rewrite() {
+    add_rewrite_rule('^index\.html?$', 'index.php?purplebox_static_index=1', 'top');
+}
+
+/**
+ * Allow custom query var used by index.html rewrite.
+ */
+function purplebox_static_register_query_vars($vars) {
+    $vars[] = 'purplebox_static_index';
+    return $vars;
+}
+
+/**
+ * Prevent WordPress canonical redirects from rewriting /index.html.
+ */
+function purplebox_static_preserve_index_html_canonical($redirect_url, $requested_url) {
+    $path = parse_url((string) $requested_url, PHP_URL_PATH);
+    if (is_string($path)) {
+        $trimmed = strtolower(trim($path, '/'));
+        if ($trimmed === 'index.html' || $trimmed === 'index.php') {
+            return false;
+        }
+    }
+
+    return $redirect_url;
+}
+
+/**
+ * Ensure a Home page exists in wp-admin and assign it as the front page.
+ */
+function purplebox_static_setup_front_page_on_theme_switch() {
+    $home_page = get_page_by_path('home', OBJECT, 'page');
+
+    if (!$home_page) {
+        $page_id = wp_insert_post([
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => 'Home',
+            'post_name' => 'home',
+            'post_content' => '',
+        ]);
+
+        if (!is_wp_error($page_id) && (int) $page_id > 0) {
+            $home_page = get_post((int) $page_id);
+        }
+    }
+
+    if ($home_page && isset($home_page->ID)) {
+        update_option('show_on_front', 'page');
+        update_option('page_on_front', (int) $home_page->ID);
+    }
+
+    flush_rewrite_rules(false);
+}
+
+/**
+ * Backfill front-page setup for sites already using the theme.
+ */
+function purplebox_static_maybe_setup_front_page() {
+    if (get_option('purplebox_static_front_page_initialized') === '1') {
+        return;
+    }
+
+    purplebox_static_setup_front_page_on_theme_switch();
+    update_option('purplebox_static_front_page_initialized', '1', false);
+}
+
+/**
+ * Flush rewrite rules once for existing installs to activate /index.html alias.
+ */
+function purplebox_static_maybe_flush_rewrites() {
+    if (get_option('purplebox_static_rewrites_initialized') === '1') {
+        return;
+    }
+
+    flush_rewrite_rules(false);
+    update_option('purplebox_static_rewrites_initialized', '1', false);
+}
+
+add_action('init', 'purplebox_static_register_index_rewrite', 9);
+add_filter('query_vars', 'purplebox_static_register_query_vars');
+add_filter('redirect_canonical', 'purplebox_static_preserve_index_html_canonical', 10, 2);
+add_action('after_switch_theme', 'purplebox_static_setup_front_page_on_theme_switch');
+add_action('init', 'purplebox_static_maybe_setup_front_page');
+add_action('init', 'purplebox_static_maybe_flush_rewrites', 20);
+
+/**
  * Convert relative local asset paths to absolute theme URLs.
  */
 function purplebox_static_rewrite_asset_urls($html) {
     $theme_uri = rtrim(get_template_directory_uri(), '/');
 
-    // Optional override in wp-config.php:
-    // define('PURPLEBOX_STATIC_IMAGES_BASE_URL', 'https://your-site.com/wp-content/uploads/2026/05');
-    $uploads = wp_upload_dir();
-    $dynamic_images_base_uri = !empty($uploads['baseurl'])
-        ? rtrim((string) $uploads['baseurl'], '/')
-        : rtrim((string) content_url('uploads'), '/');
-
-    $images_base_uri = 'https://baljobs.com/wp-content/uploads/2026/05';
+    $images_base_uri = 'https://purplebox.ae/wp-content/uploads/2026/05/';
 
     $image_ext_pattern = '/\.(png|jpe?g|webp|gif|svg|avif)(?:\?.*)?$/i';
 
@@ -569,6 +655,7 @@ function purplebox_static_inject_store_config($html) {
         'ajaxUrl' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('pbx_store_cart'),
         'wooEnabled' => (bool) (class_exists('WooCommerce') && function_exists('WC')),
+        'checkoutUrl' => function_exists('wc_get_checkout_url') ? wc_get_checkout_url() : home_url('/checkout/'),
     ];
 
     $script = '<script>window.PBXStoreConfig=' . wp_json_encode(
@@ -607,6 +694,16 @@ function purplebox_static_get_wc_cart_payload() {
         ];
     }
 
+    $currency_symbol = function_exists('get_woocommerce_currency_symbol')
+        ? (string) get_woocommerce_currency_symbol()
+        : 'AED';
+
+    $format_money = static function ($value) use ($currency_symbol) {
+        $num = (float) $value;
+        $text = rtrim(rtrim(number_format($num, 2, '.', ''), '0'), '.');
+        return trim($currency_symbol . ' ' . $text);
+    };
+
     $items = [];
     foreach (WC()->cart->get_cart() as $cart_key => $cart_item) {
         if (empty($cart_item['data']) || !is_a($cart_item['data'], 'WC_Product')) {
@@ -636,9 +733,9 @@ function purplebox_static_get_wc_cart_payload() {
             'category' => $cat,
             'qty' => $qty,
             'price_num' => $unit_price_num,
-            'price_label' => html_entity_decode(wc_price($unit_price_num), ENT_QUOTES, 'UTF-8'),
+            'price_label' => $format_money($unit_price_num),
             'line_total_num' => $line_total_num,
-            'line_total_label' => html_entity_decode(wc_price($line_total_num), ENT_QUOTES, 'UTF-8'),
+            'line_total_label' => $format_money($line_total_num),
         ];
     }
 
@@ -647,7 +744,7 @@ function purplebox_static_get_wc_cart_payload() {
     return [
         'items' => $items,
         'count' => (int) WC()->cart->get_cart_contents_count(),
-        'subtotal_label' => html_entity_decode(wc_price($subtotal_num), ENT_QUOTES, 'UTF-8'),
+        'subtotal_label' => $format_money($subtotal_num),
         'subtotal_num' => $subtotal_num,
     ];
 }

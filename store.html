@@ -420,11 +420,11 @@
             clip-rule="evenodd" />
         </svg><span class="call-label">+971 54 224 9946</span></a>
       <div class="nav-links">
-        <a href="book-unit.html">Book Unit</a>
+        <a href="book-unit.html">Reserve Unit</a>
         <a href="store.html">Shop Now</a>
         <a href="packing-moving.html">Packing & Moving</a>
         <a href="about.html">Community</a>
-        <a href="about.html">About</a>
+        <a href="about.html">Contact</a>
       </div>
       <a href="store.html" class="nav-cart" aria-label="Open cart">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -445,13 +445,11 @@
           d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
           clip-rule="evenodd" />
       </svg> +971 54 224 9946</a>
-    <a href="storage.html">Self Storage</a>
-    <a href="pricing.html">Unit Sizes &amp; Prices</a>
-    <a href="facility.html">Facility</a>
-    <a href="packing-moving.html">Moving</a>
-    <a href="about.html">About</a>
-    <a href="about.html">About Us</a>
-    <a href="faq.html">FAQ</a>
+    <a href="book-unit.html">Reserve Unit</a>
+    <a href="store.html">Shop Now</a>
+    <a href="packing-moving.html">Packing &amp; Moving</a>
+    <a href="about.html">Community</a>
+    <a href="about.html">Contact</a>
     <div class="mobile-menu-cta">
       <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
       <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
@@ -499,21 +497,14 @@
             <strong id="cartTotal">AED 0</strong>
           </div>
           <div class="shop-checkout">
-            <button id="checkoutStripe" class="shop-btn shop-btn-primary" type="button"
+            <button id="checkoutProceed" class="shop-btn shop-btn-primary" type="button"
               style="display:flex;align-items:center;justify-content:center;gap:6px;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <rect x="1" y="4" width="22" height="16" rx="2" />
                 <line x1="1" y1="10" x2="23" y2="10" />
               </svg>
-              Pay with Card
-            </button>
-            <button id="checkoutWa" class="shop-btn shop-btn-wa" type="button"
-              style="display:flex;align-items:center;justify-content:center;gap:6px;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
-              </svg>
-              Pay via WhatsApp
+              Proceed to Checkout
             </button>
             <button id="clearCart" class="shop-btn shop-btn-ghost" type="button">Clear cart</button>
           </div>
@@ -586,23 +577,25 @@
         </section>
 
         <div class="pbx-link-grid">
-          <nav aria-label="Storage links">
-            <p class="pbx-eyebrow">Storage</p>
+          <nav aria-label="Main menu links">
+            <p class="pbx-eyebrow">Menu</p>
             <ul>
-              <li><a href="storage.html">Personal</a></li>
-              <li><a href="business-storage.html">Business</a></li>
-              <li><a href="size-guide.html">Estimator</a></li>
-              <li><a href="moving-storage.html">Pickup service</a></li>
+              <li><a href="book-unit.html">Book Unit</a></li>
+              <li><a href="store.html">Shop Now</a></li>
+              <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
+              <li><a href="about.html">Community</a></li>
+              <li><a href="about.html">About</a></li>
             </ul>
           </nav>
 
-          <nav aria-label="Company links">
-            <p class="pbx-eyebrow">Company</p>
+          <nav aria-label="Main menu quick links">
+            <p class="pbx-eyebrow">Quick Links</p>
             <ul>
+              <li><a href="book-unit.html">Book Unit</a></li>
+              <li><a href="store.html">Shop Now</a></li>
+              <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
+              <li><a href="about.html">Community</a></li>
               <li><a href="about.html">About</a></li>
-              <li><a href="faq.html">Help centre</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="pricing.html">Insurance</a></li>
             </ul>
           </nav>
         </div>
@@ -616,7 +609,7 @@
             </svg>
             800-BOX-IT
           </a>
-          <a class="pbx-chip" href="mailto:hello@purplebox.ae">
+          <a class="pbx-chip" href="mailto:contact@purplebox.ae">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -677,41 +670,8 @@
     <a href="reserve-step-1.html" class="btn btn-primary btn-full">Reserve</a>
   </div>
 
-  <!-- Stripe.js — loads asynchronously -->
-  <script src="https://js.stripe.com/v3/"></script>
-
   <script>
     (function () {
-      /* ───────────────────────────────────────────────
-         STRIPE CONFIG
-         Replace with your live/test publishable key
-         and the Stripe Price IDs for each product.
-         ─────────────────────────────────────────────── */
-      var STRIPE_PK = 'pk_test_XXXXXXXXXXXXXXXXXXXXXXXX'; // ← your publishable key
-      var SUCCESS_URL = window.location.origin + '/store.html?checkout=success';
-      var CANCEL_URL = window.location.origin + '/store.html?checkout=cancelled';
-
-      /* Map each product id → Stripe Price ID (create in Stripe Dashboard → Products) */
-      var STRIPE_PRICES = {
-        sm: 'price_XXXXXXXXXXXXXXXX',  // Small Box AED 8
-        md: 'price_XXXXXXXXXXXXXXXX',  // Medium Box AED 12
-        lg: 'price_XXXXXXXXXXXXXXXX',  // Large Box AED 16
-        war: 'price_XXXXXXXXXXXXXXXX',  // Wardrobe Box AED 38
-        book: 'price_XXXXXXXXXXXXXXXX',  // Book Box AED 10
-        flat: 'price_XXXXXXXXXXXXXXXX',  // Picture Box AED 28
-        tape: 'price_XXXXXXXXXXXXXXXX',  // Packing Tape AED 9
-        disp: 'price_XXXXXXXXXXXXXXXX',  // Tape Dispenser AED 22
-        bub: 'price_XXXXXXXXXXXXXXXX',  // Bubble Wrap AED 25
-        paper: 'price_XXXXXXXXXXXXXXXX',  // Packing Paper AED 18
-        foam: 'price_XXXXXXXXXXXXXXXX',  // Foam Sheets AED 20
-        mark: 'price_XXXXXXXXXXXXXXXX',  // Marker Pen AED 5
-        label: 'price_XXXXXXXXXXXXXXXX',  // Fragile Labels AED 7
-        pad: 'price_XXXXXXXXXXXXXXXX',  // Padlock AED 35
-        disc: 'price_XXXXXXXXXXXXXXXX',  // Disc Lock AED 55
-        cab: 'price_XXXXXXXXXXXXXXXX',  // Cable Lock AED 28
-        seal: 'price_XXXXXXXXXXXXXXXX'   // Security Seals AED 12
-      };
-
       /* ─── PRODUCTS ─── */
       var PRODUCTS = [
         { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 x 30 x 30 cm', price: 'AED 8', image: 'images/bubble-box-small.jpg' },
@@ -746,13 +706,16 @@
       var cartTotal = document.getElementById('cartTotal');
       var emptyCart = document.getElementById('emptyCart');
       var clearCartBtn = document.getElementById('clearCart');
-      var checkoutWa = document.getElementById('checkoutWa');
-      var checkoutStripe = document.getElementById('checkoutStripe');
+      var checkoutProceed = document.getElementById('checkoutProceed');
       var shopItemCount = document.getElementById('shopItemCount');
 
       /* ─── HELPERS ─── */
       function parsePrice(v) {
-        return Number(String(v || '').replace(/[^0-9.]/g, '') || 0);
+        var raw = String(v || '');
+        var tmp = document.createElement('textarea');
+        tmp.innerHTML = raw;
+        var decoded = String(tmp.value || raw);
+        return Number(decoded.replace(/[^0-9.]/g, '') || 0);
       }
       function formatAed(n) { return 'AED ' + Math.round(n); }
 
@@ -823,6 +786,49 @@
         }).catch(function () {
           return false;
         });
+      }
+
+      function flushPendingWooAdds() {
+        if (!WOO_ENABLED) {
+          return Promise.resolve(false);
+        }
+
+        var raw = localStorage.getItem('pbPendingWooAdds') || '[]';
+        var pending;
+        try {
+          pending = JSON.parse(raw);
+          if (!Array.isArray(pending)) pending = [];
+        } catch (e) {
+          pending = [];
+        }
+
+        if (!pending.length) {
+          return Promise.resolve(false);
+        }
+
+        var valid = pending.filter(function (x) {
+          return x && Number(x.product_id) > 0 && Number(x.qty || 1) > 0;
+        });
+
+        localStorage.removeItem('pbPendingWooAdds');
+
+        if (!valid.length) {
+          return Promise.resolve(false);
+        }
+
+        var chain = Promise.resolve();
+        valid.forEach(function (x) {
+          chain = chain.then(function () {
+            return postStoreApi('pbx_store_cart_add', {
+              product_id: Number(x.product_id),
+              qty: Math.max(1, Number(x.qty || 1))
+            }).catch(function () {
+              return null;
+            });
+          });
+        });
+
+        return chain.then(function () { return true; });
       }
 
       /* ─── CART PERSISTENCE ─── */
@@ -952,12 +958,12 @@
         if (!state.cart.length) {
           cartItems.innerHTML = '';
           emptyCart.style.display = 'block';
-          checkoutStripe.disabled = true;
-          checkoutStripe.style.opacity = '0.5';
+          checkoutProceed.disabled = true;
+          checkoutProceed.style.opacity = '0.5';
         } else {
           emptyCart.style.display = 'none';
-          checkoutStripe.disabled = false;
-          checkoutStripe.style.opacity = '1';
+          checkoutProceed.disabled = false;
+          checkoutProceed.style.opacity = '1';
           cartItems.innerHTML = state.cart.map(function (item) {
             return '' +
               '<div class="cart-item" data-cart-id="' + item.id + '">' +
@@ -977,77 +983,10 @@
         cartTotal.textContent = WOO_ENABLED ? wooMeta.subtotalLabel : formatAed(cartSubtotal());
       }
 
-      /* ─── WHATSAPP MESSAGE ─── */
-      function buildCheckoutMessage() {
-        if (!state.cart.length) return 'Hello PurpleBox, I want to order packing supplies. Please share available products.';
-        var lines = ['Hello PurpleBox, I want to order these supplies:', ''];
-        state.cart.forEach(function (item, idx) {
-          lines.push((idx + 1) + '. ' + item.name + ' x' + item.qty + ' (' + item.price + ')');
-        });
-        lines.push('', 'Subtotal: ' + formatAed(cartSubtotal()), 'Please confirm availability and delivery/pickup options.');
-        return lines.join('\n');
-      }
-
-      /* ─── STRIPE CHECKOUT ─── */
-      function handleStripeCheckout() {
+      function proceedToCheckout() {
         if (!state.cart.length) return;
-
-        /* Build line_items array for Stripe Checkout */
-        var lineItems = [];
-        var allHavePriceIds = true;
-
-        state.cart.forEach(function (item) {
-          var priceId = STRIPE_PRICES[item.id];
-          if (!priceId || priceId.indexOf('XXXX') !== -1) {
-            allHavePriceIds = false;
-          } else {
-            lineItems.push({ price: priceId, quantity: item.qty });
-          }
-        });
-
-        if (!allHavePriceIds || STRIPE_PK.indexOf('XXXX') !== -1) {
-          /* Stripe not configured yet — show helpful message */
-          alert(
-            'Stripe checkout is being set up.\n\n' +
-            'Your order (' + formatAed(cartSubtotal()) + '):\n' +
-            state.cart.map(function (i) { return '• ' + i.name + ' x' + i.qty; }).join('\n') +
-            '\n\nPlease use "Pay via WhatsApp" for now, or contact us at hello@purplebox.ae'
-          );
-          return;
-        }
-
-        /* Redirect to Stripe Checkout */
-        var stripe = Stripe(STRIPE_PK);
-        stripe.redirectToCheckout({
-          mode: 'payment',
-          lineItems: lineItems,
-          successUrl: SUCCESS_URL,
-          cancelUrl: CANCEL_URL
-        }).then(function (result) {
-          if (result.error) {
-            alert('Payment error: ' + result.error.message);
-          }
-        });
-      }
-
-      /* ─── CHECKOUT SUCCESS HANDLER ─── */
-      function handleCheckoutReturn() {
-        var params = new URLSearchParams(window.location.search);
-        if (params.get('checkout') === 'success') {
-          /* Clear the cart after successful payment */
-          state.cart = [];
-          saveCart();
-          renderCart();
-          syncHeaderBadgeSoon();
-          /* Show success message */
-          var banner = document.createElement('div');
-          banner.style.cssText = 'background:#059669;color:#fff;padding:16px 20px;border-radius:12px;margin:0 0 16px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;';
-          banner.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Payment successful! Your supplies are being prepared. We\'ll contact you for pickup/delivery.';
-          var shopSection = document.querySelector('.shop-hero .container');
-          if (shopSection) shopSection.insertBefore(banner, shopSection.firstChild);
-          /* Clean URL */
-          window.history.replaceState({}, '', 'store.html');
-        }
+        var checkoutUrl = (STORE_CONFIG && STORE_CONFIG.checkoutUrl) ? STORE_CONFIG.checkoutUrl : '/checkout/';
+        window.location.href = checkoutUrl;
       }
 
       /* ─── EVENT LISTENERS ─── */
@@ -1095,20 +1034,16 @@
         saveCart(); renderCart(); syncHeaderBadgeSoon();
       });
 
-      checkoutWa.addEventListener('click', function () {
-        var text = encodeURIComponent(buildCheckoutMessage());
-        window.open('https://wa.me/971542249946?text=' + text, '_blank', 'noopener');
-      });
-
-      checkoutStripe.addEventListener('click', handleStripeCheckout);
+      checkoutProceed.addEventListener('click', proceedToCheckout);
 
       /* ─── INIT ─── */
       renderFilters();
       renderGrid();
       renderCart();
       syncHeaderBadgeSoon();
-      handleCheckoutReturn();
-      refreshWooCart();
+      flushPendingWooAdds().then(function () {
+        refreshWooCart();
+      });
     })();
   </script>
 
