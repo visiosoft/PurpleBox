@@ -144,7 +144,7 @@ if (!defined('ABSPATH')) {
         <div class="pbx-legal-links">
           <a href="<?php echo esc_url(home_url('/privacy.html')); ?>">Privacy</a>
           <span aria-hidden="true">&middot;</span>
-          <a href="#">Terms</a>
+          <a href="<?php echo esc_url(home_url('/terms.html')); ?>">Terms</a>
         </div>
       </div>
     </div>
