@@ -53,12 +53,15 @@
       --blue-lt: #eff6ff;
       --gold: #f59e0b;
       --gold-lt: #fef3c7;
-      --ink: #1f2937;
-      --ink-mid: #4b5563;
+      --ink: #0f172a;
+      --ink-mid: #334155;
       --ink-soft: #6b7280;
       --border: #e5e7eb;
       --white: #ffffff;
       --green: #25D366;
+      --shell: #f3f7fc;
+      --card-border: #dbe6f3;
+      --card-shadow: 0 22px 44px rgba(15, 23, 42, .08);
       --hero-btn-grad: linear-gradient(180deg, #ffffff 0%, #f8fbff 62%, #eef5ff 100%);
       --hero-btn-border: #bfdbfe;
       --hero-btn-text: #1e40af;
@@ -72,8 +75,8 @@
     body {
       font-family: var(--font);
       color: var(--ink);
-      background: var(--white);
-      line-height: 1.6;
+      background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 28%, #ffffff 100%);
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -88,18 +91,44 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 22px;
+    }
+
+    .units-section,
+    .pricing-section,
+    .lead-section,
+    .gallery-section,
+    .proof-section,
+    .location-section,
+    .faq-section {
+      padding: 34px 0;
+    }
+
+    .units-section .container,
+    .pricing-section .container,
+    .lead-section .container,
+    .gallery-section .container,
+    .proof-section .container,
+    .location-section .container,
+    .faq-section .container {
+      background: var(--white);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      padding: clamp(24px, 4vw, 44px);
     }
 
     /* ---- Header ---- */
     .lp-header {
-      background: var(--navy);
+      background: rgba(15, 27, 45, .9);
       padding: 14px 0;
       position: sticky;
       top: 0;
       z-index: 100;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
     }
 
     .lp-header .container {
@@ -159,7 +188,7 @@
         radial-gradient(circle at 88% 10%, rgba(125, 211, 252, .28), transparent 36%),
         linear-gradient(180deg, #ffffff 0%, #f8fbff 62%, #f2f7ff 100%);
       color: var(--ink);
-      padding: 52px 0 60px;
+      padding: 74px 0 82px;
       position: relative;
       overflow: hidden;
       border-bottom: 1px solid #e6edf7;
@@ -213,11 +242,12 @@
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5.5vw, 3rem);
+      font-size: clamp(2.2rem, 5.8vw, 4rem);
       font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 18px;
+      line-height: 1.04;
+      margin-bottom: 16px;
       letter-spacing: -0.02em;
+      max-width: 860px;
     }
 
     .hero h1 .accent {
@@ -225,10 +255,10 @@
     }
 
     .hero-desc {
-      font-size: 15px;
-      color: #475569;
-      margin-bottom: 28px;
-      max-width: 480px;
+      font-size: clamp(1rem, 1.7vw, 1.16rem);
+      color: #334155;
+      margin-bottom: 30px;
+      max-width: 720px;
       line-height: 1.7;
     }
 
@@ -254,24 +284,24 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      max-width: 680px;
+      max-width: 840px;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 12px;
     }
 
     .hero-sub li {
-      font-size: 14px;
+      font-size: 15px;
       color: #1e293b;
       line-height: 1.5;
-      padding: 10px 12px;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
       gap: 10px;
       border: 1px solid #dbe7f6;
-      border-radius: 999px;
+      border-radius: 14px;
       background: linear-gradient(135deg, #ffffff, #f5f9ff);
-      box-shadow: 0 8px 18px rgba(15, 23, 42, .08);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, .08);
       font-weight: 600;
     }
 
@@ -342,13 +372,14 @@
     /* ---- Lead form card (dark) ---- */
     .lead-card {
       background: var(--white);
-      border-radius: 18px;
-      padding: 28px 24px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+      border: 1px solid #d9e5f3;
+      border-radius: 22px;
+      padding: 30px 26px;
+      box-shadow: 0 18px 36px rgba(15, 23, 42, .12);
     }
 
     .lead-section {
-      padding: 0 0 64px;
+      padding: 30px 0;
     }
 
     .lead-section .lead-card {
@@ -357,7 +388,7 @@
     }
 
     .lead-card h3 {
-      font-size: 18px;
+      font-size: clamp(1.35rem, 2vw, 1.65rem);
       font-weight: 700;
       color: var(--ink);
       margin-bottom: 4px;
@@ -365,7 +396,7 @@
     }
 
     .lead-card .form-sub {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--ink-soft);
       text-align: center;
       margin-bottom: 20px;
@@ -527,23 +558,23 @@
 
     /* ---- Why Local Section ---- */
     .why-local {
-      padding: 60px 0;
+      padding: 74px 0;
       background: var(--white);
     }
 
     .why-local h2 {
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.45rem);
       font-weight: 800;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .why-local .section-sub {
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--ink-mid);
-      margin-bottom: 36px;
-      max-width: 520px;
+      margin-bottom: 40px;
+      max-width: 680px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -601,28 +632,26 @@
 
     /* ---- Facility Gallery ---- */
     .gallery-section {
-      padding: 56px 0;
-      padding: 34px 0;
-      background: #f8fafc;
+      background: #f8fbff;
     }
 
     .gallery-section h2 {
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.45rem);
       font-weight: 800;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .gallery-section .section-sub {
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--ink-mid);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     .gallery-grid {
       display: flex;
-      gap: 14px;
+      gap: 18px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
@@ -641,15 +670,15 @@
     }
 
     .gallery-item {
-      flex: 0 0 82%;
-      max-width: 82%;
-      border-radius: 16px;
+      flex: 0 0 78%;
+      max-width: 78%;
+      border-radius: 20px;
       overflow: hidden;
       background: #e2e8f0;
       aspect-ratio: 16 / 10;
       position: relative;
       scroll-snap-align: start;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, .14);
+      box-shadow: 0 18px 36px rgba(15, 23, 42, .16);
     }
 
     .gallery-item img {
@@ -672,36 +701,35 @@
 
     /* ---- Unit Sizes ---- */
     .units-section {
-      padding: 56px 0;
       background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
     }
 
     .units-section h2 {
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.45rem);
       font-weight: 800;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .units-section .section-sub {
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--ink-mid);
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
 
     .units-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 18px;
     }
 
     .unit-card {
       border: 1px solid #dbe5f2;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
       background: var(--white);
-      box-shadow: 0 10px 28px rgba(15, 23, 42, .08);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, .1);
       transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
       position: relative;
     }
@@ -831,31 +859,30 @@
 
     /* ---- Pricing Detail ---- */
     .pricing-section {
-      padding: 56px 0;
       background: #ffffff;
       border-top: 1px solid #e8edf5;
     }
 
     .pricing-section h2 {
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.45rem);
       font-weight: 800;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .pricing-section .section-sub {
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--ink-mid);
-      margin-bottom: 26px;
+      margin-bottom: 30px;
     }
 
     .pricing-panel {
       background: #f8fafc;
       border: 1px solid #dbe7f6;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, .08);
+      box-shadow: 0 16px 34px rgba(15, 23, 42, .1);
     }
 
     .pricing-table {
@@ -914,43 +941,41 @@
 
     /* ---- Social Proof ---- */
     .proof-section {
-      padding: 56px 0;
       background: #f8fafc;
     }
 
     /* ---- Location + Service Areas ---- */
     .location-section {
-      padding: 56px 0;
       background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
       border-top: 1px solid #e6edf7;
     }
 
     .location-section h2 {
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.45rem);
       font-weight: 800;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .location-section .section-sub {
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--ink-mid);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .location-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 20px;
     }
 
     .location-card {
       background: #ffffff;
       border: 1px solid #dbe7f6;
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, .1);
     }
 
     .location-card h3 {
@@ -1003,17 +1028,17 @@
     }
 
     .proof-section h2 {
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.45rem);
       font-weight: 800;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .proof-section .section-sub {
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--ink-mid);
-      margin-bottom: 32px;
+      margin-bottom: 34px;
     }
 
     .proof-badges {
@@ -1049,14 +1074,15 @@
     .review-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 16px;
     }
 
     .review-card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, .08);
     }
 
     .review-card .stars {
@@ -1067,10 +1093,10 @@
     }
 
     .review-card p {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--ink-mid);
       margin-bottom: 12px;
-      line-height: 1.65;
+      line-height: 1.75;
     }
 
     .review-card .author {
@@ -1085,29 +1111,29 @@
 
     /* ---- FAQ ---- */
     .faq-section {
-      padding: 56px 0;
       background: var(--white);
     }
 
     .faq-section h2 {
-      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.45rem);
       font-weight: 800;
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 34px;
     }
 
     .faq-list {
       max-width: 700px;
       margin: 0 auto;
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
 
     .faq-item {
-      background: #f9fafb;
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      background: #f8fbff;
+      border: 1px solid #dbe7f6;
+      border-radius: 14px;
       overflow: hidden;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, .06);
     }
 
     .faq-btn {
@@ -1115,13 +1141,13 @@
       border: 0;
       background: transparent;
       text-align: left;
-      padding: 16px 18px;
+      padding: 18px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--ink);
       font-family: var(--font);
@@ -1135,8 +1161,8 @@
 
     .faq-body {
       display: none;
-      padding: 0 18px 16px;
-      font-size: 13px;
+      padding: 0 20px 18px;
+      font-size: 14px;
       color: var(--ink-mid);
       line-height: 1.7;
     }
@@ -1152,7 +1178,7 @@
     /* ---- Final CTA ---- */
     .final-cta {
       background: var(--navy);
-      padding: 52px 0;
+      padding: 68px 0;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -1172,16 +1198,16 @@
 
     .final-cta h2 {
       color: #fff;
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-size: clamp(1.9rem, 4vw, 2.65rem);
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       position: relative;
     }
 
     .final-cta p {
       color: rgba(255, 255, 255, .7);
-      font-size: 15px;
-      margin-bottom: 28px;
+      font-size: 16px;
+      margin-bottom: 30px;
       position: relative;
     }
 
@@ -1216,8 +1242,8 @@
       background: #0a1120;
       color: rgba(255, 255, 255, .5);
       text-align: center;
-      padding: 28px 16px 24px;
-      font-size: 12px;
+      padding: 30px 16px 26px;
+      font-size: 13px;
     }
 
     .lp-footer a {
@@ -1294,8 +1320,8 @@
       }
 
       .gallery-item {
-        flex-basis: 48%;
-        max-width: 48%;
+        flex-basis: 46%;
+        max-width: 46%;
         aspect-ratio: 16 / 9;
       }
 
@@ -1313,6 +1339,10 @@
 
       .header-btn {
         display: inline-block;
+      }
+
+      .hero h1 {
+        max-width: 760px;
       }
 
       .mobile-sticky {
@@ -1343,7 +1373,18 @@
       }
 
       .hero {
-        padding: 36px 0 44px;
+        padding: 44px 0 52px;
+      }
+
+      .units-section .container,
+      .pricing-section .container,
+      .lead-section .container,
+      .gallery-section .container,
+      .proof-section .container,
+      .location-section .container,
+      .faq-section .container {
+        border-radius: 18px;
+        padding: 22px;
       }
 
       .form-row {
@@ -1394,7 +1435,8 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
-            20% Discount on First Month Booking
+            <strong>20% OFF First Month</strong> – Limited Time! <span style="color:#d97706; font-weight:600;">Hurry,
+              units filling fast.</span>
           </div>
           <h1>Your <span class="accent">Local</span> Self-Storage Facility in Al Quoz Dubai.</h1>
           <p class="hero-desc">Looking for secure self storage Dubai residents can trust? PurpleBox offers private,
@@ -1445,11 +1487,12 @@
     </div>
   </section>
 
-  <!-- Unit Sizes -->
+  <!-- Unit Sizes (No Pricing) -->
   <section class="units-section">
     <div class="container">
-      <h2>More than 300+ Private Storage Units in Dubai </h2>
-      <p class="section-sub">From a few boxes to an entire villa. Pick the size that fits your life.</p>
+      <h2>More than 300+ Private Storage Units in Dubai</h2>
+      <p class="section-sub">From a few boxes to an entire villa. <strong>20% OFF your first month – only a few units
+          left at this rate!</strong> Fill the form below to get your custom quote in 30 seconds.</p>
       <div class="units-grid">
         <div class="unit-card" data-size-value="small-25">
           <div class="unit-top">
@@ -1461,9 +1504,9 @@
           </div>
           <div class="unit-bottom">
             <div class="unit-fits">Boxes, seasonal gear, sports equipment</div>
-            <div class="unit-price">From AED 199<span>/month</span></div>
-            <div class="unit-price-note">VAT included. No long-term contract.</div>
-            <a href="#leadForm" class="unit-cta" data-size-value="small-25">Reserve Now</a>
+            <div style="color:#d97706; font-size:13px; font-weight:600; margin-bottom:6px;">20% OFF – Limited units!
+            </div>
+            <a href="#leadForm" class="unit-cta" data-size-value="small-25">Get A Quote</a>
           </div>
         </div>
         <div class="unit-card" data-size-value="average-50">
@@ -1476,9 +1519,9 @@
           </div>
           <div class="unit-bottom">
             <div class="unit-fits">Studio or 1-bedroom apartment</div>
-            <div class="unit-price">From AED 349<span>/month</span></div>
-            <div class="unit-price-note">VAT included. Flexible monthly billing.</div>
-            <a href="#leadForm" class="unit-cta" data-size-value="average-50">Reserve Now</a>
+            <div style="color:#d97706; font-size:13px; font-weight:600; margin-bottom:6px;">20% OFF – Limited units!
+            </div>
+            <a href="#leadForm" class="unit-cta" data-size-value="average-50">Get A Quote</a>
           </div>
         </div>
         <div class="unit-card" data-size-value="large-100">
@@ -1491,9 +1534,9 @@
           </div>
           <div class="unit-bottom">
             <div class="unit-fits">2-bedroom apartment or small office</div>
-            <div class="unit-price">From AED 599<span>/month</span></div>
-            <div class="unit-price-note">VAT included. Upgrade anytime.</div>
-            <a href="#leadForm" class="unit-cta" data-size-value="large-100">Reserve Now</a>
+            <div style="color:#d97706; font-size:13px; font-weight:600; margin-bottom:6px;">20% OFF – Limited units!
+            </div>
+            <a href="#leadForm" class="unit-cta" data-size-value="large-100">Get A Quote</a>
           </div>
         </div>
         <div class="unit-card" data-size-value="xxl-200">
@@ -1506,75 +1549,25 @@
           </div>
           <div class="unit-bottom">
             <div class="unit-fits">Villa furniture, full business inventory</div>
-            <div class="unit-price">From AED 999<span>/month</span></div>
-            <div class="unit-price-note">Custom offers for long-term business storage.</div>
-            <a href="#leadForm" class="unit-cta" data-size-value="xxl-200">Reserve Now</a>
+            <div style="color:#d97706; font-size:13px; font-weight:600; margin-bottom:6px;">20% OFF – Limited units!
+            </div>
+            <a href="#leadForm" class="unit-cta" data-size-value="xxl-200">Get A Quote</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Transparent Pricing -->
-  <section class="pricing-section" aria-label="Self storage pricing in Dubai">
-    <div class="container">
-      <h2>Self Storage Dubai Pricing Guide</h2>
-      <p class="section-sub">Estimated monthly rates by unit size so you can compare options quickly before booking.</p>
-      <div class="pricing-panel">
-        <table class="pricing-table">
-          <thead>
-            <tr>
-              <th>Unit Size</th>
-              <th>Best For</th>
-              <th>Monthly Rate</th>
-              <th>Access</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>25 sqft</strong></td>
-              <td>Boxes, luggage, seasonal items</td>
-              <td>From AED 199</td>
-              <td>24/7 with secure entry</td>
-            </tr>
-            <tr>
-              <td><strong>50 sqft</strong></td>
-              <td>Studio or 1-bedroom apartment contents</td>
-              <td>From AED 349</td>
-              <td>24/7 with CCTV monitoring</td>
-            </tr>
-            <tr>
-              <td><strong>100 sqft</strong></td>
-              <td>2-bedroom apartment or office setup</td>
-              <td>From AED 599</td>
-              <td>24/7 with loading support</td>
-            </tr>
-            <tr>
-              <td><strong>200 sqft</strong></td>
-              <td>Villa furniture or full business inventory</td>
-              <td>From AED 999</td>
-              <td>Custom business access plans</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="pricing-disclaimer">Rates vary by availability, floor level, and promotions. Contact us for an exact
-          quote and move-in date confirmation.</p>
-      </div>
-      <div class="inclusions" aria-label="What is included">
-        <div class="inclusion-item">Climate-controlled facility all year</div>
-        <div class="inclusion-item">No annual lock-in contracts</div>
-        <div class="inclusion-item">Packing and moving support available</div>
-      </div>
-    </div>
-  </section>
+  <!-- Transparent Pricing section removed as per request -->
 
-  <!-- Lead Form -->
+  <!-- Lead Form (Primary CTA) -->
   <section class="lead-section">
     <div class="container">
       <div class="lead-card" id="leadForm">
-        <h3>Reserve Your Local Storage Unit</h3>
-        <p class="form-sub">Quick form — your request will be emailed to our team and we'll contact you within 15
-          minutes.</p>
+        <h3>30 Second to Get a Storage Quote</h3>
+        <p class="form-sub"><strong style="color:#d97706;">Hurry! Limited units with 20% OFF for first month.</strong>
+          Fill out this quick form — your request will be emailed to our team and we'll contact you within 15 minutes
+          with your custom quote.</p>
         <form id="reserveForm" action="#" onsubmit="return handleSubmit(event)">
           <div class="form-row">
             <div class="form-group">
@@ -1590,23 +1583,14 @@
             <label for="size">What size do you need?</label>
             <select id="size" name="size">
               <option value="">Not sure yet — help me choose</option>
-
               <option value="locker">Locker — documents & essentials</option>
-
               <option value="lite-10">Lite (10 sqft) — suitcases & seasonal items</option>
-
               <option value="small-25">Compact (25 sqft) — boxes & small furniture</option>
-
               <option value="small-35">Studio (35 sqft) — apartment essentials</option>
-
               <option value="average-50">Smart (50 sqft) — 1-room storage</option>
-
               <option value="medium-75">Family (75 sqft) — medium apartment</option>
-
               <option value="large-100">Home (100 sqft) — 1-bed apartment</option>
-
               <option value="xlarge-150">Villa (150 sqft) — 2-bed apartment</option>
-
               <option value="xxl-200">Business XXL (200 sqft) — villa / office inventory</option>
             </select>
           </div>
@@ -1619,7 +1603,7 @@
               <option value="planning">Just planning ahead</option>
             </select>
           </div>
-          <button type="submit" class="form-submit">Reserve Now →</button>
+          <button type="submit" class="form-submit">Get A Quote →</button>
         </form>
         <div id="formActions">
           <div class="form-trust-row">
@@ -1640,8 +1624,7 @@
           <div class="lead-success-badge">✓</div>
           <h4>Request received</h4>
           <p>Your request has been prepared for contact@purplebox.ae. Our representative will contact you within the
-            next
-            15 minutes to confirm your storage needs and recommend the best unit.</p>
+            next 15 minutes to confirm your storage needs and recommend the best unit.</p>
           <p class="lead-success-note">Need help right away? Start a live WhatsApp chat or call us now.</p>
           <div class="lead-success-actions">
             <a href="tel:+971542249946" class="lead-success-action call-now">Call Now</a>
@@ -1661,15 +1644,18 @@
       <p class="section-sub">Purpose-built for premium storage. Clean, secure, and easy to access.</p>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="/images/01.png" alt="PurpleBox storage corridor" loading="lazy" />
+          <img src="http://purplebox.ae/wp-content/uploads/2026/05/unit1.webp" alt="PurpleBox storage corridor"
+            loading="lazy" />
           <span class="gallery-label">24/7 Free Access</span>
         </div>
         <div class="gallery-item">
-          <img src="/images/02.png" alt="Loading area access" loading="lazy" />
+          <img src="http://purplebox.ae/wp-content/uploads/2026/05/unit2.webp" alt="Loading area access"
+            loading="lazy" />
           <span class="gallery-label">24/7 CCTV Monitoring</span>
         </div>
         <div class="gallery-item">
-          <img src="/images/03.png" alt="Climate controlled storage units" loading="lazy" />
+          <img src="http://purplebox.ae/wp-content/uploads/2026/05/unit3.webp" alt="Climate controlled storage units"
+            loading="lazy" />
           <span class="gallery-label">Air-conditioned units</span>
         </div>
 
@@ -1715,7 +1701,8 @@
         </div>
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p>"Hello everybody. Due to the situation in the Middle East, my family and I needed to move to another country
+          <p>"Hello everybody. Due to the situation in the Middle East, my family and I needed to move to another
+            country
             temporarily (I can work remotely). Within one week, I realized I needed a safe place to keep my belongings.
             I started searching storage companies in Google and found 4-5 options that I liked."</p>
           <div class="author">Oleksii Zubrilkin</div>
@@ -1835,7 +1822,7 @@
   <div class="mobile-sticky">
     <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20local%20storage" class="ms-wa" target="_blank"
       rel="noopener noreferrer">WhatsApp</a>
-    <a href="#leadForm" class="ms-quote">Reserve Now</a>
+    <a href="#leadForm" class="ms-quote"><span style="color:#fbbf24; font-weight:700;">20% OFF</span> – Get A Quote</a>
   </div>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56Z5JGR6" height="0" width="0"
@@ -1857,7 +1844,7 @@
           addressCountry: 'AE'
         },
         areaServed: ['Al Quoz', 'Business Bay', 'Downtown Dubai', 'Dubai Marina', 'Jumeirah'],
-        priceRange: 'AED 199 - AED 999 per month'
+        priceRange: 'AED 300 - AED 3000 per month'
       };
 
       var schemaScript = document.createElement('script');

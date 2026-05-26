@@ -155,7 +155,7 @@
             });
         }
 
-        const rent = Number((p.get('monthlyRent') || form.querySelector('input[name="monthlyRent"]').value || 499));
+        const rent = Number((p.get('monthlyRent') || form.querySelector('input[name="monthlyRent"]').value || 700));
         const discount = Math.round(rent * 0.2);
 
         function calc() {
@@ -247,9 +247,9 @@
             emirate: pick('emirate', 'Dubai'),
             storingFor: pick('storingFor', 'Personal'),
             moveInDate: pick('moveInDate', toYMD(addDays(7))),
-            unitSize: pick('unitSize', '75 sq ft (M)'),
+            unitSize: pick('unitSize', '35 sq ft (M)'),
             unitLabel: pick('unitLabel', 'SARA - M'),
-            monthlyRent: Number(pick('monthlyRent', 499)),
+            monthlyRent: Number(pick('monthlyRent', 700)),
             promoCode: pick('promoCode', 'FIRST20')
         };
 
