@@ -1,16 +1,80 @@
 (function () {
   /* ─── Template loader (for pages still using data-site-header / data-site-footer) ─── */
-  async function fetchTemplate(path) {
-    var resp = await fetch(path, { cache: 'no-store' });
-    if (!resp.ok) return '';
-    return await resp.text();
+  function fetchTemplateViaIframe(path) {
+    return new Promise(function (resolve) {
+      try {
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.setAttribute('aria-hidden', 'true');
+
+        var cleanedPath = String(path || '').replace(/^\/+/, '');
+        iframe.src = cleanedPath;
+
+        var done = false;
+        function finish(value) {
+          if (done) return;
+          done = true;
+          try { iframe.remove(); } catch (e) { }
+          resolve(value || '');
+        }
+
+        iframe.onload = function () {
+          try {
+            var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document);
+            finish(doc && doc.body ? doc.body.innerHTML : '');
+          } catch (e) {
+            finish('');
+          }
+        };
+
+        iframe.onerror = function () {
+          finish('');
+        };
+
+        document.body.appendChild(iframe);
+
+        setTimeout(function () {
+          finish('');
+        }, 2500);
+      } catch (e) {
+        resolve('');
+      }
+    });
+  }
+
+  async function fetchTemplate(pathOrPaths) {
+    var paths = Array.isArray(pathOrPaths) ? pathOrPaths : [pathOrPaths];
+
+    for (var i = 0; i < paths.length; i += 1) {
+      var path = paths[i];
+      if (!path) continue;
+
+      try {
+        var resp = await fetch(path, { cache: 'no-store' });
+        if (!resp.ok) continue;
+        return await resp.text();
+      } catch (e) {
+        // Try the next candidate path.
+      }
+
+      if (window.location && window.location.protocol === 'file:') {
+        var iframeHtml = await fetchTemplateViaIframe(path);
+        if (iframeHtml) {
+          return iframeHtml;
+        }
+      }
+    }
+
+    return '';
   }
 
   async function loadTemplate(selector, path) {
     var node = document.querySelector(selector);
     if (!node) return;
     try {
-      node.innerHTML = await fetchTemplate(path);
+      var html = await fetchTemplate([path, '/' + String(path || '').replace(/^\/+/, '')]);
+      if (!html) return;
+      node.innerHTML = html;
     } catch (e) {
       console.warn('Template load failed:', path, e);
     }
@@ -22,7 +86,7 @@
     if (!placeholder && !existingFooter) return;
 
     try {
-      var html = await fetchTemplate(path);
+      var html = await fetchTemplate([path, '/' + String(path || '').replace(/^\/+/, '')]);
       if (!html) return;
 
       if (placeholder) {
