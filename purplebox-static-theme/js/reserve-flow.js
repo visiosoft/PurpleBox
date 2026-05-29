@@ -32,6 +32,15 @@
         return y + '-' + m + '-' + day;
     }
 
+    function getRentalMonths(moveInDate, moveOutDate) {
+        if (!moveInDate || !moveOutDate) return 1;
+        const start = new Date(moveInDate + 'T00:00:00');
+        const end = new Date(moveOutDate + 'T00:00:00');
+        if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || end <= start) return 1;
+        const dayDiff = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+        return Math.max(1, Math.ceil(dayDiff / 30));
+    }
+
     function setupSegmented() {
         document.querySelectorAll('[data-segmented]').forEach(function (group) {
             const target = document.getElementById(group.getAttribute('data-target'));
@@ -83,32 +92,171 @@
 
     function fillFromQuery() {
         const p = getParams();
-        ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'unitLabel', 'unitSize', 'monthlyRent', 'promoCode'].forEach(function (id) {
-            const el = document.getElementById(id);
-            if (!el) return;
+        ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent', 'promoCode'].forEach(function (id) {
             const q = p.get(id);
-            if (q) el.value = q;
+            if (!q) return;
+
+            const byId = document.getElementById(id);
+            if (byId) byId.value = q;
+
+            document.querySelectorAll('[name="' + id + '"]').forEach(function (el) {
+                if (el && typeof el.value !== 'undefined') {
+                    el.value = q;
+                }
+            });
+        });
+    }
+
+    function getSelectedSizeLabel(unitLabel, unitSize) {
+        const fromLabel = String(unitLabel || '').match(/\b(XXL|XL|XS|SS|S|M|L)\b/i);
+        if (fromLabel) return fromLabel[1].toUpperCase();
+
+        const sizeText = String(unitSize || '').toLowerCase();
+        if (sizeText.includes('200')) return 'XXL';
+        if (sizeText.includes('150')) return 'XL';
+        if (sizeText.includes('100')) return 'L';
+        if (sizeText.includes('50')) return 'S';
+        if (sizeText.includes('35')) return 'M';
+        if (sizeText.includes('25')) return 'SS';
+        if (sizeText.includes('10')) return 'XS';
+        return 'M';
+    }
+
+    function syncStep1Summary() {
+        const monthlyRent = Number(
+            (document.getElementById('monthlyRent') && document.getElementById('monthlyRent').value) ||
+            (document.querySelector('input[name="monthlyRent"]') && document.querySelector('input[name="monthlyRent"]').value) ||
+            700
+        );
+        const unitLabel =
+            (document.getElementById('unitLabel') && document.getElementById('unitLabel').value) ||
+            (document.querySelector('input[name="unitLabel"]') && document.querySelector('input[name="unitLabel"]').value) ||
+            'SARA - M';
+        const unitSize =
+            (document.getElementById('unitSize') && document.getElementById('unitSize').value) ||
+            (document.querySelector('input[name="unitSize"]') && document.querySelector('input[name="unitSize"]').value) ||
+            '35 sq ft (M)';
+        const moveInDate =
+            (document.getElementById('moveInDate') && document.getElementById('moveInDate').value) ||
+            (Array.from(document.querySelectorAll('input[name="moveInDate"]')).map(function (el) { return el.value; }).find(Boolean)) ||
+            '';
+        const moveOutDate =
+            (document.getElementById('moveOutDate') && document.getElementById('moveOutDate').value) ||
+            (Array.from(document.querySelectorAll('input[name="moveOutDate"]')).map(function (el) { return el.value; }).find(Boolean)) ||
+            '';
+
+        const selectedLabel = getSelectedSizeLabel(unitLabel, unitSize);
+        const discount = Math.round(monthlyRent * 0.2);
+        const dueToday = monthlyRent - discount;
+        const rentalMonths = getRentalMonths(moveInDate, moveOutDate);
+        const remainingMonths = Math.max(0, rentalMonths - 1);
+        const remainingTotal = remainingMonths * monthlyRent;
+        const estimatedTotal = dueToday + remainingTotal;
+
+        document.querySelectorAll('.state-chip').forEach(function (chip) {
+            chip.textContent = fmtAED(dueToday) + '/m first month - ' + selectedLabel + ' Selected';
+        });
+
+        document.querySelectorAll('.total-val').forEach(function (el) {
+            if (rentalMonths > 1) {
+                el.textContent = fmtAED(estimatedTotal) + ' total for ' + rentalMonths + ' months';
+            } else {
+                el.textContent = fmtAED(dueToday) + ' first month total';
+            }
+        });
+
+        const breakdownHtml = rentalMonths > 1
+            ? [
+                '<span class="line discount">20% off first month applied: -' + fmtAED(discount) + '</span>',
+                '<span class="line">First month total: ' + fmtAED(dueToday) + '</span>',
+                '<span class="line">Remaining months total: ' + fmtAED(remainingTotal) + '</span>',
+                '<span class="line total">Total for ' + rentalMonths + ' months: ' + fmtAED(estimatedTotal) + '</span>'
+            ].join('')
+            : [
+                '<span class="line">Monthly rent: ' + fmtAED(monthlyRent) + '</span>',
+                '<span class="line discount">20% off first month applied: -' + fmtAED(discount) + '</span>',
+                '<span class="line total">Month 1 total: ' + fmtAED(dueToday) + '</span>'
+            ].join('');
+
+        document.querySelectorAll('.total-breakdown').forEach(function (el) {
+            el.innerHTML = breakdownHtml;
         });
     }
 
     function setupStep1() {
         fillFromQuery();
+        syncStep1Summary();
         setupSegmented();
         setupDateChips();
         const form = document.getElementById('step1Form');
+        const desktopForm = document.getElementById('step1FormDesktop');
         const next = document.getElementById('step1Next');
         if (!form || !next) return;
+        const moveInDateInput = document.getElementById('moveInDate');
+        const moveOutDateInput = document.getElementById('moveOutDate');
+        const moveInDateInputDesktop = document.getElementById('moveInDateD');
+        const moveOutDateInputDesktop = document.getElementById('moveOutDateD');
+
+        function bindMoveDatePair(inInput, outInput) {
+            if (!inInput || !outInput) return;
+            const syncMoveOutMin = function () {
+                if (!inInput.value) return;
+                const minOut = toYMD(addDays(1));
+                const start = new Date(inInput.value + 'T00:00:00');
+                if (!Number.isNaN(start.getTime())) {
+                    const nextDay = new Date(start);
+                    nextDay.setDate(nextDay.getDate() + 1);
+                    outInput.min = toYMD(nextDay);
+                    if (outInput.value && outInput.value <= inInput.value) {
+                        outInput.value = '';
+                    }
+                } else {
+                    outInput.min = minOut;
+                }
+            };
+
+            inInput.addEventListener('change', function () {
+                syncMoveOutMin();
+                syncStep1Summary();
+            });
+            outInput.addEventListener('change', syncStep1Summary);
+            syncMoveOutMin();
+        }
+
+        bindMoveDatePair(moveInDateInput, moveOutDateInput);
+        bindMoveDatePair(moveInDateInputDesktop, moveOutDateInputDesktop);
+
+        function firstValue(selectors) {
+            for (var i = 0; i < selectors.length; i += 1) {
+                var el = document.querySelector(selectors[i]);
+                var value = el && typeof el.value !== 'undefined' ? String(el.value).trim() : '';
+                if (value) return value;
+            }
+            return '';
+        }
 
         function validate() {
-            const name = (document.getElementById('fullName').value || '').trim().length > 2;
-            const mobile = /^\+?[0-9\s-]{8,}$/.test((document.getElementById('mobile').value || '').trim());
-            const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((document.getElementById('email').value || '').trim());
-            next.disabled = !(name && mobile && email);
+            const nameVal = firstValue(['#fullName', '#fullNameD', 'input[name="fullName"]']);
+            const mobileVal = firstValue(['#mobile', '#mobileD', 'input[name="mobile"]']);
+            const emailVal = firstValue(['#email', '#emailD', 'input[name="email"]']);
+            const moveInVal = firstValue(['#moveInDate', '#moveInDateD', 'input[name="moveInDate"]']);
+            const moveOutVal = firstValue(['#moveOutDate', '#moveOutDateD', 'input[name="moveOutDate"]']);
+
+            const name = nameVal.length > 2;
+            const mobile = /^\+?[0-9\s-]{8,}$/.test(mobileVal);
+            const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+            const dates = !!moveInVal && !!moveOutVal;
+            next.disabled = !(name && mobile && email && dates);
         }
 
         ['input', 'change'].forEach(function (ev) {
             form.addEventListener(ev, validate);
         });
+        if (desktopForm) {
+            ['input', 'change'].forEach(function (ev) {
+                desktopForm.addEventListener(ev, validate);
+            });
+        }
         validate();
 
         form.addEventListener('submit', function () {
@@ -119,12 +267,39 @@
                 email: document.getElementById('email').value,
                 storingFor: document.getElementById('storingFor').value,
                 moveInDate: document.getElementById('moveInDate').value,
+                moveOutDate: (document.getElementById('moveOutDate') || {}).value || '',
                 unitLabel: document.getElementById('unitLabel').value,
                 unitSize: document.getElementById('unitSize').value,
                 monthlyRent: document.getElementById('monthlyRent').value,
-                promoCode: document.getElementById('promoCode').value
+                promoCode: document.getElementById('promoCode').value,
+                rentalMonths: getRentalMonths(
+                    (document.getElementById('moveInDate') || {}).value || '',
+                    (document.getElementById('moveOutDate') || {}).value || ''
+                )
             }));
         });
+
+        if (desktopForm) {
+            desktopForm.addEventListener('submit', function () {
+                localStorage.setItem('pbx_step1', JSON.stringify({
+                    fullName: (desktopForm.querySelector('[name="fullName"]') || {}).value || '',
+                    mobile: (desktopForm.querySelector('[name="mobile"]') || {}).value || '',
+                    emirate: (desktopForm.querySelector('[name="emirate"]') || {}).value || '',
+                    email: (desktopForm.querySelector('[name="email"]') || {}).value || '',
+                    storingFor: (desktopForm.querySelector('[name="storingFor"]') || {}).value || '',
+                    moveInDate: (desktopForm.querySelector('[name="moveInDate"]') || {}).value || '',
+                    moveOutDate: (desktopForm.querySelector('[name="moveOutDate"]') || {}).value || '',
+                    unitLabel: (desktopForm.querySelector('[name="unitLabel"]') || {}).value || '',
+                    unitSize: (desktopForm.querySelector('[name="unitSize"]') || {}).value || '',
+                    monthlyRent: (desktopForm.querySelector('[name="monthlyRent"]') || {}).value || '',
+                    promoCode: (desktopForm.querySelector('[name="promoCode"]') || {}).value || '',
+                    rentalMonths: getRentalMonths(
+                        (desktopForm.querySelector('[name="moveInDate"]') || {}).value || '',
+                        (desktopForm.querySelector('[name="moveOutDate"]') || {}).value || ''
+                    )
+                }));
+            });
+        }
     }
 
     const PRODUCTS = [
@@ -149,13 +324,16 @@
                 if (hidden) hidden.value = data[k] || '';
             });
         } else {
-            ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'unitLabel', 'unitSize', 'monthlyRent', 'promoCode'].forEach(function (k) {
+            ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent', 'promoCode', 'rentalMonths'].forEach(function (k) {
                 const hidden = form.querySelector('input[name="' + k + '"]');
                 if (hidden) hidden.value = p.get(k) || '';
             });
         }
 
         const rent = Number((p.get('monthlyRent') || form.querySelector('input[name="monthlyRent"]').value || 700));
+        const moveInDate = p.get('moveInDate') || (form.querySelector('input[name="moveInDate"]') || {}).value || '';
+        const moveOutDate = p.get('moveOutDate') || (form.querySelector('input[name="moveOutDate"]') || {}).value || '';
+        const rentalMonths = Number(p.get('rentalMonths') || getRentalMonths(moveInDate, moveOutDate));
         const discount = Math.round(rent * 0.2);
 
         function calc() {
@@ -182,15 +360,36 @@
                     if (num) num.textContent = String(q);
                 }
             });
-            const due = rent - discount + supplies;
+            const firstMonthDue = rent - discount;
+            const remainingMonths = Math.max(0, rentalMonths - 1);
+            const remainingRentTotal = remainingMonths * rent;
+            const due = firstMonthDue + supplies;
+            const estimatedTotal = firstMonthDue + remainingRentTotal + supplies;
+
+            const month1LabelEl = document.getElementById('sumMonth1Label');
+            const month1ValueEl = document.getElementById('sumMonth1');
+            const remainingLabelEl = document.getElementById('sumRemainingLabel');
+            const remainingValueEl = document.getElementById('sumRemaining');
+            const estimatedEl = document.getElementById('sumEstimated');
+
+            if (month1LabelEl) month1LabelEl.textContent = 'Monthly rent';
+            if (month1ValueEl) month1ValueEl.textContent = fmtAED(rent);
+            if (remainingLabelEl) {
+                remainingLabelEl.textContent = remainingMonths > 0
+                    ? ('Remaining months total')
+                    : 'Remaining months';
+            }
+            if (remainingValueEl) remainingValueEl.textContent = fmtAED(remainingRentTotal);
+            if (estimatedEl) estimatedEl.textContent = fmtAED(estimatedTotal);
 
             const fields = {
-                sumRent: fmtAED(rent) + '/m',
                 sumDisc: '-' + fmtAED(discount),
                 sumSupplies: fmtAED(supplies),
                 sumDue: fmtAED(due),
-                runningTotal: fmtAED(due),
-                selChip: fmtAED(due) + ' Due today',
+                runningTotal: rentalMonths > 1 ? (fmtAED(estimatedTotal) + ' total for ' + rentalMonths + ' months') : (fmtAED(due) + ' first month total'),
+                selChip: rentalMonths > 1
+                    ? (fmtAED(estimatedTotal) + ' Estimated total')
+                    : (fmtAED(due) + ' Due today'),
                 suppliesCount: qty + ' items'
             };
             Object.keys(fields).forEach(function (id) {
@@ -199,8 +398,12 @@
             });
             const dueField = form.querySelector('input[name="dueToday"]');
             const supplyField = form.querySelector('input[name="suppliesTotal"]');
+            const monthsField = form.querySelector('input[name="rentalMonths"]');
+            const estField = form.querySelector('input[name="estimatedTotal"]');
             if (dueField) dueField.value = String(due);
             if (supplyField) supplyField.value = String(supplies);
+            if (monthsField) monthsField.value = String(rentalMonths);
+            if (estField) estField.value = String(estimatedTotal);
         }
 
         form.querySelectorAll('[data-add]').forEach(function (btn) {
@@ -247,11 +450,17 @@
             emirate: pick('emirate', 'Dubai'),
             storingFor: pick('storingFor', 'Personal'),
             moveInDate: pick('moveInDate', toYMD(addDays(7))),
+            moveOutDate: pick('moveOutDate', toYMD(addDays(37))),
             unitSize: pick('unitSize', '35 sq ft (M)'),
             unitLabel: pick('unitLabel', 'SARA - M'),
             monthlyRent: Number(pick('monthlyRent', 700)),
-            promoCode: pick('promoCode', 'FIRST20')
+            promoCode: pick('promoCode', 'FIRST20'),
+            rentalMonths: Number(pick('rentalMonths', 1))
         };
+
+        if (!Number.isFinite(data.rentalMonths) || data.rentalMonths < 1) {
+            data.rentalMonths = getRentalMonths(data.moveInDate, data.moveOutDate);
+        }
 
         const qty = {
             medium_box: Number(p.get('qty_medium_box') || 0),
@@ -270,7 +479,12 @@
         }
 
         const discount = Math.round(data.monthlyRent * 0.2);
-        const due = Number(p.get('dueToday') || (data.monthlyRent - discount + suppliesTotal));
+        const firstMonthDue = data.monthlyRent - discount;
+        const due = Number(p.get('dueToday') || (firstMonthDue + suppliesTotal));
+        const estimatedTotal = Number(
+            p.get('estimatedTotal') ||
+            (firstMonthDue + Math.max(0, data.rentalMonths - 1) * data.monthlyRent + suppliesTotal)
+        );
 
         const supplyLines = PRODUCTS.filter(function (it) { return qty[it.id] > 0; }).map(function (it) {
             return '- ' + it.name + ' x ' + qty[it.id] + ' - ' + fmtAED(it.price * qty[it.id]);
@@ -286,6 +500,8 @@
             '📦 UNIT',
             '- Size: ' + data.unitSize,
             '- Move-in: ' + fmtInputDate(data.moveInDate),
+            '- Move-out: ' + fmtInputDate(data.moveOutDate),
+            '- Rental period: ' + data.rentalMonths + ' month(s)',
             '- Facility: purplebox Al Quoz',
             '',
             '➕ SUPPLIES',
@@ -296,6 +512,7 @@
             '- 20% off first month: -' + fmtAED(discount),
             '- Supplies: ' + fmtAED(suppliesTotal),
             '- Due today: ' + fmtAED(due),
+            '- Estimated total (' + data.rentalMonths + ' month(s)): ' + fmtAED(estimatedTotal),
             '- Promo: ' + data.promoCode,
             '',
             '👤 MY DETAILS',
@@ -314,12 +531,15 @@
             rEmail: data.email,
             rStore: data.storingFor,
             rUnit: data.unitSize,
-            rMove: fmtInputDate(data.moveInDate),
+            rMove: fmtInputDate(data.moveInDate) + ' -> ' + fmtInputDate(data.moveOutDate) + ' (' + data.rentalMonths + ' month(s))',
             rSupplies: supplyCount + ' items - ' + fmtAED(suppliesTotal),
             rPromo: data.promoCode,
-            dueBig: fmtAED(due),
-            runningTotal: fmtAED(due),
-            selChip: fmtAED(due) + ' Due today',
+            rTotalLabel: data.rentalMonths > 1 ? 'Estimated total' : 'Due today',
+            dueBig: data.rentalMonths > 1 ? fmtAED(estimatedTotal) : fmtAED(due),
+            runningTotal: fmtAED(estimatedTotal) + ' est. total',
+            selChip: data.rentalMonths > 1
+                ? (fmtAED(estimatedTotal) + ' Estimated total')
+                : (fmtAED(due) + ' Due today (first month discounted)'),
             summaryText: text
         };
 
@@ -393,12 +613,15 @@
                 emirate: data.emirate,
                 storing_for: data.storingFor,
                 move_in_date: data.moveInDate,
+                move_out_date: data.moveOutDate,
+                rental_months: String(data.rentalMonths),
                 unit_size: data.unitSize,
                 unit_label: data.unitLabel,
                 monthly_rent: String(data.monthlyRent),
                 promo_code: data.promoCode,
                 supplies_total: String(suppliesTotal),
                 due_today: String(due),
+                estimated_total: String(estimatedTotal),
                 supplies_text: supplyLines.length ? supplyLines.join('\n') : 'No supplies selected',
                 summary_text: text,
                 source_page: window.location.href.split('#')[0]
