@@ -227,6 +227,7 @@ add_action('init', 'purplebox_static_maybe_setup_posts_page', 21);
  */
 function purplebox_static_rewrite_asset_urls($html) {
     $theme_uri = rtrim(get_template_directory_uri(), '/');
+    $theme_dir = rtrim(get_template_directory(), '/\\');
 
     $images_base_uri = 'https://purplebox.ae/wp-content/uploads/2026/05/';
 
@@ -258,11 +259,35 @@ function purplebox_static_rewrite_asset_urls($html) {
         return $images_base_uri . '/' . $basename;
     };
 
+    $append_asset_version = function ($url, $group, $file) use ($theme_dir) {
+        if (!is_string($url) || $url === '') {
+            return $url;
+        }
+
+        $path = $theme_dir . DIRECTORY_SEPARATOR . $group . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $file);
+        if (!file_exists($path)) {
+            return $url;
+        }
+
+        $ver = (string) @filemtime($path);
+        if ($ver === '' || $ver === false) {
+            return $url;
+        }
+
+        return $url . (strpos($url, '?') !== false ? '&' : '?') . 'v=' . rawurlencode($ver);
+    };
+
     $html = preg_replace_callback(
         '/\b(href|src)=(["\'])(css|js|images|templates)\/([^"\']+)\2/i',
-        function ($m) use ($theme_uri, $images_base_uri) {
+        function ($m) use ($theme_uri, $images_base_uri, $append_asset_version) {
             $base_uri = ($m[3] === 'images') ? $images_base_uri : ($theme_uri . '/' . $m[3]);
-            return $m[1] . '=' . $m[2] . $base_uri . '/' . $m[4] . $m[2];
+            $asset_url = $base_uri . '/' . $m[4];
+
+            if ($m[3] !== 'images') {
+                $asset_url = $append_asset_version($asset_url, $m[3], $m[4]);
+            }
+
+            return $m[1] . '=' . $m[2] . $asset_url . $m[2];
         },
         $html
     );
@@ -280,9 +305,15 @@ function purplebox_static_rewrite_asset_urls($html) {
     // Fix inline CSS background URLs like: url('images/file.jpg')
     $html = preg_replace_callback(
         '/url\((\s*["\']?)(css|js|images|templates)\/([^\)"\']+)(["\']?\s*)\)/i',
-        function ($m) use ($theme_uri, $images_base_uri) {
+        function ($m) use ($theme_uri, $images_base_uri, $append_asset_version) {
             $base_uri = ($m[2] === 'images') ? $images_base_uri : ($theme_uri . '/' . $m[2]);
-            return 'url(' . $m[1] . $base_uri . '/' . $m[3] . $m[4] . ')';
+            $asset_url = $base_uri . '/' . $m[3];
+
+            if ($m[2] !== 'images') {
+                $asset_url = $append_asset_version($asset_url, $m[2], $m[3]);
+            }
+
+            return 'url(' . $m[1] . $asset_url . $m[4] . ')';
         },
         $html
     );
