@@ -335,7 +335,7 @@ function purplebox_static_rewrite_asset_urls($html) {
  * Inject static header/footer templates and remove JS template loader include.
  */
 function purplebox_static_inject_layout_partials($html) {
-    $header_file = get_template_directory() . '/templates/header.html';
+    $header_file = dirname(get_template_directory()) . '/templates/header.html';
     $footer_file = get_template_directory() . '/templates/footer.html';
 
     if (file_exists($header_file)) {
@@ -958,6 +958,188 @@ add_action('wp_ajax_nopriv_pbx_store_cart_set_qty', 'purplebox_static_ajax_store
 add_action('wp_ajax_pbx_store_cart_clear', 'purplebox_static_ajax_store_cart_clear');
 add_action('wp_ajax_nopriv_pbx_store_cart_clear', 'purplebox_static_ajax_store_cart_clear');
 
+/**
+ * ═══ PBX Analytics: Session Tracking ═══
+ * Custom table to store behavioral tracking sessions from pbx-tracking.js
+ */
+
+// Create table on theme activation
+function pbx_analytics_create_table() {
+    global $wpdb;
+    $table = $wpdb->prefix . 'pbx_sessions';
+    $charset = $wpdb->get_charset_collate();
+    $sql = "CREATE TABLE IF NOT EXISTS $table (
+        id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        session_id VARCHAR(120) NOT NULL,
+        page_name VARCHAR(200) NOT NULL DEFAULT '',
+        started_at BIGINT UNSIGNED NOT NULL DEFAULT 0,
+        ip_address VARCHAR(45) NOT NULL DEFAULT '',
+        user_agent VARCHAR(500) NOT NULL DEFAULT '',
+        events LONGTEXT NOT NULL,
+        total_time_sec INT UNSIGNED NOT NULL DEFAULT 0,
+        engaged_time_sec INT UNSIGNED NOT NULL DEFAULT 0,
+        max_scroll_pct TINYINT UNSIGNED NOT NULL DEFAULT 0,
+        form_submitted TINYINT(1) NOT NULL DEFAULT 0,
+        form_abandoned TINYINT(1) NOT NULL DEFAULT 0,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        INDEX idx_session_id (session_id),
+        INDEX idx_page_name (page_name),
+        INDEX idx_created_at (created_at)
+    ) $charset;";
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    dbDelta($sql);
+}
+add_action('after_switch_theme', 'pbx_analytics_create_table');
+
+// Ensure table exists for existing installs
+function pbx_analytics_maybe_create_table() {
+    if (get_option('pbx_analytics_table_version') === '1.0') return;
+    pbx_analytics_create_table();
+    update_option('pbx_analytics_table_version', '1.0', false);
+}
+add_action('init', 'pbx_analytics_maybe_create_table', 30);
+
+// AJAX: Receive session data from frontend
+function pbx_analytics_save_session() {
+    $raw = file_get_contents('php://input');
+    $data = json_decode($raw, true);
+
+    if (!is_array($data) || empty($data['session_id']) || empty($data['events'])) {
+        wp_send_json_error(['message' => 'Invalid session data.']);
+    }
+
+    global $wpdb;
+    $table = $wpdb->prefix . 'pbx_sessions';
+
+    $session_id = sanitize_text_field($data['session_id']);
+    $page_name = sanitize_text_field($data['page_name'] ?? '');
+    $started_at = absint($data['started_at'] ?? 0);
+    $events_json = wp_json_encode($data['events']);
+    $ip = sanitize_text_field($_SERVER['REMOTE_ADDR'] ?? '');
+    $ua = sanitize_text_field(substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 500));
+
+    // Extract summary from session_end event
+    $total_time = 0;
+    $engaged_time = 0;
+    $max_scroll = 0;
+    $form_submitted = 0;
+    $form_abandoned = 0;
+
+    foreach ($data['events'] as $evt) {
+        if (($evt['event'] ?? '') === 'lp_session_end') {
+            $total_time = absint($evt['total_time_sec'] ?? 0);
+            $engaged_time = absint($evt['engaged_time_sec'] ?? 0);
+            $max_scroll = min(100, absint($evt['max_scroll_pct'] ?? 0));
+            $form_submitted = !empty($evt['form_submitted']) ? 1 : 0;
+            $form_abandoned = !empty($evt['form_abandoned']) ? 1 : 0;
+        }
+    }
+
+    // Upsert: update if session_id exists, insert otherwise
+    $existing = $wpdb->get_var($wpdb->prepare(
+        "SELECT id FROM $table WHERE session_id = %s LIMIT 1",
+        $session_id
+    ));
+
+    if ($existing) {
+        $wpdb->update($table, [
+            'events' => $events_json,
+            'total_time_sec' => $total_time,
+            'engaged_time_sec' => $engaged_time,
+            'max_scroll_pct' => $max_scroll,
+            'form_submitted' => $form_submitted,
+            'form_abandoned' => $form_abandoned,
+        ], ['id' => $existing]);
+    } else {
+        $wpdb->insert($table, [
+            'session_id' => $session_id,
+            'page_name' => $page_name,
+            'started_at' => $started_at,
+            'ip_address' => $ip,
+            'user_agent' => $ua,
+            'events' => $events_json,
+            'total_time_sec' => $total_time,
+            'engaged_time_sec' => $engaged_time,
+            'max_scroll_pct' => $max_scroll,
+            'form_submitted' => $form_submitted,
+            'form_abandoned' => $form_abandoned,
+        ]);
+    }
+
+    wp_send_json_success(['saved' => true]);
+}
+add_action('wp_ajax_pbx_analytics_save', 'pbx_analytics_save_session');
+add_action('wp_ajax_nopriv_pbx_analytics_save', 'pbx_analytics_save_session');
+
+// AJAX: Read sessions for dashboard
+function pbx_analytics_get_sessions() {
+    // Optional: restrict to admins only
+    // if (!current_user_can('manage_options')) { wp_send_json_error(['message' => 'Unauthorized']); }
+
+    global $wpdb;
+    $table = $wpdb->prefix . 'pbx_sessions';
+
+    $limit = min(200, absint($_GET['limit'] ?? 100));
+    $page_filter = sanitize_text_field($_GET['page_name'] ?? '');
+    $days = absint($_GET['days'] ?? 7);
+
+    $where = $wpdb->prepare("WHERE created_at >= DATE_SUB(NOW(), INTERVAL %d DAY)", $days);
+    if ($page_filter) {
+        $where .= $wpdb->prepare(" AND page_name = %s", $page_filter);
+    }
+
+    $rows = $wpdb->get_results(
+        "SELECT session_id, page_name, started_at, ip_address, user_agent, events,
+                total_time_sec, engaged_time_sec, max_scroll_pct,
+                form_submitted, form_abandoned, created_at
+         FROM $table $where ORDER BY created_at DESC LIMIT $limit",
+        ARRAY_A
+    );
+
+    if (!is_array($rows)) $rows = [];
+
+    // Decode events JSON
+    foreach ($rows as &$row) {
+        $row['events'] = json_decode($row['events'], true) ?: [];
+        $row['total_time_sec'] = (int) $row['total_time_sec'];
+        $row['engaged_time_sec'] = (int) $row['engaged_time_sec'];
+        $row['max_scroll_pct'] = (int) $row['max_scroll_pct'];
+        $row['form_submitted'] = (bool) $row['form_submitted'];
+        $row['form_abandoned'] = (bool) $row['form_abandoned'];
+    }
+
+    // Summary stats
+    $stats = $wpdb->get_row(
+        "SELECT COUNT(*) as total_sessions,
+                ROUND(AVG(engaged_time_sec)) as avg_engaged,
+                ROUND(AVG(max_scroll_pct)) as avg_scroll,
+                SUM(form_submitted) as total_submits,
+                SUM(form_abandoned) as total_abandoned
+         FROM $table $where",
+        ARRAY_A
+    );
+
+    wp_send_json_success([
+        'sessions' => $rows,
+        'stats' => $stats ?: [],
+    ]);
+}
+add_action('wp_ajax_pbx_analytics_get', 'pbx_analytics_get_sessions');
+add_action('wp_ajax_nopriv_pbx_analytics_get', 'pbx_analytics_get_sessions');
+
+/**
+ * Inject analytics endpoint config into pages that have tracking.
+ */
+function pbx_analytics_inject_config($html) {
+    if (!is_string($html) || stripos($html, '</body>') === false) return $html;
+    $config = [
+        'saveUrl' => admin_url('admin-ajax.php') . '?action=pbx_analytics_save',
+        'readUrl' => admin_url('admin-ajax.php') . '?action=pbx_analytics_get',
+    ];
+    $script = '<script>window.PBXAnalyticsConfig=' . wp_json_encode($config, JSON_UNESCAPED_SLASHES) . ';</script>';
+    return str_ireplace('</body>', $script . "\n</body>", $html);
+}
+
 // Serve static pages from /static-pages/ for matching slugs.
 add_filter('template_include', function ($template) {
     // Do not hijack WooCommerce routes; let Woo templates render normally.
@@ -999,12 +1181,13 @@ add_filter('template_include', function ($template) {
         $html = purplebox_static_inject_pack_products($html);
     }
 
-    if ($slug === 'reserve-step-3' || $slug === 'landing-local-storage-facility-in-dubai' || $slug === 'packing-moving') {
+    if ($slug === 'index' || $slug === 'reserve-step-3' || $slug === 'landing-local-storage-facility-in-dubai' || $slug === 'packing-moving' || $slug === 'vehicle-storage-dubai') {
         $html = purplebox_static_inject_reservation_lead_config($html);
     }
 
     $html = purplebox_static_inject_layout_partials($html);
     $html = purplebox_static_rewrite_asset_urls($html);
+    $html = pbx_analytics_inject_config($html);
 
     status_header(200);
     header('Content-Type: text/html; charset=UTF-8');

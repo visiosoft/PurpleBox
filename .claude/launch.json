@@ -4,8 +4,9 @@
     {
       "name": "purplebox",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "C:/Users/LENOVO/Desktop/purplebox-pages", "-l", "3000", "--no-clipboard"],
-      "port": 3000
+      "runtimeArgs": ["serve", "C:/Users/LENOVO/Desktop/purplebox-pages", "--no-clipboard"],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

@@ -1992,6 +1992,309 @@
     initUnitCardSelection();
   </script>
 
+  <!-- ═══ Full Behavioral Tracking ═══ -->
+  <script>
+  (function () {
+    'use strict';
+
+    var DL = window.dataLayer = window.dataLayer || [];
+    var GA = typeof window.gtag === 'function' ? window.gtag : function () {};
+    var PAGE = 'Landing - Local Storage Dubai';
+    var sessionStart = Date.now();
+    var maxScroll = 0;
+    var scrollMilestones = {};
+    var sectionsSeen = {};
+    var formState = { started: false, fields: {}, startTime: 0 };
+    var clickLog = [];
+    var idleTimer = null;
+    var idleStart = 0;
+    var totalIdleMs = 0;
+    var IDLE_THRESHOLD = 30000; // 30s
+
+    // ── Helpers ──
+    function ts() { return Math.round((Date.now() - sessionStart) / 1000); }
+    function push(event, params) {
+      var data = Object.assign({ event: event, page_name: PAGE, timestamp_sec: ts() }, params || {});
+      DL.push(data);
+      GA('event', event, params || {});
+    }
+
+    // ── 1. Page View + Session Start ──
+    push('lp_page_view', { referrer: document.referrer || 'direct', url: location.href });
+
+    // ── 2. Scroll Depth Tracking ──
+    var scrollTicking = false;
+    function onScroll() {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(function () {
+        var docH = document.documentElement.scrollHeight - window.innerHeight;
+        if (docH <= 0) { scrollTicking = false; return; }
+        var pct = Math.round((window.scrollY / docH) * 100);
+        if (pct > maxScroll) maxScroll = pct;
+        [25, 50, 75, 100].forEach(function (m) {
+          if (pct >= m && !scrollMilestones[m]) {
+            scrollMilestones[m] = true;
+            push('lp_scroll_depth', { depth: m, time_sec: ts() });
+          }
+        });
+        scrollTicking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ── 3. Section Visibility Tracking ──
+    var sections = [
+      { sel: '.hero', name: 'hero' },
+      { sel: '.units-section', name: 'units' },
+      { sel: '.lead-section', name: 'lead_form' },
+      { sel: '.gallery-section', name: 'gallery' },
+      { sel: '.proof-section', name: 'social_proof' },
+      { sel: '.location-section', name: 'location' },
+      { sel: '.faq-section', name: 'faq' },
+      { sel: '.final-cta', name: 'final_cta' }
+    ];
+
+    if ('IntersectionObserver' in window) {
+      var sectionObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var name = entry.target.getAttribute('data-track-section');
+          if (name && !sectionsSeen[name]) {
+            sectionsSeen[name] = ts();
+            push('lp_section_view', { section: name, time_sec: ts() });
+          }
+        });
+      }, { threshold: 0.3 });
+
+      sections.forEach(function (s) {
+        var el = document.querySelector(s.sel);
+        if (el) {
+          el.setAttribute('data-track-section', s.name);
+          sectionObs.observe(el);
+        }
+      });
+    }
+
+    // ── 4. Click Tracking (all clicks with context) ──
+    document.addEventListener('click', function (e) {
+      var target = e.target.closest('a, button, [data-cta], .unit-card, .mobile-sticky a');
+      if (!target) return;
+
+      var info = {
+        tag: target.tagName,
+        text: (target.textContent || '').trim().substring(0, 60),
+        href: target.getAttribute('href') || '',
+        classes: target.className.substring(0, 80),
+        x: Math.round(e.clientX),
+        y: Math.round(e.clientY),
+        time_sec: ts()
+      };
+
+      // Categorise the click
+      var category = 'other';
+      if (target.closest('.hero')) category = 'hero_cta';
+      else if (target.closest('.unit-card')) category = 'unit_card';
+      else if (target.closest('.lead-section')) category = 'form_area';
+      else if (target.closest('.faq-section')) category = 'faq_toggle';
+      else if (target.closest('.mobile-sticky')) category = 'mobile_sticky';
+      else if (target.closest('.final-cta')) category = 'final_cta';
+      else if (target.closest('.gallery-section')) category = 'gallery';
+      else if (target.closest('.lp-nav, nav')) category = 'navigation';
+
+      // WhatsApp click
+      if (info.href.indexOf('wa.me') > -1) category = 'whatsapp_click';
+      // Phone click
+      if (info.href.indexOf('tel:') === 0) category = 'phone_click';
+
+      info.category = category;
+      clickLog.push(info);
+      push('lp_click', info);
+    }, true);
+
+    // ── 5. Form Interaction Tracking ──
+    var formEl = document.getElementById('reserveForm');
+    if (formEl) {
+      // Track first interaction
+      formEl.addEventListener('focusin', function () {
+        if (!formState.started) {
+          formState.started = true;
+          formState.startTime = ts();
+          push('lp_form_start', { time_sec: ts() });
+        }
+      });
+
+      // Track each field touch
+      formEl.addEventListener('change', function (e) {
+        var field = e.target.name || e.target.id || 'unknown';
+        if (!formState.fields[field]) {
+          formState.fields[field] = ts();
+          push('lp_form_field', { field: field, time_sec: ts() });
+        }
+      });
+
+      formEl.addEventListener('input', function (e) {
+        var field = e.target.name || e.target.id || 'unknown';
+        if (!formState.fields[field]) {
+          formState.fields[field] = ts();
+          push('lp_form_field', { field: field, time_sec: ts() });
+        }
+      });
+
+      // Track form submit (fires before handleSubmit)
+      formEl.addEventListener('submit', function () {
+        var duration = formState.startTime ? ts() - formState.startTime : 0;
+        var fieldsCompleted = Object.keys(formState.fields).length;
+        push('lp_form_submit', {
+          time_sec: ts(),
+          form_duration_sec: duration,
+          fields_completed: fieldsCompleted
+        });
+      });
+    }
+
+    // ── 6. Form Abandonment ──
+    // Detect if user started form but leaves page without submitting
+    var formSubmitted = false;
+    if (formEl) {
+      formEl.addEventListener('submit', function () { formSubmitted = true; });
+    }
+
+    // ── 7. Idle / Engaged Time Tracking ──
+    function resetIdle() {
+      if (idleStart > 0) {
+        totalIdleMs += Date.now() - idleStart;
+        idleStart = 0;
+      }
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(function () {
+        idleStart = Date.now();
+        push('lp_idle_start', { time_sec: ts(), after_sec: IDLE_THRESHOLD / 1000 });
+      }, IDLE_THRESHOLD);
+    }
+    ['mousemove', 'keydown', 'scroll', 'touchstart', 'click'].forEach(function (evt) {
+      window.addEventListener(evt, resetIdle, { passive: true });
+    });
+    resetIdle();
+
+    // ── 8. Tab Visibility (focus/blur) ──
+    var hiddenAt = 0;
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        hiddenAt = Date.now();
+        push('lp_tab_hidden', { time_sec: ts() });
+      } else {
+        var awayMs = hiddenAt ? Date.now() - hiddenAt : 0;
+        push('lp_tab_visible', { time_sec: ts(), away_sec: Math.round(awayMs / 1000) });
+        hiddenAt = 0;
+      }
+    });
+
+    // ── 9. Exit Intent (mouse leaves viewport top) ──
+    var exitFired = false;
+    document.addEventListener('mouseout', function (e) {
+      if (exitFired) return;
+      if (e.clientY <= 0 && e.relatedTarget === null) {
+        exitFired = true;
+        push('lp_exit_intent', { time_sec: ts(), max_scroll: maxScroll });
+      }
+    });
+
+    // ── 10. Page Unload — Session Summary ──
+    function sendSummary() {
+      if (idleStart > 0) totalIdleMs += Date.now() - idleStart;
+      var totalSec = ts();
+      var engagedSec = Math.max(0, totalSec - Math.round(totalIdleMs / 1000));
+
+      var summary = {
+        event: 'lp_session_end',
+        page_name: PAGE,
+        total_time_sec: totalSec,
+        engaged_time_sec: engagedSec,
+        idle_time_sec: totalSec - engagedSec,
+        max_scroll_pct: maxScroll,
+        sections_viewed: Object.keys(sectionsSeen).join(','),
+        sections_count: Object.keys(sectionsSeen).length,
+        total_clicks: clickLog.length,
+        form_started: formState.started,
+        form_submitted: formSubmitted,
+        form_abandoned: formState.started && !formSubmitted,
+        form_fields_touched: Object.keys(formState.fields).join(',')
+      };
+
+      // Use sendBeacon for reliability on page unload
+      if (navigator.sendBeacon) {
+        // Push to dataLayer (for any GTM triggers that fire on this)
+        DL.push(summary);
+
+        // Also send via Measurement Protocol as beacon
+        var gaPayload = new URLSearchParams();
+        gaPayload.set('v', '2');
+        gaPayload.set('tid', window.PBX_GA4_ID || '');
+        gaPayload.set('en', 'lp_session_end');
+        Object.keys(summary).forEach(function (k) {
+          if (k !== 'event') gaPayload.set('ep.' + k, String(summary[k]));
+        });
+        navigator.sendBeacon('https://www.google-analytics.com/g/collect?' + gaPayload.toString());
+      } else {
+        DL.push(summary);
+      }
+    }
+
+    window.addEventListener('beforeunload', sendSummary);
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') sendSummary();
+    });
+
+    // ── 11. Unit Card Hover Duration ──
+    document.querySelectorAll('.unit-card').forEach(function (card) {
+      var hoverStart = 0;
+      card.addEventListener('mouseenter', function () { hoverStart = Date.now(); });
+      card.addEventListener('mouseleave', function () {
+        if (hoverStart) {
+          var dur = Math.round((Date.now() - hoverStart) / 1000);
+          if (dur >= 1) {
+            var size = (card.querySelector('h3, h4') || {}).textContent || '';
+            push('lp_unit_hover', { unit: size.trim(), hover_sec: dur, time_sec: ts() });
+          }
+          hoverStart = 0;
+        }
+      });
+    });
+
+    // ── 12. FAQ Engagement ──
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var question = (btn.textContent || '').trim().substring(0, 80);
+        push('lp_faq_toggle', { question: question, time_sec: ts() });
+      });
+    });
+
+    // ── 13. Gallery Scroll ──
+    var galleryEl = document.querySelector('.gallery-grid, .gallery-scroll');
+    if (galleryEl) {
+      var galleryTracked = false;
+      galleryEl.addEventListener('scroll', function () {
+        if (!galleryTracked) {
+          galleryTracked = true;
+          push('lp_gallery_scroll', { time_sec: ts() });
+        }
+      }, { passive: true });
+    }
+
+    // ── Debug: Log to console in dev ──
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+      var origPush = DL.push.bind(DL);
+      DL.push = function (obj) {
+        if (obj && obj.event && obj.event.indexOf('lp_') === 0) {
+          console.log('%c[Track] ' + obj.event, 'color:#3b82f6;font-weight:700', obj);
+        }
+        return origPush(obj);
+      };
+    }
+  })();
+  </script>
+
 </body>
 
 </html>
