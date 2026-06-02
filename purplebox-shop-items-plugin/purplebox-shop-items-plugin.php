@@ -36,6 +36,7 @@ final class PurpleBox_Shop_Items_Plugin {
 
     public function activate(): void {
         $this->create_leads_table();
+        $this->setup_roles();
 
         $existing = get_option(self::OPTION_KEY, null);
         if (null === $existing) {
@@ -51,16 +52,49 @@ final class PurpleBox_Shop_Items_Plugin {
         }
     }
 
+    private function setup_roles(): void {
+        $required_caps = [
+            'pbx_manage_shop' => true,
+            'read'            => true,
+            'upload_files'    => true,
+            'edit_posts'      => true,
+        ];
+
+        // Remove and recreate to ensure caps are up to date
+        remove_role('purplebox_admin');
+        add_role('purplebox_admin', 'PurpleBox Admin', $required_caps);
+
+        // Also ensure the role object has all caps (belt and suspenders)
+        $pbx_role = get_role('purplebox_admin');
+        if ($pbx_role) {
+            foreach ($required_caps as $cap => $grant) {
+                $pbx_role->add_cap($cap, $grant);
+            }
+        }
+
+        // Grant pbx_manage_shop to existing administrators so they keep access
+        $admin_role = get_role('administrator');
+        if ($admin_role) {
+            $admin_role->add_cap('pbx_manage_shop');
+        }
+
+        update_option('pbx_roles_version', '2');
+    }
+
     public function maybe_upgrade_schema(): void {
-        // Always run dbDelta to handle both create and incremental schema updates.
         $this->create_leads_table();
+
+        // Always re-run role setup until version matches
+        if (get_option('pbx_roles_version', '0') !== '2') {
+            $this->setup_roles();
+        }
     }
 
     public function register_admin_menu(): void {
         add_menu_page(
             'PurpleBox Shop Items',
             'PurpleBox Shop',
-            'manage_options',
+            'pbx_manage_shop',
             'pbx-shop-items',
             [$this, 'render_admin_page'],
             'dashicons-products',
@@ -71,7 +105,7 @@ final class PurpleBox_Shop_Items_Plugin {
             'pbx-shop-items',
             'PurpleBox Daily Leads',
             'Daily Leads',
-            'manage_options',
+            'pbx_manage_shop',
             'pbx-daily-leads',
             [$this, 'render_leads_admin_page']
         );
@@ -80,7 +114,7 @@ final class PurpleBox_Shop_Items_Plugin {
             'pbx-shop-items',
             'PurpleBox Storage Leads',
             'Storage Leads',
-            'manage_options',
+            'pbx_manage_shop',
             'pbx-storage-leads',
             [$this, 'render_storage_leads_admin_page']
         );
@@ -89,7 +123,7 @@ final class PurpleBox_Shop_Items_Plugin {
             'pbx-shop-items',
             'PurpleBox Packing Leads',
             'Packing & Moving Leads',
-            'manage_options',
+            'pbx_manage_shop',
             'pbx-packing-leads',
             [$this, 'render_packing_leads_admin_page']
         );
@@ -134,7 +168,7 @@ final class PurpleBox_Shop_Items_Plugin {
     }
 
     public function render_admin_page(): void {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can('pbx_manage_shop')) {
             return;
         }
 
@@ -217,7 +251,7 @@ final class PurpleBox_Shop_Items_Plugin {
     }
 
     public function handle_save(): void {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can('pbx_manage_shop')) {
             wp_die('Unauthorized request.');
         }
 
@@ -499,7 +533,7 @@ final class PurpleBox_Shop_Items_Plugin {
     }
 
     private function render_filtered_leads_admin_page(string $title, string $description, array $sourceNames): void {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can('pbx_manage_shop')) {
             return;
         }
 

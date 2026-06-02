@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PurpleBox Storage Dubai - Secure Self-Storage in Al Quoz</title>
@@ -425,7 +426,7 @@
       box-shadow: 0 20px 50px rgba(15, 23, 42, .14);
     }
 
-    /* Left panel — dark promo side */
+    /* Left panel � dark promo side */
     .lead-promo {
       background: linear-gradient(155deg, #0f172a 0%, #1e293b 55%, #0f172a 100%);
       padding: 36px 28px;
@@ -522,7 +523,7 @@
 
     .lead-promo>p {
       font-size: 14px;
-      color: rgba(255,255,255,0.85);
+      color: white;
       line-height: 1.6;
       margin: 0;
     }
@@ -612,7 +613,7 @@
       margin: 0;
     }
 
-    /* Right panel — form side */
+    /* Right panel � form side */
     .lead-form-panel {
       background: #f8fafc;
       padding: 32px 26px;
@@ -1475,14 +1476,16 @@
       bottom: 0;
       z-index: 1201;
       transform: translateY(102%);
-      transition: transform 0.24s ease;
+      transition: transform 0.26s cubic-bezier(0.32, 0.72, 0, 1);
       background: #ffffff;
-      border-top-left-radius: 18px;
-      border-top-right-radius: 18px;
-      box-shadow: 0 -18px 36px rgba(15, 23, 42, 0.2);
-      padding: 16px 16px 20px;
-      max-width: 540px;
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      box-shadow: 0 -24px 48px rgba(15, 23, 42, 0.22);
+      padding: 0;
+      max-width: 680px;
       margin: 0 auto;
+      max-height: 92vh;
+      overflow-y: auto;
     }
 
     .pack-pro-drawer.is-open {
@@ -1494,36 +1497,108 @@
       pointer-events: auto;
     }
 
+    /* Close button */
     .pack-drawer-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
       border: 0;
-      background: #eef3ff;
+      background: #f1f5f9;
       color: #1b2f4a;
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 999px;
-      font-size: 18px;
+      font-size: 20px;
+      line-height: 1;
       cursor: pointer;
-      margin-left: auto;
-      display: block;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+
+    .pack-drawer-close:hover {
+      background: #e2e8f0;
+    }
+
+    /* Two-column body */
+    .pack-drawer-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+
+    @media(min-width: 520px) {
+      .pack-drawer-body {
+        grid-template-columns: 220px 1fr;
+      }
+    }
+
+    /* Image panel */
+    .pack-drawer-img-wrap {
+      background: #f6f4ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      min-height: 200px;
+      border-radius: 22px 0 0 0;
+    }
+
+    @media(min-width: 520px) {
+      .pack-drawer-img-wrap {
+        border-radius: 22px 0 0 0;
+        min-height: 280px;
+      }
+    }
+
+    .pack-drawer-img-wrap img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .pack-drawer-img-wrap svg {
+      width: 100px;
+      height: 100px;
+    }
+
+    /* Details panel */
+    .pack-drawer-details {
+      padding: 20px 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .pack-drawer-cat {
+      margin: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1976d2;
     }
 
     .pack-drawer-name {
-      margin: 8px 0 4px;
-      font-size: 19px;
+      margin: 0;
+      font-size: 20px;
       font-weight: 800;
       color: #0e1b2c;
       letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
     .pack-drawer-meta {
-      margin: 0 0 12px;
-      font-size: 12px;
+      margin: 0;
+      font-size: 13px;
       color: #5b6b82;
     }
 
     .pack-drawer-price {
-      margin: 0 0 12px;
-      font-size: 22px;
+      margin: 4px 0 2px;
+      font-size: 24px;
       font-weight: 800;
       color: #0e1b2c;
       display: flex;
@@ -1531,23 +1606,149 @@
       gap: 8px;
     }
 
-    .pack-drawer-price span {
-      font-size: 12px;
+    .pack-drawer-price .was {
+      font-size: 14px;
       font-weight: 600;
       color: #93a1b3;
       text-decoration: line-through;
     }
 
+    /* Qty + Add to cart row */
+    .pack-drawer-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .pack-drawer-qty {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid #dbe3ee;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .pack-qty-btn {
+      width: 36px;
+      height: 40px;
+      border: 0;
+      background: #f8fafe;
+      color: #0e1b2c;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .pack-qty-btn:hover {
+      background: #eef3ff;
+    }
+
+    .pack-qty-val {
+      min-width: 36px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0e1b2c;
+    }
+
     .pack-drawer-add {
+      flex: 1;
       border: 0;
       background: #0e1b2c;
       color: #ffffff;
       border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 13px;
+      padding: 11px 14px;
+      font-size: 14px;
       font-weight: 700;
+      font-family: inherit;
       cursor: pointer;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: background .15s;
+    }
+
+    .pack-drawer-add:hover {
+      background: #1d4ed8;
+    }
+
+    .pack-drawer-add.added {
+      background: #15803d;
+    }
+
+    /* Cart summary strip */
+    .pack-drawer-cart-summary {
+      background: #f8fafe;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: #334155;
+      display: none;
+    }
+
+    .pack-drawer-cart-summary.has-items {
+      display: block;
+    }
+
+    .pack-drawer-cart-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .pack-drawer-cart-row:last-child {
+      margin-bottom: 0;
+      font-weight: 700;
+      border-top: 1px solid #e6ebf2;
+      padding-top: 4px;
+    }
+
+    /* Shop link */
+    .pack-drawer-checkout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: linear-gradient(135deg, #1d4ed8, #1976d2);
+      color: #fff;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      transition: background .15s, transform .15s;
+      display: none;
+    }
+
+    .pack-drawer-checkout.visible {
+      display: flex;
+    }
+
+    .pack-drawer-checkout:hover {
+      background: linear-gradient(135deg, #1e40af, #1565c0);
+      transform: translateY(-1px);
+    }
+
+    .pack-drawer-shop-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1976d2;
+      text-decoration: none;
+      margin-top: 2px;
+      text-align: center;
+    }
+
+    .pack-drawer-shop-link:hover {
+      text-decoration: underline;
     }
 
     .nav-cart {
@@ -2831,1212 +3032,1334 @@
   </style>
 </head>
 
-<body style="background-color:#ffffff !important;">
+</head>
 
-  <!-- NAV -->
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/05/logo-1.png"
-          alt="PurpleBox Storage" class="nav-logo-img" /></a>
-      <a href="tel:+971542249946" class="nav-phone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-          viewBox="0 0 24 24" fill="currentColor">
-          <path fill-rule="evenodd"
-            d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0  0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
-            clip-rule="evenodd" />
-        </svg><span class="call-label">+971 54 224 9946</span></a>
-      <div class="nav-links">
-        <a href="book-unit.html">Reserve Unit</a>
-        <a href="store.html">Shop Now</a>
-        <a href="packing-moving.html">Packing & Moving</a>
-        <a href="about.html">Contact</a>
-      </div>
-      <a href="store.html" class="nav-cart" aria-label="Open cart">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="9" cy="20" r="1.5"></circle>
-          <circle cx="17" cy="20" r="1.5"></circle>
-          <path d="M3 4h2l1.5 10h11l2-7H7"></path>
-        </svg>
-        <span class="nav-cart-badge" id="shopCartBadge">0</span>
-      </a>
-      <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/05/logo-1.png"
+        alt="PurpleBox Storage" class="nav-logo-img" /></a>
+    <a href="tel:+971542249946" class="nav-phone">
+      <span class="call-label">+971 54 224 9946</span></a>
+    <div class="nav-links">
+      <a href="book-unit.html">Reserve Unit</a>
+      <a href="store.html">Shop Now</a>
+      <a href="packing-moving.html">Packing & Moving</a>
+      <a href="about.html">Contact</a>
     </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="tel:+971542249946" class="mobile-phone"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-        viewBox="0 0 24 24" fill="currentColor">
-        <path fill-rule="evenodd"
-          d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
-          clip-rule="evenodd" />
-      </svg> +971 54 224 9946</a>
-    <a href="book-unit.html">View details</a>
-    <a href="store.html">Shop Now</a>
-    <a href="packing-moving.html">Packing &amp; Moving</a>
-    <a href="about.html">Contact</a>
+    <a href="store.html" class="nav-cart" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="9" cy="20" r="1.5"></circle>
+        <circle cx="17" cy="20" r="1.5"></circle>
+        <path d="M3 4h2l1.5 10h11l2-7H7"></path>
+      </svg>
+      <span class="nav-cart-badge" id="shopCartBadge">0</span>
+    </a>
+    <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
   </div>
+</nav>
 
-  <!-- HERO - Glofox-style full-bleed two-column -->
-  <section class="hero" style="background-color:#ffffff !important;">
-    <div class="hero-inner">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="tel:+971542249946" class="mobile-phone"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+      viewBox="0 0 24 24" fill="currentColor">
+      <path fill-rule="evenodd"
+        d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+        clip-rule="evenodd" />
+    </svg> +971 54 224 9946</a>
+  <a href="book-unit.html">Reserve Unit</a>
+  <a href="store.html">Shop Now</a>
+  <a href="packing-moving.html">Packing &amp; Moving</a>
+  <a href="about.html">Contact</a>
+</div>
 
-      <!-- Left: copy -->
-      <div class="hero-content">
-        <h1>Premium Self-Storage<br>in <span class="location-pill">Al Quoz, Dubai.</span></h1>
-        <ul class="hero-sub">
-          <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 7v5l3 2" />
-              </svg></span>24/7 Access</li>
-          <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="3" />
-                <path
-                  d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8" />
-              </svg></span>Air Conditioned </li>
+<!-- HERO - Glofox-style full-bleed two-column -->
+<section class="hero" style="background-color:#ffffff !important;">
+  <div class="hero-inner">
 
-          <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <rect x="2" y="7" width="10" height="7" rx="1" />
-                <path d="M12 9h4l2 2v3h-6V9z" />
-                <circle cx="7" cy="16" r="1.5" />
-                <circle cx="15" cy="16" r="1.5" />
-              </svg></span>Packing & Moving</li>
-          <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <rect x="6" y="3" width="12" height="18" rx="2" />
-                <path d="M12 7v10M9 10l3-3 3 3M9 14l3 3 3-3" />
-              </svg></span>Elevators Access</li>
+    <!-- Left: copy -->
+    <div class="hero-content">
+      <h1>We Pack, Move & Store<br><span class="location-pill">Everything</span> </h1>
+      <ul class="hero-sub">
+        <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" />
+            </svg></span>24/7 Access</li>
+        <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8" />
+            </svg></span>Air Conditioned </li>
 
-        </ul>
-        <div class="hero-ctas">
-          <a href="book-unit.html" class="hero-btn-primary">Reserve Your Unit -></a>
-        </div>
-        <!-- Review badges -->
-        <div class="hero-review-row">
-          <div class="hero-review">
-            <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="rev-text">5/5 - from 23+ reviews</div>
-            <div class="rev-source">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                  fill="#4285f4" />
-                <path
-                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                  fill="#34a853" />
-                <path
-                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                  fill="#fbbc05" />
-                <path
-                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                  fill="#ea4335" />
-              </svg>
-              Google Reviews
-            </div>
-          </div>
-        </div>
+        <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <rect x="2" y="7" width="10" height="7" rx="1" />
+              <path d="M12 9h4l2 2v3h-6V9z" />
+              <circle cx="7" cy="16" r="1.5" />
+              <circle cx="15" cy="16" r="1.5" />
+            </svg></span>Packing & Moving</li>
+        <li><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24">
+              <rect x="6" y="3" width="12" height="18" rx="2" />
+              <path d="M12 7v10M9 10l3-3 3 3M9 14l3 3 3-3" />
+            </svg></span>Elevators Access</li>
+
+      </ul>
+      <div class="hero-ctas">
+        <a href="book-unit.html" class="hero-btn-primary">Reserve Your Unit -></a>
       </div>
-
-      <!-- Right: full-bleed image + video + floating card -->
-      <div class="hero-banner">
-        <video id="heroVideo"
-          poster="https://purplebox.ae/wp-content/uploads/2026/05/purplebox_storage_sharp_optimized.webp" muted loop
-          playsinline preload="none">
-          <source src="https://purplebox.ae/wp-content
-        </video>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- FACILITY PHOTO STRIP (hidden by default via CSS) -->
-  <section class=" facility-strip">
-  </section>
-  <!-- CHOOSE YOUR UNIT -->
-  <section class="choose-unit-section">
-    <div class="container">
-      <div class="choose-unit-header">
-        <h2>Choose Your Unit</h2>
-        <p class="unit-row-sub">Sized for apartments, homes, and furniture between moves.</p>
-      </div>
-
-      <div class="unit-category-list">
-        <div class="unit-category-row">
-          <div class="unit-row-header">
-            <div>
-            </div>
-            <a href="book-unit.html" class="unit-row-link">See all -></a>
-          </div>
-
-          <div class="unit-card-scroller">
-            <a href="unit-details.html#unit-xs" class="unit-card">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/10_sq_.jpg') center/cover no-repeat;">
-                <span class="unit-card-badge">XS</span>
-              </div>
-              <div class="unit-card-body">
-                <h4 class="unit-card-size">10 sq ft</h4>
-                <p class="unit-card-hint">Studio essentials, boxes, suitcases.</p>
-                <div class="unit-card-footer">
-                  <div class="unit-card-price-wrap">
-                    <span class="unit-card-discounted">AED 240 <span style="font-size:12px;font-weight:600;">/ First
-                        Month</span></span>
-                    <span class="unit-card-regular">AED 300</span>
-                    <span class="unit-card-save-badge">Save AED 60</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a href="unit-details.html#unit-ss" class="unit-card">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/25_sq.jpg') center/cover no-repeat;">
-                <span class="unit-card-badge">SS</span>
-              </div>
-              <div class="unit-card-body">
-                <h4 class="unit-card-size">25 sq ft</h4>
-                <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
-                <div class="unit-card-footer">
-                  <div class="unit-card-price-wrap">
-                    <span class="unit-card-discounted">AED 500 <span style="font-size:12px;font-weight:600;">/ First
-                        Month</span></span>
-                    <span class="unit-card-regular">AED 625</span>
-                    <span class="unit-card-save-badge">Save AED 125</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a href="unit-details.html#unit-s50" class="unit-card">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/50_sq.jpg') center/cover no-repeat;">
-                <span class="unit-card-badge">S</span>
-                <span class="unit-card-popular">Popular</span>
-              </div>
-              <div class="unit-card-body">
-                <h4 class="unit-card-size">50 sq ft</h4>
-                <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
-                <div class="unit-card-footer">
-                  <div class="unit-card-price-wrap">
-                    <span class="unit-card-discounted">AED 760 <span style="font-size:12px;font-weight:600;">/ First
-                        Month</span></span>
-                    <span class="unit-card-regular">AED 950</span>
-                    <span class="unit-card-save-badge">Save AED 190</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a href="unit-details.html#unit-m35" class="unit-card">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg') center/cover no-repeat;">
-                <span class="unit-card-badge">M</span>
-              </div>
-              <div class="unit-card-body">
-                <h4 class="unit-card-size">35 sq ft</h4>
-                <p class="unit-card-hint">Fits a 2-bedroom apartment.</p>
-                <div class="unit-card-footer">
-                  <div class="unit-card-price-wrap">
-                    <span class="unit-card-discounted">AED 560 <span style="font-size:12px;font-weight:600;">/ First
-                        Month</span></span>
-                    <span class="unit-card-regular">AED 700</span>
-                    <span class="unit-card-save-badge">Save AED 140</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a href="unit-details.html#unit-l" class="unit-card">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/100_sq.jpg') center/cover no-repeat;">
-                <span class="unit-card-badge">L</span>
-              </div>
-              <div class="unit-card-body">
-                <h4 class="unit-card-size">100 sq ft</h4>
-                <p class="unit-card-hint">Fits a small villa / 3-bed home.</p>
-                <div class="unit-card-footer">
-                  <div class="unit-card-price-wrap">
-                    <span class="unit-card-discounted">AED 1280 <span style="font-size:12px;font-weight:600;">/ First
-                        Month</span></span>
-                    <span class="unit-card-regular">AED 1600</span>
-                    <span class="unit-card-save-badge">Save AED 320</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a href="unit-details.html#unit-xl" class="unit-card">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/150_sq.jpg') center/cover no-repeat;">
-                <span class="unit-card-badge">XL</span>
-              </div>
-              <div class="unit-card-body">
-                <h4 class="unit-card-size">150 sq ft</h4>
-                <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
-                <div class="unit-card-footer">
-                  <div class="unit-card-price-wrap">
-                    <span class="unit-card-discounted">AED 1880 <span style="font-size:12px;font-weight:600;">/ First
-                        Month</span></span>
-                    <span class="unit-card-regular">AED 2350</span>
-                    <span class="unit-card-save-badge">Save AED 470</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <a href="unit-details.html#unit-xxl" class="unit-card">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/200_sq.jpg') center/cover no-repeat;">
-                <span class="unit-card-badge">XXL</span>
-              </div>
-              <div class="unit-card-body">
-                <h4 class="unit-card-size">200 sq ft</h4>
-                <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
-                <div class="unit-card-footer">
-                  <div class="unit-card-price-wrap">
-                    <span class="unit-card-discounted">AED 2400 <span style="font-size:12px;font-weight:600;">/ First
-                        Month</span></span>
-                    <span class="unit-card-regular">AED 3000</span>
-                    <span class="unit-card-save-badge">Save AED 600</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-
-  <!-- Lead Capture Form (Split Layout) -->
-  <section class="lead-section" id="get-quote">
-    <div class="container">
-      <div class="lead-split" id="leadForm">
-
-        <!-- Left: promo side -->
-        <div class="lead-promo">
-          <p class="lead-promo-eyebrow"><span></span> Limited Availability</p>
-          <h3>Get Your <em>Custom Quote</em> in 15 Minutes</h3>
-          <p>Fill in the quick form and our storage expert will contact you within 15 minutes with a personalised
-            recommendation.</p>
-
-          <div class="lead-promo-perks">
-            <div class="lead-perk">
-              <div class="lead-perk-icon purple"><svg viewBox="0 0 24 24">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg></div>
-              Climate-controlled &amp; 24/7 CCTV
-            </div>
-            <div class="lead-perk">
-              <div class="lead-perk-icon green"><svg viewBox="0 0 24 24">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <path d="M22 4 12 14.01l-3-3" />
-                </svg></div>
-              Pickup service available
-
-            </div>
-            <div class="lead-perk">
-              <div class="lead-perk-icon amber"><svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v6l4 2" />
-                </svg></div>
-              Reply within 15 minutes
-            </div>
-            <div class="lead-perk">
-              <div class="lead-perk-icon sky"><svg viewBox="0 0 24 24">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg></div>
-              24 Hours Free Access
-            </div>
-          </div>
-
-          <div class="lead-promo-review">
-            <span class="lead-promo-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <p class="lead-promo-review-text">Rated 5/5 from 23+ Google reviews</p>
-          </div>
-        </div>
-
-        <!-- Right: form side -->
-        <div class="lead-form-panel">
-          <div class="lead-form-badge">20% OFF First Month</div>
-          <h4>Reserve your spot today</h4>
-          <p class="form-sub">No commitment. Our team will call you with a tailored quote.</p>
-
-          <form id="reserveForm" action="#" onsubmit="return handleLeadSubmit(event)">
-            <div class="lead-form-row">
-              <div class="lead-form-group">
-                <label for="leadName">Name</label>
-                <input type="text" id="leadName" name="name" placeholder="Your name" required />
-              </div>
-              <div class="lead-form-group">
-                <label for="leadPhone">Phone</label>
-                <input type="tel" id="leadPhone" name="phone" placeholder="+971 5X XXX XXXX" required />
-              </div>
-            </div>
-            <div class="lead-form-group">
-              <label for="leadSize">What size do you need?</label>
-              <select id="leadSize" name="size">
-                <option value="">Not sure yet - help me choose</option>
-                <option value="lite-10">Lite (10 sqft) - suitcases &amp; seasonal items</option>
-                <option value="small-25">Compact (25 sqft) - boxes &amp; small furniture</option>
-                <option value="small-35">Studio (35 sqft) - apartment essentials</option>
-                <option value="average-50">Smart (50 sqft) - 1-room storage</option>
-                <option value="large-100">Home (100 sqft) - 1-bed apartment</option>
-                <option value="xlarge-150">Villa (150 sqft) - 2-bed apartment</option>
-                <option value="xxl-200">Business XXL (200 sqft) - villa / office</option>
-              </select>
-            </div>
-            <div class="lead-form-group">
-              <label for="leadWhen">When do you need it?</label>
-              <select id="leadWhen" name="when">
-                <option value="asap">As soon as possible</option>
-                <option value="this-week">This week</option>
-                <option value="this-month">This month</option>
-                <option value="planning">Just planning ahead</option>
-              </select>
-            </div>
-            <button type="submit" class="lead-form-submit">Get My Free Quote</button>
-          </form>
-          <div id="leadFormActions">
-            <div class="lead-form-trust-row">
-              <span><svg viewBox="0 0 24 24">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg> No spam</span>
-              <span><svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v6l4 2" />
-                </svg> 15 min reply</span>
-              <span><svg viewBox="0 0 24 24">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <path d="M22 4 12 14.01l-3-3" />
-                </svg> 100% free</span>
-            </div>
-          </div>
-          <div class="lead-success" id="leadSuccess" aria-live="polite">
-            <div class="lead-success-badge">&#10004;</div>
-            <h4>Request received!</h4>
-            <p>We've got your details. A PurpleBox storage expert will contact you within the next 15 minutes to find
-              the perfect unit for you.</p>
-            <p class="lead-success-note">Need help right away?</p>
-            <div class="lead-success-actions">
-              <a href="tel:+971542249946" class="lead-success-action call-now">Call Now</a>
-              <a id="leadSuccessChatLink"
-                href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20the%20storage%20form%20and%20want%20to%20connect%20right%20away"
-                class="lead-success-action chat-now" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-
-
-  <!-- PACK LIKE A PRO -->
-  <section class="pack-pro-section">
-    <div class="container">
-      <div class="pack-pro-header">
-        <div class="pack-pro-title">
-          <h2>Pack Like a Pro</h2>
-          <p>Boxes, tape, locks &amp; supplies - delivered with your unit.</p>
-        </div>
-        <a href="store.html" class="pack-pro-shopall" id="shopAllLink">Shop all -></a>
-      </div>
-
-      <div class="pack-pro-filters" id="packFilters">
-        <button type="button" class="pack-filter-chip is-active" data-cat="All">All</button>
-
-      </div>
-
-      <div class="pack-pro-scroller" id="packProProducts"></div>
-    </div>
-  </section>
-
-  <div class="pack-pro-drawer-backdrop" id="packDrawerBackdrop" aria-hidden="true"></div>
-  <aside class="pack-pro-drawer" id="packDrawer" aria-hidden="true">
-    <button class="pack-drawer-close" id="packDrawerClose" aria-label="Close quick view">x</button>
-    <p class="pack-drawer-meta" id="packDrawerCat"></p>
-    <h3 class="pack-drawer-name" id="packDrawerName"></h3>
-    <p class="pack-drawer-meta" id="packDrawerSpec"></p>
-    <p class="pack-drawer-price" id="packDrawerPrice"></p>
-    <button class="pack-drawer-add" id="packDrawerAdd">Add to cart</button>
-  </aside>
-  <!-- Facility Gallery -->
-
-  <!-- FAQ -->
-  <section class="faq-section" id="faq">
-    <div class="container">
-      <div class="faq-layout">
-        <div class="faq-sidebar reveal">
-          <h2>Common questions</h2>
-          <p>Can't find your answer? WhatsApp us - we reply fast.</p>
-          <a href="faq.html" class="btn btn-outline btn-sm">All FAQs</a>
-        </div>
-        <div class="faq-content">
-          <div class="faq-item reveal reveal-delay-1">
-            <button class="faq-btn" onclick="toggleFaq(this)">
-              How is storage priced? <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-body">
-              <p>Monthly, based on unit size. No setup or admin fees. VAT at standard UAE rate. Cancel after the first
-                month with no penalty.</p>
-            </div>
-          </div>
-          <div class="faq-item reveal reveal-delay-2">
-            <button class="faq-btn" onclick="toggleFaq(this)">
-              Can you pick up from my home? <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-body">
-              <p>Yes. Pickup service is available in Dubai. Send your address and item list via WhatsApp and we'll quote
-                within hours.</p>
-            </div>
-          </div>
-          <div class="faq-item reveal reveal-delay-3">
-            <button class="faq-btn" onclick="toggleFaq(this)">
-              Are units climate-controlled? <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-body">
-              <p>All units have AC and humidity control. Dubai summers damage furniture, electronics, and documents -
-                our facility prevents that.</p>
-            </div>
-          </div>
-          <div class="faq-item reveal reveal-delay-4">
-            <button class="faq-btn" onclick="toggleFaq(this)">
-              What's the minimum period? <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-body">
-              <p>One month minimum. After that, extend month-to-month or lock in a longer period for a discount.</p>
-            </div>
+      <!-- Review badges -->
+      <div class="hero-review-row">
+        <div class="hero-review">
+          <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="rev-text">5/5 - from 23+ reviews</div>
+          <div class="rev-source">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                fill="#4285f4" />
+              <path
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                fill="#34a853" />
+              <path
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                fill="#fbbc05" />
+              <path
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                fill="#ea4335" />
+            </svg>
+            Google Reviews
           </div>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- Right: full-bleed image + video + floating card -->
+    <div class="hero-banner">
+      <video id="heroVideo"
+        poster="https://purplebox.ae/wp-content/uploads/2026/05/purplebox_storage_sharp_optimized.webp" muted loop
+        playsinline webkit-playsinline autoplay preload="none">
+        <source src="https://purplebox.ae/wp-content/uploads/2026/06/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FACILITY PHOTO STRIP (hidden by default via CSS) -->
+<section class=" facility-strip">
+</section>
+<!-- CHOOSE YOUR UNIT -->
+<section class="choose-unit-section">
+  <div class="container">
+    <div class="choose-unit-header">
+      <h2>Choose Your Unit</h2>
+      <p class="unit-row-sub">Sized for apartments, homes, and furniture between moves.</p>
+    </div>
+
+    <div class="unit-category-list">
+      <div class="unit-category-row">
+        <div class="unit-row-header">
+          <div>
+          </div>
+          <a href="book-unit.html" class="unit-row-link">See all -></a>
+        </div>
+
+        <div class="unit-card-scroller">
+          <a href="unit-details.html#unit-xs" class="unit-card">
+            <div class="unit-card-media"
+              style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/10_sq_.jpg') center/cover no-repeat;">
+              <span class="unit-card-badge">XS</span>
+            </div>
+            <div class="unit-card-body">
+              <h4 class="unit-card-size">10 sq ft</h4>
+              <p class="unit-card-hint">Studio essentials, boxes, suitcases.</p>
+              <div class="unit-card-footer">
+                <div class="unit-card-price-wrap">
+                  <span class="unit-card-discounted">AED 240 <span style="font-size:12px;font-weight:600;">/ First
+                      Month</span></span>
+                  <span class="unit-card-regular">AED 300</span>
+                  <span class="unit-card-save-badge">Save AED 60</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="unit-details.html#unit-ss" class="unit-card">
+            <div class="unit-card-media"
+              style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/25_sq.jpg') center/cover no-repeat;">
+              <span class="unit-card-badge">SS</span>
+            </div>
+            <div class="unit-card-body">
+              <h4 class="unit-card-size">25 sq ft</h4>
+              <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
+              <div class="unit-card-footer">
+                <div class="unit-card-price-wrap">
+                  <span class="unit-card-discounted">AED 500 <span style="font-size:12px;font-weight:600;">/ First
+                      Month</span></span>
+                  <span class="unit-card-regular">AED 625</span>
+                  <span class="unit-card-save-badge">Save AED 125</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="unit-details.html#unit-s50" class="unit-card">
+            <div class="unit-card-media"
+              style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/50_sq.jpg') center/cover no-repeat;">
+              <span class="unit-card-badge">S</span>
+              <span class="unit-card-popular">Popular</span>
+            </div>
+            <div class="unit-card-body">
+              <h4 class="unit-card-size">50 sq ft</h4>
+              <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
+              <div class="unit-card-footer">
+                <div class="unit-card-price-wrap">
+                  <span class="unit-card-discounted">AED 760 <span style="font-size:12px;font-weight:600;">/ First
+                      Month</span></span>
+                  <span class="unit-card-regular">AED 950</span>
+                  <span class="unit-card-save-badge">Save AED 190</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="unit-details.html#unit-m35" class="unit-card">
+            <div class="unit-card-media"
+              style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg') center/cover no-repeat;">
+              <span class="unit-card-badge">M</span>
+            </div>
+            <div class="unit-card-body">
+              <h4 class="unit-card-size">35 sq ft</h4>
+              <p class="unit-card-hint">Fits a 2-bedroom apartment.</p>
+              <div class="unit-card-footer">
+                <div class="unit-card-price-wrap">
+                  <span class="unit-card-discounted">AED 560 <span style="font-size:12px;font-weight:600;">/ First
+                      Month</span></span>
+                  <span class="unit-card-regular">AED 700</span>
+                  <span class="unit-card-save-badge">Save AED 140</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="unit-details.html#unit-l" class="unit-card">
+            <div class="unit-card-media"
+              style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/100_sq.jpg') center/cover no-repeat;">
+              <span class="unit-card-badge">L</span>
+            </div>
+            <div class="unit-card-body">
+              <h4 class="unit-card-size">100 sq ft</h4>
+              <p class="unit-card-hint">Fits a small villa / 3-bed home.</p>
+              <div class="unit-card-footer">
+                <div class="unit-card-price-wrap">
+                  <span class="unit-card-discounted">AED 1280 <span style="font-size:12px;font-weight:600;">/ First
+                      Month</span></span>
+                  <span class="unit-card-regular">AED 1600</span>
+                  <span class="unit-card-save-badge">Save AED 320</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="unit-details.html#unit-xl" class="unit-card">
+            <div class="unit-card-media"
+              style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/150_sq.jpg') center/cover no-repeat;">
+              <span class="unit-card-badge">XL</span>
+            </div>
+            <div class="unit-card-body">
+              <h4 class="unit-card-size">150 sq ft</h4>
+              <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
+              <div class="unit-card-footer">
+                <div class="unit-card-price-wrap">
+                  <span class="unit-card-discounted">AED 1880 <span style="font-size:12px;font-weight:600;">/ First
+                      Month</span></span>
+                  <span class="unit-card-regular">AED 2350</span>
+                  <span class="unit-card-save-badge">Save AED 470</span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="unit-details.html#unit-xxl" class="unit-card">
+            <div class="unit-card-media"
+              style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/200_sq.jpg') center/cover no-repeat;">
+              <span class="unit-card-badge">XXL</span>
+            </div>
+            <div class="unit-card-body">
+              <h4 class="unit-card-size">200 sq ft</h4>
+              <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
+              <div class="unit-card-footer">
+                <div class="unit-card-price-wrap">
+                  <span class="unit-card-discounted">AED 2400 <span style="font-size:12px;font-weight:600;">/ First
+                      Month</span></span>
+                  <span class="unit-card-regular">AED 3000</span>
+                  <span class="unit-card-save-badge">Save AED 600</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
 
-  <!-- FOOTER -->
-  <footer class="pbx-footer-shell" aria-label="Footer">
-    <div class="container">
-      <div class="pbx-footer">
-        <section class="pbx-location-card" aria-label="Facility location">
-          <div class="pbx-loc-info">
-            <h3 class="pbx-loc-name">PurpleBox Storage - Al Quoz</h3>
-            <div class="pbx-loc-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path
-                  d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
-              </svg>
-              <div><span class="pbx-loc-label">Phone:</span> <a href="tel:+971542249946" class="pbx-loc-value">+971 54
-                  224 9946</a></div>
-            </div>
-            <div class="pbx-loc-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="M3 8l9 6 9-6" />
-              </svg>
-              <div><span class="pbx-loc-label">Email:</span> <a href="mailto:contact@purplebox.ae"
-                  class="pbx-loc-value">contact@purplebox.ae</a></div>
-            </div>
-            <div class="pbx-loc-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <div><span class="pbx-loc-label">Address:</span> <span class="pbx-loc-value">ABA AVENUE - Unit 12, 12th
-                  St, Al Quoz 2, Dubai</span></div>
-            </div>
-            <div class="pbx-loc-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
+
+
+
+<!-- Lead Capture Form (Split Layout) -->
+<section class="lead-section" id="get-quote">
+  <div class="container">
+    <div class="lead-split" id="leadForm">
+
+      <!-- Left: promo side -->
+      <div class="lead-promo">
+        <p class="lead-promo-eyebrow"><span></span> Limited Availability</p>
+        <h3>Get Your <em>Custom Quote</em> in 15 Minutes</h3>
+        <p>Fill in the quick form and our storage expert will contact you within 15 minutes with a personalised
+          recommendation.</p>
+
+        <div class="lead-promo-perks">
+          <div class="lead-perk">
+            <div class="lead-perk-icon purple"><svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            Climate-controlled &amp; 24/7 CCTV
+          </div>
+          <div class="lead-perk">
+            <div class="lead-perk-icon green"><svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <path d="M22 4 12 14.01l-3-3" />
+              </svg></div>
+            Pickup service available
+
+          </div>
+          <div class="lead-perk">
+            <div class="lead-perk-icon amber"><svg viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 6v6l4 2" />
-              </svg>
-              <div><span class="pbx-loc-label">Hours:</span> <span class="pbx-loc-value pbx-loc-open">24/7 Access</span>
-              </div>
-            </div>
+              </svg></div>
+            Reply within 15 minutes
           </div>
-          <div class="pbx-loc-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.0!2d55.2413732!3d25.1236443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69ea7c731fbf%3A0xb8a5f079b15d282!2sPurplebox%20Storage!5e0!3m2!1sen!2sae!4v1717200000000"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PurpleBox Storage location"
-              allowfullscreen></iframe>
-            <a class="pbx-loc-directions" href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
-              rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 3L11 13" />
-                <path d="M21 3L14.5 21L11 13L3 9.5L21 3Z" />
-              </svg> Get Directions</a>
-          </div>
-        </section>
-        <div class="pbx-bottom-grid">
-          <div class="pbx-link-grid">
-            <nav aria-label="Storage links">
-              <p class="pbx-eyebrow">Quick Links</p>
-              <ul>
-                <li><a href="book-unit.html">Reserve Unit</a></li>
-                <li><a href="store.html">Shop Now</a></li>
-                <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
-                <li><a href="size-guide.html">Size Guide</a></li>
-              </ul>
-            </nav>
-            <nav aria-label="Company links">
-              <p class="pbx-eyebrow">Company</p>
-              <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="/#faq">Help Centre</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
-                    rel="noopener noreferrer">Location</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="pbx-connect">
-            <section class="pbx-contact" aria-label="Contact options">
-              <a class="pbx-chip" href="tel:+971542249946"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path
-                    d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
-                </svg> +971 54 224 9946</a>
-              <a class="pbx-chip" href="mailto:contact@purplebox.ae"><svg width="16" height="16" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="M3 8l9 6 9-6" />
-                </svg> contact@purplebox.ae</a>
-            </section>
-            <section class="pbx-social" aria-label="Social media links">
-              <a href="https://www.instagram.com/purpleboxstorage/" target="_blank" rel="noopener noreferrer"
-                aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.9" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.2" cy="6.8" r="1" />
-                </svg></a>
-              <a href="https://www.facebook.com/profile.php?id=61583010513739#" target="_blank"
-                rel="noopener noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
-                  <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" />
-                </svg></a>
-              <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
-                style="color:#22c55e;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);"><svg width="16"
-                  height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                  aria-hidden="true">
-                  <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
-                  <path
-                    d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z" />
-                </svg></a>
-            </section>
+          <div class="lead-perk">
+            <div class="lead-perk-icon sky"><svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg></div>
+            24 Hours Free Access
           </div>
         </div>
-        <div class="pbx-legal">
-          <span>&copy; 2026 Short Term Storage LLC</span>
-          <div class="pbx-legal-links"><a href="privacy.html">Privacy</a> <span aria-hidden="true">&middot;</span> <a
-              href="terms.html">Terms &amp; Conditions</a></div>
+
+        <div class="lead-promo-review">
+          <span class="lead-promo-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p class="lead-promo-review-text">Rated 5/5 from 23+ Google reviews</p>
+        </div>
+      </div>
+
+      <!-- Right: form side -->
+      <div class="lead-form-panel">
+        <div class="lead-form-badge">20% OFF First Month</div>
+        <h4>Reserve your spot today</h4>
+        <p class="form-sub">No commitment. Our team will call you with a tailored quote.</p>
+
+        <form id="reserveForm" action="#" onsubmit="return handleLeadSubmit(event)">
+          <div class="lead-form-row">
+            <div class="lead-form-group">
+              <label for="leadName">Name</label>
+              <input type="text" id="leadName" name="name" placeholder="Your name" required />
+            </div>
+            <div class="lead-form-group">
+              <label for="leadPhone">Phone</label>
+              <input type="tel" id="leadPhone" name="phone" placeholder="+971 5X XXX XXXX" required />
+            </div>
+          </div>
+          <div class="lead-form-group">
+            <label for="leadSize">What size do you need?</label>
+            <select id="leadSize" name="size">
+              <option value="">Not sure yet - help me choose</option>
+              <option value="lite-10">Lite (10 sqft) - suitcases &amp; seasonal items</option>
+              <option value="small-25">Compact (25 sqft) - boxes &amp; small furniture</option>
+              <option value="small-35">Studio (35 sqft) - apartment essentials</option>
+              <option value="average-50">Smart (50 sqft) - 1-room storage</option>
+              <option value="large-100">Home (100 sqft) - 1-bed apartment</option>
+              <option value="xlarge-150">Villa (150 sqft) - 2-bed apartment</option>
+              <option value="xxl-200">Business XXL (200 sqft) - villa / office</option>
+            </select>
+          </div>
+          <div class="lead-form-group">
+            <label for="leadWhen">When do you need it?</label>
+            <select id="leadWhen" name="when">
+              <option value="asap">As soon as possible</option>
+              <option value="this-week">This week</option>
+              <option value="this-month">This month</option>
+              <option value="planning">Just planning ahead</option>
+            </select>
+          </div>
+          <button type="submit" class="lead-form-submit">Get My Free Quote</button>
+        </form>
+        <div id="leadFormActions">
+          <div class="lead-form-trust-row">
+            <span><svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg> No spam</span>
+            <span><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg> 15 min reply</span>
+            <span><svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <path d="M22 4 12 14.01l-3-3" />
+              </svg> 100% free</span>
+          </div>
+        </div>
+        <div class="lead-success" id="leadSuccess" aria-live="polite">
+          <div class="lead-success-badge">&#10004;</div>
+          <h4>Request received!</h4>
+          <p>We've got your details. A PurpleBox storage expert will contact you within the next 15 minutes to find
+            the perfect unit for you.</p>
+          <p class="lead-success-note">Need help right away?</p>
+          <div class="lead-success-actions">
+            <a href="tel:+971542249946" class="lead-success-action call-now">Call Now</a>
+            <a id="leadSuccessChatLink"
+              href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20the%20storage%20form%20and%20want%20to%20connect%20right%20away"
+              class="lead-success-action chat-now" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- PACK LIKE A PRO -->
+<section class="pack-pro-section">
+  <div class="container">
+    <div class="pack-pro-header">
+      <div class="pack-pro-title">
+        <h2>Pack Like a Pro</h2>
+        <p>Boxes, tape, locks &amp; supplies - delivered with your unit.</p>
+      </div>
+      <a href="store.html" class="pack-pro-shopall" id="shopAllLink">Shop all -></a>
+    </div>
+
+    <div class="pack-pro-filters" id="packFilters">
+      <button type="button" class="pack-filter-chip is-active" data-cat="All">All</button>
+
+    </div>
+
+    <div class="pack-pro-scroller" id="packProProducts"></div>
+  </div>
+</section>
+
+<div class="pack-pro-drawer-backdrop" id="packDrawerBackdrop" aria-hidden="true"></div>
+<aside class="pack-pro-drawer" id="packDrawer" aria-hidden="true" role="dialog" aria-modal="true"
+  aria-labelledby="packDrawerName">
+  <!-- Close -->
+  <button class="pack-drawer-close" id="packDrawerClose" aria-label="Close product detail">&times;</button>
+
+  <!-- Two-column layout -->
+  <div class="pack-drawer-body">
+    <!-- Left: image -->
+    <div class="pack-drawer-img-wrap" id="packDrawerImgWrap">
+      <!-- populated by JS -->
+    </div>
+
+    <!-- Right: details -->
+    <div class="pack-drawer-details">
+      <p class="pack-drawer-cat" id="packDrawerCat"></p>
+      <h3 class="pack-drawer-name" id="packDrawerName"></h3>
+      <p class="pack-drawer-meta" id="packDrawerSpec"></p>
+      <div class="pack-drawer-price" id="packDrawerPrice"></div>
+
+      <!-- Qty stepper + Add to cart -->
+      <div class="pack-drawer-actions">
+        <div class="pack-drawer-qty">
+          <button type="button" class="pack-qty-btn" id="packQtyMinus" aria-label="Decrease quantity">&#8722;</button>
+          <span class="pack-qty-val" id="packQtyVal">1</span>
+          <button type="button" class="pack-qty-btn" id="packQtyPlus" aria-label="Increase quantity">&#43;</button>
+        </div>
+        <button class="pack-drawer-add" id="packDrawerAdd">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          Add to Cart
+        </button>
+      </div>
+
+      <!-- Cart summary -->
+      <div class="pack-drawer-cart-summary" id="packDrawerCartSummary"></div>
+
+      <!-- Checkout + shop link -->
+      <a href="store.html#checkout" class="pack-drawer-checkout" id="packDrawerCheckout">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+        Proceed to Checkout
+      </a>
+      <a href="store.html" class="pack-drawer-shop-link">Browse all supplies &rarr;</a>
+    </div>
+  </div>
+</aside>
+<!-- Facility Gallery -->
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-sidebar reveal">
+        <h2>Common questions</h2>
+        <p>Can't find your answer? WhatsApp us - we reply fast.</p>
+        <a href="faq.html" class="btn btn-outline btn-sm">All FAQs</a>
+      </div>
+      <div class="faq-content">
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            How is storage priced? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <p>Monthly, based on unit size. No setup or admin fees. VAT at standard UAE rate. Cancel after the first
+              month with no penalty.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            Can you pick up from my home? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <p>Yes. Pickup service is available in Dubai. Send your address and item list via WhatsApp and we'll quote
+              within hours.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            Are units climate-controlled? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <p>All units have AC and humidity control. Dubai summers damage furniture, electronics, and documents -
+              our facility prevents that.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-4">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            What's the minimum period? <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <p>One month minimum. After that, extend month-to-month or lock in a longer period for a discount.</p>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
-
-  <a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">💬</a>
-
-  <div class="mobile-cta">
-    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer"><svg
-        viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M20.52 3.48A11.8 11.8 0 0 0 12.11 0C5.63 0 .37 5.27.37 11.74c0 2.07.54 4.09 1.57 5.87L0 24l6.58-1.9a11.7 11.7 0 0 0 5.53 1.41h.01c6.47 0 11.74-5.27 11.74-11.74 0-3.14-1.22-6.1-3.34-8.29zM12.12 21.5h-.01a9.74 9.74 0 0 1-4.96-1.36l-.36-.21-3.9 1.13 1.16-3.8-.24-.39a9.73 9.73 0 0 1-1.5-5.13c0-5.37 4.37-9.74 9.75-9.74 2.6 0 5.05 1.01 6.89 2.86a9.66 9.66 0 0 1 2.85 6.88c0 5.37-4.37 9.74-9.74 9.74zm5.34-7.3c-.29-.14-1.7-.84-1.97-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.28-1.41-.84-.75-1.41-1.67-1.57-1.95-.17-.29-.02-.44.12-.58.12-.12.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.17 3.01c.14.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" />
-      </svg>WhatsApp</a>
-    <a href="reserve-step-1.html" class="btn btn-primary btn-full">Reserve Now</a>
   </div>
+</section>
 
-  <script>
-    /* ---- Lead Form Submission ---- */
-    function handleLeadSubmit(e) {
-      e.preventDefault();
-      var name = document.getElementById('leadName').value;
-      var phone = document.getElementById('leadPhone').value;
-      var size = document.getElementById('leadSize').value;
-      var when = document.getElementById('leadWhen').value;
-      var msg = 'Hi, I just submitted the storage form. Name: ' + name + ', Phone: ' + phone + ', Size: ' + size + ', When: ' + when;
-      var leadConfig = window.PBXLeadConfig || {};
 
-      var form = document.getElementById('reserveForm');
-      var formActions = document.getElementById('leadFormActions');
-      var successState = document.getElementById('leadSuccess');
-      var successChatLink = document.getElementById('leadSuccessChatLink');
 
-      if (successChatLink) {
-        successChatLink.href = 'https://wa.me/971542249946?text=' + encodeURIComponent(msg);
+<!-- FOOTER -->
+<footer class="pbx-footer-shell" aria-label="Footer">
+  <div class="container">
+    <div class="pbx-footer">
+      <section class="pbx-location-card" aria-label="Facility location">
+        <div class="pbx-loc-info">
+          <h3 class="pbx-loc-name">PurpleBox Storage - Al Quoz</h3>
+          <div class="pbx-loc-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path
+                d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
+            </svg>
+            <div><span class="pbx-loc-label">Phone:</span> <a href="tel:+971542249946" class="pbx-loc-value">+971 54
+                224 9946</a></div>
+          </div>
+          <div class="pbx-loc-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="M3 8l9 6 9-6" />
+            </svg>
+            <div><span class="pbx-loc-label">Email:</span> <a href="mailto:contact@purplebox.ae"
+                class="pbx-loc-value">contact@purplebox.ae</a></div>
+          </div>
+          <div class="pbx-loc-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <div><span class="pbx-loc-label">Address:</span> <span class="pbx-loc-value">ABA AVENUE - Unit 12, 12th
+                St, Al Quoz 2, Dubai</span></div>
+          </div>
+          <div class="pbx-loc-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+            <div><span class="pbx-loc-label">Hours:</span> <span class="pbx-loc-value pbx-loc-open">24/7 Access</span>
+            </div>
+          </div>
+        </div>
+        <div class="pbx-loc-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.0!2d55.2413732!3d25.1236443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69ea7c731fbf%3A0xb8a5f079b15d282!2sPurplebox%20Storage!5e0!3m2!1sen!2sae!4v1717200000000"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PurpleBox Storage location"
+            allowfullscreen></iframe>
+          <a class="pbx-loc-directions" href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
+            rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <path d="M21 3L11 13" />
+              <path d="M21 3L14.5 21L11 13L3 9.5L21 3Z" />
+            </svg> Get Directions</a>
+        </div>
+      </section>
+      <div class="pbx-bottom-grid">
+        <div class="pbx-link-grid">
+          <nav aria-label="Storage links">
+            <p class="pbx-eyebrow">Quick Links</p>
+            <ul>
+              <li><a href="book-unit.html">Reserve Unit</a></li>
+              <li><a href="store.html">Shop Now</a></li>
+              <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
+              <li><a href="size-guide.html">Size Guide</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Company links">
+            <p class="pbx-eyebrow">Company</p>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="/#faq">Help Centre</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
+                  rel="noopener noreferrer">Location</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="pbx-connect">
+          <section class="pbx-contact" aria-label="Contact options">
+            <a class="pbx-chip" href="tel:+971542249946"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path
+                  d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
+              </svg> +971 54 224 9946</a>
+            <a class="pbx-chip" href="mailto:contact@purplebox.ae"><svg width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 8l9 6 9-6" />
+              </svg> contact@purplebox.ae</a>
+          </section>
+          <section class="pbx-social" aria-label="Social media links">
+            <a href="https://www.instagram.com/purpleboxstorage/" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.9" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="1" />
+              </svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61583010513739#" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.9" aria-hidden="true">
+                <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" />
+              </svg></a>
+            <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+              style="color:#22c55e;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);"><svg width="16"
+                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
+                <path
+                  d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z" />
+              </svg></a>
+          </section>
+        </div>
+      </div>
+      <div class="pbx-legal">
+        <span>&copy; 2026 Short Term Storage LLC</span>
+        <div class="pbx-legal-links"><a href="privacy.html">Privacy</a> <span aria-hidden="true">&middot;</span> <a
+            href="terms.html">Terms &amp; Conditions</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">??</a>
+
+<div class="mobile-cta">
+  <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer"><svg
+      viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M20.52 3.48A11.8 11.8 0 0 0 12.11 0C5.63 0 .37 5.27.37 11.74c0 2.07.54 4.09 1.57 5.87L0 24l6.58-1.9a11.7 11.7 0 0 0 5.53 1.41h.01c6.47 0 11.74-5.27 11.74-11.74 0-3.14-1.22-6.1-3.34-8.29zM12.12 21.5h-.01a9.74 9.74 0 0 1-4.96-1.36l-.36-.21-3.9 1.13 1.16-3.8-.24-.39a9.73 9.73 0 0 1-1.5-5.13c0-5.37 4.37-9.74 9.75-9.74 2.6 0 5.05 1.01 6.89 2.86a9.66 9.66 0 0 1 2.85 6.88c0 5.37-4.37 9.74-9.74 9.74zm5.34-7.3c-.29-.14-1.7-.84-1.97-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.28-1.41-.84-.75-1.41-1.67-1.57-1.95-.17-.29-.02-.44.12-.58.12-.12.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.02 2.82 1.17 3.01c.14.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" />
+    </svg>WhatsApp</a>
+  <a href="reserve-step-1.html" class="btn btn-primary btn-full">Reserve Now</a>
+</div>
+
+<script>
+  /* ---- Lead Form Submission ---- */
+  function handleLeadSubmit(e) {
+    e.preventDefault();
+    var name = document.getElementById('leadName').value;
+    var phone = document.getElementById('leadPhone').value;
+    var size = document.getElementById('leadSize').value;
+    var when = document.getElementById('leadWhen').value;
+    var msg = 'Hi, I just submitted the storage form. Name: ' + name + ', Phone: ' + phone + ', Size: ' + size + ', When: ' + when;
+    var leadConfig = window.PBXLeadConfig || {};
+
+    var form = document.getElementById('reserveForm');
+    var formActions = document.getElementById('leadFormActions');
+    var successState = document.getElementById('leadSuccess');
+    var successChatLink = document.getElementById('leadSuccessChatLink');
+
+    if (successChatLink) {
+      successChatLink.href = 'https://wa.me/971542249946?text=' + encodeURIComponent(msg);
+    }
+
+    var payload = new URLSearchParams();
+    payload.set('action', 'pbx_submit_reservation');
+    payload.set('nonce', leadConfig.nonce || '');
+    payload.set('source_page_name', 'Homepage - Lead Form');
+    payload.set('source_page', window.location.href.split('#')[0]);
+    payload.set('full_name', name);
+    payload.set('mobile', phone);
+    payload.set('email', '');
+    payload.set('emirate', 'Dubai');
+    payload.set('storing_for', 'Homepage Inquiry');
+    payload.set('move_in_date', when);
+    payload.set('unit_size', size || 'Not selected');
+    payload.set('unit_label', 'Homepage Inquiry');
+    payload.set('monthly_rent', '0');
+    payload.set('promo_code', '');
+    payload.set('supplies_total', '0');
+    payload.set('due_today', '0');
+    payload.set('supplies_text', 'No supplies selected');
+    payload.set('summary_text', [
+      'Homepage lead submitted',
+      'Name: ' + name,
+      'Phone: ' + phone,
+      'Storage size: ' + (size || 'Not selected'),
+      'Timing: ' + when
+    ].join('\n'));
+
+    var submitUrl = leadConfig.ajaxUrl || '/wp-admin/admin-ajax.php';
+
+    fetch(submitUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+      credentials: 'same-origin',
+      body: payload.toString()
+    }).catch(function () { });
+
+    if (form) form.style.display = 'none';
+    if (formActions) formActions.style.display = 'none';
+
+    if (successState) {
+      successState.classList.add('is-visible');
+      successState.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    if (typeof window.gtag === 'function' && window.PBX_GOOGLE_ADS_ID && window.PBX_GOOGLE_ADS_CONVERSION_LABEL) {
+      window.gtag('event', 'conversion', {
+        'send_to': window.PBX_GOOGLE_ADS_ID + '/' + window.PBX_GOOGLE_ADS_CONVERSION_LABEL,
+        'value': 1.0,
+        'currency': 'AED'
+      });
+    }
+
+    return false;
+  }
+
+  function toggleFaq(btn) {
+    var body = btn.nextElementSibling;
+    var isOpen = body.classList.contains('open');
+    document.querySelectorAll('.faq-body.open').forEach(function (b) {
+      b.classList.remove('open');
+      b.previousElementSibling.classList.remove('open');
+    });
+    if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+  }
+
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  /* ---- Scroll Reveal ---- */
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ---- Smooth scroll ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ---- Hero video: load after page ready, poster shows until it plays ---- */
+  (function () {
+    var video = document.getElementById('heroVideo');
+    if (!video) return;
+    var srcEl = video.querySelector('source');
+    var fallbackSrc = 'http://purplebox.ae/wp-content/uploads/2026/06/video.mp4';
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.autoplay = true;
+
+    if (!srcEl || !srcEl.getAttribute('src')) {
+      video.src = fallbackSrc;
+    }
+
+    function loadVideo() {
+      video.preload = 'auto';
+      video.load();
+      video.play().catch(function () {
+        // autoplay blocked - poster stays visible, no error shown
+      });
+    }
+
+    function ensurePlaying() {
+      if (document.hidden || !video.paused) return;
+      video.play().catch(function () {
+        // ignore browser autoplay restrictions
+      });
+    }
+
+    if (document.readyState === 'complete') {
+      loadVideo();
+    } else {
+      window.addEventListener('load', loadVideo);
+    }
+
+    document.addEventListener('visibilitychange', ensurePlaying);
+    video.addEventListener('pause', ensurePlaying);
+    video.addEventListener('ended', function () {
+      video.currentTime = 0;
+      ensurePlaying();
+    });
+  })();
+
+  (function () {
+    var WP = 'https://purplebox.ae/wp-content/uploads/2026/05/';
+    var PRODUCTS = [
+      { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 x 30 x 30 cm', price: 'AED 8', priceNum: 8, image: WP + 'bubble-box-small.jpg' },
+      { id: 'md', cat: 'Boxes', name: 'Medium Box', spec: '50 x 40 x 40 cm', price: 'AED 12', priceNum: 12, tag: 'Bestseller', image: WP + 'bubble-box-medium.jpg' },
+      { id: 'lg', cat: 'Boxes', name: 'Large Box', spec: '60 x 45 x 45 cm', price: 'AED 16', priceNum: 16, image: WP + 'box-large.jpg' },
+      { id: 'tape', cat: 'Packing', name: 'Packing Tape', spec: '50 m x 48 mm', price: 'AED 9', priceNum: 9, was: 'AED 12' },
+      { id: 'disp', cat: 'Packing', name: 'Tape Dispenser', spec: 'Heavy-duty', price: 'AED 22', priceNum: 22 },
+      { id: 'bub', cat: 'Packing', name: 'Bubble Wrap', spec: '10 m roll', price: 'AED 25', priceNum: 25, image: WP + 'buble-wrap.jpg' },
+      { id: 'paper', cat: 'Packing', name: 'Packing Paper', spec: '5 kg bundle', price: 'AED 18', priceNum: 18 },
+      { id: 'foam', cat: 'Packing', name: 'Foam Sheets', spec: 'Pack of 20', price: 'AED 20', priceNum: 20 },
+      { id: 'mark', cat: 'Packing', name: 'Marker Pen', spec: 'Permanent, black', price: 'AED 5', priceNum: 5 },
+      { id: 'label', cat: 'Packing', name: 'Fragile Labels', spec: 'Pack of 50', price: 'AED 7', priceNum: 7 },
+      { id: 'pad', cat: 'Locks', name: 'Padlock', spec: '50 mm hardened steel', price: 'AED 35', priceNum: 35 },
+      { id: 'disc', cat: 'Locks', name: 'Disc Lock', spec: 'Pick-resistant', price: 'AED 55', priceNum: 55 },
+      { id: 'cab', cat: 'Locks', name: 'Cable Lock', spec: '1.2 m steel', price: 'AED 28', priceNum: 28 },
+      { id: 'seal', cat: 'Locks', name: 'Security Seals', spec: 'Pack of 10', price: 'AED 12', priceNum: 12 }
+    ];
+
+    var BUNDLE = {
+      eyebrow: 'Save 20%',
+      title: '1-Bedroom Moving Kit',
+      desc: '15 boxes, 2 tape rolls, bubble wrap, marker & labels.',
+      price: 'AED 189',
+      was: 'AED 235'
+    };
+
+    var section = document.getElementById('packProProducts');
+    var filtersWrap = document.getElementById('packFilters');
+    if (!section || !filtersWrap) return;
+
+    var shopAllLink = document.getElementById('shopAllLink');
+    var cartBadge = document.getElementById('shopCartBadge');
+    var drawer = document.getElementById('packDrawer');
+    var drawerBackdrop = document.getElementById('packDrawerBackdrop');
+    var drawerClose = document.getElementById('packDrawerClose');
+    var drawerCat = document.getElementById('packDrawerCat');
+    var drawerName = document.getElementById('packDrawerName');
+    var drawerSpec = document.getElementById('packDrawerSpec');
+    var drawerPrice = document.getElementById('packDrawerPrice');
+    var drawerAdd = document.getElementById('packDrawerAdd');
+    var drawerImgWrap = document.getElementById('packDrawerImgWrap');
+    var drawerQtyVal = document.getElementById('packQtyVal');
+    var drawerQtyMinus = document.getElementById('packQtyMinus');
+    var drawerQtyPlus = document.getElementById('packQtyPlus');
+    var drawerCartSummary = document.getElementById('packDrawerCartSummary');
+    var drawerCheckout = document.getElementById('packDrawerCheckout');
+    var drawerQty = 1;
+
+    var activeCat = 'All';
+    var activeProduct = null;
+    var savedIds = new Set(JSON.parse(localStorage.getItem('pbSavedProducts') || '[]'));
+    var badgeSeed = parseInt((cartBadge && cartBadge.textContent) ? cartBadge.textContent : '0', 10);
+    if (isNaN(badgeSeed)) badgeSeed = 0;
+    var storedCartCount = localStorage.getItem('pbCartCount');
+    var cartCount = storedCartCount === null ? badgeSeed : parseInt(storedCartCount || '0', 10);
+    if (isNaN(cartCount)) cartCount = badgeSeed;
+
+    function productIcon(cat) {
+      if (cat === 'Packing') {
+        return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
+          '<circle cx="28" cy="42" r="15" fill="#cdd7e6"></circle>' +
+          '<circle cx="28" cy="42" r="7" fill="#f7fafc"></circle>' +
+          '<circle cx="49" cy="34" r="13" fill="#b9c7db"></circle>' +
+          '<circle cx="49" cy="34" r="6" fill="#f7fafc"></circle>' +
+          '<rect x="18" y="54" width="44" height="12" rx="6" fill="#f5b74f"></rect>' +
+          '<rect x="22" y="58" width="36" height="4" rx="2" fill="#f9e2b5"></rect>' +
+          '</svg>';
+      }
+      if (cat === 'Locks') {
+        return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
+          '<path d="M24 36v-6c0-9 7-16 16-16s16 7 16 16v6" fill="none" stroke="#7a879a" stroke-width="6" stroke-linecap="round"></path>' +
+          '<rect x="20" y="34" width="40" height="30" rx="8" fill="#9aa8bd"></rect>' +
+          '<rect x="24" y="38" width="32" height="22" rx="6" fill="#c2cede"></rect>' +
+          '<circle cx="40" cy="49" r="4" fill="#6f7b8f"></circle>' +
+          '<rect x="38.5" y="49" width="3" height="8" rx="1.5" fill="#6f7b8f"></rect>' +
+          '</svg>';
+      }
+      return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
+        '<rect x="13" y="30" width="54" height="34" rx="6" fill="#c89c63"></rect>' +
+        '<path d="M13 30l27-14 27 14-27 13-27-13Z" fill="#e0b27a"></path>' +
+        '<rect x="38" y="24" width="4" height="36" fill="#b68248"></rect>' +
+        '<rect x="34" y="39" width="12" height="4" rx="2" fill="#f3d7af"></rect>' +
+        '</svg>';
+    }
+
+    function productVisual(item) {
+      if (item.image) {
+        return '<img src="' + item.image + '" alt="' + item.name + '" loading="lazy">';
+      }
+      return productIcon(item.cat);
+    }
+
+    function updateShopAllHref() {
+      if (!shopAllLink) return;
+      var cfg = window.PBXPackProConfig || {};
+      var href = cfg.shopUrl || 'store.html';
+      if (activeCat !== 'All') {
+        href += '?category=' + encodeURIComponent(activeCat);
+      }
+      shopAllLink.setAttribute('href', href);
+    }
+
+    function updateCartBadge() {
+      if (!cartBadge) return;
+      cartBadge.textContent = String(cartCount);
+      if (cartCount > 0) {
+        cartBadge.classList.add('has-items');
+      } else {
+        cartBadge.classList.remove('has-items');
+      }
+    }
+
+    function showAddedToast(name) {
+      var existing = document.getElementById('packAddedToast');
+      if (existing) {
+        existing.remove();
       }
 
+      var toast = document.createElement('div');
+      toast.id = 'packAddedToast';
+      toast.style.position = 'fixed';
+      toast.style.right = '16px';
+      toast.style.bottom = '16px';
+      toast.style.zIndex = '9999';
+      toast.style.background = '#111827';
+      toast.style.color = '#ffffff';
+      toast.style.padding = '10px 12px';
+      toast.style.borderRadius = '10px';
+      toast.style.boxShadow = '0 10px 24px rgba(0,0,0,0.25)';
+      toast.style.fontSize = '13px';
+      toast.style.fontWeight = '600';
+      toast.textContent = (name || 'Item') + ' added to cart';
+      document.body.appendChild(toast);
+
+      setTimeout(function () {
+        toast.remove();
+      }, 1800);
+    }
+
+    function postPackApi(action, data) {
+      var cfg = window.PBXPackProConfig || {};
       var payload = new URLSearchParams();
-      payload.set('action', 'pbx_submit_reservation');
-      payload.set('nonce', leadConfig.nonce || '');
-      payload.set('source_page_name', 'Homepage - Lead Form');
-      payload.set('source_page', window.location.href.split('#')[0]);
-      payload.set('full_name', name);
-      payload.set('mobile', phone);
-      payload.set('email', '');
-      payload.set('emirate', 'Dubai');
-      payload.set('storing_for', 'Homepage Inquiry');
-      payload.set('move_in_date', when);
-      payload.set('unit_size', size || 'Not selected');
-      payload.set('unit_label', 'Homepage Inquiry');
-      payload.set('monthly_rent', '0');
-      payload.set('promo_code', '');
-      payload.set('supplies_total', '0');
-      payload.set('due_today', '0');
-      payload.set('supplies_text', 'No supplies selected');
-      payload.set('summary_text', [
-        'Homepage lead submitted',
-        'Name: ' + name,
-        'Phone: ' + phone,
-        'Storage size: ' + (size || 'Not selected'),
-        'Timing: ' + when
-      ].join('\n'));
+      payload.set('action', action);
+      payload.set('nonce', cfg.nonce || '');
+      Object.keys(data || {}).forEach(function (key) {
+        payload.set(key, String(data[key]));
+      });
 
-      var submitUrl = leadConfig.ajaxUrl || '/wp-admin/admin-ajax.php';
-
-      fetch(submitUrl, {
+      return fetch(cfg.ajaxUrl || '/wp-admin/admin-ajax.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
         credentials: 'same-origin',
         body: payload.toString()
-      }).catch(function () { });
-
-      if (form) form.style.display = 'none';
-      if (formActions) formActions.style.display = 'none';
-
-      if (successState) {
-        successState.classList.add('is-visible');
-        successState.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      if (typeof window.gtag === 'function' && window.PBX_GOOGLE_ADS_ID && window.PBX_GOOGLE_ADS_CONVERSION_LABEL) {
-        window.gtag('event', 'conversion', {
-          'send_to': window.PBX_GOOGLE_ADS_ID + '/' + window.PBX_GOOGLE_ADS_CONVERSION_LABEL,
-          'value': 1.0,
-          'currency': 'AED'
-        });
-      }
-
-      return false;
-    }
-
-    function toggleFaq(btn) {
-      var body = btn.nextElementSibling;
-      var isOpen = body.classList.contains('open');
-      document.querySelectorAll('.faq-body.open').forEach(function (b) {
-        b.classList.remove('open');
-        b.previousElementSibling.classList.remove('open');
+      }).then(function (res) {
+        return res.json();
       });
-      if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
     }
 
-    function toggleMobileMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
+    function refreshWooBadgeFromServer() {
+      var cfg = window.PBXPackProConfig || {};
+      if (!cfg.wooEnabled) return;
 
-    /* ---- Scroll Reveal ---- */
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
+      postPackApi('pbx_store_cart_get', {}).then(function (res) {
+        if (res && res.success && res.data) {
+          cartCount = Number(res.data.count || 0);
+          localStorage.setItem('pbCartCount', String(cartCount));
+          updateCartBadge();
         }
+      }).catch(function () {
+        // Keep current badge state if network call fails.
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    }
 
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      revealObserver.observe(el);
-    });
+    function queuePendingWooAdd(productId, qty) {
+      if (!productId) return;
+      var raw = localStorage.getItem('pbPendingWooAdds') || '[]';
+      var pending;
+      try {
+        pending = JSON.parse(raw);
+        if (!Array.isArray(pending)) pending = [];
+      } catch (e) {
+        pending = [];
+      }
+      pending.push({ product_id: Number(productId), qty: Number(qty || 1), at: Date.now() });
+      localStorage.setItem('pbPendingWooAdds', JSON.stringify(pending));
+    }
 
-    /* ---- Smooth scroll ---- */
-    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    /* ---- Hero video: load after page ready, poster shows until it plays ---- */
-    (function () {
-      var video = document.getElementById('heroVideo');
-      if (!video) return;
-
-      function loadVideo() {
-        video.preload = 'auto';
-        video.load();
-        video.play().catch(function () {
-          // autoplay blocked - poster stays visible, no error shown
-        });
+    function updateLocalCartShadow(item, qty) {
+      if (!item) return;
+      var raw = localStorage.getItem('pbCartItems') || '[]';
+      var items;
+      try {
+        items = JSON.parse(raw);
+        if (!Array.isArray(items)) items = [];
+      } catch (e) {
+        items = [];
       }
 
-      if (document.readyState === 'complete') {
-        loadVideo();
+      var existing = items.find(function (x) { return x && x.id === item.id; });
+      if (existing) {
+        existing.qty = Number(existing.qty || 1) + Math.max(1, Number(qty || 1));
       } else {
-        window.addEventListener('load', loadVideo);
-      }
-    })();
-
-    (function () {
-      var PRODUCTS = [
-        { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 x 30 x 30 cm', price: 'AED 8', image: 'images/bubble-box-small.jpg' },
-        { id: 'md', cat: 'Boxes', name: 'Medium Box', spec: '50 x 40 x 40 cm', price: 'AED 12', tag: 'Bestseller', image: 'images/bubble-box-medium.jpg' },
-        { id: 'lg', cat: 'Boxes', name: 'Large Box', spec: '60 x 45 x 45 cm', price: 'AED 16', image: 'images/box-large.jpg' },
-        { id: 'tape', cat: 'Packing', name: 'Packing Tape', spec: '50 m x 48 mm', price: 'AED 9', was: 'AED 12' },
-        { id: 'disp', cat: 'Packing', name: 'Tape Dispenser', spec: 'Heavy-duty', price: 'AED 22' },
-        { id: 'bub', cat: 'Packing', name: 'Bubble Wrap', spec: '10 m roll', price: 'AED 25', image: 'images/buble-wrap.jpg' },
-        { id: 'paper', cat: 'Packing', name: 'Packing Paper', spec: '5 kg bundle', price: 'AED 18' },
-        { id: 'foam', cat: 'Packing', name: 'Foam Sheets', spec: 'Pack of 20', price: 'AED 20' },
-        { id: 'mark', cat: 'Packing', name: 'Marker Pen', spec: 'Permanent, black', price: 'AED 5' },
-        { id: 'label', cat: 'Packing', name: 'Fragile Labels', spec: 'Pack of 50', price: 'AED 7' },
-        { id: 'pad', cat: 'Locks', name: 'Padlock', spec: '50 mm hardened steel', price: 'AED 35' },
-        { id: 'disc', cat: 'Locks', name: 'Disc Lock', spec: 'Pick-resistant', price: 'AED 55' },
-        { id: 'cab', cat: 'Locks', name: 'Cable Lock', spec: '1.2 m steel', price: 'AED 28' },
-        { id: 'seal', cat: 'Locks', name: 'Security Seals', spec: 'Pack of 10', price: 'AED 12' }
-      ];
-
-      var BUNDLE = {
-        eyebrow: 'Save 20%',
-        title: '1-Bedroom Moving Kit',
-        desc: '15 boxes, 2 tape rolls, bubble wrap, marker & labels.',
-        price: 'AED 189',
-        was: 'AED 235'
-      };
-
-      var section = document.getElementById('packProProducts');
-      var filtersWrap = document.getElementById('packFilters');
-      if (!section || !filtersWrap) return;
-
-      var shopAllLink = document.getElementById('shopAllLink');
-      var cartBadge = document.getElementById('shopCartBadge');
-      var drawer = document.getElementById('packDrawer');
-      var drawerBackdrop = document.getElementById('packDrawerBackdrop');
-      var drawerClose = document.getElementById('packDrawerClose');
-      var drawerCat = document.getElementById('packDrawerCat');
-      var drawerName = document.getElementById('packDrawerName');
-      var drawerSpec = document.getElementById('packDrawerSpec');
-      var drawerPrice = document.getElementById('packDrawerPrice');
-      var drawerAdd = document.getElementById('packDrawerAdd');
-
-      var activeCat = 'All';
-      var activeProduct = null;
-      var savedIds = new Set(JSON.parse(localStorage.getItem('pbSavedProducts') || '[]'));
-      var badgeSeed = parseInt((cartBadge && cartBadge.textContent) ? cartBadge.textContent : '0', 10);
-      if (isNaN(badgeSeed)) badgeSeed = 0;
-      var storedCartCount = localStorage.getItem('pbCartCount');
-      var cartCount = storedCartCount === null ? badgeSeed : parseInt(storedCartCount || '0', 10);
-      if (isNaN(cartCount)) cartCount = badgeSeed;
-
-      function productIcon(cat) {
-        if (cat === 'Packing') {
-          return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
-            '<circle cx="28" cy="42" r="15" fill="#cdd7e6"></circle>' +
-            '<circle cx="28" cy="42" r="7" fill="#f7fafc"></circle>' +
-            '<circle cx="49" cy="34" r="13" fill="#b9c7db"></circle>' +
-            '<circle cx="49" cy="34" r="6" fill="#f7fafc"></circle>' +
-            '<rect x="18" y="54" width="44" height="12" rx="6" fill="#f5b74f"></rect>' +
-            '<rect x="22" y="58" width="36" height="4" rx="2" fill="#f9e2b5"></rect>' +
-            '</svg>';
-        }
-        if (cat === 'Locks') {
-          return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
-            '<path d="M24 36v-6c0-9 7-16 16-16s16 7 16 16v6" fill="none" stroke="#7a879a" stroke-width="6" stroke-linecap="round"></path>' +
-            '<rect x="20" y="34" width="40" height="30" rx="8" fill="#9aa8bd"></rect>' +
-            '<rect x="24" y="38" width="32" height="22" rx="6" fill="#c2cede"></rect>' +
-            '<circle cx="40" cy="49" r="4" fill="#6f7b8f"></circle>' +
-            '<rect x="38.5" y="49" width="3" height="8" rx="1.5" fill="#6f7b8f"></rect>' +
-            '</svg>';
-        }
-        return '<svg viewBox="0 0 80 80" aria-hidden="true">' +
-          '<rect x="13" y="30" width="54" height="34" rx="6" fill="#c89c63"></rect>' +
-          '<path d="M13 30l27-14 27 14-27 13-27-13Z" fill="#e0b27a"></path>' +
-          '<rect x="38" y="24" width="4" height="36" fill="#b68248"></rect>' +
-          '<rect x="34" y="39" width="12" height="4" rx="2" fill="#f3d7af"></rect>' +
-          '</svg>';
-      }
-
-      function productVisual(item) {
-        if (item.image) {
-          return '<img src="' + item.image + '" alt="' + item.name + '" loading="lazy">';
-        }
-        return productIcon(item.cat);
-      }
-
-      function updateShopAllHref() {
-        if (!shopAllLink) return;
-        var cfg = window.PBXPackProConfig || {};
-        var href = cfg.shopUrl || 'store.html';
-        if (activeCat !== 'All') {
-          href += '?category=' + encodeURIComponent(activeCat);
-        }
-        shopAllLink.setAttribute('href', href);
-      }
-
-      function updateCartBadge() {
-        if (!cartBadge) return;
-        cartBadge.textContent = String(cartCount);
-        if (cartCount > 0) {
-          cartBadge.classList.add('has-items');
-        } else {
-          cartBadge.classList.remove('has-items');
-        }
-      }
-
-      function showAddedToast(name) {
-        var existing = document.getElementById('packAddedToast');
-        if (existing) {
-          existing.remove();
-        }
-
-        var toast = document.createElement('div');
-        toast.id = 'packAddedToast';
-        toast.style.position = 'fixed';
-        toast.style.right = '16px';
-        toast.style.bottom = '16px';
-        toast.style.zIndex = '9999';
-        toast.style.background = '#111827';
-        toast.style.color = '#ffffff';
-        toast.style.padding = '10px 12px';
-        toast.style.borderRadius = '10px';
-        toast.style.boxShadow = '0 10px 24px rgba(0,0,0,0.25)';
-        toast.style.fontSize = '13px';
-        toast.style.fontWeight = '600';
-        toast.textContent = (name || 'Item') + ' added to cart';
-        document.body.appendChild(toast);
-
-        setTimeout(function () {
-          toast.remove();
-        }, 1800);
-      }
-
-      function postPackApi(action, data) {
-        var cfg = window.PBXPackProConfig || {};
-        var payload = new URLSearchParams();
-        payload.set('action', action);
-        payload.set('nonce', cfg.nonce || '');
-        Object.keys(data || {}).forEach(function (key) {
-          payload.set(key, String(data[key]));
-        });
-
-        return fetch(cfg.ajaxUrl || '/wp-admin/admin-ajax.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-          credentials: 'same-origin',
-          body: payload.toString()
-        }).then(function (res) {
-          return res.json();
-        });
-      }
-
-      function refreshWooBadgeFromServer() {
-        var cfg = window.PBXPackProConfig || {};
-        if (!cfg.wooEnabled) return;
-
-        postPackApi('pbx_store_cart_get', {}).then(function (res) {
-          if (res && res.success && res.data) {
-            cartCount = Number(res.data.count || 0);
-            localStorage.setItem('pbCartCount', String(cartCount));
-            updateCartBadge();
-          }
-        }).catch(function () {
-          // Keep current badge state if network call fails.
-        });
-      }
-
-      function queuePendingWooAdd(productId, qty) {
-        if (!productId) return;
-        var raw = localStorage.getItem('pbPendingWooAdds') || '[]';
-        var pending;
-        try {
-          pending = JSON.parse(raw);
-          if (!Array.isArray(pending)) pending = [];
-        } catch (e) {
-          pending = [];
-        }
-        pending.push({ product_id: Number(productId), qty: Number(qty || 1), at: Date.now() });
-        localStorage.setItem('pbPendingWooAdds', JSON.stringify(pending));
-      }
-
-      function updateLocalCartShadow(item, qty) {
-        if (!item) return;
-        var raw = localStorage.getItem('pbCartItems') || '[]';
-        var items;
-        try {
-          items = JSON.parse(raw);
-          if (!Array.isArray(items)) items = [];
-        } catch (e) {
-          items = [];
-        }
-
-        var existing = items.find(function (x) { return x && x.id === item.id; });
-        if (existing) {
-          existing.qty = Number(existing.qty || 1) + Math.max(1, Number(qty || 1));
-        } else {
-          items.push({
-            id: item.id,
-            name: item.name,
-            price: item.price,
-            cat: item.cat,
-            qty: Math.max(1, Number(qty || 1))
-          });
-        }
-
-        localStorage.setItem('pbCartItems', JSON.stringify(items));
-      }
-
-      function pulseButton(button) {
-        if (!button) return;
-        button.classList.remove('is-adding');
-        button.offsetHeight;
-        button.classList.add('is-adding');
-        setTimeout(function () {
-          button.classList.remove('is-adding');
-        }, 260);
-      }
-
-      function persistSaved() {
-        localStorage.setItem('pbSavedProducts', JSON.stringify(Array.from(savedIds)));
-      }
-
-      function addToCart(item, sourceButton) {
-        if (item && /^wc-\d+$/.test(String(item.id || ''))) {
-          var productId = Number(String(item.id).replace('wc-', '')) || 0;
-          if (productId > 0) {
-            postPackApi('pbx_store_cart_add', { product_id: productId, qty: 1 }).then(function (res) {
-              if (res && res.success && res.data) {
-                cartCount = Number(res.data.count || (cartCount + 1));
-              } else {
-                queuePendingWooAdd(productId, 1);
-                cartCount += 1;
-              }
-              updateLocalCartShadow(item, 1);
-              localStorage.setItem('pbCartCount', String(cartCount));
-              updateCartBadge();
-              pulseButton(sourceButton);
-              showAddedToast(item.name);
-            }).catch(function () {
-              queuePendingWooAdd(productId, 1);
-              cartCount += 1;
-              updateLocalCartShadow(item, 1);
-              localStorage.setItem('pbCartCount', String(cartCount));
-              updateCartBadge();
-              pulseButton(sourceButton);
-              showAddedToast(item.name);
-            });
-            return;
-          }
-        }
-
-        cartCount += 1;
-        localStorage.setItem('pbCartCount', String(cartCount));
-
-        var cartPayload = JSON.parse(localStorage.getItem('pbCartItems') || '[]');
-        cartPayload.push({
+        items.push({
           id: item.id,
           name: item.name,
           price: item.price,
+          priceNum: item.priceNum || parseFloat((item.price || '0').replace(/[^0-9.]/g, '')) || 0,
           cat: item.cat,
-          qty: 1,
-          addedAt: Date.now()
+          qty: Math.max(1, Number(qty || 1))
         });
-        localStorage.setItem('pbCartItems', JSON.stringify(cartPayload));
-
-        if (window.PurpleBoxCart && typeof window.PurpleBoxCart.addItem === 'function') {
-          window.PurpleBoxCart.addItem(item);
-        } else if (window.cartStore && typeof window.cartStore.addItem === 'function') {
-          window.cartStore.addItem(item);
-        }
-
-        pulseButton(sourceButton);
-        updateCartBadge();
-        showAddedToast(item.name);
       }
 
-      function openDrawer(product) {
-        activeProduct = product;
-        drawerCat.textContent = product.cat;
-        drawerName.textContent = product.name;
-        drawerSpec.textContent = product.spec;
-        drawerPrice.innerHTML = product.price + (product.was ? ' <span>' + product.was + '</span>' : '');
-        drawer.classList.add('is-open');
-        drawerBackdrop.classList.add('is-open');
-        drawer.setAttribute('aria-hidden', 'false');
-      }
-
-      function closeDrawer() {
-        drawer.classList.remove('is-open');
-        drawerBackdrop.classList.remove('is-open');
-        drawer.setAttribute('aria-hidden', 'true');
-      }
-
-      function renderProducts() {
-        var filtered = activeCat === 'All'
-          ? PRODUCTS
-          : PRODUCTS.filter(function (item) { return item.cat === activeCat; });
-
-        var bundleHtml = '';
-
-        var itemsHtml = filtered.map(function (item) {
-          var savedClass = savedIds.has(item.id) ? ' is-saved' : '';
-          return '' +
-            '<article class="pack-product-card" data-id="' + item.id + '">' +
-            '<div class="pack-product-photo">' +
-            (item.tag ? '<span class="pack-product-tag">' + item.tag + '</span>' : '') +
-            '<button type="button" class="pack-save-btn' + savedClass + '" data-save-id="' + item.id + '" aria-label="Save ' + item.name + '">' +
-            '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.8-4.3-9.2-8C1.1 10.6 2.2 7 5.6 7c2.1 0 3.4 1.2 4.4 2.4C11 8.2 12.3 7 14.4 7c3.4 0 4.5 3.6 2.8 6-2.4 3.7-9.2 8-9.2 8Z"></path></svg>' +
-            '</button>' +
-            productVisual(item) +
-            '</div>' +
-            '<div class="pack-product-main" data-open-id="' + item.id + '" tabindex="0" role="button" aria-label="Open details for ' + item.name + '">' +
-            '<h4 class="pack-product-name">' + item.name + '</h4>' +
-            '<p class="pack-product-spec">' + item.spec + '</p>' +
-            '<div class="pack-product-footer">' +
-            '<div class="pack-product-price">' + item.price + (item.was ? ' <span class="was">' + item.was + '</span>' : '') + '</div>' +
-            '<button type="button" class="pack-add-btn" data-add-id="' + item.id + '" aria-label="Add ' + item.name + ' to cart">+</button>' +
-            '</div>' +
-            '</div>' +
-            '</article>';
-        }).join('');
-
-        section.innerHTML = bundleHtml + itemsHtml;
-        updateShopAllHref();
-      }
-
-      filtersWrap.addEventListener('click', function (event) {
-        var chip = event.target.closest('.pack-filter-chip');
-        if (!chip) return;
-        activeCat = chip.getAttribute('data-cat') || 'All';
-        filtersWrap.querySelectorAll('.pack-filter-chip').forEach(function (button) {
-          button.classList.remove('is-active');
-        });
-        chip.classList.add('is-active');
-        renderProducts();
-      });
-
-      section.addEventListener('click', function (event) {
-        var saveBtn = event.target.closest('[data-save-id]');
-        if (saveBtn) {
-          var saveId = saveBtn.getAttribute('data-save-id');
-          if (savedIds.has(saveId)) {
-            savedIds.delete(saveId);
-            saveBtn.classList.remove('is-saved');
-          } else {
-            savedIds.add(saveId);
-            saveBtn.classList.add('is-saved');
-          }
-          persistSaved();
-          return;
-        }
-
-        var addBtn = event.target.closest('[data-add-id]');
-        if (addBtn) {
-          var addId = addBtn.getAttribute('data-add-id');
-          var addItem = PRODUCTS.find(function (p) { return p.id === addId; });
-          if (addItem) {
-            addToCart(addItem, addBtn);
-          }
-          return;
-        }
-
-        var bundleBtn = event.target.closest('[data-bundle-add]');
-        if (bundleBtn) {
-          addToCart({
-            id: 'bundle-1br',
-            cat: 'Bundle',
-            name: BUNDLE.title,
-            price: BUNDLE.price
-          }, bundleBtn);
-          return;
-        }
-
-        var openEl = event.target.closest('[data-open-id]');
-        if (openEl) {
-          var openId = openEl.getAttribute('data-open-id');
-          var item = PRODUCTS.find(function (p) { return p.id === openId; });
-          if (item) {
-            openDrawer(item);
-          }
-        }
-      });
-
-      section.addEventListener('keydown', function (event) {
-        if (event.key !== 'Enter' && event.key !== ' ') return;
-        var openEl = event.target.closest('[data-open-id]');
-        if (!openEl) return;
-        var openId = openEl.getAttribute('data-open-id');
-        var item = PRODUCTS.find(function (p) { return p.id === openId; });
-        if (item) {
-          event.preventDefault();
-          openDrawer(item);
-        }
-      });
-
-      drawerClose.addEventListener('click', closeDrawer);
-      drawerBackdrop.addEventListener('click', closeDrawer);
-      drawerAdd.addEventListener('click', function () {
-        if (!activeProduct) return;
-        addToCart(activeProduct, drawerAdd);
-      });
-
-      updateCartBadge();
-      refreshWooBadgeFromServer();
-      renderProducts();
-    })();
-  </script>
-
-  <!-- Force pure white - last rule wins cascade over shared.css -->
-  <style>
-    html,
-    body,
-    .hero,
-    .stats-bar,
-    .why-section,
-    .why-section .container,
-    .need-section,
-    .need-section .container,
-    .facility-section,
-    .facility-section .container,
-    .map-section,
-    .map-section .container,
-    .reviews-section,
-    .reviews-section .container,
-    .faq-section,
-    .faq-section .container {
-      background-color: #ffffff !important;
+      localStorage.setItem('pbCartItems', JSON.stringify(items));
     }
-  </style>
-  <script src="templates/layout-loader.js"></script>
-  <script src="js/pbx-tracking.js"></script>
-  <script>
-    PBXTracking.init({
-      pageName: 'Homepage',
-      sections: [
-        { sel: '.hero', name: 'hero' },
-        { sel: '.choose-unit-section', name: 'units' },
-        { sel: '.lead-section', name: 'lead_form' },
-        { sel: '.pack-pro-section', name: 'pack_pro' },
-        { sel: '.faq-section', name: 'faq' },
-        { sel: '.pbx-footer-shell', name: 'footer' }
-      ]
+
+    function pulseButton(button) {
+      if (!button) return;
+      button.classList.remove('is-adding');
+      button.offsetHeight;
+      button.classList.add('is-adding');
+      setTimeout(function () {
+        button.classList.remove('is-adding');
+      }, 260);
+    }
+
+    function persistSaved() {
+      localStorage.setItem('pbSavedProducts', JSON.stringify(Array.from(savedIds)));
+    }
+
+    function addToCart(item, sourceButton) {
+      if (item && /^wc-\d+$/.test(String(item.id || ''))) {
+        var productId = Number(String(item.id).replace('wc-', '')) || 0;
+        if (productId > 0) {
+          postPackApi('pbx_store_cart_add', { product_id: productId, qty: 1 }).then(function (res) {
+            if (res && res.success && res.data) {
+              cartCount = Number(res.data.count || (cartCount + 1));
+            } else {
+              queuePendingWooAdd(productId, 1);
+              cartCount += 1;
+            }
+            updateLocalCartShadow(item, 1);
+            localStorage.setItem('pbCartCount', String(cartCount));
+            updateCartBadge();
+            pulseButton(sourceButton);
+            showAddedToast(item.name);
+          }).catch(function () {
+            queuePendingWooAdd(productId, 1);
+            cartCount += 1;
+            updateLocalCartShadow(item, 1);
+            localStorage.setItem('pbCartCount', String(cartCount));
+            updateCartBadge();
+            pulseButton(sourceButton);
+            showAddedToast(item.name);
+          });
+          return;
+        }
+      }
+
+      cartCount += 1;
+      localStorage.setItem('pbCartCount', String(cartCount));
+
+      var cartPayload = JSON.parse(localStorage.getItem('pbCartItems') || '[]');
+      cartPayload.push({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        priceNum: item.priceNum || parseFloat((item.price || '0').replace(/[^0-9.]/g, '')) || 0,
+        cat: item.cat,
+        qty: 1,
+        addedAt: Date.now()
+      });
+      localStorage.setItem('pbCartItems', JSON.stringify(cartPayload));
+
+      if (window.PurpleBoxCart && typeof window.PurpleBoxCart.addItem === 'function') {
+        window.PurpleBoxCart.addItem(item);
+      } else if (window.cartStore && typeof window.cartStore.addItem === 'function') {
+        window.cartStore.addItem(item);
+      }
+
+      pulseButton(sourceButton);
+      updateCartBadge();
+      showAddedToast(item.name);
+    }
+
+    function renderCartSummary() {
+      if (!drawerCartSummary) return;
+      var items;
+      try { items = JSON.parse(localStorage.getItem('pbCartItems') || '[]'); } catch (e) { items = []; }
+      if (!items.length) {
+        drawerCartSummary.className = 'pack-drawer-cart-summary';
+        drawerCartSummary.innerHTML = '';
+        if (drawerCheckout) drawerCheckout.classList.remove('visible');
+        return;
+      }
+      var total = 0;
+      var itemCount = 0;
+      var rows = items.map(function (it) {
+        var num = it.priceNum || parseInt((it.price || '0').replace(/[^0-9]/g, ''), 10) || 0;
+        var qty = it.qty || 1;
+        var lineTotal = num * qty;
+        total += lineTotal;
+        itemCount += qty;
+        return '<div class="pack-drawer-cart-row"><span>' + it.name + ' &times;' + qty + '</span><span>AED ' + lineTotal + '</span></div>';
+      }).join('');
+      drawerCartSummary.className = 'pack-drawer-cart-summary has-items';
+      drawerCartSummary.innerHTML = '<div style="font-size:11px;font-weight:700;color:#1976d2;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em">Your Cart (' + itemCount + ' item' + (itemCount !== 1 ? 's' : '') + ')</div>' + rows + '<div class="pack-drawer-cart-row"><span>Total</span><span>AED ' + total + '</span></div>';
+      if (drawerCheckout) {
+        drawerCheckout.classList.add('visible');
+        drawerCheckout.href = 'store.html?checkout=1&total=' + total;
+      }
+    }
+
+    function openDrawer(product) {
+      activeProduct = product;
+      drawerQty = 1;
+      if (drawerQtyVal) drawerQtyVal.textContent = '1';
+
+      // Image
+      if (drawerImgWrap) {
+        if (product.image) {
+          drawerImgWrap.innerHTML = '<img src="' + product.image + '" alt="' + product.name + '" loading="lazy">';
+        } else {
+          drawerImgWrap.innerHTML = productIcon(product.cat);
+        }
+      }
+
+      drawerCat.textContent = product.cat;
+      drawerName.textContent = product.name;
+      drawerSpec.textContent = product.spec;
+      drawerPrice.innerHTML = product.price + (product.was ? ' <span class="was">' + product.was + '</span>' : '');
+
+      // Reset add button
+      drawerAdd.classList.remove('added');
+      drawerAdd.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Add to Cart';
+
+      renderCartSummary();
+      drawer.classList.add('is-open');
+      drawerBackdrop.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      drawer.scrollTop = 0;
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      drawerBackdrop.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+
+    // Qty stepper
+    if (drawerQtyMinus) {
+      drawerQtyMinus.addEventListener('click', function () {
+        if (drawerQty > 1) { drawerQty--; if (drawerQtyVal) drawerQtyVal.textContent = drawerQty; }
+      });
+    }
+    if (drawerQtyPlus) {
+      drawerQtyPlus.addEventListener('click', function () {
+        if (drawerQty < 99) { drawerQty++; if (drawerQtyVal) drawerQtyVal.textContent = drawerQty; }
+      });
+    }
+
+    function renderProducts() {
+      var filtered = activeCat === 'All'
+        ? PRODUCTS
+        : PRODUCTS.filter(function (item) { return item.cat === activeCat; });
+
+      var bundleHtml = '';
+
+      var itemsHtml = filtered.map(function (item) {
+        var savedClass = savedIds.has(item.id) ? ' is-saved' : '';
+        return '' +
+          '<article class="pack-product-card" data-id="' + item.id + '" style="cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;" onmouseenter="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 14px 32px rgba(15,23,42,0.1)\';this.style.borderColor=\'#1976d2\'" onmouseleave="this.style.transform=\'\';this.style.boxShadow=\'\';this.style.borderColor=\'\'">' +
+          '<div class="pack-product-photo" data-open-id="' + item.id + '">' +
+          (item.tag ? '<span class="pack-product-tag">' + item.tag + '</span>' : '') +
+          '<button type="button" class="pack-save-btn' + savedClass + '" data-save-id="' + item.id + '" aria-label="Save ' + item.name + '">' +
+          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.8-4.3-9.2-8C1.1 10.6 2.2 7 5.6 7c2.1 0 3.4 1.2 4.4 2.4C11 8.2 12.3 7 14.4 7c3.4 0 4.5 3.6 2.8 6-2.4 3.7-9.2 8-9.2 8Z"></path></svg>' +
+          '</button>' +
+          productVisual(item) +
+          '</div>' +
+          '<div class="pack-product-main" data-open-id="' + item.id + '" tabindex="0" role="button" aria-label="View details for ' + item.name + '">' +
+          '<h4 class="pack-product-name">' + item.name + '</h4>' +
+          '<p class="pack-product-spec">' + item.spec + '</p>' +
+          '<div class="pack-product-footer">' +
+          '<div class="pack-product-price">' + item.price + (item.was ? ' <span class="was">' + item.was + '</span>' : '') + '</div>' +
+          '<button type="button" class="pack-add-btn" data-add-id="' + item.id + '" aria-label="Add ' + item.name + ' to cart">+</button>' +
+          '</div>' +
+          '</div>' +
+          '</article>';
+      }).join('');
+
+      section.innerHTML = bundleHtml + itemsHtml;
+      updateShopAllHref();
+    }
+
+    filtersWrap.addEventListener('click', function (event) {
+      var chip = event.target.closest('.pack-filter-chip');
+      if (!chip) return;
+      activeCat = chip.getAttribute('data-cat') || 'All';
+      filtersWrap.querySelectorAll('.pack-filter-chip').forEach(function (button) {
+        button.classList.remove('is-active');
+      });
+      chip.classList.add('is-active');
+      renderProducts();
     });
-  </script>
+
+    section.addEventListener('click', function (event) {
+      var saveBtn = event.target.closest('[data-save-id]');
+      if (saveBtn) {
+        var saveId = saveBtn.getAttribute('data-save-id');
+        if (savedIds.has(saveId)) {
+          savedIds.delete(saveId);
+          saveBtn.classList.remove('is-saved');
+        } else {
+          savedIds.add(saveId);
+          saveBtn.classList.add('is-saved');
+        }
+        persistSaved();
+        return;
+      }
+
+      var addBtn = event.target.closest('[data-add-id]');
+      if (addBtn) {
+        var addId = addBtn.getAttribute('data-add-id');
+        var addItem = PRODUCTS.find(function (p) { return p.id === addId; });
+        if (addItem) {
+          addToCart(addItem, addBtn);
+        }
+        return;
+      }
+
+      var bundleBtn = event.target.closest('[data-bundle-add]');
+      if (bundleBtn) {
+        addToCart({
+          id: 'bundle-1br',
+          cat: 'Bundle',
+          name: BUNDLE.title,
+          price: BUNDLE.price
+        }, bundleBtn);
+        return;
+      }
+
+      var openEl = event.target.closest('[data-open-id]');
+      if (openEl) {
+        window.location.href = 'product.html?id=' + openEl.getAttribute('data-open-id');
+      }
+    });
+
+    section.addEventListener('keydown', function (event) {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      var openEl = event.target.closest('[data-open-id]');
+      if (!openEl) return;
+      event.preventDefault();
+      window.location.href = 'product.html?id=' + openEl.getAttribute('data-open-id');
+    });
+
+    drawerClose.addEventListener('click', closeDrawer);
+    drawerBackdrop.addEventListener('click', closeDrawer);
+    drawerAdd.addEventListener('click', function () {
+      if (!activeProduct) return;
+      var qty = Math.max(1, drawerQty || 1);
+      for (var i = 0; i < qty; i++) { addToCart(activeProduct, drawerAdd); }
+      drawerAdd.classList.add('added');
+      drawerAdd.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Added!';
+      setTimeout(function () {
+        drawerAdd.classList.remove('added');
+        drawerAdd.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Add to Cart';
+      }, 1800);
+      renderCartSummary();
+    });
+
+    updateCartBadge();
+    refreshWooBadgeFromServer();
+    renderProducts();
+  })();
+</script>
+
+<!-- Force pure white - last rule wins cascade over shared.css -->
+<style>
+  html,
+  body,
+  .hero,
+  .stats-bar,
+  .why-section,
+  .why-section .container,
+  .need-section,
+  .need-section .container,
+  .facility-section,
+  .facility-section .container,
+  .map-section,
+  .map-section .container,
+  .reviews-section,
+  .reviews-section .container,
+  .faq-section,
+  .faq-section .container {
+    background-color: #ffffff !important;
+  }
+</style>
+<script src="templates/layout-loader.js"></script>
 </body>
 
 </html>

@@ -131,8 +131,8 @@ a.pbx-loc-value:hover { color: #fff; }
   gap: 5px;
   padding: 7px 12px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.95);
-  color: #111827;
+  background: rgba(0, 0, 0, 0.95);
+  color: #ffffff;
   font-size: 12px;
   font-weight: 700;
   text-decoration: none;
@@ -140,7 +140,7 @@ a.pbx-loc-value:hover { color: #fff; }
   transition: background .15s;
 }
 
-.pbx-loc-directions:hover { background: #fff; }
+.pbx-loc-directions:hover { background: #000000; }
 
 .pbx-loc-directions svg {
   display: block;

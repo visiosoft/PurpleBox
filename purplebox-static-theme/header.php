@@ -13,6 +13,7 @@ $theme_uri = get_template_directory_uri();
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+  <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php wp_head(); ?>

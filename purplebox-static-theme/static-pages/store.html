@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -416,7 +417,9 @@
   </style>
 </head>
 
-<body>
+</head>
+
+
   <nav class="site-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.png"
@@ -803,8 +806,15 @@
           var data = JSON.parse(localStorage.getItem('pbCartItems') || '[]');
           if (!Array.isArray(data)) return [];
           return data.map(function (x) {
-            return { id: x.id, name: x.name, price: x.price, cat: x.cat, qty: Number(x.qty || 1) };
-          }).filter(function (x) { return x.id && x.name && x.price; });
+            return {
+              id: x.id,
+              name: x.name,
+              price: x.price,
+              priceNum: x.priceNum || parseFloat((x.price || '0').replace(/[^0-9.]/g, '')) || 0,
+              cat: x.cat,
+              qty: Number(x.qty || 1)
+            };
+          }).filter(function (x) { return x.id && x.name; });
         } catch (e) { return []; }
       }
 
@@ -909,11 +919,16 @@
         saveCart(); renderCart(); syncHeaderBadgeSoon();
       }
 
+      function itemPrice(item) {
+        return item.priceNum || parseFloat((item.price || '0').replace(/[^0-9.]/g, '')) || 0;
+      }
+
       function cartSubtotal() {
-        if (WOO_ENABLED) {
+        // If WooCommerce has a live subtotal use it; otherwise calculate from local cart
+        if (WOO_ENABLED && wooMeta.subtotalNum > 0) {
           return wooMeta.subtotalNum;
         }
-        return state.cart.reduce(function (s, i) { return s + parsePrice(i.price) * i.qty; }, 0);
+        return state.cart.reduce(function (s, i) { return s + itemPrice(i) * i.qty; }, 0);
       }
 
       /* --- RENDER CART --- */
@@ -942,11 +957,11 @@
               '<button type="button" data-plus-id="' + (item.cartKey || item.id) + '">+</button>' +
               '</div>' +
               '</div>' +
-              '<p style="font-weight:700;white-space:nowrap;">' + (item.lineTotalLabel || formatAed(parsePrice(item.price) * item.qty)) + '</p>' +
+              '<p style="font-weight:700;white-space:nowrap;">' + (item.lineTotalLabel && item.lineTotalLabel !== 'AED 0' ? item.lineTotalLabel : formatAed(itemPrice(item) * item.qty)) + '</p>' +
               '</div>';
           }).join('');
         }
-        cartTotal.textContent = WOO_ENABLED ? wooMeta.subtotalLabel : formatAed(cartSubtotal());
+        cartTotal.textContent = (WOO_ENABLED && wooMeta.subtotalNum > 0) ? wooMeta.subtotalLabel : formatAed(cartSubtotal());
       }
 
       function proceedToCheckout() {

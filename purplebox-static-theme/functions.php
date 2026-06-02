@@ -685,19 +685,20 @@ function purplebox_static_get_pack_pro_products() {
             : home_url('/');
 
         $result[] = [
-            'id' => 'wc-' . $id,
-            'cat' => $map_category($cat_raw),
-            'name' => $name,
-            'spec' => $spec,
-            'price' => $price_text,
-            'was' => $was_text,
-            'tag' => $product->is_on_sale() ? 'Sale' : '',
-            'image' => $image,
-            'product_url' => esc_url_raw(get_permalink($id)),
+            'id'            => 'wc-' . $id,
+            'cat'           => $map_category($cat_raw),
+            'name'          => $name,
+            'spec'          => $spec,
+            'price'         => $price_text,
+            'priceNum'      => (float) ($price > 0 ? $price : $regular),
+            'was'           => $was_text,
+            'tag'           => $product->is_on_sale() ? 'Sale' : '',
+            'image'         => $image,
+            'product_url'   => esc_url_raw(get_permalink($id)),
             'add_to_cart_url' => esc_url_raw(add_query_arg(
                 [
                     'add-to-cart' => (string) $id,
-                    'quantity' => '1',
+                    'quantity'    => '1',
                 ],
                 $cart_base_url
             )),
@@ -1177,7 +1178,7 @@ add_filter('template_include', function ($template) {
         $html = purplebox_static_inject_store_config($html);
     }
 
-    if ($slug === 'index') {
+    if ($slug === 'index' || $slug === 'product') {
         $html = purplebox_static_inject_pack_products($html);
     }
 

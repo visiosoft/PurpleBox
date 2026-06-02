@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Local Self-Storage Units in Dubai - PurpleBox Storage Al Quoz</title>
@@ -1405,7 +1406,9 @@
   </style>
 </head>
 
-<body>
+</head>
+
+
 
   <!-- Header -->
   <header class="lp-header">
@@ -1623,7 +1626,7 @@
           </div>
         </div>
         <div class="lead-success" id="leadSuccess" aria-live="polite">
-          <div class="lead-success-badge">âœ“</div>
+          <div class="lead-success-badge">✓</div>
           <h4>Request received</h4>
           <p>Your request has been prepared for contact@purplebox.ae. Our representative will contact you within the
             next 15 minutes to confirm your storage needs and recommend the best unit.</p>
@@ -1992,7 +1995,7 @@
     initUnitCardSelection();
   </script>
 
-  <!-- ═══ Full Behavioral Tracking ═══ -->
+  <!-- --- Full Behavioral Tracking --- -->
   <script>
   (function () {
     'use strict';
@@ -2011,7 +2014,7 @@
     var totalIdleMs = 0;
     var IDLE_THRESHOLD = 30000; // 30s
 
-    // ── Helpers ──
+    // -- Helpers --
     function ts() { return Math.round((Date.now() - sessionStart) / 1000); }
     function push(event, params) {
       var data = Object.assign({ event: event, page_name: PAGE, timestamp_sec: ts() }, params || {});
@@ -2019,10 +2022,10 @@
       GA('event', event, params || {});
     }
 
-    // ── 1. Page View + Session Start ──
+    // -- 1. Page View + Session Start --
     push('lp_page_view', { referrer: document.referrer || 'direct', url: location.href });
 
-    // ── 2. Scroll Depth Tracking ──
+    // -- 2. Scroll Depth Tracking --
     var scrollTicking = false;
     function onScroll() {
       if (scrollTicking) return;
@@ -2043,7 +2046,7 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // ── 3. Section Visibility Tracking ──
+    // -- 3. Section Visibility Tracking --
     var sections = [
       { sel: '.hero', name: 'hero' },
       { sel: '.units-section', name: 'units' },
@@ -2076,7 +2079,7 @@
       });
     }
 
-    // ── 4. Click Tracking (all clicks with context) ──
+    // -- 4. Click Tracking (all clicks with context) --
     document.addEventListener('click', function (e) {
       var target = e.target.closest('a, button, [data-cta], .unit-card, .mobile-sticky a');
       if (!target) return;
@@ -2112,7 +2115,7 @@
       push('lp_click', info);
     }, true);
 
-    // ── 5. Form Interaction Tracking ──
+    // -- 5. Form Interaction Tracking --
     var formEl = document.getElementById('reserveForm');
     if (formEl) {
       // Track first interaction
@@ -2153,14 +2156,14 @@
       });
     }
 
-    // ── 6. Form Abandonment ──
+    // -- 6. Form Abandonment --
     // Detect if user started form but leaves page without submitting
     var formSubmitted = false;
     if (formEl) {
       formEl.addEventListener('submit', function () { formSubmitted = true; });
     }
 
-    // ── 7. Idle / Engaged Time Tracking ──
+    // -- 7. Idle / Engaged Time Tracking --
     function resetIdle() {
       if (idleStart > 0) {
         totalIdleMs += Date.now() - idleStart;
@@ -2177,7 +2180,7 @@
     });
     resetIdle();
 
-    // ── 8. Tab Visibility (focus/blur) ──
+    // -- 8. Tab Visibility (focus/blur) --
     var hiddenAt = 0;
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) {
@@ -2190,7 +2193,7 @@
       }
     });
 
-    // ── 9. Exit Intent (mouse leaves viewport top) ──
+    // -- 9. Exit Intent (mouse leaves viewport top) --
     var exitFired = false;
     document.addEventListener('mouseout', function (e) {
       if (exitFired) return;
@@ -2200,7 +2203,7 @@
       }
     });
 
-    // ── 10. Page Unload — Session Summary ──
+    // -- 10. Page Unload � Session Summary --
     function sendSummary() {
       if (idleStart > 0) totalIdleMs += Date.now() - idleStart;
       var totalSec = ts();
@@ -2246,7 +2249,7 @@
       if (document.visibilityState === 'hidden') sendSummary();
     });
 
-    // ── 11. Unit Card Hover Duration ──
+    // -- 11. Unit Card Hover Duration --
     document.querySelectorAll('.unit-card').forEach(function (card) {
       var hoverStart = 0;
       card.addEventListener('mouseenter', function () { hoverStart = Date.now(); });
@@ -2262,7 +2265,7 @@
       });
     });
 
-    // ── 12. FAQ Engagement ──
+    // -- 12. FAQ Engagement --
     document.querySelectorAll('.faq-q').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var question = (btn.textContent || '').trim().substring(0, 80);
@@ -2270,7 +2273,7 @@
       });
     });
 
-    // ── 13. Gallery Scroll ──
+    // -- 13. Gallery Scroll --
     var galleryEl = document.querySelector('.gallery-grid, .gallery-scroll');
     if (galleryEl) {
       var galleryTracked = false;
@@ -2282,7 +2285,7 @@
       }, { passive: true });
     }
 
-    // ── Debug: Log to console in dev ──
+    // -- Debug: Log to console in dev --
     if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
       var origPush = DL.push.bind(DL);
       DL.push = function (obj) {
