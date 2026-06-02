@@ -16,7 +16,8 @@
   <meta property="og:url" content="https://purplebox.ae/vehicle-storage-dubai" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/layout-template.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJZQX0KB9B"></script>
   <script>
@@ -36,7 +37,13 @@
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-56Z5JGR6');</script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --navy: #0f1b2d;
@@ -56,174 +63,1005 @@
       --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font); color: var(--ink); background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 28%, #fff 100%); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 22px; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 28%, #fff 100%);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
 
     /* ---- Sticky Nav ---- */
-    .lp-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid #e5e7eb; }
-    .lp-nav-inner { max-width: 1160px; margin: 0 auto; padding: 10px 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .lp-nav-logo { height: 34px; width: auto; }
-    .lp-nav-right { display: flex; align-items: center; gap: 14px; }
-    .lp-nav-phone { display: none; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; color: var(--ink-mid); }
-    .lp-nav-phone svg { width: 15px; height: 15px; fill: currentColor; }
-    .lp-nav-links { display: none; align-items: center; gap: 16px; }
-    .lp-nav-links a { font-size: 13px; font-weight: 600; color: var(--ink-mid); }
-    .lp-nav-links a:hover { color: var(--blue); }
-    .lp-nav-cta { display: inline-flex; align-items: center; padding: 8px 18px; border-radius: 8px; background: var(--blue); color: #fff; font-size: 13px; font-weight: 700; white-space: nowrap; }
-    .lp-nav-hamburger { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border); background: #fff; display: grid; place-items: center; cursor: pointer; }
-    .lp-nav-hamburger span { display: block; width: 16px; height: 2px; background: var(--ink); border-radius: 2px; }
-    .lp-nav-hamburger span + span { margin-top: 4px; }
-    .lp-mobile-menu { display: none; position: fixed; top: 55px; left: 0; right: 0; z-index: 99; background: #fff; border-bottom: 1px solid var(--border); padding: 12px 22px 16px; }
-    .lp-mobile-menu.open { display: block; }
-    .lp-mobile-menu a { display: block; padding: 8px 0; font-size: 14px; font-weight: 600; color: var(--ink-mid); }
-    .lp-mobile-menu-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
-    .lp-mobile-menu-cta a { display: flex; align-items: center; justify-content: center; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; }
-    .lp-mobile-menu-cta .btn-primary { background: var(--blue); color: #fff; }
-    .lp-mobile-menu-cta .btn-wa { background: #ecfdf5; color: #15803d; border: 1px solid #bbf7d0; }
+    .lp-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .lp-nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .lp-nav-logo {
+      height: 34px;
+      width: auto;
+    }
+
+    .lp-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .lp-nav-phone {
+      display: none;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-mid);
+    }
+
+    .lp-nav-phone svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    .lp-nav-links {
+      display: none;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .lp-nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-mid);
+    }
+
+    .lp-nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .lp-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 18px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .lp-nav-hamburger {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .lp-nav-hamburger span {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+    }
+
+    .lp-nav-hamburger span+span {
+      margin-top: 4px;
+    }
+
+    .lp-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 55px;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 22px 16px;
+    }
+
+    .lp-mobile-menu.open {
+      display: block;
+    }
+
+    .lp-mobile-menu a {
+      display: block;
+      padding: 8px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-mid);
+    }
+
+    .lp-mobile-menu-cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .lp-mobile-menu-cta a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .lp-mobile-menu-cta .btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .lp-mobile-menu-cta .btn-wa {
+      background: #ecfdf5;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
 
     @media(min-width:768px) {
-      .lp-nav-phone { display: flex; }
-      .lp-nav-links { display: flex; }
-      .lp-nav-hamburger { display: none; }
+      .lp-nav-phone {
+        display: flex;
+      }
+
+      .lp-nav-links {
+        display: flex;
+      }
+
+      .lp-nav-hamburger {
+        display: none;
+      }
     }
 
     /* ---- Hero ---- */
-    .hero { padding: 56px 0 48px; background: linear-gradient(170deg, rgba(7,13,24,0.78) 0%, rgba(15,27,45,0.72) 40%, rgba(22,38,64,0.7) 100%), url('https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; color: #fff; position: relative; overflow: hidden; }
-    .hero::before { content: ""; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(29,78,216,0.2) 0%, transparent 70%); }
-    .hero::after { content: ""; position: absolute; bottom: -80px; left: -80px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%); }
-    .hero .container { position: relative; z-index: 1; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #93c5fd; margin-bottom: 14px; }
-    .hero-eyebrow span { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); animation: heroPulse 1.5s ease-out infinite; }
-    @keyframes heroPulse { 0%{box-shadow:0 0 0 0 rgba(34,197,94,0.5)} 70%{box-shadow:0 0 0 10px rgba(34,197,94,0)} 100%{box-shadow:0 0 0 0 rgba(34,197,94,0)} }
-    .hero h1 { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 14px; max-width: 700px; }
-    .hero h1 em { font-style: normal; color: #60a5fa; }
-    .hero-sub { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.8); max-width: 600px; margin-bottom: 22px; }
-    .hero-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 26px; max-width: 520px; }
-    .hero-feat { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); }
-    .hero-feat svg { width: 18px; height: 18px; flex-shrink: 0; fill: none; stroke: #60a5fa; stroke-width: 2; }
-    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-    .hero-btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 13px 28px; border-radius: 10px; background: linear-gradient(180deg, #fff 0%, #f0f4ff 100%); border: 1px solid #bfdbfe; color: #1e40af; font-size: 14px; font-weight: 700; box-shadow: 0 8px 20px rgba(30,64,175,0.18); transition: transform .15s, box-shadow .15s; }
-    .hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(30,64,175,0.24); }
-    .hero-btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 13px 24px; border-radius: 10px; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3); color: #4ade80; font-size: 14px; font-weight: 700; transition: background .15s; }
-    .hero-btn-wa:hover { background: rgba(34,197,94,0.2); }
-    .hero-btn-wa svg { width: 18px; height: 18px; fill: currentColor; }
+    .hero {
+      padding: 56px 0 48px;
+      background: linear-gradient(170deg, rgba(7, 13, 24, 0.78) 0%, rgba(15, 27, 45, 0.72) 40%, rgba(22, 38, 64, 0.7) 100%), url('https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.2) 0%, transparent 70%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #93c5fd;
+      margin-bottom: 14px;
+    }
+
+    .hero-eyebrow span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+      animation: heroPulse 1.5s ease-out infinite;
+    }
+
+    @keyframes heroPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5)
+      }
+
+      70% {
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0)
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0)
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      max-width: 700px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #60a5fa;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin-bottom: 22px;
+    }
+
+    .hero-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 26px;
+      max-width: 520px;
+    }
+
+    .hero-feat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-feat svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      fill: none;
+      stroke: #60a5fa;
+      stroke-width: 2;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 28px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #fff 0%, #f0f4ff 100%);
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.18);
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(30, 64, 175, 0.24);
+    }
+
+    .hero-btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 13px 24px;
+      border-radius: 10px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      font-size: 14px;
+      font-weight: 700;
+      transition: background .15s;
+    }
+
+    .hero-btn-wa:hover {
+      background: rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-btn-wa svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
 
     /* ---- Section Common ---- */
-    .section { padding: 48px 0; }
-    .section-white { background: #fff; }
-    .section-shell { background: var(--shell); }
-    .section-title { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 800; color: var(--ink); text-align: center; margin-bottom: 6px; }
-    .section-sub { font-size: 14px; color: var(--ink-soft); text-align: center; margin-bottom: 28px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .section {
+      padding: 48px 0;
+    }
+
+    .section-white {
+      background: #fff;
+    }
+
+    .section-shell {
+      background: var(--shell);
+    }
+
+    .section-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 800;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-bottom: 28px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     /* ---- Why PurpleBox (features) ---- */
-    .why-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    @media(min-width:600px) { .why-grid { grid-template-columns: 1fr 1fr; } }
-    @media(min-width:900px) { .why-grid { grid-template-columns: 1fr 1fr 1fr; } }
-    .why-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 20px; box-shadow: 0 4px 16px rgba(15,23,42,0.04); transition: transform .15s, box-shadow .15s; }
-    .why-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,23,42,0.08); }
-    .why-card-icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; margin-bottom: 12px; }
-    .why-card-icon svg { width: 20px; height: 20px; fill: none; stroke-width: 2; }
-    .why-card-icon.blue { background: #dbeafe; }
-    .why-card-icon.blue svg { stroke: #2563eb; }
-    .why-card-icon.green { background: #dcfce7; }
-    .why-card-icon.green svg { stroke: #16a34a; }
-    .why-card-icon.purple { background: #ede9fe; }
-    .why-card-icon.purple svg { stroke: #7c3aed; }
-    .why-card-icon.amber { background: #fef3c7; }
-    .why-card-icon.amber svg { stroke: #d97706; }
-    .why-card-icon.sky { background: #e0f2fe; }
-    .why-card-icon.sky svg { stroke: #0284c7; }
-    .why-card-icon.rose { background: #ffe4e6; }
-    .why-card-icon.rose svg { stroke: #e11d48; }
-    .why-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .why-card p { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media(min-width:600px) {
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(min-width:900px) {
+      .why-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .why-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+    }
+
+    .why-card-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .why-card-icon.blue {
+      background: #dbeafe;
+    }
+
+    .why-card-icon.blue svg {
+      stroke: #2563eb;
+    }
+
+    .why-card-icon.green {
+      background: #dcfce7;
+    }
+
+    .why-card-icon.green svg {
+      stroke: #16a34a;
+    }
+
+    .why-card-icon.purple {
+      background: #ede9fe;
+    }
+
+    .why-card-icon.purple svg {
+      stroke: #7c3aed;
+    }
+
+    .why-card-icon.amber {
+      background: #fef3c7;
+    }
+
+    .why-card-icon.amber svg {
+      stroke: #d97706;
+    }
+
+    .why-card-icon.sky {
+      background: #e0f2fe;
+    }
+
+    .why-card-icon.sky svg {
+      stroke: #0284c7;
+    }
+
+    .why-card-icon.rose {
+      background: #ffe4e6;
+    }
+
+    .why-card-icon.rose svg {
+      stroke: #e11d48;
+    }
+
+    .why-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .why-card p {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
 
     /* ---- Use Cases ---- */
-    .cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    @media(min-width:768px) { .cases-grid { grid-template-columns: repeat(5, 1fr); } }
-    .case-card { text-align: center; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px 10px; transition: transform .15s; }
-    .case-card:hover { transform: translateY(-2px); }
-    .case-icon { font-size: 28px; margin-bottom: 6px; }
-    .case-label { font-size: 12px; font-weight: 600; color: var(--ink-mid); line-height: 1.3; }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @media(min-width:768px) {
+      .cases-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .case-card {
+      text-align: center;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 10px;
+      transition: transform .15s;
+    }
+
+    .case-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .case-icon {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .case-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-mid);
+      line-height: 1.3;
+    }
 
     /* ---- How It Works ---- */
-    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 800px; margin: 0 auto; }
-    @media(min-width:700px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } }
-    .step-card { text-align: center; padding: 24px 16px; }
-    .step-num { width: 42px; height: 42px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 16px; font-weight: 800; display: inline-grid; place-items: center; margin-bottom: 12px; }
-    .step-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-    .step-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @media(min-width:700px) {
+      .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .step-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 12px;
+    }
+
+    .step-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step-card p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
 
     /* ---- Lead Form ---- */
-    .lead-section { padding: 30px 0; }
-    .lead-card { background: var(--white); border: 1px solid #d9e5f3; border-radius: 22px; padding: 30px 26px; box-shadow: 0 18px 36px rgba(15,23,42,.12); max-width: 620px; margin: 0 auto; }
-    .lead-card h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); font-weight: 700; color: var(--ink); margin-bottom: 4px; text-align: center; }
-    .lead-card .form-sub { font-size: 14px; color: var(--ink-soft); text-align: center; margin-bottom: 20px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .form-group { margin-bottom: 12px; }
-    .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-mid); margin-bottom: 3px; text-transform: uppercase; letter-spacing: .05em; }
-    .form-group input, .form-group select { width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; background: #f9fafb; transition: border-color .2s; }
-    .form-group input:focus, .form-group select:focus { border-color: var(--blue); background: #fff; outline: none; }
-    .form-submit { width: 100%; padding: 14px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #fff; border: 1px solid #2563eb; border-radius: 10px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; box-shadow: 0 12px 20px rgba(59,130,246,.2); transition: transform .2s, box-shadow .2s; }
-    .form-submit:hover { transform: translateY(-1px); box-shadow: 0 16px 24px rgba(59,130,246,.26); }
-    .form-trust-row { display: flex; justify-content: center; gap: 18px; margin-top: 14px; }
-    .form-trust-row span { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--ink-soft); }
-    .form-trust-row svg { width: 13px; height: 13px; stroke: var(--ink-soft); fill: none; stroke-width: 2; }
-    .lead-success { display: none; text-align: center; padding: 10px 0 4px; }
-    .lead-success.is-visible { display: block; }
-    .lead-success-badge { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin-bottom: 14px; border-radius: 50%; background: linear-gradient(180deg, #dcfce7, #bbf7d0); color: #166534; font-size: 28px; font-weight: 800; }
-    .lead-success h4 { font-size: 24px; color: var(--ink); margin-bottom: 8px; }
-    .lead-success p { font-size: 15px; color: var(--ink-mid); max-width: 460px; margin: 0 auto; }
-    .lead-success-note { margin-top: 8px; font-size: 13px; color: var(--ink-soft); }
-    .lead-success-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
-    .lead-success-action { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 16px; border-radius: 12px; font-size: 14px; font-weight: 700; }
-    .lead-success-action.call-now { background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; }
-    .lead-success-action.chat-now { background: var(--green); color: #fff; border: none; }
+    .lead-section {
+      padding: 30px 0;
+    }
+
+    .lead-card {
+      background: var(--white);
+      border: 1px solid #d9e5f3;
+      border-radius: 22px;
+      padding: 30px 26px;
+      box-shadow: 0 18px 36px rgba(15, 23, 42, .12);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .lead-card h3 {
+      font-size: clamp(1.35rem, 2vw, 1.65rem);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .lead-card .form-sub {
+      font-size: 14px;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-mid);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #f9fafb;
+      transition: border-color .2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--blue);
+      background: #fff;
+      outline: none;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: #fff;
+      border: 1px solid #2563eb;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 12px 20px rgba(59, 130, 246, .2);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 24px rgba(59, 130, 246, .26);
+    }
+
+    .form-trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .form-trust-row span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .form-trust-row svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--ink-soft);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .lead-success {
+      display: none;
+      text-align: center;
+      padding: 10px 0 4px;
+    }
+
+    .lead-success.is-visible {
+      display: block;
+    }
+
+    .lead-success-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #dcfce7, #bbf7d0);
+      color: #166534;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .lead-success h4 {
+      font-size: 24px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .lead-success p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    .lead-success-note {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .lead-success-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .lead-success-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lead-success-action.call-now {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    .lead-success-action.chat-now {
+      background: var(--green);
+      color: #fff;
+      border: none;
+    }
 
     /* ---- Gallery ---- */
-    .gallery-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
-    .gallery-scroll::-webkit-scrollbar { display: none; }
-    .gallery-item { flex: 0 0 220px; border-radius: 12px; overflow: hidden; height: 150px; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+
+    .gallery-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-item {
+      flex: 0 0 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 150px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     /* ---- Reviews ---- */
-    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    @media(min-width:700px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
-    .review-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
-    .review-stars { color: #f59e0b; font-size: 14px; letter-spacing: 1px; margin-bottom: 8px; }
-    .review-text { font-size: 13px; color: var(--ink-mid); line-height: 1.55; margin-bottom: 10px; font-style: italic; }
-    .review-author { font-size: 12px; font-weight: 700; color: var(--ink); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media(min-width:700px) {
+      .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .review-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .review-stars {
+      color: #f59e0b;
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .review-text {
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.55;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .review-author {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+    }
 
     /* ---- FAQ ---- */
-    .faq-list { max-width: 700px; margin: 0 auto; display: grid; gap: 8px; }
-    .faq-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #fff; }
-    .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink); border: none; width: 100%; text-align: left; font-family: inherit; background: transparent; }
-    .faq-q:hover { background: #f9fafb; }
-    .faq-icon { font-size: 18px; color: var(--ink-soft); transition: transform .2s; }
-    .faq-body { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
-    .faq-body.open { max-height: 300px; }
-    .faq-body p { padding: 0 16px 14px; font-size: 13px; line-height: 1.6; color: var(--ink-mid); }
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      gap: 8px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+      background: transparent;
+    }
+
+    .faq-q:hover {
+      background: #f9fafb;
+    }
+
+    .faq-icon {
+      font-size: 18px;
+      color: var(--ink-soft);
+      transition: transform .2s;
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .25s ease;
+    }
+
+    .faq-body.open {
+      max-height: 300px;
+    }
+
+    .faq-body p {
+      padding: 0 16px 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-mid);
+    }
 
     /* ---- Location ---- */
-    .loc-card { background: var(--navy); color: #fff; border-radius: 16px; padding: 28px 22px; text-align: center; }
-    .loc-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-    .loc-card p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 4px; }
-    .loc-card-btns { display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-    .loc-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 10px; font-size: 13px; font-weight: 700; }
-    .loc-btn-directions { background: #fff; color: var(--ink); }
-    .loc-btn-call { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; }
-    .loc-btn-wa { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); color: #4ade80; }
+    .loc-card {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .loc-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .loc-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 4px;
+    }
+
+    .loc-card-btns {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .loc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .loc-btn-directions {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .loc-btn-call {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .loc-btn-wa {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+    }
 
     /* ---- Mobile Sticky ---- */
-    .mobile-sticky { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: #fff; border-top: 1px solid var(--border); padding: 8px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .mobile-sticky a { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px; border-radius: 10px; font-size: 13px; font-weight: 700; }
-    .mobile-sticky .ms-wa { background: var(--green); color: #fff; }
-    .mobile-sticky .ms-quote { background: var(--blue); color: #fff; }
-    body { padding-bottom: 72px; }
-    @media(min-width:768px) { .mobile-sticky { display: none; } body { padding-bottom: 0; } }
+    .mobile-sticky {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 8px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .mobile-sticky a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .mobile-sticky .ms-wa {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .mobile-sticky .ms-quote {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    body {
+      padding-bottom: 72px;
+    }
+
+    @media(min-width:768px) {
+      .mobile-sticky {
+        display: none;
+      }
+
+      body {
+        padding-bottom: 0;
+      }
+    }
   </style>
 </head>
 
@@ -231,359 +1069,532 @@
 
 
 
-  <!-- Sticky Nav -->
-  <nav class="lp-nav">
-    <div class="lp-nav-inner">
-      <a href="index.html"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.png" alt="PurpleBox Storage" class="lp-nav-logo" /></a>
-      <div class="lp-nav-right">
-        <a href="tel:+971542249946" class="lp-nav-phone">
-          <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd"/></svg>
-          +971 54 224 9946
-        </a>
-        <div class="lp-nav-links">
-          <a href="book-unit.html">Storage Units</a>
-          <a href="store.html">Shop</a>
-          <a href="about.html">Contact</a>
-        </div>
-        <a href="#leadForm" class="lp-nav-cta">Get Quote</a>
-        <div class="lp-nav-hamburger" onclick="document.getElementById('lpMobileMenu').classList.toggle('open')">
-          <span></span><span></span><span></span>
-        </div>
+<!-- Sticky Nav -->
+<nav class="lp-nav">
+  <div class="lp-nav-inner">
+    <a href="index.html"><img src="https://purplebox.ae/wp-content/uploads/2026/06/logo-1.png" alt="PurpleBox Storage"
+        class="lp-nav-logo" /></a>
+    <div class="lp-nav-right">
+      <a href="tel:+971542249946" class="lp-nav-phone">
+        <svg viewBox="0 0 24 24">
+          <path fill-rule="evenodd"
+            d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+            clip-rule="evenodd" />
+        </svg>
+        +971 54 224 9946
+      </a>
+      <div class="lp-nav-links">
+        <a href="book-unit.html">Storage Units</a>
+        <a href="store.html">Shop</a>
+        <a href="contact.html">Contact</a>
       </div>
-    </div>
-  </nav>
-  <div class="lp-mobile-menu" id="lpMobileMenu">
-    <a href="book-unit.html">Storage Units</a>
-    <a href="store.html">Shop Supplies</a>
-    <a href="packing-moving.html">Packing &amp; Moving</a>
-    <a href="about.html">Contact</a>
-    <div class="lp-mobile-menu-cta">
-      <a href="#leadForm" class="btn-primary" onclick="document.getElementById('lpMobileMenu').classList.remove('open')">Get Quote</a>
-      <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20vehicle%20storage%20in%20Dubai" class="btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="#leadForm" class="lp-nav-cta">Get Quote</a>
+      <div class="lp-nav-hamburger" onclick="document.getElementById('lpMobileMenu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
+</nav>
+<div class="lp-mobile-menu" id="lpMobileMenu">
+  <a href="book-unit.html">Storage Units</a>
+  <a href="store.html">Shop Supplies</a>
+  <a href="packing-moving.html">Packing &amp; Moving</a>
+  <a href="contact.html">Contact</a>
+  <div class="lp-mobile-menu-cta">
+    <a href="#leadForm" class="btn-primary"
+      onclick="document.getElementById('lpMobileMenu').classList.remove('open')">Get Quote</a>
+    <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20vehicle%20storage%20in%20Dubai" class="btn-wa"
+      target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  </div>
+</div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <p class="hero-eyebrow"><span></span> Spaces Filling Fast</p>
-      <h1>Secure <em>Vehicle Storage</em> in Dubai &mdash; Park &amp; Fly with Peace of Mind</h1>
-      <p class="hero-sub">Leaving Dubai? Keep your car safe, sheltered &amp; ready for your return. Climate-protected parking storage at our Al Quoz facility with 24/7 CCTV surveillance.</p>
-      <div class="hero-features">
-        <div class="hero-feat"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Covered &amp; Protected</div>
-        <div class="hero-feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z"/></svg> 24/7 CCTV Security</div>
-        <div class="hero-feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Flexible Duration</div>
-        <div class="hero-feat"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> No Long Contracts</div>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow"><span></span> Spaces Filling Fast</p>
+    <h1>Secure <em>Vehicle Storage</em> in Dubai &mdash; Park &amp; Fly with Peace of Mind</h1>
+    <p class="hero-sub">Leaving Dubai? Keep your car safe, sheltered &amp; ready for your return. Climate-protected
+      parking storage at our Al Quoz facility with 24/7 CCTV surveillance.</p>
+    <div class="hero-features">
+      <div class="hero-feat"><svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg> Covered &amp; Protected</div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z" />
+        </svg> 24/7 CCTV Security</div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 6v6l4 2" />
+        </svg> Flexible Duration</div>
+      <div class="hero-feat"><svg viewBox="0 0 24 24">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+          <path d="M22 4 12 14.01l-3-3" />
+        </svg> No Long Contracts</div>
+    </div>
+    <div class="hero-btns">
+      <a href="#leadForm" class="hero-btn-primary">Get a Free Quote</a>
+      <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20vehicle%20parking%20storage%20in%20Dubai.%20Can%20you%20help%3F"
+        class="hero-btn-wa" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M20.52 3.48A11.8 11.8 0 0 0 12.11 0C5.63 0 .37 5.27.37 11.74c0 2.07.54 4.09 1.57 5.87L0 24l6.58-1.9a11.7 11.7 0 0 0 5.53 1.41c6.47 0 11.74-5.27 11.74-11.74 0-3.14-1.22-6.1-3.34-8.29z" />
+        </svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Why PurpleBox -->
+<section class="section section-white">
+  <div class="container">
+    <h2 class="section-title">Why Store Your Vehicle with PurpleBox?</h2>
+    <p class="section-sub">Purpose-built facility designed to keep your car safe while you're away.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-icon blue"><svg viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg></div>
+        <h4>Covered &amp; Sheltered</h4>
+        <p>Your vehicle is protected from Dubai's intense sun, dust storms, and humidity year-round.</p>
       </div>
-      <div class="hero-btns">
-        <a href="#leadForm" class="hero-btn-primary">Get a Free Quote</a>
-        <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20vehicle%20parking%20storage%20in%20Dubai.%20Can%20you%20help%3F" class="hero-btn-wa" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.11 0C5.63 0 .37 5.27.37 11.74c0 2.07.54 4.09 1.57 5.87L0 24l6.58-1.9a11.7 11.7 0 0 0 5.53 1.41c6.47 0 11.74-5.27 11.74-11.74 0-3.14-1.22-6.1-3.34-8.29z"/></svg>
-          WhatsApp Us
-        </a>
+      <div class="why-card">
+        <div class="why-card-icon green"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z" />
+          </svg></div>
+        <h4>24/7 CCTV &amp; Access Control</h4>
+        <p>Round-the-clock surveillance cameras and gated entry ensure your car is always monitored.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon purple"><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg></div>
+        <h4>Flexible: 1 Month to 2+ Years</h4>
+        <p>Store for as long as you need. No minimum commitment, adjust your plan anytime.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon amber"><svg viewBox="0 0 24 24">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <path d="M22 4 12 14.01l-3-3" />
+          </svg></div>
+        <h4>No Lock-In Contracts</h4>
+        <p>Month-to-month terms. Cancel with 14 days' notice. No penalties, no surprises.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon sky"><svg viewBox="0 0 24 24">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg></div>
+        <h4>Vehicle Care Tips on Return</h4>
+        <p>We share battery and tire maintenance guidance so your car is ready to drive when you're back.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon rose"><svg viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg></div>
+        <h4>Prime Al Quoz Location</h4>
+        <p>Minutes from Sheikh Zayed Road. Easy drop-off and collection, close to Dubai's main arteries.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Why PurpleBox -->
-  <section class="section section-white">
-    <div class="container">
-      <h2 class="section-title">Why Store Your Vehicle with PurpleBox?</h2>
-      <p class="section-sub">Purpose-built facility designed to keep your car safe while you're away.</p>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-card-icon blue"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <h4>Covered &amp; Sheltered</h4>
-          <p>Your vehicle is protected from Dubai's intense sun, dust storms, and humidity year-round.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon green"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z"/></svg></div>
-          <h4>24/7 CCTV &amp; Access Control</h4>
-          <p>Round-the-clock surveillance cameras and gated entry ensure your car is always monitored.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon purple"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-          <h4>Flexible: 1 Month to 2+ Years</h4>
-          <p>Store for as long as you need. No minimum commitment, adjust your plan anytime.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon amber"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
-          <h4>No Lock-In Contracts</h4>
-          <p>Month-to-month terms. Cancel with 14 days' notice. No penalties, no surprises.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon sky"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <h4>Vehicle Care Tips on Return</h4>
-          <p>We share battery and tire maintenance guidance so your car is ready to drive when you're back.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon rose"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h4>Prime Al Quoz Location</h4>
-          <p>Minutes from Sheikh Zayed Road. Easy drop-off and collection, close to Dubai's main arteries.</p>
-        </div>
+<!-- Who Uses Vehicle Storage -->
+<section class="section section-shell">
+  <div class="container">
+    <h2 class="section-title">Who Uses Vehicle Storage?</h2>
+    <p class="section-sub">Trusted by expats, travellers, and businesses across Dubai.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-icon">&#9992;</div>
+        <p class="case-label">Expats Leaving Dubai</p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">&#127796;</div>
+        <p class="case-label">Long Holidays Abroad</p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">&#128230;</div>
+        <p class="case-label">Between Moves</p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">&#128663;</div>
+        <p class="case-label">Company Fleet Off-Season</p>
+      </div>
+      <div class="case-card">
+        <div class="case-icon">&#127942;</div>
+        <p class="case-label">Classic &amp; Luxury Cars</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Who Uses Vehicle Storage -->
-  <section class="section section-shell">
-    <div class="container">
-      <h2 class="section-title">Who Uses Vehicle Storage?</h2>
-      <p class="section-sub">Trusted by expats, travellers, and businesses across Dubai.</p>
-      <div class="cases-grid">
-        <div class="case-card"><div class="case-icon">&#9992;</div><p class="case-label">Expats Leaving Dubai</p></div>
-        <div class="case-card"><div class="case-icon">&#127796;</div><p class="case-label">Long Holidays Abroad</p></div>
-        <div class="case-card"><div class="case-icon">&#128230;</div><p class="case-label">Between Moves</p></div>
-        <div class="case-card"><div class="case-icon">&#128663;</div><p class="case-label">Company Fleet Off-Season</p></div>
-        <div class="case-card"><div class="case-icon">&#127942;</div><p class="case-label">Classic &amp; Luxury Cars</p></div>
+<!-- How It Works -->
+<section class="section section-white">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Three simple steps to secure your vehicle.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Get a Quote</h4>
+        <p>Fill in the form below or WhatsApp us. Tell us your vehicle type and how long you need.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Drop Off Your Vehicle</h4>
+        <p>Drive to our Al Quoz facility or arrange a pickup. We'll guide you to your designated spot.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Collect When You're Back</h4>
+        <p>Your car will be waiting safe and sound. Access 24/7 — collect whenever suits you.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- How It Works -->
-  <section class="section section-white">
-    <div class="container">
-      <h2 class="section-title">How It Works</h2>
-      <p class="section-sub">Three simple steps to secure your vehicle.</p>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <h4>Get a Quote</h4>
-          <p>Fill in the form below or WhatsApp us. Tell us your vehicle type and how long you need.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <h4>Drop Off Your Vehicle</h4>
-          <p>Drive to our Al Quoz facility or arrange a pickup. We'll guide you to your designated spot.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <h4>Collect When You're Back</h4>
-          <p>Your car will be waiting safe and sound. Access 24/7 — collect whenever suits you.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lead Capture Form -->
-  <section class="lead-section" id="leadForm">
-    <div class="container">
-      <div class="lead-card">
-        <h3>Get a Vehicle Storage Quote in 30 Seconds</h3>
-        <p class="form-sub"><strong style="color:#d97706;">Spaces filling fast!</strong> Fill out this quick form and our team will contact you within 15 minutes with a personalised quote.</p>
-        <form id="reserveForm" action="#" onsubmit="return handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="+971 5X XXX XXXX" required />
-            </div>
+<!-- Lead Capture Form -->
+<section class="lead-section" id="leadForm">
+  <div class="container">
+    <div class="lead-card">
+      <h3>Get a Vehicle Storage Quote in 30 Seconds</h3>
+      <p class="form-sub"><strong style="color:#d97706;">Spaces filling fast!</strong> Fill out this quick form and our
+        team will contact you within 15 minutes with a personalised quote.</p>
+      <form id="reserveForm" action="#" onsubmit="return handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
           </div>
           <div class="form-group">
-            <label for="vehicleType">Vehicle Type</label>
-            <select id="vehicleType" name="vehicleType">
-              <option value="car">Car (Sedan / Hatchback)</option>
-              <option value="suv">SUV / 4x4</option>
-              <option value="motorcycle">Motorcycle</option>
-              <option value="van">Van / Pickup</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="duration">How long do you need?</label>
-            <select id="duration" name="duration">
-              <option value="1-3months">1 - 3 months</option>
-              <option value="3-6months">3 - 6 months</option>
-              <option value="6-12months">6 - 12 months</option>
-              <option value="1year+">1 year or more</option>
-              <option value="notsure">Not sure yet</option>
-            </select>
-          </div>
-          <button type="submit" class="form-submit">Get My Free Quote</button>
-        </form>
-        <div id="formActions">
-          <div class="form-trust-row">
-            <span><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> No spam</span>
-            <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Reply &lt;15 min</span>
-            <span><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Free quote</span>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="+971 5X XXX XXXX" required />
           </div>
         </div>
-        <div class="lead-success" id="leadSuccess" aria-live="polite">
-          <div class="lead-success-badge">&#10004;</div>
-          <h4>Request received!</h4>
-          <p>We've got your details. A PurpleBox vehicle storage specialist will contact you within the next 15 minutes.</p>
-          <p class="lead-success-note">Need help right away?</p>
-          <div class="lead-success-actions">
-            <a href="tel:+971542249946" class="lead-success-action call-now">Call Now</a>
-            <a id="successChatLink" href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20the%20vehicle%20storage%20form%20and%20want%20to%20connect%20right%20away" class="lead-success-action chat-now" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-          </div>
+        <div class="form-group">
+          <label for="vehicleType">Vehicle Type</label>
+          <select id="vehicleType" name="vehicleType">
+            <option value="car">Car (Sedan / Hatchback)</option>
+            <option value="suv">SUV / 4x4</option>
+            <option value="motorcycle">Motorcycle</option>
+            <option value="van">Van / Pickup</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="duration">How long do you need?</label>
+          <select id="duration" name="duration">
+            <option value="1-3months">1 - 3 months</option>
+            <option value="3-6months">3 - 6 months</option>
+            <option value="6-12months">6 - 12 months</option>
+            <option value="1year+">1 year or more</option>
+            <option value="notsure">Not sure yet</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Get My Free Quote</button>
+      </form>
+      <div id="formActions">
+        <div class="form-trust-row">
+          <span><svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg> No spam</span>
+          <span><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg> Reply &lt;15 min</span>
+          <span><svg viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <path d="M22 4 12 14.01l-3-3" />
+            </svg> Free quote</span>
+        </div>
+      </div>
+      <div class="lead-success" id="leadSuccess" aria-live="polite">
+        <div class="lead-success-badge">&#10004;</div>
+        <h4>Request received!</h4>
+        <p>We've got your details. A PurpleBox vehicle storage specialist will contact you within the next 15 minutes.
+        </p>
+        <p class="lead-success-note">Need help right away?</p>
+        <div class="lead-success-actions">
+          <a href="tel:+971542249946" class="lead-success-action call-now">Call Now</a>
+          <a id="successChatLink"
+            href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20the%20vehicle%20storage%20form%20and%20want%20to%20connect%20right%20away"
+            class="lead-success-action chat-now" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Gallery -->
-  <section class="section section-white">
-    <div class="container">
-      <h2 class="section-title">See Our Al Quoz Facility</h2>
-      <p class="section-sub">Purpose-built, clean, and secure. See where your vehicle will be stored.</p>
-      <div class="gallery-scroll">
-        <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/01.jpg" alt="Storage facility corridor" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/02.jpg" alt="Secure storage entrance" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/03.jpg" alt="Climate-controlled units" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/04.jpg" alt="CCTV monitored area" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/05.jpg" alt="Clean storage hallway" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/06.jpg" alt="Storage unit interior" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/07.jpg" alt="PurpleBox facility exterior" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/08.jpg" alt="Facility access point" loading="lazy" /></div>
+<!-- Gallery -->
+<section class="section section-white">
+  <div class="container">
+    <h2 class="section-title">See Our Al Quoz Facility</h2>
+    <p class="section-sub">Purpose-built, clean, and secure. See where your vehicle will be stored.</p>
+    <div class="gallery-scroll">
+      <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/01.jpg"
+          alt="Storage facility corridor" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/02.jpg"
+          alt="Secure storage entrance" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/03.jpg"
+          alt="Climate-controlled units" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/04.jpg"
+          alt="CCTV monitored area" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/05.jpg"
+          alt="Clean storage hallway" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/06.jpg"
+          alt="Storage unit interior" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/07.jpg"
+          alt="PurpleBox facility exterior" loading="lazy" /></div>
+      <div class="gallery-item"><img src="https://purplebox.ae/wp-content/uploads/2026/05/08.jpg"
+          alt="Facility access point" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<section class="section section-shell">
+  <div class="container">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <p class="section-sub">Rated 5/5 from 23+ Google reviews.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Left my car with PurpleBox for 8 months while I relocated. Came back and it was exactly
+          as I left it. Highly recommend for expats!"</p>
+        <p class="review-author">Ahmed R. &mdash; Dubai</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Excellent facility. Clean, secure, and the team is very responsive on WhatsApp. Perfect
+          for storing my SUV during summer abroad."</p>
+        <p class="review-author">Sarah M. &mdash; Abu Dhabi</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Great value and flexible terms. No hassle cancelling when my plans changed. The Al Quoz
+          location is super convenient."</p>
+        <p class="review-author">James K. &mdash; Dubai Marina</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Social Proof -->
-  <section class="section section-shell">
-    <div class="container">
-      <h2 class="section-title">What Our Customers Say</h2>
-      <p class="section-sub">Rated 5/5 from 23+ Google reviews.</p>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Left my car with PurpleBox for 8 months while I relocated. Came back and it was exactly as I left it. Highly recommend for expats!"</p>
-          <p class="review-author">Ahmed R. &mdash; Dubai</p>
+<!-- FAQ -->
+<section class="section section-white">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-sub">Everything you need to know about vehicle storage.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is the parking area covered and sheltered? <span
+            class="faq-icon">+</span></button>
+        <div class="faq-body">
+          <p>Yes. Our facility provides covered, climate-sheltered parking that protects your vehicle from Dubai's
+            extreme sun, dust, and humidity throughout the year.</p>
         </div>
-        <div class="review-card">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Excellent facility. Clean, secure, and the team is very responsive on WhatsApp. Perfect for storing my SUV during summer abroad."</p>
-          <p class="review-author">Sarah M. &mdash; Abu Dhabi</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I access my vehicle anytime? <span
+            class="faq-icon">+</span></button>
+        <div class="faq-body">
+          <p>Absolutely. Our facility offers 24/7 access. You'll receive a personal access code so you can visit your
+            vehicle whenever you need to.</p>
         </div>
-        <div class="review-card">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Great value and flexible terms. No hassle cancelling when my plans changed. The Al Quoz location is super convenient."</p>
-          <p class="review-author">James K. &mdash; Dubai Marina</p>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What size vehicles can you store? <span
+            class="faq-icon">+</span></button>
+        <div class="faq-body">
+          <p>We can accommodate cars, SUVs, 4x4s, motorcycles, vans, and pickups. Contact us for larger vehicles and
+            we'll find the right solution.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need to leave my keys? <span
+            class="faq-icon">+</span></button>
+        <div class="faq-body">
+          <p>No, you keep your keys. Your vehicle remains locked and only you have access. We never move or access your
+            vehicle without your permission.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What happens to my car battery over long storage? <span
+            class="faq-icon">+</span></button>
+        <div class="faq-body">
+          <p>We provide detailed guidance on battery maintenance before storage. For long-term stays, we recommend
+            disconnecting the battery or using a trickle charger. Our team can advise on the best approach for your
+            vehicle.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can you pick up or deliver my vehicle? <span
+            class="faq-icon">+</span></button>
+        <div class="faq-body">
+          <p>Yes, we offer pickup and delivery services within Dubai. WhatsApp us your location and we'll arrange
+            collection or delivery at a time that suits you.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FAQ -->
-  <section class="section section-white">
-    <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-sub">Everything you need to know about vehicle storage.</p>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Is the parking area covered and sheltered? <span class="faq-icon">+</span></button>
-          <div class="faq-body"><p>Yes. Our facility provides covered, climate-sheltered parking that protects your vehicle from Dubai's extreme sun, dust, and humidity throughout the year.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Can I access my vehicle anytime? <span class="faq-icon">+</span></button>
-          <div class="faq-body"><p>Absolutely. Our facility offers 24/7 access. You'll receive a personal access code so you can visit your vehicle whenever you need to.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What size vehicles can you store? <span class="faq-icon">+</span></button>
-          <div class="faq-body"><p>We can accommodate cars, SUVs, 4x4s, motorcycles, vans, and pickups. Contact us for larger vehicles and we'll find the right solution.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Do I need to leave my keys? <span class="faq-icon">+</span></button>
-          <div class="faq-body"><p>No, you keep your keys. Your vehicle remains locked and only you have access. We never move or access your vehicle without your permission.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What happens to my car battery over long storage? <span class="faq-icon">+</span></button>
-          <div class="faq-body"><p>We provide detailed guidance on battery maintenance before storage. For long-term stays, we recommend disconnecting the battery or using a trickle charger. Our team can advise on the best approach for your vehicle.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Can you pick up or deliver my vehicle? <span class="faq-icon">+</span></button>
-          <div class="faq-body"><p>Yes, we offer pickup and delivery services within Dubai. WhatsApp us your location and we'll arrange collection or delivery at a time that suits you.</p></div>
-        </div>
+<!-- Location + Final CTA -->
+<section class="section">
+  <div class="container">
+    <div class="loc-card">
+      <h3>PurpleBox Storage &mdash; Al Quoz</h3>
+      <p>ABA AVENUE - Unit 12, 12th St, Al Quoz 2, Dubai</p>
+      <p>Open 24/7 &bull; +971 54 224 9946</p>
+      <div class="loc-card-btns">
+        <a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" class="loc-btn loc-btn-directions" target="_blank"
+          rel="noopener noreferrer">Get Directions</a>
+        <a href="tel:+971542249946" class="loc-btn loc-btn-call">Call Us</a>
+        <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20vehicle%20storage%20in%20Dubai"
+          class="loc-btn loc-btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Location + Final CTA -->
-  <section class="section">
-    <div class="container">
-      <div class="loc-card">
-        <h3>PurpleBox Storage &mdash; Al Quoz</h3>
-        <p>ABA AVENUE - Unit 12, 12th St, Al Quoz 2, Dubai</p>
-        <p>Open 24/7 &bull; +971 54 224 9946</p>
-        <div class="loc-card-btns">
-          <a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" class="loc-btn loc-btn-directions" target="_blank" rel="noopener noreferrer">Get Directions</a>
-          <a href="tel:+971542249946" class="loc-btn loc-btn-call">Call Us</a>
-          <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20vehicle%20storage%20in%20Dubai" class="loc-btn loc-btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="pbx-footer-shell" aria-label="Footer">
+<!-- Footer -->
+<footer class="pbx-footer-shell" aria-label="Footer">
   <div class="container">
     <div class="pbx-footer">
       <section class="pbx-location-card" aria-label="Facility location">
         <div class="pbx-loc-info">
           <h3 class="pbx-loc-name">PurpleBox Storage - Al Quoz</h3>
           <div class="pbx-loc-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z"/></svg>
-            <div><span class="pbx-loc-label">Phone:</span> <a href="tel:+971542249946" class="pbx-loc-value">+971 54 224 9946</a></div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path
+                d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
+            </svg>
+            <div><span class="pbx-loc-label">Phone:</span> <a href="tel:+971542249946" class="pbx-loc-value">+971 54 224
+                9946</a></div>
           </div>
           <div class="pbx-loc-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
-            <div><span class="pbx-loc-label">Email:</span> <a href="mailto:contact@purplebox.ae" class="pbx-loc-value">contact@purplebox.ae</a></div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="M3 8l9 6 9-6" />
+            </svg>
+            <div><span class="pbx-loc-label">Email:</span> <a href="mailto:contact@purplebox.ae"
+                class="pbx-loc-value">contact@purplebox.ae</a></div>
           </div>
           <div class="pbx-loc-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div><span class="pbx-loc-label">Address:</span> <span class="pbx-loc-value">ABA AVENUE - Unit 12, 12th St, Al Quoz 2, Dubai</span></div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <div><span class="pbx-loc-label">Address:</span> <span class="pbx-loc-value">ABA AVENUE - Unit 12, 12th St,
+                Al Quoz 2, Dubai</span></div>
           </div>
           <div class="pbx-loc-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <div><span class="pbx-loc-label">Hours:</span> <span class="pbx-loc-value pbx-loc-open">24/7 Access</span></div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+            <div><span class="pbx-loc-label">Hours:</span> <span class="pbx-loc-value pbx-loc-open">24/7 Access</span>
+            </div>
           </div>
         </div>
         <div class="pbx-loc-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.0!2d55.2413732!3d25.1236443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69ea7c731fbf%3A0xb8a5f079b15d282!2sPurplebox%20Storage!5e0!3m2!1sen!2sae!4v1717200000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PurpleBox Storage location" allowfullscreen></iframe>
-          <a class="pbx-loc-directions" href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 3L11 13"/><path d="M21 3L14.5 21L11 13L3 9.5L21 3Z"/></svg> Get Directions</a>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.0!2d55.2413732!3d25.1236443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69ea7c731fbf%3A0xb8a5f079b15d282!2sPurplebox%20Storage!5e0!3m2!1sen!2sae!4v1717200000000"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PurpleBox Storage location"
+            allowfullscreen></iframe>
+          <a class="pbx-loc-directions" href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
+            rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <path d="M21 3L11 13" />
+              <path d="M21 3L14.5 21L11 13L3 9.5L21 3Z" />
+            </svg> Get Directions</a>
         </div>
       </section>
       <div class="pbx-bottom-grid">
         <div class="pbx-link-grid">
-          <nav aria-label="Storage links"><p class="pbx-eyebrow">Quick Links</p>
-            <ul><li><a href="book-unit.html">Reserve Unit</a></li><li><a href="store.html">Shop Now</a></li><li><a href="packing-moving.html">Packing &amp; Moving</a></li><li><a href="size-guide.html">Size Guide</a></li></ul>
+          <nav aria-label="Storage links">
+            <p class="pbx-eyebrow">Quick Links</p>
+            <ul>
+              <li><a href="book-unit.html">Reserve Unit</a></li>
+              <li><a href="store.html">Shop Now</a></li>
+              <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
+              <li><a href="size-guide.html">Size Guide</a></li>
+            </ul>
           </nav>
-          <nav aria-label="Company links"><p class="pbx-eyebrow">Company</p>
-            <ul><li><a href="about.html">About</a></li><li><a href="/#faq">Help Centre</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank" rel="noopener noreferrer">Location</a></li></ul>
+          <nav aria-label="Company links">
+            <p class="pbx-eyebrow">Company</p>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="/#faq">Help Centre</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
+                  rel="noopener noreferrer">Location</a></li>
+            </ul>
           </nav>
         </div>
         <div class="pbx-connect">
           <section class="pbx-contact" aria-label="Contact options">
-            <a class="pbx-chip" href="tel:+971542249946"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z"/></svg> +971 54 224 9946</a>
-            <a class="pbx-chip" href="mailto:contact@purplebox.ae"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8l9 6 9-6"/></svg> contact@purplebox.ae</a>
+            <a class="pbx-chip" href="tel:+971542249946"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path
+                  d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
+              </svg> +971 54 224 9946</a>
+            <a class="pbx-chip" href="mailto:contact@purplebox.ae"><svg width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 8l9 6 9-6" />
+              </svg> contact@purplebox.ae</a>
           </section>
           <section class="pbx-social" aria-label="Social media links">
-            <a href="https://www.instagram.com/purpleboxstorage/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
-            <a href="https://www.facebook.com/profile.php?id=61583010513739#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z"/></svg></a>
-            <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="color:#22c55e;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z"/><path d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z"/></svg></a>
+            <a href="https://www.instagram.com/purpleboxstorage/" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.9" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="1" />
+              </svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61583010513739#" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.9" aria-hidden="true">
+                <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" />
+              </svg></a>
+            <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+              style="color:#22c55e;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);"><svg width="16"
+                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
+                <path
+                  d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z" />
+              </svg></a>
           </section>
         </div>
       </div>
       <div class="pbx-legal">
         <span>&copy; 2026 Short Term Storage LLC</span>
-        <div class="pbx-legal-links"><a href="privacy.html">Privacy</a> <span aria-hidden="true">&middot;</span> <a href="terms.html">Terms &amp; Conditions</a></div>
+        <div class="pbx-legal-links"><a href="privacy.html">Privacy</a> <span aria-hidden="true">&middot;</span> <a
+            href="terms.html">Terms &amp; Conditions</a></div>
       </div>
     </div>
   </div>
 </footer>
 
-  <!-- Mobile Sticky -->
-  <div class="mobile-sticky">
-    <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20vehicle%20storage%20in%20Dubai" class="ms-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a href="#leadForm" class="ms-quote">Get Quote</a>
-  </div>
+<!-- Mobile Sticky -->
+<div class="mobile-sticky">
+  <a href="https://wa.me/971542249946?text=Hi%2C%20I%20need%20vehicle%20storage%20in%20Dubai" class="ms-wa"
+    target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  <a href="#leadForm" class="ms-quote">Get Quote</a>
+</div>
 
-  <!-- Schema.org -->
-  <script type="application/ld+json">
+<!-- Schema.org -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SelfStorage",
@@ -604,110 +1615,111 @@
   }
   </script>
 
-  <script>
-    function toggleFaq(btn) {
-      var body = btn.nextElementSibling;
-      var isOpen = body.classList.contains('open');
-      document.querySelectorAll('.faq-body.open').forEach(function (b) {
-        b.classList.remove('open');
-        b.previousElementSibling.querySelector('.faq-icon').textContent = '+';
-      });
-      if (!isOpen) {
-        body.classList.add('open');
-        btn.querySelector('.faq-icon').textContent = '-';
-      }
-    }
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      var name = document.getElementById('name').value;
-      var phone = document.getElementById('phone').value;
-      var vehicleType = document.getElementById('vehicleType').value;
-      var duration = document.getElementById('duration').value;
-      var msg = 'Hi, I need vehicle storage. Name: ' + name + ', Phone: ' + phone + ', Vehicle: ' + vehicleType + ', Duration: ' + duration;
-      var leadConfig = window.PBXLeadConfig || {};
-
-      var form = document.getElementById('reserveForm');
-      var formActions = document.getElementById('formActions');
-      var successState = document.getElementById('leadSuccess');
-      var successChatLink = document.getElementById('successChatLink');
-
-      if (successChatLink) {
-        successChatLink.href = 'https://wa.me/971542249946?text=' + encodeURIComponent(msg);
-      }
-
-      var payload = new URLSearchParams();
-      payload.set('action', 'pbx_submit_reservation');
-      payload.set('nonce', leadConfig.nonce || '');
-      payload.set('source_page_name', 'Landing - Vehicle Storage Dubai');
-      payload.set('source_page', window.location.href.split('#')[0]);
-      payload.set('full_name', name);
-      payload.set('mobile', phone);
-      payload.set('email', '');
-      payload.set('emirate', 'Dubai');
-      payload.set('storing_for', 'Vehicle Storage');
-      payload.set('move_in_date', duration);
-      payload.set('unit_size', vehicleType);
-      payload.set('unit_label', 'Vehicle - ' + vehicleType);
-      payload.set('monthly_rent', '0');
-      payload.set('promo_code', '');
-      payload.set('supplies_total', '0');
-      payload.set('due_today', '0');
-      payload.set('supplies_text', 'No supplies selected');
-      payload.set('summary_text', [
-        'Vehicle storage lead submitted',
-        'Name: ' + name,
-        'Phone: ' + phone,
-        'Vehicle type: ' + vehicleType,
-        'Duration: ' + duration
-      ].join('\n'));
-
-      var submitUrl = leadConfig.ajaxUrl || '/wp-admin/admin-ajax.php';
-
-      fetch(submitUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-        credentials: 'same-origin',
-        body: payload.toString()
-      }).catch(function () { });
-
-      if (form) form.style.display = 'none';
-      if (formActions) formActions.style.display = 'none';
-
-      if (successState) {
-        successState.classList.add('is-visible');
-        successState.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      if (typeof window.gtag === 'function' && window.PBX_GOOGLE_ADS_ID && window.PBX_GOOGLE_ADS_CONVERSION_LABEL) {
-        window.gtag('event', 'conversion', {
-          'send_to': window.PBX_GOOGLE_ADS_ID + '/' + window.PBX_GOOGLE_ADS_CONVERSION_LABEL,
-          'value': 1.0,
-          'currency': 'AED'
-        });
-      }
-
-      return false;
-    }
-  </script>
-  <script src="js/pbx-tracking.js"></script>
-  <script>
-    PBXTracking.init({
-      pageName: 'Landing - Vehicle Storage Dubai',
-      sections: [
-        { sel: '.hero', name: 'hero' },
-        { sel: '.section-white:nth-of-type(1)', name: 'why_purplebox' },
-        { sel: '.section-shell', name: 'use_cases' },
-        { sel: '.steps-grid', name: 'how_it_works' },
-        { sel: '.lead-section', name: 'lead_form' },
-        { sel: '.gallery-scroll', name: 'gallery' },
-        { sel: '.reviews-grid', name: 'reviews' },
-        { sel: '.faq-list', name: 'faq' },
-        { sel: '.loc-card', name: 'location_cta' },
-        { sel: '.pbx-footer-shell', name: 'footer' }
-      ]
+<script>
+  function toggleFaq(btn) {
+    var body = btn.nextElementSibling;
+    var isOpen = body.classList.contains('open');
+    document.querySelectorAll('.faq-body.open').forEach(function (b) {
+      b.classList.remove('open');
+      b.previousElementSibling.querySelector('.faq-icon').textContent = '+';
     });
-  </script>
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.querySelector('.faq-icon').textContent = '-';
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    var name = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var vehicleType = document.getElementById('vehicleType').value;
+    var duration = document.getElementById('duration').value;
+    var msg = 'Hi, I need vehicle storage. Name: ' + name + ', Phone: ' + phone + ', Vehicle: ' + vehicleType + ', Duration: ' + duration;
+    var leadConfig = window.PBXLeadConfig || {};
+
+    var form = document.getElementById('reserveForm');
+    var formActions = document.getElementById('formActions');
+    var successState = document.getElementById('leadSuccess');
+    var successChatLink = document.getElementById('successChatLink');
+
+    if (successChatLink) {
+      successChatLink.href = 'https://wa.me/971542249946?text=' + encodeURIComponent(msg);
+    }
+
+    var payload = new URLSearchParams();
+    payload.set('action', 'pbx_submit_reservation');
+    payload.set('nonce', leadConfig.nonce || '');
+    payload.set('source_page_name', 'Landing - Vehicle Storage Dubai');
+    payload.set('source_page', window.location.href.split('#')[0]);
+    payload.set('full_name', name);
+    payload.set('mobile', phone);
+    payload.set('email', '');
+    payload.set('emirate', 'Dubai');
+    payload.set('storing_for', 'Vehicle Storage');
+    payload.set('move_in_date', duration);
+    payload.set('unit_size', vehicleType);
+    payload.set('unit_label', 'Vehicle - ' + vehicleType);
+    payload.set('monthly_rent', '0');
+    payload.set('promo_code', '');
+    payload.set('supplies_total', '0');
+    payload.set('due_today', '0');
+    payload.set('supplies_text', 'No supplies selected');
+    payload.set('summary_text', [
+      'Vehicle storage lead submitted',
+      'Name: ' + name,
+      'Phone: ' + phone,
+      'Vehicle type: ' + vehicleType,
+      'Duration: ' + duration
+    ].join('\n'));
+
+    var submitUrl = leadConfig.ajaxUrl || '/wp-admin/admin-ajax.php';
+
+    fetch(submitUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+      credentials: 'same-origin',
+      body: payload.toString()
+    }).catch(function () { });
+
+    if (form) form.style.display = 'none';
+    if (formActions) formActions.style.display = 'none';
+
+    if (successState) {
+      successState.classList.add('is-visible');
+      successState.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    if (typeof window.gtag === 'function' && window.PBX_GOOGLE_ADS_ID && window.PBX_GOOGLE_ADS_CONVERSION_LABEL) {
+      window.gtag('event', 'conversion', {
+        'send_to': window.PBX_GOOGLE_ADS_ID + '/' + window.PBX_GOOGLE_ADS_CONVERSION_LABEL,
+        'value': 1.0,
+        'currency': 'AED'
+      });
+    }
+
+    return false;
+  }
+</script>
+<script src="js/pbx-tracking.js"></script>
+<script>
+  PBXTracking.init({
+    pageName: 'Landing - Vehicle Storage Dubai',
+    sections: [
+      { sel: '.hero', name: 'hero' },
+      { sel: '.section-white:nth-of-type(1)', name: 'why_purplebox' },
+      { sel: '.section-shell', name: 'use_cases' },
+      { sel: '.steps-grid', name: 'how_it_works' },
+      { sel: '.lead-section', name: 'lead_form' },
+      { sel: '.gallery-scroll', name: 'gallery' },
+      { sel: '.reviews-grid', name: 'reviews' },
+      { sel: '.faq-list', name: 'faq' },
+      { sel: '.loc-card', name: 'location_cta' },
+      { sel: '.pbx-footer-shell', name: 'footer' }
+    ]
+  });
+</script>
 
 </body>
+
 </html>

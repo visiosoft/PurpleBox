@@ -229,7 +229,9 @@ function purplebox_static_rewrite_asset_urls($html) {
     $theme_uri = rtrim(get_template_directory_uri(), '/');
     $theme_dir = rtrim(get_template_directory(), '/\\');
 
-    $images_base_uri = 'https://purplebox.ae/wp-content/uploads/2026/05/';
+    // Local theme images (images/...) are mapped to this uploads folder.
+    // Keep it slash-trimmed so concatenation never creates double slashes.
+    $images_base_uri = 'https://purplebox.ae/wp-content/uploads/2026/05';
 
     $image_ext_pattern = '/\.(png|jpe?g|webp|gif|svg|avif)(?:\?.*)?$/i';
 
@@ -242,6 +244,12 @@ function purplebox_static_rewrite_asset_urls($html) {
     $map_image_url = function ($url) use ($images_base_uri, $image_ext_pattern) {
         $clean_url = trim((string) $url);
         if ($clean_url === '') {
+            return $clean_url;
+        }
+
+        // Preserve absolute URLs (including existing wp-content uploads links)
+        // so pages can intentionally point to different months/files.
+        if (preg_match('/^(?:https?:)?\/\//i', $clean_url)) {
             return $clean_url;
         }
 

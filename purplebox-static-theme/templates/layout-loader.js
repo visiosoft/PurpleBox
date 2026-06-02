@@ -135,7 +135,7 @@
     placeholder.innerHTML = [
       '<nav class="site-nav">',
       '  <div class="nav-inner">',
-      '    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.png" alt="PurpleBox Storage" class="nav-logo-img" /></a>',
+      '    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/06/logo-1.png" alt="PurpleBox Storage" class="nav-logo-img" /></a>',
       '    <a href="tel:+971542249946" class="nav-phone"><span class="call-label">+971 54 224 9946</span></a>',
       '    <div class="nav-links">',
       '      <a href="book-unit.html">Reserve Unit</a>',

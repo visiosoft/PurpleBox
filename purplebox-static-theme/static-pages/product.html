@@ -6,7 +6,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Details | PurpleBox Storage Supplies</title>
-  <meta name="description" content="Buy packing supplies for your storage unit — boxes, tape, bubble wrap, locks and more." />
+  <meta name="description"
+    content="Buy packing supplies for your storage unit — boxes, tape, bubble wrap, locks and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/shared.css" />
@@ -15,13 +16,15 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJZQX0KB9B"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-QJZQX0KB9B');
   </script>
 
   <style>
-    body { background: #f8fafc; }
+    body {
+      background: #f8fafc;
+    }
 
     /* ── Breadcrumb ── */
     .pd-breadcrumb {
@@ -29,8 +32,15 @@
       font-size: 13px;
       color: #6b7280;
     }
-    .pd-breadcrumb a { color: #1976d2; font-weight: 600; }
-    .pd-breadcrumb span { margin: 0 6px; }
+
+    .pd-breadcrumb a {
+      color: #1976d2;
+      font-weight: 600;
+    }
+
+    .pd-breadcrumb span {
+      margin: 0 6px;
+    }
 
     /* ── Product Layout ── */
     .pd-wrapper {
@@ -42,7 +52,7 @@
       border-radius: 18px;
       overflow: hidden;
       margin: 18px 0 32px;
-      box-shadow: 0 4px 24px rgba(15,23,42,0.06);
+      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
     }
 
     @media(min-width: 680px) {
@@ -191,7 +201,10 @@
       place-items: center;
       transition: background .12s;
     }
-    .pd-qty-btn:hover { background: #e8eef8; }
+
+    .pd-qty-btn:hover {
+      background: #e8eef8;
+    }
 
     .pd-qty-val {
       min-width: 48px;
@@ -225,8 +238,15 @@
       cursor: pointer;
       transition: background .15s, transform .15s;
     }
-    .pd-btn-cart:hover { background: #1d4ed8; transform: translateY(-1px); }
-    .pd-btn-cart.added { background: #15803d; }
+
+    .pd-btn-cart:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .pd-btn-cart.added {
+      background: #15803d;
+    }
 
     .pd-btn-checkout {
       display: flex;
@@ -243,8 +263,15 @@
       transition: opacity .15s, transform .15s;
       display: none;
     }
-    .pd-btn-checkout.visible { display: flex; }
-    .pd-btn-checkout:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    .pd-btn-checkout.visible {
+      display: flex;
+    }
+
+    .pd-btn-checkout:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
 
     /* ── Cart Summary ── */
     .pd-cart-summary {
@@ -254,7 +281,10 @@
       padding: 14px 16px;
       display: none;
     }
-    .pd-cart-summary.has-items { display: block; }
+
+    .pd-cart-summary.has-items {
+      display: block;
+    }
 
     .pd-cart-title {
       font-size: 11px;
@@ -285,7 +315,9 @@
     }
 
     /* ── Related Products ── */
-    .pd-related { padding: 0 0 40px; }
+    .pd-related {
+      padding: 0 0 40px;
+    }
 
     .pd-related-title {
       font-size: 18px;
@@ -301,7 +333,9 @@
     }
 
     @media(min-width: 600px) {
-      .pd-related-grid { grid-template-columns: repeat(4, 1fr); }
+      .pd-related-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     .pd-related-card {
@@ -315,7 +349,12 @@
       flex-direction: column;
       transition: transform .15s, border-color .15s, box-shadow .15s;
     }
-    .pd-related-card:hover { transform: translateY(-3px); border-color: #1976d2; box-shadow: 0 8px 24px rgba(15,23,42,0.08); }
+
+    .pd-related-card:hover {
+      transform: translateY(-3px);
+      border-color: #1976d2;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
 
     .pd-related-img {
       height: 90px;
@@ -325,17 +364,52 @@
       justify-content: center;
       padding: 10px;
     }
-    .pd-related-img img { max-width: 100%; max-height: 70px; object-fit: contain; }
-    .pd-related-img svg { width: 56px; height: 56px; }
 
-    .pd-related-info { padding: 10px 10px 12px; }
-    .pd-related-name { font-size: 13px; font-weight: 700; margin: 0 0 2px; }
-    .pd-related-price { font-size: 13px; font-weight: 800; color: #15803d; }
+    .pd-related-img img {
+      max-width: 100%;
+      max-height: 70px;
+      object-fit: contain;
+    }
+
+    .pd-related-img svg {
+      width: 56px;
+      height: 56px;
+    }
+
+    .pd-related-info {
+      padding: 10px 10px 12px;
+    }
+
+    .pd-related-name {
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 0 2px;
+    }
+
+    .pd-related-price {
+      font-size: 13px;
+      font-weight: 800;
+      color: #15803d;
+    }
 
     /* ── Not found ── */
-    .pd-not-found { text-align: center; padding: 80px 20px; }
-    .pd-not-found h2 { margin: 0 0 12px; }
-    .pd-not-found a { display: inline-block; background: #1976d2; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 700; }
+    .pd-not-found {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .pd-not-found h2 {
+      margin: 0 0 12px;
+    }
+
+    .pd-not-found a {
+      display: inline-block;
+      background: #1976d2;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
   </style>
 </head>
 
@@ -343,249 +417,261 @@
 
 
 
-  <!-- Header -->
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.png" alt="PurpleBox Storage" class="nav-logo-img" /></a>
-      <a href="tel:+971542249946" class="nav-phone">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd"/></svg>
-        <span class="call-label">+971 54 224 9946</span>
-      </a>
-      <div class="nav-links">
-        <a href="book-unit.html">Reserve Unit</a>
-        <a href="store.html">Shop Now</a>
-        <a href="packing-moving.html">Packing &amp; Moving</a>
-        <a href="about.html">Contact</a>
-      </div>
-      <a href="store.html" class="nav-cart" aria-label="Open cart">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"></circle><circle cx="17" cy="20" r="1.5"></circle><path d="M3 4h2l1.5 10h11l2-7H7"></path></svg>
-        <span class="nav-cart-badge" id="cartBadge">0</span>
-      </a>
-      <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+<!-- Header -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/06/logo-1.png"
+        alt="PurpleBox Storage" class="nav-logo-img" /></a>
+    <a href="tel:+971542249946" class="nav-phone">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path fill-rule="evenodd"
+          d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+          clip-rule="evenodd" />
+      </svg>
+      <span class="call-label">+971 54 224 9946</span>
+    </a>
+    <div class="nav-links">
+      <a href="book-unit.html">Reserve Unit</a>
+      <a href="store.html">Shop Now</a>
+      <a href="packing-moving.html">Packing &amp; Moving</a>
+      <a href="contact.html">Contact</a>
     </div>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="tel:+971542249946" class="mobile-phone">+971 54 224 9946</a>
-    <a href="book-unit.html">Reserve Unit</a>
-    <a href="store.html">Shop Now</a>
-    <a href="packing-moving.html">Packing &amp; Moving</a>
-    <a href="about.html">Contact</a>
-    <div class="mobile-menu-cta">
-      <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
-      <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
-    </div>
+    <a href="store.html" class="nav-cart" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="9" cy="20" r="1.5"></circle>
+        <circle cx="17" cy="20" r="1.5"></circle>
+        <path d="M3 4h2l1.5 10h11l2-7H7"></path>
+      </svg>
+      <span class="nav-cart-badge" id="cartBadge">0</span>
+    </a>
+    <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
   </div>
-
-  <!-- Main Content -->
-  <main class="container" id="pdMain">
-    <!-- populated by JS -->
-  </main>
-
-  <!-- Mobile CTA -->
-  <div class="mobile-cta">
-    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <a href="store.html" class="btn btn-primary btn-full">Shop All</a>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="tel:+971542249946" class="mobile-phone">+971 54 224 9946</a>
+  <a href="book-unit.html">Reserve Unit</a>
+  <a href="store.html">Shop Now</a>
+  <a href="packing-moving.html">Packing &amp; Moving</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-menu-cta">
+    <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
+    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp
+      Us</a>
   </div>
+</div>
 
-  <script>
-    var WP = 'https://purplebox.ae/wp-content/uploads/2026/05/';
+<!-- Main Content -->
+<main class="container" id="pdMain">
+  <!-- populated by JS -->
+</main>
 
-    var PRODUCTS = [
-      { id: 'sm',    cat: 'Boxes',   name: 'Small Box',       spec: '40 x 30 x 30 cm',       price: 'AED 8',  priceNum: 8,   image: WP + 'bubble-box-small.jpg',  desc: 'Strong single-wall cardboard box, ideal for books, files, and small items.' },
-      { id: 'md',    cat: 'Boxes',   name: 'Medium Box',      spec: '50 x 40 x 40 cm',       price: 'AED 12', priceNum: 12,  tag: 'Bestseller', image: WP + 'bubble-box-medium.jpg', desc: 'Our most popular box. Perfect for kitchen items, clothes, and everyday household goods.' },
-      { id: 'lg',    cat: 'Boxes',   name: 'Large Box',       spec: '60 x 45 x 45 cm',       price: 'AED 16', priceNum: 16,  image: WP + 'box-large.jpg',          desc: 'Extra-large box for bulky items, bedding, pillows, and larger household goods.' },
-      { id: 'tape',  cat: 'Packing', name: 'Packing Tape',    spec: '50 m x 48 mm',          price: 'AED 9',  priceNum: 9,   was: 'AED 12',                        desc: 'Heavy-duty acrylic packing tape with strong adhesive. Seals boxes securely for storage and moving.' },
-      { id: 'disp',  cat: 'Packing', name: 'Tape Dispenser',  spec: 'Heavy-duty',            price: 'AED 22', priceNum: 22,                                        desc: 'Professional tape dispenser for fast, clean tape application. Works with standard 48mm tape rolls.' },
-      { id: 'bub',   cat: 'Packing', name: 'Bubble Wrap',     spec: '10 m roll',             price: 'AED 25', priceNum: 25,  image: WP + 'buble-wrap.jpg',          desc: 'Air-cushioned bubble wrap roll for wrapping fragile items, electronics, and glassware.' },
-      { id: 'paper', cat: 'Packing', name: 'Packing Paper',   spec: '5 kg bundle',           price: 'AED 18', priceNum: 18,                                        desc: 'Clean, unprinted kraft packing paper. Great for wrapping delicate items and void fill.' },
-      { id: 'foam',  cat: 'Packing', name: 'Foam Sheets',     spec: 'Pack of 20',            price: 'AED 20', priceNum: 20,                                        desc: 'Lightweight foam sheets for cushioning fragile items, artwork, mirrors, and electronics.' },
-      { id: 'mark',  cat: 'Packing', name: 'Marker Pen',      spec: 'Permanent, black',      price: 'AED 5',  priceNum: 5,                                         desc: 'Permanent black marker for labelling boxes. Quick-drying, waterproof ink.' },
-      { id: 'label', cat: 'Packing', name: 'Fragile Labels',  spec: 'Pack of 50',            price: 'AED 7',  priceNum: 7,                                         desc: 'Self-adhesive Fragile stickers. Clear warning labels to protect your most delicate items during transit.' },
-      { id: 'pad',   cat: 'Locks',   name: 'Padlock',         spec: '50 mm hardened steel',  price: 'AED 35', priceNum: 35,                                        desc: 'Heavy-duty 50mm hardened steel padlock. Recommended for securing your storage unit door.' },
-      { id: 'disc',  cat: 'Locks',   name: 'Disc Lock',       spec: 'Pick-resistant',        price: 'AED 55', priceNum: 55,                                        desc: 'Pick-resistant disc lock with shrouded shackle for maximum storage unit security.' },
-      { id: 'cab',   cat: 'Locks',   name: 'Cable Lock',      spec: '1.2 m steel',           price: 'AED 28', priceNum: 28,                                        desc: 'Flexible 1.2m braided steel cable lock for securing multiple items together.' },
-      { id: 'seal',  cat: 'Locks',   name: 'Security Seals',  spec: 'Pack of 10',            price: 'AED 12', priceNum: 12,                                        desc: 'Tamper-evident numbered security seals. Once attached, removal is visible. Great for audit trails.' }
-    ];
+<!-- Mobile CTA -->
+<div class="mobile-cta">
+  <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
+    rel="noopener noreferrer">WhatsApp</a>
+  <a href="store.html" class="btn btn-primary btn-full">Shop All</a>
+</div>
 
-    function productIcon(cat) {
-      if (cat === 'Packing') {
-        return '<svg viewBox="0 0 80 80"><circle cx="28" cy="42" r="15" fill="#cdd7e6"/><circle cx="28" cy="42" r="7" fill="#f7fafc"/><circle cx="49" cy="34" r="13" fill="#b9c7db"/><circle cx="49" cy="34" r="6" fill="#f7fafc"/><rect x="18" y="54" width="44" height="12" rx="6" fill="#f5b74f"/></svg>';
-      }
-      if (cat === 'Locks') {
-        return '<svg viewBox="0 0 80 80"><path d="M24 36v-6c0-9 7-16 16-16s16 7 16 16v6" fill="none" stroke="#7a879a" stroke-width="6" stroke-linecap="round"/><rect x="20" y="34" width="40" height="30" rx="8" fill="#9aa8bd"/><rect x="24" y="38" width="32" height="22" rx="6" fill="#c2cede"/><circle cx="40" cy="49" r="4" fill="#6f7b8f"/><rect x="38.5" y="49" width="3" height="8" rx="1.5" fill="#6f7b8f"/></svg>';
-      }
-      return '<svg viewBox="0 0 80 80"><rect x="13" y="30" width="54" height="34" rx="6" fill="#c89c63"/><path d="M13 30l27-14 27 14-27 13-27-13Z" fill="#e0b27a"/><rect x="38" y="24" width="4" height="36" fill="#b68248"/><rect x="34" y="39" width="12" height="4" rx="2" fill="#f3d7af"/></svg>';
+<script>
+  var WP = 'https://purplebox.ae/wp-content/uploads/2026/05/';
+
+  var PRODUCTS = [
+    { id: 'sm', cat: 'Boxes', name: 'Small Box', spec: '40 x 30 x 30 cm', price: 'AED 8', priceNum: 8, image: WP + 'bubble-box-small.jpg', desc: 'Strong single-wall cardboard box, ideal for books, files, and small items.' },
+    { id: 'md', cat: 'Boxes', name: 'Medium Box', spec: '50 x 40 x 40 cm', price: 'AED 12', priceNum: 12, tag: 'Bestseller', image: WP + 'bubble-box-medium.jpg', desc: 'Our most popular box. Perfect for kitchen items, clothes, and everyday household goods.' },
+    { id: 'lg', cat: 'Boxes', name: 'Large Box', spec: '60 x 45 x 45 cm', price: 'AED 16', priceNum: 16, image: WP + 'box-large.jpg', desc: 'Extra-large box for bulky items, bedding, pillows, and larger household goods.' },
+    { id: 'tape', cat: 'Packing', name: 'Packing Tape', spec: '50 m x 48 mm', price: 'AED 9', priceNum: 9, was: 'AED 12', desc: 'Heavy-duty acrylic packing tape with strong adhesive. Seals boxes securely for storage and moving.' },
+    { id: 'disp', cat: 'Packing', name: 'Tape Dispenser', spec: 'Heavy-duty', price: 'AED 22', priceNum: 22, desc: 'Professional tape dispenser for fast, clean tape application. Works with standard 48mm tape rolls.' },
+    { id: 'bub', cat: 'Packing', name: 'Bubble Wrap', spec: '10 m roll', price: 'AED 25', priceNum: 25, image: WP + 'buble-wrap.jpg', desc: 'Air-cushioned bubble wrap roll for wrapping fragile items, electronics, and glassware.' },
+    { id: 'paper', cat: 'Packing', name: 'Packing Paper', spec: '5 kg bundle', price: 'AED 18', priceNum: 18, desc: 'Clean, unprinted kraft packing paper. Great for wrapping delicate items and void fill.' },
+    { id: 'foam', cat: 'Packing', name: 'Foam Sheets', spec: 'Pack of 20', price: 'AED 20', priceNum: 20, desc: 'Lightweight foam sheets for cushioning fragile items, artwork, mirrors, and electronics.' },
+    { id: 'mark', cat: 'Packing', name: 'Marker Pen', spec: 'Permanent, black', price: 'AED 5', priceNum: 5, desc: 'Permanent black marker for labelling boxes. Quick-drying, waterproof ink.' },
+    { id: 'label', cat: 'Packing', name: 'Fragile Labels', spec: 'Pack of 50', price: 'AED 7', priceNum: 7, desc: 'Self-adhesive Fragile stickers. Clear warning labels to protect your most delicate items during transit.' },
+    { id: 'pad', cat: 'Locks', name: 'Padlock', spec: '50 mm hardened steel', price: 'AED 35', priceNum: 35, desc: 'Heavy-duty 50mm hardened steel padlock. Recommended for securing your storage unit door.' },
+    { id: 'disc', cat: 'Locks', name: 'Disc Lock', spec: 'Pick-resistant', price: 'AED 55', priceNum: 55, desc: 'Pick-resistant disc lock with shrouded shackle for maximum storage unit security.' },
+    { id: 'cab', cat: 'Locks', name: 'Cable Lock', spec: '1.2 m steel', price: 'AED 28', priceNum: 28, desc: 'Flexible 1.2m braided steel cable lock for securing multiple items together.' },
+    { id: 'seal', cat: 'Locks', name: 'Security Seals', spec: 'Pack of 10', price: 'AED 12', priceNum: 12, desc: 'Tamper-evident numbered security seals. Once attached, removal is visible. Great for audit trails.' }
+  ];
+
+  function productIcon(cat) {
+    if (cat === 'Packing') {
+      return '<svg viewBox="0 0 80 80"><circle cx="28" cy="42" r="15" fill="#cdd7e6"/><circle cx="28" cy="42" r="7" fill="#f7fafc"/><circle cx="49" cy="34" r="13" fill="#b9c7db"/><circle cx="49" cy="34" r="6" fill="#f7fafc"/><rect x="18" y="54" width="44" height="12" rx="6" fill="#f5b74f"/></svg>';
+    }
+    if (cat === 'Locks') {
+      return '<svg viewBox="0 0 80 80"><path d="M24 36v-6c0-9 7-16 16-16s16 7 16 16v6" fill="none" stroke="#7a879a" stroke-width="6" stroke-linecap="round"/><rect x="20" y="34" width="40" height="30" rx="8" fill="#9aa8bd"/><rect x="24" y="38" width="32" height="22" rx="6" fill="#c2cede"/><circle cx="40" cy="49" r="4" fill="#6f7b8f"/><rect x="38.5" y="49" width="3" height="8" rx="1.5" fill="#6f7b8f"/></svg>';
+    }
+    return '<svg viewBox="0 0 80 80"><rect x="13" y="30" width="54" height="34" rx="6" fill="#c89c63"/><path d="M13 30l27-14 27 14-27 13-27-13Z" fill="#e0b27a"/><rect x="38" y="24" width="4" height="36" fill="#b68248"/><rect x="34" y="39" width="12" height="4" rx="2" fill="#f3d7af"/></svg>';
+  }
+
+  function getCart() {
+    try { return JSON.parse(localStorage.getItem('pbCartItems') || '[]'); } catch (e) { return []; }
+  }
+
+  function saveCart(items) {
+    localStorage.setItem('pbCartItems', JSON.stringify(items));
+    updateBadge();
+  }
+
+  function updateBadge() {
+    var items = getCart();
+    var count = items.reduce(function (t, x) { return t + (Number(x.qty) || 0); }, 0);
+    var badge = document.getElementById('cartBadge');
+    if (badge) {
+      badge.textContent = String(count);
+      badge.className = 'nav-cart-badge' + (count > 0 ? ' has-items' : '');
+    }
+  }
+
+  function addToCart(product, qty) {
+    var items = getCart();
+    var existing = items.find(function (x) { return x.id === product.id; });
+    if (existing) {
+      existing.qty = (existing.qty || 1) + qty;
+    } else {
+      items.push({ id: product.id, name: product.name, price: product.price, priceNum: product.priceNum, cat: product.cat, qty: qty });
+    }
+    saveCart(items);
+  }
+
+  function renderCartSummary(checkoutBtn, summaryEl) {
+    var items = getCart();
+    if (!items.length) {
+      summaryEl.className = 'pd-cart-summary';
+      summaryEl.innerHTML = '';
+      if (checkoutBtn) checkoutBtn.classList.remove('visible');
+      return;
+    }
+    var total = 0;
+    var itemCount = 0;
+    var rows = items.map(function (it) {
+      var num = it.priceNum || parseFloat((it.price || '0').replace(/[^0-9.]/g, '')) || 0;
+      var qty = it.qty || 1;
+      var lineTotal = num * qty;
+      total += lineTotal;
+      itemCount += qty;
+      return '<div class="pd-cart-row"><span>' + it.name + ' &times;' + qty + '</span><span>AED ' + lineTotal + '</span></div>';
+    }).join('');
+    summaryEl.className = 'pd-cart-summary has-items';
+    summaryEl.innerHTML = '<p class="pd-cart-title">Your Cart (' + itemCount + ' item' + (itemCount !== 1 ? 's' : '') + ')</p>' + rows + '<div class="pd-cart-total"><span>Total</span><span>AED ' + total + '</span></div>';
+    if (checkoutBtn) {
+      checkoutBtn.classList.add('visible');
+      checkoutBtn.href = 'store.html?checkout=1&total=' + total;
+    }
+  }
+
+  function renderRelated(currentId, cat) {
+    var related = PRODUCTS.filter(function (p) { return p.id !== currentId && p.cat === cat; }).slice(0, 4);
+    if (!related.length) related = PRODUCTS.filter(function (p) { return p.id !== currentId; }).slice(0, 4);
+    return related.map(function (p) {
+      var img = p.image
+        ? '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy">'
+        : productIcon(p.cat);
+      return '<a href="product.html?id=' + p.id + '" class="pd-related-card">' +
+        '<div class="pd-related-img">' + img + '</div>' +
+        '<div class="pd-related-info"><p class="pd-related-name">' + p.name + '</p><p class="pd-related-price">' + p.price + '</p></div>' +
+        '</a>';
+    }).join('');
+  }
+
+  function render() {
+    var id = new URLSearchParams(window.location.search).get('id');
+    var main = document.getElementById('pdMain');
+    var product = id ? PRODUCTS.find(function (p) { return p.id === id; }) : null;
+
+    if (!product) {
+      main.innerHTML = '<div class="pd-not-found"><h2>Product Not Found</h2><p>We couldn\'t find that item.</p><a href="store.html">Browse All Supplies</a></div>';
+      return;
     }
 
-    function getCart() {
-      try { return JSON.parse(localStorage.getItem('pbCartItems') || '[]'); } catch(e) { return []; }
-    }
+    document.title = product.name + ' | PurpleBox Storage Supplies';
 
-    function saveCart(items) {
-      localStorage.setItem('pbCartItems', JSON.stringify(items));
-      updateBadge();
-    }
+    var saveAmt = product.was ? 'AED ' + (parseInt(product.was.replace(/[^0-9]/g, ''), 10) - product.priceNum) : '';
 
-    function updateBadge() {
-      var items = getCart();
-      var count = items.reduce(function(t, x) { return t + (Number(x.qty) || 0); }, 0);
-      var badge = document.getElementById('cartBadge');
-      if (badge) {
-        badge.textContent = String(count);
-        badge.className = 'nav-cart-badge' + (count > 0 ? ' has-items' : '');
-      }
-    }
+    var imgHtml = product.image
+      ? '<img src="' + product.image + '" alt="' + product.name + '" />'
+      : productIcon(product.cat);
 
-    function addToCart(product, qty) {
-      var items = getCart();
-      var existing = items.find(function(x) { return x.id === product.id; });
-      if (existing) {
-        existing.qty = (existing.qty || 1) + qty;
-      } else {
-        items.push({ id: product.id, name: product.name, price: product.price, priceNum: product.priceNum, cat: product.cat, qty: qty });
-      }
-      saveCart(items);
-    }
+    main.innerHTML =
+      '<nav class="pd-breadcrumb"><a href="index.html">Home</a><span>›</span><a href="store.html">Shop</a><span>›</span>' + product.cat + '<span>›</span>' + product.name + '</nav>' +
+      '<div class="pd-wrapper">' +
+      '<div class="pd-img-panel">' +
+      (product.tag ? '<span class="pd-tag">' + product.tag + '</span>' : '') +
+      imgHtml +
+      '</div>' +
+      '<div class="pd-details">' +
+      '<p class="pd-cat">' + product.cat + '</p>' +
+      '<h1 class="pd-name">' + product.name + '</h1>' +
+      '<p class="pd-spec">' + product.spec + '</p>' +
+      '<hr class="pd-divider">' +
+      '<p style="font-size:14px;color:#374151;line-height:1.6;margin:0;">' + (product.desc || '') + '</p>' +
+      '<hr class="pd-divider">' +
+      '<div class="pd-price-row">' +
+      '<span class="pd-price">' + product.price + '</span>' +
+      (product.was ? '<span class="pd-was">' + product.was + '</span>' : '') +
+      (saveAmt ? '<span class="pd-save">Save ' + saveAmt + '</span>' : '') +
+      '</div>' +
+      '<div class="pd-qty-row">' +
+      '<span class="pd-qty-label">Quantity:</span>' +
+      '<div class="pd-qty">' +
+      '<button class="pd-qty-btn" id="pdQtyMinus">&#8722;</button>' +
+      '<span class="pd-qty-val" id="pdQtyVal">1</span>' +
+      '<button class="pd-qty-btn" id="pdQtyPlus">&#43;</button>' +
+      '</div>' +
+      '</div>' +
+      '<div class="pd-btns">' +
+      '<button class="pd-btn-cart" id="pdAddCart">' +
+      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>' +
+      'Add to Cart' +
+      '</button>' +
+      '<a href="store.html" class="pd-btn-checkout" id="pdCheckout">' +
+      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+      'Proceed to Checkout' +
+      '</a>' +
+      '</div>' +
+      '<div class="pd-cart-summary" id="pdCartSummary"></div>' +
+      '</div>' +
+      '</div>' +
+      '<section class="pd-related">' +
+      '<h2 class="pd-related-title">You might also need</h2>' +
+      '<div class="pd-related-grid" id="pdRelated">' + renderRelated(product.id, product.cat) + '</div>' +
+      '</section>';
 
-    function renderCartSummary(checkoutBtn, summaryEl) {
-      var items = getCart();
-      if (!items.length) {
-        summaryEl.className = 'pd-cart-summary';
-        summaryEl.innerHTML = '';
-        if (checkoutBtn) checkoutBtn.classList.remove('visible');
-        return;
-      }
-      var total = 0;
-      var itemCount = 0;
-      var rows = items.map(function(it) {
-        var num = it.priceNum || parseFloat((it.price || '0').replace(/[^0-9.]/g, '')) || 0;
-        var qty = it.qty || 1;
-        var lineTotal = num * qty;
-        total += lineTotal;
-        itemCount += qty;
-        return '<div class="pd-cart-row"><span>' + it.name + ' &times;' + qty + '</span><span>AED ' + lineTotal + '</span></div>';
-      }).join('');
-      summaryEl.className = 'pd-cart-summary has-items';
-      summaryEl.innerHTML = '<p class="pd-cart-title">Your Cart (' + itemCount + ' item' + (itemCount !== 1 ? 's' : '') + ')</p>' + rows + '<div class="pd-cart-total"><span>Total</span><span>AED ' + total + '</span></div>';
-      if (checkoutBtn) {
-        checkoutBtn.classList.add('visible');
-        checkoutBtn.href = 'store.html?checkout=1&total=' + total;
-      }
-    }
+    // Wire up qty stepper
+    var qty = 1;
+    var qtyVal = document.getElementById('pdQtyVal');
+    var addBtn = document.getElementById('pdAddCart');
+    var checkoutBtn = document.getElementById('pdCheckout');
+    var summaryEl = document.getElementById('pdCartSummary');
 
-    function renderRelated(currentId, cat) {
-      var related = PRODUCTS.filter(function(p) { return p.id !== currentId && p.cat === cat; }).slice(0, 4);
-      if (!related.length) related = PRODUCTS.filter(function(p) { return p.id !== currentId; }).slice(0, 4);
-      return related.map(function(p) {
-        var img = p.image
-          ? '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy">'
-          : productIcon(p.cat);
-        return '<a href="product.html?id=' + p.id + '" class="pd-related-card">' +
-          '<div class="pd-related-img">' + img + '</div>' +
-          '<div class="pd-related-info"><p class="pd-related-name">' + p.name + '</p><p class="pd-related-price">' + p.price + '</p></div>' +
-          '</a>';
-      }).join('');
-    }
+    document.getElementById('pdQtyMinus').addEventListener('click', function () {
+      if (qty > 1) { qty--; qtyVal.textContent = qty; }
+    });
+    document.getElementById('pdQtyPlus').addEventListener('click', function () {
+      if (qty < 99) { qty++; qtyVal.textContent = qty; }
+    });
 
-    function render() {
-      var id = new URLSearchParams(window.location.search).get('id');
-      var main = document.getElementById('pdMain');
-      var product = id ? PRODUCTS.find(function(p) { return p.id === id; }) : null;
-
-      if (!product) {
-        main.innerHTML = '<div class="pd-not-found"><h2>Product Not Found</h2><p>We couldn\'t find that item.</p><a href="store.html">Browse All Supplies</a></div>';
-        return;
-      }
-
-      document.title = product.name + ' | PurpleBox Storage Supplies';
-
-      var saveAmt = product.was ? 'AED ' + (parseInt(product.was.replace(/[^0-9]/g,''),10) - product.priceNum) : '';
-
-      var imgHtml = product.image
-        ? '<img src="' + product.image + '" alt="' + product.name + '" />'
-        : productIcon(product.cat);
-
-      main.innerHTML =
-        '<nav class="pd-breadcrumb"><a href="index.html">Home</a><span>›</span><a href="store.html">Shop</a><span>›</span>' + product.cat + '<span>›</span>' + product.name + '</nav>' +
-        '<div class="pd-wrapper">' +
-          '<div class="pd-img-panel">' +
-            (product.tag ? '<span class="pd-tag">' + product.tag + '</span>' : '') +
-            imgHtml +
-          '</div>' +
-          '<div class="pd-details">' +
-            '<p class="pd-cat">' + product.cat + '</p>' +
-            '<h1 class="pd-name">' + product.name + '</h1>' +
-            '<p class="pd-spec">' + product.spec + '</p>' +
-            '<hr class="pd-divider">' +
-            '<p style="font-size:14px;color:#374151;line-height:1.6;margin:0;">' + (product.desc || '') + '</p>' +
-            '<hr class="pd-divider">' +
-            '<div class="pd-price-row">' +
-              '<span class="pd-price">' + product.price + '</span>' +
-              (product.was ? '<span class="pd-was">' + product.was + '</span>' : '') +
-              (saveAmt ? '<span class="pd-save">Save ' + saveAmt + '</span>' : '') +
-            '</div>' +
-            '<div class="pd-qty-row">' +
-              '<span class="pd-qty-label">Quantity:</span>' +
-              '<div class="pd-qty">' +
-                '<button class="pd-qty-btn" id="pdQtyMinus">&#8722;</button>' +
-                '<span class="pd-qty-val" id="pdQtyVal">1</span>' +
-                '<button class="pd-qty-btn" id="pdQtyPlus">&#43;</button>' +
-              '</div>' +
-            '</div>' +
-            '<div class="pd-btns">' +
-              '<button class="pd-btn-cart" id="pdAddCart">' +
-                '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>' +
-                'Add to Cart' +
-              '</button>' +
-              '<a href="store.html" class="pd-btn-checkout" id="pdCheckout">' +
-                '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
-                'Proceed to Checkout' +
-              '</a>' +
-            '</div>' +
-            '<div class="pd-cart-summary" id="pdCartSummary"></div>' +
-          '</div>' +
-        '</div>' +
-        '<section class="pd-related">' +
-          '<h2 class="pd-related-title">You might also need</h2>' +
-          '<div class="pd-related-grid" id="pdRelated">' + renderRelated(product.id, product.cat) + '</div>' +
-        '</section>';
-
-      // Wire up qty stepper
-      var qty = 1;
-      var qtyVal = document.getElementById('pdQtyVal');
-      var addBtn = document.getElementById('pdAddCart');
-      var checkoutBtn = document.getElementById('pdCheckout');
-      var summaryEl = document.getElementById('pdCartSummary');
-
-      document.getElementById('pdQtyMinus').addEventListener('click', function() {
-        if (qty > 1) { qty--; qtyVal.textContent = qty; }
-      });
-      document.getElementById('pdQtyPlus').addEventListener('click', function() {
-        if (qty < 99) { qty++; qtyVal.textContent = qty; }
-      });
-
-      addBtn.addEventListener('click', function() {
-        addToCart(product, qty);
-        addBtn.classList.add('added');
-        addBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Added to Cart!';
-        setTimeout(function() {
-          addBtn.classList.remove('added');
-          addBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Add to Cart';
-        }, 2000);
-        renderCartSummary(checkoutBtn, summaryEl);
-      });
-
-      // Init cart state
+    addBtn.addEventListener('click', function () {
+      addToCart(product, qty);
+      addBtn.classList.add('added');
+      addBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Added to Cart!';
+      setTimeout(function () {
+        addBtn.classList.remove('added');
+        addBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Add to Cart';
+      }, 2000);
       renderCartSummary(checkoutBtn, summaryEl);
-      updateBadge();
-    }
+    });
 
-    function toggleMobileMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
+    // Init cart state
+    renderCartSummary(checkoutBtn, summaryEl);
+    updateBadge();
+  }
 
-    render();
-  </script>
-  <script src="templates/layout-loader.js"></script>
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  render();
+</script>
+<script src="templates/layout-loader.js"></script>
 </body>
+
 </html>
