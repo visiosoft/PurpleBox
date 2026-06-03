@@ -216,6 +216,35 @@
       color: #5f6e86;
     }
 
+    .pm-gallery {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+    }
+
+    .pm-gallery-item {
+      flex: 0 0 min(82vw, 360px);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #dbe3f1;
+      background: #ffffff;
+      box-shadow: 0 4px 16px rgba(22, 30, 60, 0.08);
+      scroll-snap-align: start;
+    }
+
+    .pm-gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
     .pm-section-tight {
       padding: 24px 0;
     }
@@ -257,6 +286,18 @@
 
       .pm-checks {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .pm-gallery {
+        gap: 14px;
+      }
+
+      .pm-gallery-item {
+        flex-basis: min(44vw, 520px);
+      }
+
+      .pm-gallery-item img {
+        min-height: 280px;
       }
 
       .pm-form-grid {
@@ -375,6 +416,31 @@
         <h3>Store or deliver</h3>
         <p>Move into storage or your destination, with reassembly support when needed.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pm-section-tight" aria-label="Packing and moving gallery" style="padding-top:14px;">
+  <div class="container">
+    <p class="label mb-8">Gallery</p>
+    <h2 class="mb-16">Recent packing and moving work</h2>
+    <div class="pm-gallery">
+      <figure class="pm-gallery-item">
+        <img src="http://purplebox.ae/wp-content/uploads/2026/06/01.jpg" alt="PurpleBox team packing household items"
+          loading="lazy" />
+      </figure>
+      <figure class="pm-gallery-item">
+        <img src="http://purplebox.ae/wp-content/uploads/2026/06/02.jpg" alt="PurpleBox movers loading packed boxes"
+          loading="lazy" />
+      </figure>
+      <figure class="pm-gallery-item">
+        <img src="http://purplebox.ae/wp-content/uploads/2026/06/03.jpg" alt="PurpleBox moving service in Dubai"
+          loading="lazy" />
+      </figure>
+      <figure class="pm-gallery-item">
+        <img src="http://purplebox.ae/wp-content/uploads/2026/06/04.jpg"
+          alt="PurpleBox furniture handling and transport" loading="lazy" />
+      </figure>
     </div>
   </div>
 </section>

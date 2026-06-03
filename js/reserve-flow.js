@@ -108,10 +108,16 @@
     }
 
     function getSelectedSizeLabel(unitLabel, unitSize) {
+        const labelText = String(unitLabel || '').toLowerCase();
+        const sizeTextRaw = String(unitSize || '').toLowerCase();
+        if (labelText.includes('multi') || sizeTextRaw.includes('+') || sizeTextRaw.includes('|') || sizeTextRaw.includes(',')) {
+            return 'MULTI';
+        }
+
         const fromLabel = String(unitLabel || '').match(/\b(XXL|XL|XS|SS|S|M|L)\b/i);
         if (fromLabel) return fromLabel[1].toUpperCase();
 
-        const sizeText = String(unitSize || '').toLowerCase();
+        const sizeText = sizeTextRaw;
         if (sizeText.includes('200')) return 'XXL';
         if (sizeText.includes('150')) return 'XL';
         if (sizeText.includes('100')) return 'L';
