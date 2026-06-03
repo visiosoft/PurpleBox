@@ -167,6 +167,7 @@
       border-radius: 999px;
       background: transparent;
       font-weight: 600;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease, background-color 0.24s ease;
     }
 
     .hero-sub .feature-icon {
@@ -191,6 +192,19 @@
       stroke-linejoin: round;
     }
 
+    @media (hover: hover) {
+      .hero-sub li:hover {
+        transform: translateY(-3px);
+        border-color: rgba(25, 118, 210, 0.6);
+        background: rgba(25, 118, 210, 0.08);
+        box-shadow: 0 0 0 1px rgba(25, 118, 210, 0.18), 0 10px 24px rgba(25, 118, 210, 0.26);
+      }
+
+      .hero-sub li:hover .feature-icon {
+        box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.18), 0 0 24px rgba(29, 78, 216, 0.45);
+      }
+    }
+
     .hero-ctas {
       display: none;
     }
@@ -213,11 +227,13 @@
       font-size: 16px;
       font-weight: 700;
       text-decoration: none;
-      transition: background .2s;
+      transition: background .22s ease, transform .22s ease, box-shadow .22s ease;
     }
 
     .hero-btn-primary:hover {
       background: #1565c0;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(25, 118, 210, 0.34), 0 0 0 1px rgba(25, 118, 210, 0.2);
     }
 
     /* Review row (Glofox-style) */
@@ -3047,6 +3063,7 @@
       <a href="book-unit.html">Reserve Unit</a>
       <a href="store.html">Shop Now</a>
       <a href="packing-moving.html">Packing & Moving</a>
+      <a href="community/">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
     <a href="store.html" class="nav-cart" aria-label="Open cart">
@@ -3071,6 +3088,7 @@
   <a href="book-unit.html">Reserve Unit</a>
   <a href="store.html">Shop Now</a>
   <a href="packing-moving.html">Packing &amp; Moving</a>
+  <a href="community/">Blog</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -3111,9 +3129,9 @@
       <div class="hero-review-row">
         <div class="hero-review">
           <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <div class="rev-text">5/5 - from reviews</div>
+          <div class="rev-text"></div>
           <div class="rev-source">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            5/5 - <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                 fill="#4285f4" />
@@ -3641,6 +3659,7 @@
             <p class="pbx-eyebrow">Company</p>
             <ul>
               <li><a href="about.html">About</a></li>
+              <li><a href="community/">Blog</a></li>
               <li><a href="/#faq">Help Centre</a></li>
               <li><a href="contact.html">Contact</a></li>
               <li><a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
