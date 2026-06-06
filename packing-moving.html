@@ -13,9 +13,29 @@
     gtag('js', new Date());
     gtag('config', 'G-QJZQX0KB9B');
   </script>
-  <title>Packing & Moving Dubai � Storage Pickup Service | PurpleBox</title>
+  <title>Packing & Moving Dubai — Storage Pickup Service | PurpleBox</title>
   <meta name="description"
     content="Professional packing, moving and storage in Dubai. One provider for pack, wrap, transport, store and re-deliver. Get a quote via WhatsApp." />
+  <link rel="canonical" href="https://purplebox.ae/packing-moving/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://purplebox.ae/packing-moving/" />
+  <meta property="og:title" content="Packing & Moving Dubai — Storage Pickup Service | PurpleBox" />
+  <meta property="og:description"
+    content="Professional packing, moving and storage in Dubai. One provider for pack, wrap, transport, store and re-deliver." />
+  <meta property="og:image" content="https://purplebox.ae/wp-content/uploads/2026/01/logo-1.svg" />
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56Z5JGR6');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Manrope:wght@700;800&family=Space+Grotesk:wght@700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/shared.css" />
   <link rel="stylesheet" href="css/layout-template.css" />
   <style>
@@ -67,6 +87,53 @@
       display: block;
     }
 
+    .pm-review-stars {
+      color: #f59e0b;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    /* Trust bar */
+    .trust-bar {
+      background: #f8faff;
+      border-top: 1px solid #eef2ff;
+      border-bottom: 1px solid #eef2ff;
+      padding: 20px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      text-align: center;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trust-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eef2ff;
+      display: grid;
+      place-items: center;
+      color: #4f46e5;
+      font-size: 16px;
+    }
+
+    .trust-item span {
+      font-size: 12px;
+      font-weight: 600;
+      color: #24324a;
+      line-height: 1.3;
+    }
+
+    /* Process steps */
     .pm-process {
       display: grid;
       grid-template-columns: 1fr;
@@ -77,7 +144,7 @@
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 12px;
+      padding: 14px;
     }
 
     .pm-step small {
@@ -102,47 +169,261 @@
       line-height: 1.35;
     }
 
-    .pm-included {
+    /* Pricing */
+    .pricing-section {
+      background: #f8faff;
+    }
+
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .pricing-table thead {
+      background: #eef2ff;
+    }
+
+    .pricing-table th {
+      padding: 12px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+      color: #24324a;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pricing-table td {
+      padding: 11px 14px;
+      font-size: 13px;
+      border-top: 1px solid #f0f3fa;
+      color: #374151;
+    }
+
+    .pricing-table tbody tr:hover {
+      background: #fafbff;
+    }
+
+    .pricing-note {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .pricing-cards-mobile {
+      display: none;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .pricing-card h4 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+    }
+
+    .pricing-card .price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #4f46e5;
+    }
+
+    .pricing-card .time {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    /* Services grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      transition: box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 4px 20px rgba(79, 70, 229, 0.08);
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #eef2ff;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+      font-size: 0.95rem;
+      margin: 0 0 6px;
+      line-height: 1.25;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      line-height: 1.4;
+      margin: 0;
+      color: #4b5563;
+    }
+
+    /* Why choose */
+    .why-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 10px;
     }
 
-    .pm-item {
-      background: #ffffff;
-      border: 1px solid #dbe4f1;
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 12px 12px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 10px;
-      align-items: start;
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
     }
 
-    .pm-item-icon {
-      width: 30px;
-      height: 30px;
+    .why-icon {
+      width: 32px;
+      height: 32px;
       border-radius: 8px;
+      background: #ecfdf5;
+      color: #059669;
       display: grid;
       place-items: center;
-      background: #eef2ff;
-      color: #3f2f92;
-      font-size: 15px;
+      flex-shrink: 0;
       font-weight: 700;
+      font-size: 14px;
     }
 
-    .pm-item h3 {
-      margin: 0 0 2px;
-      font-size: 0.95rem;
-      line-height: 1.2;
+    .why-card h3 {
+      font-size: 0.92rem;
+      margin: 0 0 4px;
+      line-height: 1.25;
     }
 
-    .pm-item p {
-      margin: 0;
+    .why-card p {
       font-size: 12px;
-      line-height: 1.35;
+      line-height: 1.4;
+      margin: 0;
+      color: #4b5563;
     }
 
+    /* Reviews */
+    .reviews-section {
+      background: #f8faff;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .review-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .review-stars {
+      color: #f59e0b;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .review-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1f2937;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .review-author {
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    .google-badge {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .google-badge .rating {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1f2937;
+    }
+
+    .google-badge .stars {
+      color: #f59e0b;
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin: 4px 0;
+    }
+
+    .google-badge .count {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* Gallery */
+    .pm-gallery {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+    }
+
+    .pm-gallery-item {
+      flex: 0 0 min(82vw, 360px);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #dbe3f1;
+      background: #ffffff;
+      box-shadow: 0 4px 16px rgba(22, 30, 60, 0.08);
+      scroll-snap-align: start;
+    }
+
+    .pm-gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Quote form */
     .pm-quote-wrap {
       display: grid;
       gap: 20px;
@@ -179,6 +460,8 @@
       border-radius: 12px;
       padding: 11px 12px;
       background: #fff;
+      font-size: 14px;
+      font-family: inherit;
     }
 
     .pm-form input:focus,
@@ -186,6 +469,7 @@
     .pm-form textarea:focus {
       border-color: #6d28d9;
       box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
+      outline: none;
     }
 
     .pm-form-grid {
@@ -209,6 +493,11 @@
       align-items: center;
       background: #f9fbff;
       font-size: 13px;
+      cursor: pointer;
+    }
+
+    .pm-check:hover {
+      border-color: #6d28d9;
     }
 
     .pm-note {
@@ -216,39 +505,191 @@
       color: #5f6e86;
     }
 
-    .pm-gallery {
-      display: flex;
-      gap: 12px;
-      margin-top: 16px;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 8px;
-      scrollbar-width: thin;
+    /* FAQ */
+    .faq-section {
+      background: #f8faff;
     }
 
-    .pm-gallery-item {
-      flex: 0 0 min(82vw, 360px);
-      border-radius: 14px;
+    .faq-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid #dbe3f1;
-      background: #ffffff;
-      box-shadow: 0 4px 16px rgba(22, 30, 60, 0.08);
-      scroll-snap-align: start;
     }
 
-    .pm-gallery-item img {
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      cursor: pointer;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #1f2937;
+      background: none;
+      border: none;
       width: 100%;
-      height: 100%;
-      min-height: 220px;
-      object-fit: cover;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .faq-q:hover {
+      background: #fafbff;
+    }
+
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #eef2ff;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      color: #4f46e5;
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      display: none;
+      padding: 0 16px 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #4b5563;
+    }
+
+    .faq-item.open .faq-a {
       display: block;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(140deg, #4f46e5 0%, #6d28d9 100%);
+      color: #fff;
+      text-align: center;
+      padding: 40px 0;
+      position: relative;
+    }
+
+    .final-cta h2 {
+      color: #fff;
+      font-size: 1.6rem;
+    }
+
+    .final-cta p {
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 480px;
+      margin: 10px auto 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .final-cta .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .final-cta .btn-primary {
+      background: #fff;
+      color: #4f46e5;
+    }
+
+    .final-cta .btn-primary:hover {
+      background: #f0f0ff;
+    }
+
+    .final-cta .cta-terms {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 12px;
+    }
+
+    .offer-pill {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
 
     .pm-section-tight {
       padding: 24px 0;
     }
 
+    /* Mini quote form in hero */
+    .mini-quote {
+      background: #eef2ff;
+      border: 1px solid #d9def1;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 18px;
+    }
+
+    .mini-quote h4 {
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+    }
+
+    .mini-quote-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .mini-quote input {
+      border: 1px solid #d5ddeb;
+      border-radius: 10px;
+      padding: 9px 10px;
+      font-size: 13px;
+      background: #fff;
+      font-family: inherit;
+    }
+
+    .mini-quote input:focus {
+      border-color: #6d28d9;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
+    }
+
+    .mini-quote .btn {
+      margin-top: 8px;
+    }
+
+    /* Intro */
+    .intro-text {
+      max-width: 760px;
+    }
+
+    .intro-text h2 {
+      margin-bottom: 12px;
+    }
+
+    .intro-text p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #374151;
+      margin-bottom: 10px;
+    }
+
+    /* Responsive */
     @media (max-width: 640px) {
       .pm-visual {
         display: none;
@@ -258,9 +699,17 @@
         padding: 20px;
       }
 
-      .pm-kpi-grid {
+      .mini-quote-fields {
         grid-template-columns: 1fr;
-        gap: 8px;
+      }
+
+      .pricing-table-desktop {
+        display: none;
+      }
+
+      .pricing-cards-mobile {
+        display: grid;
+        gap: 10px;
       }
 
       .pm-quote-card {
@@ -271,12 +720,29 @@
       .pm-check {
         font-size: 12px;
       }
+
+      .final-cta h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (min-width: 641px) {
+      .trust-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
     }
 
     @media (min-width: 900px) {
-      .pm-included {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .why-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr 1fr 1fr;
       }
 
       .pm-process {
@@ -286,6 +752,15 @@
 
       .pm-checks {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .pm-form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pm-quote-wrap {
+        grid-template-columns: 1.3fr 0.7fr;
+        align-items: start;
       }
 
       .pm-gallery {
@@ -299,23 +774,52 @@
       .pm-gallery-item img {
         min-height: 280px;
       }
-
-      .pm-form-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .pm-quote-wrap {
-        grid-template-columns: 1.1fr 0.9fr;
-        align-items: start;
-      }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a moving company in Dubai cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depends on home size and volume. Studios/1-bed from AED 700–1,500; larger apartments 1,300–4,000; villas 3,000+. Offices priced by desk count. Get an exact fixed price with a free survey."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in your packing and moving service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our full service includes professional packing with quality materials, wrapping and padding, loading, transport in our vehicles, unloading, and optional furniture reassembly. Storage is available under the same roof."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my belongings insured during the move?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All items are covered by our transit insurance while in our care. We handle everything with protection-first practices — proper wrapping, padding and labelling."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you store my things between moves?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We run our own secure, climate-controlled storage facility in Al Quoz 2. Pack, move and store with one team — no need to coordinate separate vendors."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
-</head>
-
-
-
+<body>
 
 <nav class="site-nav">
   <div class="nav-inner">
@@ -328,10 +832,9 @@
           clip-rule="evenodd" />
       </svg><span class="call-label">+971 54 224 9946</span></a>
     <div class="nav-links">
+      <a href="packing-moving.html">Packing & Moving</a>
       <a href="book-unit.html">Reserve Unit</a>
       <a href="store.html">Shop Now</a>
-      <a href="packing-moving.html">Packing & Moving</a>
-      <a href="community/">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
     <a href="store.html" class="nav-cart" aria-label="Open cart">
@@ -353,50 +856,115 @@
         d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
         clip-rule="evenodd" />
     </svg> +971 54 224 9946</a>
+  <a href="packing-moving.html">Packing &amp; Moving</a>
   <a href="book-unit.html">Reserve Unit</a>
   <a href="store.html">Shop Now</a>
-  <a href="packing-moving.html">Packing &amp; Moving</a>
-  <a href="community/">Blog</a>
   <a href="contact.html">Contact</a>
   <div class="mobile-menu-cta">
-    <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
-    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp
-      Us</a>
+    <a href="#quote-form" class="btn btn-primary btn-full">Get a Quote</a>
+    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
   </div>
 </div>
-</div>
 
-
+<!-- ============ HERO ============ -->
 <section class="page-hero pm-hero">
   <div class="container">
-    <nav class="breadcrumb"><a href="index.html">Home</a><span>�</span> Packing & Moving</nav>
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span> Packing & Moving</nav>
     <div class="grid-2" style="align-items:stretch;gap:24px;">
       <div class="pm-hero-card">
         <p class="label mb-8">Packing & Moving Service</p>
-        <h1>Packing, moving and storage in one smooth flow</h1>
-        <p style="margin:14px 0 18px;">From apartment moves to office relocation, PurpleBox handles packing,
-          transport, storage and re-delivery with one team and one quote.</p>
-        <div class="hero-btns">
+        <h1>Dubai's pack, move and store experts — one team, one quote</h1>
+        <p style="margin:14px 0 0;">From apartment moves to villa and office relocation, PurpleBox handles packing,
+          transport, storage and re-delivery with one trained team and one clear price. No surprises, no juggling vendors.</p>
+        <div class="hero-btns" style="margin-top:18px;">
           <a href="#quote-form" class="btn btn-primary btn-lg">Get a Quote</a>
           <a href="https://wa.me/971542249946" class="btn btn-wa btn-lg" target="_blank"
-            rel="noopener noreferrer">WhatsApp</a>
+            rel="noopener noreferrer">WhatsApp Us</a>
         </div>
         <div class="pm-badges">
-          <span class="pm-badge">Same day slots</span>
+          <span class="pm-badge">Same-day slots</span>
           <span class="pm-badge">Trained movers</span>
           <span class="pm-badge">Insured handling</span>
-          <span class="pm-badge">Dubai wide coverage</span>
+          <span class="pm-badge">Dubai-wide coverage</span>
         </div>
+        <p class="pm-review-stars" style="margin-top:14px;">★★★★★ <span style="color:#374151;font-size:13px;">4.9 · 480+ Google reviews</span></p>
       </div>
-      <aside class="pm-visual" aria-label="Key service metrics">
-        <img src="http://purplebox.ae/wp-content/uploads/2026/06/about.png" alt="PurpleBox Storage facility interior"
-          loading="lazy" />
-
+      <aside class="pm-visual" aria-label="Packing and moving hero image">
+        <img src="http://purplebox.ae/wp-content/uploads/2026/06/about.png" alt="PurpleBox movers loading furniture into truck in Dubai"
+          class="pm-visual-img" loading="eager" />
       </aside>
+    </div>
+
+    <!-- Mini quote form -->
+    <div class="mini-quote">
+      <h4>Quick quote</h4>
+      <form id="miniQuoteForm" class="mini-quote-fields">
+        <input type="text" name="from" placeholder="Move from (area)" required />
+        <input type="text" name="to" placeholder="Move to (area)" required />
+        <input type="tel" name="phone" placeholder="Phone / WhatsApp" required />
+        <button type="submit" class="btn btn-primary">Get price</button>
+      </form>
     </div>
   </div>
 </section>
 
+<!-- ============ TRUST BAR ============ -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+        </div>
+        <span>Licensed & Registered</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <span>Fully Insured</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <span>Trained, Uniformed Movers</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <span>Same-Day & Weekend</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon" style="color:#f59e0b;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span>5-Star Rated</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <span>Dubai-Wide Coverage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section pm-section-tight">
+  <div class="container">
+    <div class="intro-text">
+      <p class="label mb-8">Who We Are</p>
+      <h2>A moving company in Dubai you can actually trust</h2>
+      <p>PurpleBox is a Dubai-based moving and self-storage company built around one idea: your move should be calm, not chaotic. As full-service movers and packers in Dubai, we pack, wrap, transport, store and re-deliver — all handled by one professional team.</p>
+      <p>Apartment movers for a studio shift, villa movers for a family home, or office movers for a weekend relocation — and because we run our own storage facility in Al Quoz, we can pack you up, store your things, and deliver when you're ready, under one roof.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
 <section class="section pm-section-tight" style="background:var(--cream);padding:24px 0;">
   <div class="container">
     <p class="label mb-8">Process</p>
@@ -404,39 +972,217 @@
     <div class="pm-process">
       <div class="pm-step"><small>Step 01</small>
         <h3>Share your move details</h3>
-        <p>Tell us addresses, preferred date and inventory estimate.</p>
+        <p>Addresses, preferred date, rough idea of what you're moving.</p>
       </div>
       <div class="pm-step"><small>Step 02</small>
-        <h3>Receive fixed quote</h3>
-        <p>We send a clear quote with move scope, vehicle and crew plan.</p>
+        <h3>Receive your fixed quote</h3>
+        <p>Clear quote with scope, vehicle and crew — the price we quote is the price you pay.</p>
       </div>
       <div class="pm-step"><small>Step 03</small>
-        <h3>Pack and transport</h3>
-        <p>Our team packs, labels and moves items with protection-first handling.</p>
+        <h3>We pack and transport</h3>
+        <p>Pack, label and move with protection-first handling and the right materials.</p>
       </div>
       <div class="pm-step"><small>Step 04</small>
         <h3>Store or deliver</h3>
-        <p>Move into storage or your destination, with reassembly support when needed.</p>
+        <p>Into your new home, your office, or secure storage — with reassembly support.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============ PRICING MATRIX ============ -->
+<section class="section pricing-section" id="pricing">
+  <div class="container">
+    <p class="label mb-8">Pricing</p>
+    <h2 class="mb-8">Moving prices in Dubai — honest, with no surprises</h2>
+    <p style="font-size:14px;color:#4b5563;max-width:720px;margin-bottom:18px;">Final cost depends on what's inside your home or office. The most accurate way to know your price is a free, no-obligation quote. These ranges are a starting point.</p>
+
+    <!-- Desktop table -->
+    <div class="pricing-table-desktop">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Property type</th>
+            <th>Est. price (AED)</th>
+            <th>Est. time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Studio Apartment</td><td>700 – 1,200</td><td>3 – 5 hrs</td></tr>
+          <tr><td>1 BHK Apartment</td><td>900 – 1,500</td><td>4 – 6 hrs</td></tr>
+          <tr><td>2 BHK Apartment</td><td>1,300 – 2,500</td><td>5 – 7 hrs</td></tr>
+          <tr><td>3 BHK Apartment</td><td>1,700 – 4,000</td><td>6 – 9 hrs</td></tr>
+          <tr><td>3–4 BHK Villa</td><td>3,000 – 7,000</td><td>6 – 10 hrs</td></tr>
+          <tr><td>5–6 BHK Villa</td><td>6,000 – 11,000+</td><td>8 – 14 hrs</td></tr>
+          <tr><td>Office / Business</td><td>From 3,000 (by size)</td><td>Often a weekend</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile cards -->
+    <div class="pricing-cards-mobile">
+      <div class="pricing-card"><h4>Studio Apartment</h4><div class="price">AED 700 – 1,200</div><div class="time">3 – 5 hrs</div></div>
+      <div class="pricing-card"><h4>1 BHK Apartment</h4><div class="price">AED 900 – 1,500</div><div class="time">4 – 6 hrs</div></div>
+      <div class="pricing-card"><h4>2 BHK Apartment</h4><div class="price">AED 1,300 – 2,500</div><div class="time">5 – 7 hrs</div></div>
+      <div class="pricing-card"><h4>3 BHK Apartment</h4><div class="price">AED 1,700 – 4,000</div><div class="time">6 – 9 hrs</div></div>
+      <div class="pricing-card"><h4>3–4 BHK Villa</h4><div class="price">AED 3,000 – 7,000</div><div class="time">6 – 10 hrs</div></div>
+      <div class="pricing-card"><h4>5–6 BHK Villa</h4><div class="price">AED 6,000 – 11,000+</div><div class="time">8 – 14 hrs</div></div>
+      <div class="pricing-card"><h4>Office / Business</h4><div class="price">From AED 3,000</div><div class="time">Often a weekend</div></div>
+    </div>
+
+    <p class="pricing-note">Indicative guides for moves within Dubai. Includes packing, loading, transport, unloading. Excludes 5% VAT unless stated. Exact fixed price = free survey.</p>
+    <div style="text-align:center;margin-top:18px;">
+      <a href="#quote-form" class="btn btn-primary">Get My Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES GRID ============ -->
+<section class="section pm-section-tight">
+  <div class="container">
+    <p class="label mb-8">Services</p>
+    <h2 class="mb-16">Our services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg>
+        </div>
+        <h3>Apartment Movers in Dubai</h3>
+        <p>Fast, careful moves for studios, 1–3 bedroom apartments — packed, transported, set up.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <h3>Villa Movers in Dubai</h3>
+        <p>Full-service for 3–6 bedroom homes, with the crew, trucks and care a villa needs.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <h3>Office Movers in Dubai</h3>
+        <p>Weekend & after-hours business relocation — desks, IT and furniture, minimal downtime.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
+        </div>
+        <h3>Furniture Movers in Dubai</h3>
+        <p>Just a few large items? Disassembly, wrapping, transport and reassembly.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg>
+        </div>
+        <h3>Professional Packing</h3>
+        <p>Trained packers + premium materials protect everything from glassware to electronics.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        </div>
+        <h3>Storage Under One Roof</h3>
+        <p>Secure, climate-controlled self-storage in Al Quoz — for the gap between homes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE ============ -->
+<section class="section pm-section-tight" style="background:#f8faff;">
+  <div class="container">
+    <p class="label mb-8">Why PurpleBox</p>
+    <h2 class="mb-16">Why Dubai chooses PurpleBox movers and packers</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">✓</div>
+        <div>
+          <h3>One team, one quote</h3>
+          <p>Pack, move and store with a single trusted provider — no chasing vendors.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✓</div>
+        <div>
+          <h3>Protection-first handling</h3>
+          <p>Proper wrapping, padding and labelling so things arrive as they left.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✓</div>
+        <div>
+          <h3>Fully insured</h3>
+          <p>Items covered in transit — complete peace of mind.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✓</div>
+        <div>
+          <h3>Storage built in</h3>
+          <p>Our own Al Quoz facility stores your things for as long as you need.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✓</div>
+        <div>
+          <h3>Fixed, honest pricing</h3>
+          <p>The price we quote is the price you pay — no day-of surprises.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✓</div>
+        <div>
+          <h3>Dubai-wide, same-day</h3>
+          <p>From Marina to the Ranches, with same-day and weekend slots.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section reviews-section">
+  <div class="container">
+    <p class="label mb-8">Reviews</p>
+    <h2 class="mb-16">Trusted by movers across Dubai</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"On time, careful with everything, and the price was exactly what they quoted. Best movers in Dubai we've used."</p>
+        <p class="review-author">— Arabian Ranches villa move</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Office relocation over a weekend with zero downtime. Professional, insured, stress-free."</p>
+        <p class="review-author">— Business Bay office move</p>
+      </div>
+      <div class="google-badge">
+        <div class="rating">4.9</div>
+        <div class="stars">★★★★★</div>
+        <div class="count">480+ Google Reviews</div>
+        <a href="#quote-form" class="btn btn-primary" style="margin-top:14px;">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
 <section class="section pm-section-tight" aria-label="Packing and moving gallery" style="padding-top:14px;">
   <div class="container">
     <p class="label mb-8">Gallery</p>
-    <h2 class="mb-16">Recent packing and moving work</h2>
+    <h2 class="mb-16">See us in action</h2>
     <div class="pm-gallery">
       <figure class="pm-gallery-item">
-        <img src="http://purplebox.ae/wp-content/uploads/2026/06/01.jpg" alt="PurpleBox team packing household items"
+        <img src="http://purplebox.ae/wp-content/uploads/2026/06/01.jpg" alt="PurpleBox team packing household items in Dubai"
           loading="lazy" />
       </figure>
       <figure class="pm-gallery-item">
-        <img src="http://purplebox.ae/wp-content/uploads/2026/06/02.jpg" alt="PurpleBox movers loading packed boxes"
+        <img src="http://purplebox.ae/wp-content/uploads/2026/06/02.jpg" alt="PurpleBox movers loading packed boxes into truck"
           loading="lazy" />
       </figure>
       <figure class="pm-gallery-item">
-        <img src="http://purplebox.ae/wp-content/uploads/2026/06/03.jpg" alt="PurpleBox moving service in Dubai"
+        <img src="http://purplebox.ae/wp-content/uploads/2026/06/03.jpg" alt="PurpleBox villa moving service in Dubai"
           loading="lazy" />
       </figure>
       <figure class="pm-gallery-item">
@@ -447,13 +1193,14 @@
   </div>
 </section>
 
+<!-- ============ QUOTE FORM ============ -->
 <section class="section pm-section-tight" id="quote-form">
   <div class="container">
     <div class="pm-quote-wrap">
       <div class="pm-quote-card">
         <p class="label mb-8">Get A Quote</p>
-        <h2 class="mb-16">Request your moving quote</h2>
-        <p class="mb-16" style="font-size:14px;">Fill this form and we will send a quote on WhatsApp.</p>
+        <h2 class="mb-8">Request your free moving quote</h2>
+        <p class="mb-16" style="font-size:14px;">Fill this in and we'll send your tailored quote on WhatsApp, usually within the hour.</p>
         <form id="movingQuoteForm" class="pm-form">
           <div class="pm-form-grid">
             <div class="field">
@@ -461,18 +1208,35 @@
               <input id="fullName" name="fullName" type="text" required />
             </div>
             <div class="field">
-              <label for="phone">Phone Number</label>
+              <label for="phone">Phone / WhatsApp</label>
               <input id="phone" name="phone" type="tel" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+          </div>
+
+          <div class="pm-form-grid">
+            <div class="field">
+              <label for="fromArea">Move from (area)</label>
+              <input id="fromArea" name="fromArea" type="text" placeholder="e.g. Marina" required />
+            </div>
+            <div class="field">
+              <label for="toArea">Move to (area)</label>
+              <input id="toArea" name="toArea" type="text" placeholder="e.g. Al Quoz" required />
             </div>
           </div>
 
           <div class="pm-form-grid">
             <div class="field">
-              <label for="moveType">Move Type</label>
+              <label for="moveType">Property Type</label>
               <select id="moveType" name="moveType" required>
-                <option value="">Select move type</option>
-                <option>Studio / 1 Bedroom</option>
-                <option>2-3 Bedroom Apartment</option>
+                <option value="">Select property type</option>
+                <option>Studio Apartment</option>
+                <option>1 BHK Apartment</option>
+                <option>2-3 BHK Apartment</option>
                 <option>Villa</option>
                 <option>Office / Business</option>
               </select>
@@ -483,54 +1247,138 @@
             </div>
           </div>
 
-          <div class="pm-form-grid">
-            <div class="field">
-              <label for="fromArea">From (Area)</label>
-              <input id="fromArea" name="fromArea" type="text" placeholder="e.g. Marina" required />
-            </div>
-            <div class="field">
-              <label for="toArea">To (Area)</label>
-              <input id="toArea" name="toArea" type="text" placeholder="e.g. Al Quoz" required />
-            </div>
-          </div>
-
           <div class="field">
             <label>Services Needed</label>
             <div class="pm-checks">
               <label class="pm-check"><input type="checkbox" name="services" value="Packing" /> Packing</label>
               <label class="pm-check"><input type="checkbox" name="services" value="Moving" /> Moving</label>
               <label class="pm-check"><input type="checkbox" name="services" value="Storage" /> Storage</label>
-              <label class="pm-check"><input type="checkbox" name="services" value="Re-delivery" />
-                Re-delivery</label>
+              <label class="pm-check"><input type="checkbox" name="services" value="Re-delivery" /> Re-delivery</label>
             </div>
           </div>
 
           <div class="field">
-            <label for="items">Inventory Notes</label>
+            <label for="items">What are you moving?</label>
             <textarea id="items" name="items" rows="4"
               placeholder="List major items, fragile items, or special access notes."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-full">Send Quote Request</button>
-          <p class="pm-note">By submitting, you agree to be contacted by PurpleBox for your move quote.</p>
+          <button type="submit" class="btn btn-primary btn-full">Get my free quote</button>
+          <p class="pm-note">We'll only use your details to prepare your quote. See our <a href="privacy.html">Privacy Policy</a>.</p>
         </form>
       </div>
 
       <aside class="pm-quote-card" aria-label="Quote support details">
         <h3 style="margin-bottom:10px;">What happens next</h3>
         <ul style="padding-left:18px;list-style:disc;display:grid;gap:8px;">
-          <li>A move coordinator reviews your request.</li>
-          <li>You receive a tailored quote and timeline.</li>
-          <li>We confirm crew size, truck and packing scope.</li>
+          <li>We review your details.</li>
+          <li>A move specialist confirms scope.</li>
+          <li>You get a fixed price on WhatsApp.</li>
           <li>You lock your move slot.</li>
         </ul>
         <div class="card" style="margin-top:18px;padding:18px;background:var(--purple-lt);border-color:#d7ccf5;">
-          <h4 style="margin-bottom:6px;">Need quick support?</h4>
+          <h4 style="margin-bottom:6px;">Need to talk now?</h4>
           <p style="font-size:14px;margin-bottom:12px;">Call us directly for urgent or same-day requests.</p>
           <a href="tel:+971542249946" class="btn btn-outline btn-full">Call +971 54 224 9946</a>
+          <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" style="margin-top:8px;" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
         </div>
       </aside>
     </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <p class="label mb-8">FAQ</p>
+    <h2 class="mb-16">Frequently asked questions</h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q" aria-expanded="true">
+          How much does a moving company in Dubai cost?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Depends on home size and volume. Studios/1-bed from AED 700–1,500; larger apartments 1,300–4,000; villas 3,000+. Offices priced by desk count. The most accurate way to know your price is a free survey — we'll give you a clear, fixed quote before we lift a box.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What's included in your packing and moving service?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Our full service includes professional packing with quality materials, wrapping and padding, loading, transport in our vehicles, unloading, and optional furniture reassembly. Storage is available under the same roof if you need it.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Are my belongings insured during the move?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Yes. All items are covered by our transit insurance while in our care. We handle everything with protection-first practices — proper wrapping, padding and labelling.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you supply boxes and packing materials?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Yes. We bring all necessary packing materials — boxes, bubble wrap, tape, corner protectors, wardrobe boxes and furniture blankets. Everything is included in your quote.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Will you take apart and reassemble my furniture?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Absolutely. Our crew handles disassembly before the move and reassembly at your new location — beds, wardrobes, desks, shelving units and more.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you handle villa and office moves?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Yes. We handle full villa moves (3–6 bedrooms) with appropriately sized crews and trucks. For offices, we schedule weekend or after-hours relocations to minimise business downtime.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can you store my things between moves?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Absolutely. We run our own secure, climate-controlled storage facility in Al Quoz 2. Pack, move and store with one team — no need to coordinate separate vendors.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Which areas of Dubai do you cover?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">We cover all of Dubai — Marina, JBR, Downtown, Business Bay, JLT, Springs, Meadows, Arabian Ranches, Al Quoz, Jumeirah, Palm, Silicon Oasis and beyond. We also handle moves to Abu Dhabi, Sharjah and other emirates.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How far in advance should I book?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">We recommend booking 3–5 days ahead for the best slot availability. However, we do offer same-day and next-day moves depending on crew availability.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How do I get a quote?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Fill out our quick quote form above, WhatsApp us at +971 54 224 9946, or call directly. We'll review your details, confirm the scope, and send a fixed-price quote — usually within the hour.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="container">
+    <span class="offer-pill">Limited offer</span>
+    <h2>Ready for a calm, careful move?</h2>
+    <p>Save 20% when you book this month. Get your free quote today and let Dubai's pack-move-store team handle the rest.</p>
+    <div class="cta-btns">
+      <a href="#quote-form" class="btn btn-primary btn-lg">Get a Quote</a>
+      <a href="https://wa.me/971542249946" class="btn btn-wa btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+      <a href="tel:+971542249946" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.4);color:#fff;">Call +971 54 224 9946</a>
+    </div>
+    <p class="cta-terms">*T&Cs apply · valid on bookings confirmed this month</p>
   </div>
 </section>
 
@@ -539,15 +1387,12 @@
   <div class="container">
     <div class="pbx-footer">
 
-      <!-- Location Card -->
       <section class="pbx-location-card" aria-label="Facility location">
         <div class="pbx-loc-info">
           <h3 class="pbx-loc-name">PurpleBox Storage - Al Quoz</h3>
           <div class="pbx-loc-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              aria-hidden="true">
-              <path
-                d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
             </svg>
             <div>
               <span class="pbx-loc-label">Phone:</span>
@@ -555,8 +1400,7 @@
             </div>
           </div>
           <div class="pbx-loc-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="2" />
               <path d="M3 8l9 6 9-6" />
             </svg>
@@ -566,8 +1410,7 @@
             </div>
           </div>
           <div class="pbx-loc-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0Z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
@@ -577,8 +1420,7 @@
             </div>
           </div>
           <div class="pbx-loc-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
@@ -595,8 +1437,7 @@
             allowfullscreen></iframe>
           <a class="pbx-loc-directions" href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
             rel="noopener noreferrer">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M21 3L11 13" />
               <path d="M21 3L14.5 21L11 13L3 9.5L21 3Z" />
             </svg>
@@ -605,7 +1446,6 @@
         </div>
       </section>
 
-      <!-- Links + Contact -->
       <div class="pbx-bottom-grid">
         <div class="pbx-link-grid">
           <nav aria-label="Storage links">
@@ -624,8 +1464,7 @@
               <li><a href="community/">Blog</a></li>
               <li><a href="/#faq">Help Centre</a></li>
               <li><a href="contact.html">Contact</a></li>
-              <li><a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank"
-                  rel="noopener noreferrer">Location</a></li>
+              <li><a href="https://maps.app.goo.gl/JMR6u1iuBfkcEBxx6" target="_blank" rel="noopener noreferrer">Location</a></li>
             </ul>
           </nav>
         </div>
@@ -633,16 +1472,13 @@
         <div class="pbx-connect">
           <section class="pbx-contact" aria-label="Contact options">
             <a class="pbx-chip" href="tel:+971542249946">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path
-                  d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 16.9V20a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18.8 19.5 19.5 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3.1a2 2 0 0 1 2 1.7c.1.9.4 1.7.7 2.5a2 2 0 0 1-.4 2.1L8.1 9.6a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.5.7a2 2 0 0 1 1.7 2Z" />
               </svg>
               +971 54 224 9946
             </a>
             <a class="pbx-chip" href="mailto:contact@purplebox.ae">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <rect x="3" y="5" width="18" height="14" rx="2" />
                 <path d="M3 8l9 6 9-6" />
               </svg>
@@ -651,29 +1487,23 @@
           </section>
 
           <section class="pbx-social" aria-label="Social media links">
-            <a href="https://www.instagram.com/purpleboxstorage/" target="_blank" rel="noopener noreferrer"
-              aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                aria-hidden="true">
+            <a href="https://www.instagram.com/purpleboxstorage/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.2" cy="6.8" r="1" />
               </svg>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61583010513739#" target="_blank" rel="noopener noreferrer"
-              aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                aria-hidden="true">
+            <a href="https://www.facebook.com/profile.php?id=61583010513739#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
                 <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" />
               </svg>
             </a>
             <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
               style="color:#22c55e;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
                 <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
-                <path
-                  d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z" />
+                <path d="M9.5 9.2c.2-.4.5-.4.7-.4h.6c.2 0 .4 0 .6.5.2.4.8 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5l-.4.4c-.1.1-.2.2-.1.4.1.2.6 1 1.3 1.6.9.8 1.7 1.1 2 1.2.2.1.3.1.4-.1l.6-.7c.2-.2.3-.2.5-.1s1.5.7 1.7.8c.2.1.4.2.4.3 0 .2-.2.9-.6 1.2-.4.3-1 .4-1.2.4-.3 0-2.8-.8-4.9-2.8-2.4-2.2-2.8-4.5-2.8-4.8 0-.3.1-.8.4-1.1Z" />
               </svg>
             </a>
           </section>
@@ -692,18 +1522,43 @@
   </div>
 </footer>
 
-<a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">??</a>
+<a href="https://wa.me/971542249946" class="wa-float" target="_blank" rel="noopener noreferrer">💬</a>
 
 <div class="mobile-cta">
-  <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank"
-    rel="noopener noreferrer">WhatsApp</a>
-  <a href="reserve.html" class="btn btn-primary btn-full">Reserve</a>
+  <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  <a href="#quote-form" class="btn btn-primary btn-full">Get a Quote</a>
 </div>
+
 <script>
   function toggleMobileMenu() {
     document.getElementById("mobileMenu").classList.toggle("open");
   }
 
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function (el) { el.classList.remove('open'); });
+      if (!wasOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !wasOpen);
+    });
+  });
+
+  // Mini quote form → scroll to full form
+  document.getElementById("miniQuoteForm")?.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var data = new FormData(e.target);
+    var fromField = document.getElementById("fromArea");
+    var toField = document.getElementById("toArea");
+    var phoneField = document.getElementById("phone");
+    if (fromField) fromField.value = data.get("from") || "";
+    if (toField) toField.value = data.get("to") || "";
+    if (phoneField) phoneField.value = data.get("phone") || "";
+    document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" });
+  });
+
+  // Main quote form submission
   document.getElementById("movingQuoteForm")?.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -717,22 +1572,23 @@
       "",
       "Name: " + (data.get("fullName") || ""),
       "Phone: " + (data.get("phone") || ""),
-      "Move Type: " + (data.get("moveType") || ""),
+      "Email: " + (data.get("email") || "Not provided"),
+      "Property Type: " + (data.get("moveType") || ""),
       "Preferred Date: " + (data.get("moveDate") || ""),
       "From: " + (data.get("fromArea") || ""),
       "To: " + (data.get("toArea") || ""),
       "Services: " + (services.length ? services.join(", ") : "Not specified"),
-      "Inventory Notes: " + (data.get("items") || "None")
+      "What are you moving: " + (data.get("items") || "None")
     ];
 
     var payload = new URLSearchParams();
     payload.set("action", "pbx_submit_reservation");
     payload.set("nonce", leadConfig.nonce || "");
-    payload.set("source_page_name", "Packing & Moving Quote");
+    payload.set("source_page_name", "Packing & Moving Quote (Ads LP)");
     payload.set("source_page", window.location.href.split("#")[0]);
     payload.set("full_name", data.get("fullName") || "");
     payload.set("mobile", data.get("phone") || "");
-    payload.set("email", "");
+    payload.set("email", data.get("email") || "");
     payload.set("emirate", "Dubai");
     payload.set("storing_for", "Packing & Moving");
     payload.set("move_in_date", data.get("moveDate") || "");
@@ -750,16 +1606,22 @@
       headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },
       credentials: "same-origin",
       body: payload.toString()
-    }).catch(function () {
-      // Keep UX non-blocking.
-    });
+    }).catch(function () { });
+
+    // GA4 + Ads conversion
+    if (typeof gtag === "function") {
+      gtag("event", "generate_lead", {
+        event_category: "form",
+        event_label: "packing_moving_quote",
+        value: 1,
+        currency: "AED"
+      });
+    }
 
     form.reset();
 
     var existing = document.getElementById("pmLeadSuccess");
-    if (existing) {
-      existing.remove();
-    }
+    if (existing) existing.remove();
 
     var box = document.createElement("div");
     box.id = "pmLeadSuccess";
@@ -772,8 +1634,8 @@
     box.style.fontSize = "13px";
     box.style.lineHeight = "1.5";
     box.innerHTML =
-      '<strong style="display:block;margin-bottom:6px;">Request received</strong>' +
-      'Your quote request has been sent to our team. We will contact you shortly.' +
+      '<strong style="display:block;margin-bottom:6px;">Request received!</strong>' +
+      'Your quote request has been sent to our team. We\'ll contact you on WhatsApp shortly — usually within the hour.' +
       '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">' +
       '<a href="tel:+971542249946" style="display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:8px;border:1px solid #93c5fd;background:#fff;color:#1e3a8a;text-decoration:none;font-weight:700;font-size:12px;">Call Now</a>' +
       '<a href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20a%20packing%20and%20moving%20quote%20request" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:8px;border:1px solid #86efac;background:#fff;color:#166534;text-decoration:none;font-weight:700;font-size:12px;">Chat Right Away</a>' +
@@ -781,6 +1643,24 @@
 
     form.parentNode.appendChild(box);
     box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+
+  // Track WhatsApp clicks
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "whatsapp_click", { event_category: "engagement", event_label: "packing_moving" });
+      }
+    });
+  });
+
+  // Track call clicks
+  document.querySelectorAll('a[href^="tel:"]').forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "call_click", { event_category: "engagement", event_label: "packing_moving" });
+      }
+    });
   });
 </script>
 <script src="templates/layout-loader.js"></script>
