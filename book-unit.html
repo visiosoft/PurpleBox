@@ -63,7 +63,7 @@
 
         .unit-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 10px;
         }
 
@@ -77,10 +77,23 @@
             flex-direction: column;
             height: 100%;
             min-height: 0;
+            cursor: pointer;
+            transition: border-color .2s, box-shadow .2s, transform .2s;
+        }
+
+        .book-card:hover {
+            border-color: #bfdbfe;
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.10);
+            transform: translateY(-2px);
+        }
+
+        .book-card:focus-visible {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
         }
 
         .book-card-media {
-            height: 240px;
+            height: 210px;
             background: linear-gradient(145deg, #f7f9fc, #eef3f9);
             border-bottom: 1px solid #e7edf6;
             position: relative;
@@ -121,7 +134,7 @@
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
             background: #f7f9fc;
         }
@@ -164,7 +177,7 @@
         .book-card-footer {
             display: flex;
             align-items: flex-end;
-            justify-content: space-between;
+            justify-content: flex-start;
             gap: 8px;
             margin-top: 6px;
             margin-bottom: 0;
@@ -227,77 +240,10 @@
             margin-left: 2px;
         }
 
-        .book-select {
-            border-radius: 10px;
-            background: #1976d2;
-            color: #fff;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 8px 10px;
-            line-height: 1;
-            white-space: nowrap;
-        }
-
-        .book-card.is-selected {
-            border-color: #60a5fa;
-            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.16), 0 3px 12px rgba(17, 24, 39, 0.05);
-        }
-
-        .book-toggle {
-            border-radius: 10px;
-            border: 1px solid #c9d5ea;
-            background: #fff;
-            color: #1e3a8a;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 8px 10px;
-            line-height: 1;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-        .book-toggle.is-selected {
-            border-color: #2563eb;
-            background: #2563eb;
-            color: #fff;
-        }
-
-        .book-bulk-bar {
-            border: 1px solid #dbe3f2;
-            border-radius: 14px;
-            background: #f8fbff;
-            padding: 12px;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .book-bulk-note {
-            margin: 0;
-            font-size: 13px;
-            color: #475569;
-        }
-
-        .book-bulk-btn {
-            border: 0;
-            border-radius: 10px;
-            background: #1976d2;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 800;
-            padding: 10px 14px;
-            line-height: 1;
-            cursor: pointer;
-        }
-
-        .book-bulk-btn:disabled {
-            opacity: .45;
-            cursor: not-allowed;
+        @media (min-width: 640px) {
+            .unit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (min-width: 768px) {
@@ -338,8 +284,8 @@
                 font-size: 12px;
             }
 
-            .book-select {
-                font-size: 13px;
+            .book-card-media {
+                height: 240px;
             }
         }
 
@@ -422,13 +368,9 @@
                 reservation in one tap.</p>
         </div>
 
-        <div class="book-bulk-bar" id="bookBulkBar">
-            <p class="book-bulk-note" id="bookBulkNote">Select one or more units to reserve together.</p>
-            <button type="button" class="book-bulk-btn" id="bookBulkReserveBtn" disabled>Reserve Selected Units</button>
-        </div>
-
         <div class="unit-grid">
-            <article class="book-card">
+            <article class="book-card" data-href="unit-details.html#unit-xs" tabindex="0" role="link"
+                aria-label="View details for 10 sq ft unit">
                 <div class="book-card-media"><span class="book-badge">XS</span><img class="book-thumb"
                         src="images/10_sq_.jpg" alt="10 sq ft storage unit" /></div>
                 <div class="book-card-body">
@@ -437,16 +379,17 @@
                     <p class="book-meta">Ideal for decluttering a studio.</p>
                     <div class="book-card-footer">
                         <div class="book-pricing">
-                            <span class="book-discounted">AED 240 <span style="font-size:12px;font-weight:600;">/mo
-                                    first month</span></span>
+                            <span class="book-discounted">AED 240 <span style="font-size:12px;font-weight:600;">first 4
+                                    weeks</span></span>
                             <span class="book-regular">AED 300/mo</span>
                             <span class="book-save-badge">Save AED 60</span>
-                        </div><a class="book-select" href="unit-details.html#unit-xs">Reseve Unit</a>
+                        </div>
                     </div>
                 </div>
             </article>
 
-            <article class="book-card">
+            <article class="book-card" data-href="unit-details.html#unit-ss" tabindex="0" role="link"
+                aria-label="View details for 25 sq ft unit">
                 <div class="book-card-media"><span class="book-badge">SS</span><span
                         class="book-popular">Popular</span><img class="book-thumb" src="images/25_sq_ft.jpg"
                         alt="25 sq ft storage unit" /></div>
@@ -456,16 +399,36 @@
                     <p class="book-meta">Great for furniture during moves.</p>
                     <div class="book-card-footer">
                         <div class="book-pricing">
-                            <span class="book-discounted">AED 500 <span style="font-size:12px;font-weight:600;">/mo
-                                    first month</span></span>
+                            <span class="book-discounted">AED 500 <span style="font-size:12px;font-weight:600;">first 4
+                                    weeks</span></span>
                             <span class="book-regular">AED 625/mo</span>
                             <span class="book-save-badge">Save AED 125</span>
-                        </div><a class="book-select" href="unit-details.html#unit-ss">View details</a>
+                        </div>
                     </div>
                 </div>
             </article>
 
-            <article class="book-card">
+            <article class="book-card" data-href="unit-details.html#unit-m35" tabindex="0" role="link"
+                aria-label="View details for 35 sq ft unit">
+                <div class="book-card-media"><span class="book-badge">M</span><img class="book-thumb"
+                        src="images/75_sq_.jpg" alt="35 sq ft storage unit" /></div>
+                <div class="book-card-body">
+                    <h3 class="book-size">35 sq ft</h3>
+                    <p class="book-fit">Fits a 2-bedroom apartment.</p>
+                    <p class="book-meta">Good balance of space and price.</p>
+                    <div class="book-card-footer">
+                        <div class="book-pricing">
+                            <span class="book-discounted">AED 560 <span style="font-size:12px;font-weight:600;">first 4
+                                    weeks</span></span>
+                            <span class="book-regular">AED 700/mo</span>
+                            <span class="book-save-badge">Save AED 140</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="book-card" data-href="unit-details.html#unit-s50" tabindex="0" role="link"
+                aria-label="View details for 50 sq ft unit">
                 <div class="book-card-media"><span class="book-badge">S</span><span
                         class="book-popular">Popular</span><img class="book-thumb" src="images/50_sq_ft.jpg"
                         alt="50 sq ft storage unit" /></div>
@@ -475,34 +438,37 @@
                     <p class="book-meta">Best for boxes, appliances, and extras.</p>
                     <div class="book-card-footer">
                         <div class="book-pricing">
-                            <span class="book-discounted">AED 760 <span style="font-size:12px;font-weight:600;">/mo
-                                    first month</span></span>
+                            <span class="book-discounted">AED 760 <span style="font-size:12px;font-weight:600;">first 4
+                                    weeks</span></span>
                             <span class="book-regular">AED 950/mo</span>
                             <span class="book-save-badge">Save AED 190</span>
-                        </div><a class="book-select" href="unit-details.html#unit-s50">View details</a>
+                        </div>
                     </div>
                 </div>
             </article>
 
-            <article class="book-card">
-                <div class="book-card-media"><span class="book-badge">M</span><img class="book-thumb"
-                        src="images/75_sq_.jpg" alt="35 sq ft storage unit" /></div>
+            <article class="book-card" data-href="unit-details.html#unit-m75" tabindex="0" role="link"
+                aria-label="View details for 75 sq ft unit">
+                <div class="book-card-media"><span class="book-badge">M+</span><span
+                        class="book-popular">Popular</span><img class="book-thumb" src="images/75_sq_.jpg"
+                        alt="75 sq ft storage unit" /></div>
                 <div class="book-card-body">
-                    <h3 class="book-size">35 sq ft</h3>
-                    <p class="book-fit">Fits a 2-bedroom apartment.</p>
-                    <p class="book-meta">Good balance of space and price.</p>
+                    <h3 class="book-size">75 sq ft</h3>
+                    <p class="book-fit">Fits a 2-3 bedroom apartment.</p>
+                    <p class="book-meta">More room for bigger furniture and cartons.</p>
                     <div class="book-card-footer">
                         <div class="book-pricing">
-                            <span class="book-discounted">AED 560 <span style="font-size:12px;font-weight:600;">/mo
-                                    first month</span></span>
-                            <span class="book-regular">AED 700/mo</span>
-                            <span class="book-save-badge">Save AED 140</span>
-                        </div><a class="book-select" href="unit-details.html#unit-m35">View details</a>
+                            <span class="book-discounted">AED 1040 <span style="font-size:12px;font-weight:600;">first
+                                    4 weeks</span></span>
+                            <span class="book-regular">AED 1300/mo</span>
+                            <span class="book-save-badge">Save AED 260</span>
+                        </div>
                     </div>
                 </div>
             </article>
 
-            <article class="book-card">
+            <article class="book-card" data-href="unit-details.html#unit-l" tabindex="0" role="link"
+                aria-label="View details for 100 sq ft unit">
                 <div class="book-card-media"><span class="book-badge">L</span><img class="book-thumb"
                         src="images/100_sq.jpg" alt="100 sq ft storage unit" /></div>
                 <div class="book-card-body">
@@ -511,16 +477,17 @@
                     <p class="book-meta">For larger furniture sets and cartons.</p>
                     <div class="book-card-footer">
                         <div class="book-pricing">
-                            <span class="book-discounted">AED 1280 <span style="font-size:12px;font-weight:600;">/mo
-                                    first month</span></span>
+                            <span class="book-discounted">AED 1280 <span style="font-size:12px;font-weight:600;">first 4
+                                    weeks</span></span>
                             <span class="book-regular">AED 1600/mo</span>
                             <span class="book-save-badge">Save AED 320</span>
-                        </div><a class="book-select" href="unit-details.html#unit-l">View details</a>
+                        </div>
                     </div>
                 </div>
             </article>
 
-            <article class="book-card">
+            <article class="book-card" data-href="unit-details.html#unit-xl" tabindex="0" role="link"
+                aria-label="View details for 150 sq ft unit">
                 <div class="book-card-media"><span class="book-badge">XL</span><img class="book-thumb"
                         src="images/150_sq.jpg" alt="150 sq ft storage unit" /></div>
                 <div class="book-card-body">
@@ -529,16 +496,17 @@
                     <p class="book-meta">Large household storage volume.</p>
                     <div class="book-card-footer">
                         <div class="book-pricing">
-                            <span class="book-discounted">AED 1880 <span style="font-size:12px;font-weight:600;">/mo
-                                    first month</span></span>
+                            <span class="book-discounted">AED 1880 <span style="font-size:12px;font-weight:600;">first 4
+                                    weeks</span></span>
                             <span class="book-regular">AED 2350/mo</span>
                             <span class="book-save-badge">Save AED 470</span>
-                        </div><a class="book-select" href="unit-details.html#unit-xl">View details</a>
+                        </div>
                     </div>
                 </div>
             </article>
 
-            <article class="book-card">
+            <article class="book-card" data-href="unit-details.html#unit-xxl" tabindex="0" role="link"
+                aria-label="View details for 200 sq ft unit">
                 <div class="book-card-media"><span class="book-badge">XXL</span><img class="book-thumb"
                         src="images/200_sq.jpg" alt="200 sq ft storage unit" /></div>
                 <div class="book-card-body">
@@ -547,11 +515,11 @@
                     <p class="book-meta">Maximum space for major moves.</p>
                     <div class="book-card-footer">
                         <div class="book-pricing">
-                            <span class="book-discounted">AED 2400 <span style="font-size:12px;font-weight:600;">/mo
-                                    first month</span></span>
+                            <span class="book-discounted">AED 2400 <span style="font-size:12px;font-weight:600;">first 4
+                                    weeks</span></span>
                             <span class="book-regular">AED 3000/mo</span>
                             <span class="book-save-badge">Save AED 600</span>
-                        </div><a class="book-select" href="unit-details.html#unit-xxl">View details</a>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -732,102 +700,28 @@
         document.getElementById('mobileMenu').classList.toggle('open');
     }
 
-    function parseAED(text) {
-        var raw = String(text || '').replace(/[^0-9]/g, '');
-        return raw ? Number(raw) : 0;
-    }
+    function initCardNavigation() {
+        var cards = Array.from(document.querySelectorAll('.book-card[data-href]'));
+        if (!cards.length) return;
 
-    function initMultiUnitSelection() {
-        var cards = Array.from(document.querySelectorAll('.book-card'));
-        var bulkBtn = document.getElementById('bookBulkReserveBtn');
-        var bulkNote = document.getElementById('bookBulkNote');
-        if (!cards.length || !bulkBtn || !bulkNote) return;
+        cards.forEach(function (card) {
+            var href = card.getAttribute('data-href');
+            if (!href) return;
 
-        var selected = new Map();
-
-        function updateBulkState() {
-            var chosen = Array.from(selected.values());
-            var count = chosen.length;
-            var total = chosen.reduce(function (sum, item) { return sum + item.rent; }, 0);
-
-            if (count === 0) {
-                bulkBtn.disabled = true;
-                bulkBtn.textContent = 'Reserve Selected Units';
-                bulkNote.textContent = 'Select one or more units to reserve together.';
-                return;
-            }
-
-            bulkBtn.disabled = false;
-            bulkBtn.textContent = 'Reserve Selected Units (' + count + ')';
-            bulkNote.textContent = count + ' unit(s) selected - Total monthly rent ' + 'AED ' + total.toLocaleString('en-AE');
-        }
-
-        cards.forEach(function (card, index) {
-            var sizeEl = card.querySelector('.book-size');
-            var badgeEl = card.querySelector('.book-badge');
-            var regularEl = card.querySelector('.book-regular');
-            var footer = card.querySelector('.book-card-footer');
-
-            if (!sizeEl || !badgeEl || !regularEl || !footer) return;
-
-            var unit = {
-                id: 'unit-' + index,
-                size: sizeEl.textContent.trim(),
-                label: badgeEl.textContent.trim(),
-                rent: parseAED(regularEl.textContent)
-            };
-
-            var toggleBtn = document.createElement('button');
-            toggleBtn.type = 'button';
-            toggleBtn.className = 'book-toggle';
-            toggleBtn.textContent = 'Select';
-
-            toggleBtn.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-
-                if (selected.has(unit.id)) {
-                    selected.delete(unit.id);
-                    card.classList.remove('is-selected');
-                    toggleBtn.classList.remove('is-selected');
-                    toggleBtn.textContent = 'Select';
-                } else {
-                    selected.set(unit.id, unit);
-                    card.classList.add('is-selected');
-                    toggleBtn.classList.add('is-selected');
-                    toggleBtn.textContent = 'Selected';
-                }
-                updateBulkState();
+            card.addEventListener('click', function () {
+                window.location.href = href;
             });
 
-            footer.insertBefore(toggleBtn, footer.firstChild);
+            card.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    window.location.href = href;
+                }
+            });
         });
-
-        bulkBtn.addEventListener('click', function () {
-            var chosen = Array.from(selected.values());
-            if (!chosen.length) return;
-
-            var totalRent = chosen.reduce(function (sum, item) { return sum + item.rent; }, 0);
-            var labels = chosen.map(function (item) { return item.label; });
-            var sizes = chosen.map(function (item) { return item.size; });
-            var rents = chosen.map(function (item) { return String(item.rent); });
-
-            var params = new URLSearchParams();
-            params.set('unitLabel', 'MULTI (' + chosen.length + ' units)');
-            params.set('unitSize', sizes.join(' + '));
-            params.set('monthlyRent', String(totalRent));
-            params.set('promoCode', 'FIRST20');
-            params.set('unitLabels', labels.join('|'));
-            params.set('unitSizes', sizes.join('|'));
-            params.set('monthlyRents', rents.join('|'));
-
-            window.location.href = 'reserve-step-1.html?' + params.toString();
-        });
-
-        updateBulkState();
     }
 
-    initMultiUnitSelection();
+    initCardNavigation();
 </script>
 <script src="templates/layout-loader.js"></script>
 </body>

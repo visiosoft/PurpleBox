@@ -160,7 +160,7 @@
         const estimatedTotal = dueToday + remainingTotal;
 
         document.querySelectorAll('.state-chip').forEach(function (chip) {
-            chip.textContent = fmtAED(dueToday) + '/m first month - ' + selectedLabel + ' Selected';
+            chip.textContent = fmtAED(dueToday) + ' / first 4 weeks - ' + selectedLabel + ' Selected';
         });
 
         document.querySelectorAll('.total-val').forEach(function (el) {
@@ -669,7 +669,16 @@
     }
 
     function init() {
-        const step = document.body.getAttribute('data-step');
+        let step = document.body && document.body.getAttribute('data-step');
+        if (!step) {
+            if (document.getElementById('step1Form') || document.getElementById('step1FormDesktop')) {
+                step = '1';
+            } else if (document.getElementById('step2Form')) {
+                step = '2';
+            } else if (document.getElementById('reserveAction') || document.getElementById('summaryText')) {
+                step = '3';
+            }
+        }
         if (step === '1') setupStep1();
         if (step === '2') setupStep2();
         if (step === '3') setupStep3();

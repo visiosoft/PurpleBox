@@ -49,11 +49,47 @@ body {
     gap: 0.8rem;
 }
 
-.nav-logo { display: flex; align-items: center; }
-.nav-logo-img { height: 38px; width: auto; }
-.nav-cart { display: flex; align-items: center; position: relative; color: #334863; }
-.nav-cart svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
-.nav-cart-badge { position: absolute; top: -4px; right: -6px; font-size: 10px; font-weight: 700; background: #6d28d9; color: #fff; border-radius: 999px; min-width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; line-height: 1; }
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-img {
+    height: 38px;
+    width: auto;
+}
+
+.nav-cart {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #334863;
+}
+
+.nav-cart svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.nav-cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    font-size: 10px;
+    font-weight: 700;
+    background: #6d28d9;
+    color: #fff;
+    border-radius: 999px;
+    min-width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
 
 .nav-brand {
     display: inline-flex;
@@ -75,13 +111,17 @@ body {
 }
 
 .nav-phone {
-    display: none;
+    display: inline-flex;
     align-items: center;
     gap: 0.35rem;
     color: #334863;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 700;
+}
+
+.call-label {
+    display: none;
 }
 
 .nav-phone svg {
@@ -108,8 +148,11 @@ body {
     border-radius: 0.55rem;
     border: 1px solid #dfe7f1;
     background: #fff;
-    display: grid;
-    place-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.22rem;
     cursor: pointer;
     color: #22324a;
 }
@@ -117,6 +160,14 @@ body {
 .nav-hamburger svg {
     width: 1rem;
     height: 1rem;
+}
+
+.nav-hamburger span {
+    width: 1rem;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    display: block;
 }
 
 .mobile-menu {
@@ -996,6 +1047,10 @@ textarea:focus {
     .nav-links,
     .nav-phone {
         display: inline-flex;
+    }
+
+    .call-label {
+        display: inline;
     }
 
     .nav-hamburger,

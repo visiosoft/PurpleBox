@@ -801,7 +801,7 @@
       regular: 'AED 300',
       monthlyRent: 300,
       save: 'AED 60',
-      period: '/mo first month',
+      period: 'first 4 weeks',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/10_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
       fits: [
@@ -822,7 +822,7 @@
       regular: 'AED 625',
       monthlyRent: 625,
       save: 'AED 125',
-      period: '/mo first month',
+      period: 'first 4 weeks',
       popular: true,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/25_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/25_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit3.webp'],
       fits: [
@@ -843,7 +843,7 @@
       regular: 'AED 950',
       monthlyRent: 950,
       save: 'AED 190',
-      period: '/mo first month',
+      period: 'first 4 weeks',
       popular: true,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/50_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/50_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp'],
       fits: [
@@ -864,7 +864,7 @@
       regular: 'AED 700',
       monthlyRent: 700,
       save: 'AED 140',
-      period: '/mo first month',
+      period: 'first 4 weeks',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/75_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
       fits: [
@@ -872,6 +872,27 @@
         { icon: '📦', label: 'Moving Boxes', count: '16-20 boxes' },
         { icon: '🪑', label: 'Dining Set', count: '4-seat table' },
         { icon: '🏠', label: 'Apartment', count: '2-bed contents' }
+      ],
+      videoId: ''
+    },
+    'unit-m75': {
+      badge: 'M+',
+      title: '75 sq ft Storage Unit',
+      sqft: '75 sq ft',
+      dimensions: '7.5\' x 10\' (approx.)',
+      subtitle: 'Extra room for larger household furniture and bulkier items. Great for bigger apartment moves.',
+      discounted: 'AED 1,040',
+      regular: 'AED 1,300',
+      monthlyRent: 1300,
+      save: 'AED 260',
+      period: 'first 4 weeks',
+      popular: true,
+      images: ['https://purplebox.ae/wp-content/uploads/2026/05/75_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
+      fits: [
+        { icon: '🛏️', label: 'Bedroom Sets', count: '2 complete rooms' },
+        { icon: '📦', label: 'Moving Boxes', count: '24-30 boxes' },
+        { icon: '🛋️', label: 'Large Furniture', count: 'Sofa, dining, TV unit' },
+        { icon: '🏠', label: 'Apartment', count: '2-3 bed contents' }
       ],
       videoId: ''
     },
@@ -885,7 +906,7 @@
       regular: 'AED 1,600',
       monthlyRent: 1600,
       save: 'AED 320',
-      period: '/mo first month',
+      period: 'first 4 weeks',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/100_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit3.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp'],
       fits: [
@@ -906,7 +927,7 @@
       regular: 'AED 2,350',
       monthlyRent: 2350,
       save: 'AED 470',
-      period: '/mo first month',
+      period: 'first 4 weeks',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/150_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit3.webp'],
       fits: [
@@ -927,7 +948,7 @@
       regular: 'AED 3,000',
       monthlyRent: 3000,
       save: 'AED 600',
-      period: '/mo first month',
+      period: 'first 4 weeks',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/200_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
       fits: [
@@ -949,7 +970,7 @@
     return 'reserve-step-1.html?' + params.toString();
   }
 
-  var UNIT_ORDER = ['unit-xs', 'unit-ss', 'unit-s50', 'unit-m35', 'unit-l', 'unit-xl', 'unit-xxl'];
+  var UNIT_ORDER = ['unit-xs', 'unit-ss', 'unit-m35', 'unit-s50', 'unit-m75', 'unit-l', 'unit-xl', 'unit-xxl'];
 
   var FAQS = [
     {
@@ -970,7 +991,7 @@
     },
     {
       q: 'What is your cancellation policy?',
-      a: 'PurpleBox operates on flexible monthly terms with no long-term contracts. You can cancel at any time with 14 days\' notice before your next billing date.'
+      a: 'PurpleBox operates on flexible monthly contracts. You can cancel with 14 days\' notice before your next billing date, in line with your contract terms.'
     }
   ];
 
@@ -1044,9 +1065,9 @@
     html += '</div>';
     html += '<div class="ud-price-row">';
     html += '<span class="ud-regular">' + u.regular + '/mo</span>';
-    html += '<span class="ud-save">Save ' + u.save + '</span>';
+    if (u.save) html += '<span class="ud-save">Save ' + u.save + '</span>';
     html += '</div>';
-    html += '<p class="ud-price-note">Then ' + u.regular + '/mo. No contracts, cancel anytime.</p>';
+    html += '<p class="ud-price-note">Then ' + u.regular + '/mo.</p>';
     html += '</div>';
 
     // Features
@@ -1132,7 +1153,7 @@
     // Bottom CTA
     html += '<div class="ud-cta-banner">';
     html += '<h3>Ready to Reserve Your ' + u.sqft + ' Unit?</h3>';
-    html += '<p>First month from just ' + u.discounted + '. No contracts, cancel anytime.</p>';
+    html += '<p>First 4 weeks from just ' + u.discounted + '.</p>';
     html += '<div class="ud-cta-banner-btns">';
     html += '<a class="ud-btn-reserve" href="' + buildReserveLink(u) + '">Reserve Now</a>';
     html += '<a class="ud-btn-wa" href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>';
