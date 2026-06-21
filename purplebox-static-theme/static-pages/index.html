@@ -167,6 +167,7 @@
       border-radius: 999px;
       background: transparent;
       font-weight: 600;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease, background-color 0.24s ease;
     }
 
     .hero-sub .feature-icon {
@@ -191,6 +192,19 @@
       stroke-linejoin: round;
     }
 
+    @media (hover: hover) {
+      .hero-sub li:hover {
+        transform: translateY(-3px);
+        border-color: rgba(25, 118, 210, 0.6);
+        background: rgba(25, 118, 210, 0.08);
+        box-shadow: 0 0 0 1px rgba(25, 118, 210, 0.18), 0 10px 24px rgba(25, 118, 210, 0.26);
+      }
+
+      .hero-sub li:hover .feature-icon {
+        box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.18), 0 0 24px rgba(29, 78, 216, 0.45);
+      }
+    }
+
     .hero-ctas {
       display: none;
     }
@@ -213,11 +227,13 @@
       font-size: 16px;
       font-weight: 700;
       text-decoration: none;
-      transition: background .2s;
+      transition: background .22s ease, transform .22s ease, box-shadow .22s ease;
     }
 
     .hero-btn-primary:hover {
       background: #1565c0;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(25, 118, 210, 0.34), 0 0 0 1px rgba(25, 118, 210, 0.2);
     }
 
     /* Review row (Glofox-style) */
@@ -3013,7 +3029,7 @@
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/05/logo-1.png"
+    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/06/logo-1.png"
         alt="PurpleBox Storage" class="nav-logo-img" /></a>
     <a href="tel:+971542249946" class="nav-phone">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
@@ -3026,7 +3042,8 @@
     <div class="nav-links">
       <a href="book-unit.html">Reserve Unit</a>
       <a href="store.html">Shop Now</a>
-      <a href="community/">Blog</a> <a href="packing-moving.html">Packing & Moving</a>
+      <a href="packing-moving.html">Packing & Moving</a>
+      <a href="community/">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
     <a href="store.html" class="nav-cart" aria-label="Open cart">
@@ -3050,7 +3067,8 @@
     </svg> +971 54 224 9946</a>
   <a href="book-unit.html">Reserve Unit</a>
   <a href="store.html">Shop Now</a>
-  <a href="community/">Blog</a> <a href="packing-moving.html">Packing &amp; Moving</a>
+  <a href="packing-moving.html">Packing &amp; Moving</a>
+  <a href="community/">Blog</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -3157,10 +3175,7 @@
               <p class="unit-card-hint">Studio essentials, boxes, suitcases.</p>
               <div class="unit-card-footer">
                 <div class="unit-card-price-wrap">
-                  <span class="unit-card-discounted">AED 240 <span style="font-size:12px;font-weight:600;">First 4
-                      Weeks</span></span>
-                  <span class="unit-card-regular">AED 300</span>
-                  <span class="unit-card-save-badge">Save AED 60</span>
+                  <span class="unit-card-discounted">AED 300</span>
                 </div>
               </div>
             </div>
@@ -3176,10 +3191,7 @@
               <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
               <div class="unit-card-footer">
                 <div class="unit-card-price-wrap">
-                  <span class="unit-card-discounted">AED 500 <span style="font-size:12px;font-weight:600;">First 4
-                      Weeks</span></span>
-                  <span class="unit-card-regular">AED 625</span>
-                  <span class="unit-card-save-badge">Save AED 125</span>
+                  <span class="unit-card-discounted">AED 625</span>
                 </div>
               </div>
             </div>
@@ -3195,10 +3207,7 @@
               <p class="unit-card-hint">Fits a 2-bedroom apartment.</p>
               <div class="unit-card-footer">
                 <div class="unit-card-price-wrap">
-                  <span class="unit-card-discounted">AED 560 <span style="font-size:12px;font-weight:600;">First 4
-                      Weeks</span></span>
-                  <span class="unit-card-regular">AED 700</span>
-                  <span class="unit-card-save-badge">Save AED 140</span>
+                  <span class="unit-card-discounted">AED 700</span>
                 </div>
               </div>
             </div>
@@ -3215,10 +3224,7 @@
               <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
               <div class="unit-card-footer">
                 <div class="unit-card-price-wrap">
-                  <span class="unit-card-discounted">AED 760 <span style="font-size:12px;font-weight:600;">First 4
-                      Weeks</span></span>
-                  <span class="unit-card-regular">AED 950</span>
-                  <span class="unit-card-save-badge">Save AED 190</span>
+                  <span class="unit-card-discounted">AED 950</span>
                 </div>
               </div>
             </div>
@@ -3235,10 +3241,7 @@
               <p class="unit-card-hint">Fits a 2-3 bedroom apartment.</p>
               <div class="unit-card-footer">
                 <div class="unit-card-price-wrap">
-                  <span class="unit-card-discounted">AED 1040 <span style="font-size:12px;font-weight:600;">First 4
-                      Weeks</span></span>
-                  <span class="unit-card-regular">AED 1300</span>
-                  <span class="unit-card-save-badge">Save AED 260</span>
+                  <span class="unit-card-discounted">AED 1300</span>
                 </div>
               </div>
             </div>
@@ -3254,10 +3257,7 @@
               <p class="unit-card-hint">Fits a small villa / 3-bed home.</p>
               <div class="unit-card-footer">
                 <div class="unit-card-price-wrap">
-                  <span class="unit-card-discounted">AED 1280 <span style="font-size:12px;font-weight:600;">First 4
-                      Weeks</span></span>
-                  <span class="unit-card-regular">AED 1600</span>
-                  <span class="unit-card-save-badge">Save AED 320</span>
+                  <span class="unit-card-discounted">AED 1600</span>
                 </div>
               </div>
             </div>
@@ -3273,10 +3273,7 @@
               <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
               <div class="unit-card-footer">
                 <div class="unit-card-price-wrap">
-                  <span class="unit-card-discounted">AED 1880 <span style="font-size:12px;font-weight:600;">First 4
-                      Weeks</span></span>
-                  <span class="unit-card-regular">AED 2350</span>
-                  <span class="unit-card-save-badge">Save AED 470</span>
+                  <span class="unit-card-discounted">AED 2350</span>
                 </div>
               </div>
             </div>
@@ -3292,10 +3289,7 @@
               <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
               <div class="unit-card-footer">
                 <div class="unit-card-price-wrap">
-                  <span class="unit-card-discounted">AED 2400 <span style="font-size:12px;font-weight:600;">First 4
-                      Weeks</span></span>
-                  <span class="unit-card-regular">AED 3000</span>
-                  <span class="unit-card-save-badge">Save AED 600</span>
+                  <span class="unit-card-discounted">AED 3000</span>
                 </div>
               </div>
             </div>
@@ -3306,11 +3300,6 @@
     </div>
   </div>
 </section>
-
-
-
-
-
 
 <!-- Lead Capture Form (Split Layout) -->
 <section class="lead-section" id="get-quote">
@@ -3363,7 +3352,7 @@
 
       <!-- Right: form side -->
       <div class="lead-form-panel">
-        <div class="lead-form-badge">20% OFF First Month</div>
+        <div class="lead-form-badge">Limited Availability</div>
         <h4>Reserve your spot today</h4>
         <p class="form-sub">No commitment. Our team will call you with a tailored quote.</p>
 
@@ -3559,7 +3548,7 @@
             What's the minimum period? <span class="faq-icon">+</span>
           </button>
           <div class="faq-body">
-            <p>One month minimum. After that, extend month-to-month or lock in a longer period for a discount.</p>
+            <p>One month minimum. After that, extend month-to-month or lock in a longer period for better value.</p>
           </div>
         </div>
       </div>

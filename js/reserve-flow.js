@@ -86,13 +86,14 @@
                 chips.forEach(function (c) { c.classList.remove('active'); });
                 chip.classList.add('active');
                 dateInput.value = chip.getAttribute('data-date-value');
+                dateInput.dispatchEvent(new Event('input', { bubbles: true }));
             });
         });
     }
 
     function fillFromQuery() {
         const p = getParams();
-        ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent', 'promoCode'].forEach(function (id) {
+        ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent'].forEach(function (id) {
             const q = p.get(id);
             if (!q) return;
 
@@ -152,15 +153,14 @@
             '';
 
         const selectedLabel = getSelectedSizeLabel(unitLabel, unitSize);
-        const discount = Math.round(monthlyRent * 0.2);
-        const dueToday = monthlyRent - discount;
+        const dueToday = monthlyRent;
         const rentalMonths = getRentalMonths(moveInDate, moveOutDate);
         const remainingMonths = Math.max(0, rentalMonths - 1);
         const remainingTotal = remainingMonths * monthlyRent;
         const estimatedTotal = dueToday + remainingTotal;
 
         document.querySelectorAll('.state-chip').forEach(function (chip) {
-            chip.textContent = fmtAED(dueToday) + ' / first 4 weeks - ' + selectedLabel + ' Selected';
+            chip.textContent = fmtAED(dueToday) + ' / month - ' + selectedLabel + ' Selected';
         });
 
         document.querySelectorAll('.total-val').forEach(function (el) {
@@ -173,14 +173,12 @@
 
         const breakdownHtml = rentalMonths > 1
             ? [
-                '<span class="line discount">20% off first month applied: -' + fmtAED(discount) + '</span>',
                 '<span class="line">First month total: ' + fmtAED(dueToday) + '</span>',
                 '<span class="line">Remaining months total: ' + fmtAED(remainingTotal) + '</span>',
                 '<span class="line total">Total for ' + rentalMonths + ' months: ' + fmtAED(estimatedTotal) + '</span>'
             ].join('')
             : [
                 '<span class="line">Monthly rent: ' + fmtAED(monthlyRent) + '</span>',
-                '<span class="line discount">20% off first month applied: -' + fmtAED(discount) + '</span>',
                 '<span class="line total">Month 1 total: ' + fmtAED(dueToday) + '</span>'
             ].join('');
 
@@ -277,7 +275,6 @@
                 unitLabel: document.getElementById('unitLabel').value,
                 unitSize: document.getElementById('unitSize').value,
                 monthlyRent: document.getElementById('monthlyRent').value,
-                promoCode: document.getElementById('promoCode').value,
                 rentalMonths: getRentalMonths(
                     (document.getElementById('moveInDate') || {}).value || '',
                     (document.getElementById('moveOutDate') || {}).value || ''
@@ -298,7 +295,6 @@
                     unitLabel: (desktopForm.querySelector('[name="unitLabel"]') || {}).value || '',
                     unitSize: (desktopForm.querySelector('[name="unitSize"]') || {}).value || '',
                     monthlyRent: (desktopForm.querySelector('[name="monthlyRent"]') || {}).value || '',
-                    promoCode: (desktopForm.querySelector('[name="promoCode"]') || {}).value || '',
                     rentalMonths: getRentalMonths(
                         (desktopForm.querySelector('[name="moveInDate"]') || {}).value || '',
                         (desktopForm.querySelector('[name="moveOutDate"]') || {}).value || ''
@@ -330,7 +326,7 @@
                 if (hidden) hidden.value = data[k] || '';
             });
         } else {
-            ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent', 'promoCode', 'rentalMonths'].forEach(function (k) {
+            ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent', 'rentalMonths'].forEach(function (k) {
                 const hidden = form.querySelector('input[name="' + k + '"]');
                 if (hidden) hidden.value = p.get(k) || '';
             });
@@ -340,8 +336,6 @@
         const moveInDate = p.get('moveInDate') || (form.querySelector('input[name="moveInDate"]') || {}).value || '';
         const moveOutDate = p.get('moveOutDate') || (form.querySelector('input[name="moveOutDate"]') || {}).value || '';
         const rentalMonths = Number(p.get('rentalMonths') || getRentalMonths(moveInDate, moveOutDate));
-        const discount = Math.round(rent * 0.2);
-
         function calc() {
             let qty = 0;
             let supplies = 0;
@@ -366,11 +360,10 @@
                     if (num) num.textContent = String(q);
                 }
             });
-            const firstMonthDue = rent - discount;
             const remainingMonths = Math.max(0, rentalMonths - 1);
             const remainingRentTotal = remainingMonths * rent;
-            const due = firstMonthDue + supplies;
-            const estimatedTotal = firstMonthDue + remainingRentTotal + supplies;
+            const due = rent + supplies;
+            const estimatedTotal = rent + remainingRentTotal + supplies;
 
             const month1LabelEl = document.getElementById('sumMonth1Label');
             const month1ValueEl = document.getElementById('sumMonth1');
@@ -389,7 +382,6 @@
             if (estimatedEl) estimatedEl.textContent = fmtAED(estimatedTotal);
 
             const fields = {
-                sumDisc: '-' + fmtAED(discount),
                 sumSupplies: fmtAED(supplies),
                 sumDue: fmtAED(due),
                 runningTotal: rentalMonths > 1 ? (fmtAED(estimatedTotal) + ' total for ' + rentalMonths + ' months') : (fmtAED(due) + ' first month total'),
@@ -460,7 +452,6 @@
             unitSize: pick('unitSize', '35 sq ft (M)'),
             unitLabel: pick('unitLabel', 'SARA - M'),
             monthlyRent: Number(pick('monthlyRent', 700)),
-            promoCode: pick('promoCode', 'FIRST20'),
             rentalMonths: Number(pick('rentalMonths', 1))
         };
 
@@ -484,12 +475,10 @@
             });
         }
 
-        const discount = Math.round(data.monthlyRent * 0.2);
-        const firstMonthDue = data.monthlyRent - discount;
-        const due = Number(p.get('dueToday') || (firstMonthDue + suppliesTotal));
+        const due = Number(p.get('dueToday') || (data.monthlyRent + suppliesTotal));
         const estimatedTotal = Number(
             p.get('estimatedTotal') ||
-            (firstMonthDue + Math.max(0, data.rentalMonths - 1) * data.monthlyRent + suppliesTotal)
+            (data.monthlyRent + Math.max(0, data.rentalMonths - 1) * data.monthlyRent + suppliesTotal)
         );
 
         const supplyLines = PRODUCTS.filter(function (it) { return qty[it.id] > 0; }).map(function (it) {
@@ -515,11 +504,9 @@
             '',
             '💰 PRICING',
             '- Monthly rent: ' + fmtAED(data.monthlyRent) + '/m',
-            '- 20% off first month: -' + fmtAED(discount),
             '- Supplies: ' + fmtAED(suppliesTotal),
             '- Due today: ' + fmtAED(due),
             '- Estimated total (' + data.rentalMonths + ' month(s)): ' + fmtAED(estimatedTotal),
-            '- Promo: ' + data.promoCode,
             '',
             '👤 MY DETAILS',
             '- Name: ' + data.fullName,
@@ -539,13 +526,12 @@
             rUnit: data.unitSize,
             rMove: fmtInputDate(data.moveInDate) + ' -> ' + fmtInputDate(data.moveOutDate) + ' (' + data.rentalMonths + ' month(s))',
             rSupplies: supplyCount + ' items - ' + fmtAED(suppliesTotal),
-            rPromo: data.promoCode,
             rTotalLabel: data.rentalMonths > 1 ? 'Estimated total' : 'Due today',
             dueBig: data.rentalMonths > 1 ? fmtAED(estimatedTotal) : fmtAED(due),
             runningTotal: fmtAED(estimatedTotal) + ' est. total',
             selChip: data.rentalMonths > 1
                 ? (fmtAED(estimatedTotal) + ' Estimated total')
-                : (fmtAED(due) + ' Due today (first month discounted)'),
+                : (fmtAED(due) + ' Due today'),
             summaryText: text
         };
 
@@ -624,7 +610,7 @@
                 unit_size: data.unitSize,
                 unit_label: data.unitLabel,
                 monthly_rent: String(data.monthlyRent),
-                promo_code: data.promoCode,
+                promo_code: '',
                 supplies_total: String(suppliesTotal),
                 due_today: String(due),
                 estimated_total: String(estimatedTotal),
