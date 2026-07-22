@@ -133,7 +133,7 @@
         const monthlyRent = Number(
             (document.getElementById('monthlyRent') && document.getElementById('monthlyRent').value) ||
             (document.querySelector('input[name="monthlyRent"]') && document.querySelector('input[name="monthlyRent"]').value) ||
-            700
+            770
         );
         const unitLabel =
             (document.getElementById('unitLabel') && document.getElementById('unitLabel').value) ||
