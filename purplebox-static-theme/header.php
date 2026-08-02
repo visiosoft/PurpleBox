@@ -24,7 +24,7 @@ $theme_uri = get_template_directory_uri();
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="<?php echo esc_url(home_url('/index.html')); ?>" class="nav-logo"><img src="<?php echo esc_url($theme_uri . '/images/logo-1.svg'); ?>"
-        alt="PurpleBox Storage" class="nav-logo-img" /></a>
+        alt="PurpleBox Storage" class="nav-logo-img no-lazyload skip-lazy" data-no-lazy="1" loading="eager" /></a>
     <a href="tel:+971542249946" class="nav-phone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
         viewBox="0 0 24 24" fill="currentColor">
         <path fill-rule="evenodd"

@@ -87,6 +87,7 @@
     html,
     body {
       background: #ffffff !important;
+      overflow-x: hidden;
     }
 
     body {
@@ -151,23 +152,33 @@
       margin: 0 0 30px 0;
       max-width: 440px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 6px 12px;
     }
 
+    @media (min-width: 400px) {
+      .hero-sub {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .hero-sub li {
-      font-size: 15px;
+      font-size: 14px;
       color: #000000;
       line-height: 1.5;
-      padding: 10px 12px;
+      padding: 8px 10px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       border: 1px solid rgba(30, 64, 175, 0.22);
       border-radius: 999px;
       background: transparent;
       font-weight: 600;
       transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease, background-color 0.24s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
     }
 
     .hero-sub .feature-icon {
@@ -311,8 +322,15 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    @media (min-width: 480px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
     }
 
     .stat-box {
@@ -2654,6 +2672,30 @@
 
     /* ---- Responsive ---- */
     @media (max-width: 599px) {
+      .nav-inner {
+        padding-left: 12px;
+        padding-right: 12px;
+        min-height: 60px;
+      }
+
+      .nav-logo-img {
+        height: 32px;
+      }
+
+      .nav-phone {
+        padding: 6px 8px;
+        font-size: 12px;
+      }
+
+      .nav-cart {
+        width: 34px;
+        height: 34px;
+      }
+
+      .nav-hamburger {
+        padding: 6px;
+      }
+
       .mobile-cta {
         display: flex;
       }
@@ -2698,6 +2740,7 @@
       .hero-sub {
         font-size: 14px;
         margin-bottom: 10px;
+        grid-template-columns: 1fr;
       }
 
       .hero-ctas {

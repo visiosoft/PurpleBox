@@ -1,0 +1,2655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PurpleBox — Moving in Dubai, done properly. Fixed quote on WhatsApp in 30 minutes.</title>
+  <meta name="description"
+    content="Movers, packers & self storage in Dubai. Based in Al Quoz with climate-controlled units, pickup service & 24/7 access. Free quote in 15 minutes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJZQX0KB9B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-QJZQX0KB9B');
+    gtag('config', 'AW-17982250932');
+  </script>
+  <script>document.documentElement.className += " js";</script>
+  <style>
+    /* ============ TOKENS ============ */
+    :root {
+      --cream: #FFFFFF;
+      --sand: #F4F1FB;
+      --ink: #2E1F33;
+      --ink-soft: #6F5C74;
+      --line: #E6E0F3;
+      --sun-a: #C4B5FD;
+      --sun-b: #8B5CF6;
+      --sun-c: #6C2BD9;
+      --sun-d: #4C1D9E;
+      --purple: #5B21C9;
+      --purple-hot: #6C2BD9;
+      --purple-deep: #3A1580;
+      --grad: linear-gradient(160deg, var(--sun-a) 0%, var(--sun-b) 42%, var(--sun-c) 76%, var(--sun-d) 100%);
+      --radius: 18px;
+      --shadow: 0 12px 34px rgba(58, 21, 128, .10);
+      --display: "Playfair Display", Georgia, "Times New Roman", serif;
+      --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: var(--body);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img,
+    svg {
+      display: block
+    }
+
+    a {
+      color: var(--purple);
+      text-decoration: none
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--purple-hot);
+      outline-offset: 3px;
+      border-radius: 6px
+    }
+
+    .container {
+      width: min(1140px, 92%);
+      margin-inline: auto
+    }
+
+    .eyebrow {
+      font: 600 .78rem/1 var(--body);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font: 800 clamp(1.7rem, 4.2vw, 2.6rem)/1.12 var(--display);
+      letter-spacing: -.01em;
+    }
+
+    .section {
+      padding: clamp(64px, 9vw, 110px) 0
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: clamp(30px, 5vw, 54px)
+    }
+
+    .section-head p {
+      color: var(--ink-soft);
+      margin-top: 12px
+    }
+
+    /* ============ TOP BAR + ROAD (signature) ============ */
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 60;
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(235, 217, 195, .7);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center
+    }
+
+    .logo img {
+      height: 38px;
+      width: auto;
+      display: block
+    }
+
+    .logo-text {
+      font: 800 1.32rem var(--display);
+      color: var(--ink);
+      letter-spacing: .01em
+    }
+
+    .logo-text b {
+      color: var(--purple)
+    }
+
+    .topbar .wa-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple);
+      color: #fff;
+      font: 600 .88rem var(--body);
+      padding: 10px 18px;
+      border-radius: 99px;
+      transition: background .2s, transform .2s;
+    }
+
+    .topbar .wa-pill:hover {
+      background: var(--purple-deep);
+      transform: translateY(-1px)
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px
+    }
+
+    .top-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font: 700 .92rem var(--body);
+      color: var(--ink);
+      transition: color .2s
+    }
+
+    .top-call:hover {
+      color: var(--purple)
+    }
+
+    .top-call svg {
+      color: var(--purple)
+    }
+
+    /* the road: a scroll progress track with a truck driving to a home */
+    .road {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -5px;
+      height: 5px;
+      pointer-events: none
+    }
+
+    .road-track {
+      position: absolute;
+      inset: 0;
+      background: var(--line)
+    }
+
+    .road-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background: var(--grad)
+    }
+
+    .road-dash {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(90deg, rgba(255, 255, 255, .9) 0 10px, transparent 10px 26px);
+      background-size: 26px 1.6px;
+      background-repeat: repeat-x;
+      background-position: 0 center;
+      opacity: .55;
+    }
+
+    .road-truck {
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      will-change: transform
+    }
+
+    .road-home {
+      position: absolute;
+      right: 2px;
+      bottom: 3px;
+      color: var(--ink-soft);
+      opacity: .75
+    }
+
+    .road-truck {
+      filter: drop-shadow(0 2px 3px rgba(58, 21, 128, .3))
+    }
+
+    .puff {
+      opacity: 0;
+      fill: #C4B5FD
+    }
+
+    .road-truck.is-moving .p1 {
+      animation: puff .5s ease-out infinite
+    }
+
+    .road-truck.is-moving .p2 {
+      animation: puff .5s .15s ease-out infinite
+    }
+
+    .road-truck.is-moving .p3 {
+      animation: puff .5s .3s ease-out infinite
+    }
+
+    @keyframes puff {
+      0% {
+        opacity: .8;
+        transform: translateX(0) scale(.5)
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateX(-8px) scale(1.5)
+      }
+    }
+
+    .road-truck.is-moving .truck-body {
+      animation: bob .34s ease-in-out infinite
+    }
+
+    @keyframes bob {
+      50% {
+        transform: translateY(-1.4px)
+      }
+    }
+
+    .road.is-home .road-home {
+      color: var(--purple);
+      opacity: 1;
+      animation: homePop .6s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    @keyframes homePop {
+      0% {
+        transform: scale(1)
+      }
+
+      35% {
+        transform: scale(1.7)
+      }
+
+      70% {
+        transform: scale(.9)
+      }
+
+      100% {
+        transform: scale(1)
+      }
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background:
+        radial-gradient(950px 500px at 50% -8%, rgba(108, 43, 217, .55) 0%, rgba(108, 43, 217, 0) 62%),
+        linear-gradient(180deg, #2E1360 0%, #22104A 100%);
+      color: var(--cream);
+      padding: 158px 0 214px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin-inline: auto
+    }
+
+    .hero-eyebrow {
+      font: 700 .8rem/1 var(--body);
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--sun-a);
+      opacity: 0;
+      animation: rise .7s .05s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+
+    .hero h1 {
+      font: 700 clamp(2.25rem, 5.6vw, 4rem)/1.16 var(--display);
+      letter-spacing: .005em;
+      color: #fff;
+      margin-top: 20px;
+      opacity: 0;
+      animation: rise .7s .2s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+
+    .bx {
+      display: none
+    }
+
+    @media(min-width:720px) {
+      .bx {
+        display: inline
+      }
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .hero-sub {
+      max-width: 640px;
+      margin: 20px auto 0;
+      font-size: clamp(1rem, 2vw, 1.16rem);
+      color: rgba(255, 255, 255, .92);
+      opacity: 0;
+      transform: translateY(26px);
+      animation: rise .7s .38s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+
+    .hero-sub strong {
+      color: #fff
+    }
+
+    .hero-eyebrow,
+    .hero h1 {
+      transform: translateY(26px)
+    }
+
+    .hero-cta {
+      margin-top: 34px;
+      opacity: 0;
+      transform: translateY(26px);
+      animation: rise .7s .54s cubic-bezier(.2, .7, .2, 1) forwards
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font: 700 1rem var(--body);
+      padding: 16px 28px;
+      border-radius: 14px;
+      border: 0;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .btn-primary {
+      background: var(--purple);
+      color: #fff;
+      box-shadow: 0 10px 26px rgba(58, 21, 128, .35)
+    }
+
+    .btn-primary:hover {
+      background: var(--purple-deep)
+    }
+
+    .btn-hero {
+      background: #fff;
+      color: var(--purple-deep);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .32)
+    }
+
+    .btn-hero:hover {
+      background: var(--sand)
+    }
+
+    .hero-alt {
+      display: block;
+      margin-top: 16px;
+      font: 600 .88rem var(--body);
+      color: rgba(255, 255, 255, .72)
+    }
+
+    .hero-alt:hover {
+      color: #fff
+    }
+
+    .skyline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      z-index: 1;
+      color: rgba(255, 255, 255, .16);
+      pointer-events: none
+    }
+
+    .skyline svg {
+      width: 100%;
+      height: auto
+    }
+
+    /* video card + approvals strip overlapping out of the hero */
+    .under-hero {
+      background: var(--cream)
+    }
+
+    .hero-video {
+      position: relative;
+      z-index: 5;
+      margin-top: -168px;
+      max-width: 820px;
+      margin-inline: auto
+    }
+
+    .video-frame {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      background: #12082B;
+      box-shadow: 0 30px 70px rgba(20, 8, 50, .35);
+      aspect-ratio: 16/9;
+    }
+
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .video-play {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--purple-deep);
+      border: 0;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .4);
+      transition: transform .25s;
+    }
+
+    .video-play::after {
+      content: "";
+      position: absolute;
+      inset: -11px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, .5);
+      animation: ringPulse 2.2s ease-out infinite
+    }
+
+    @keyframes ringPulse {
+      0% {
+        transform: scale(.92);
+        opacity: .9
+      }
+
+      100% {
+        transform: scale(1.35);
+        opacity: 0
+      }
+    }
+
+    .video-play:hover {
+      transform: scale(1.07)
+    }
+
+    .video-play svg {
+      margin-left: 5px
+    }
+
+    .video-frame.is-playing .video-play {
+      display: none
+    }
+
+    .video-sound {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: rgba(18, 8, 43, .72);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      border: 0;
+      border-radius: 99px;
+      padding: 10px 16px;
+      font: 600 .85rem var(--body);
+      transition: background .2s;
+    }
+
+    .video-sound:hover {
+      background: rgba(18, 8, 43, .92)
+    }
+
+    .video-frame.is-playing .video-sound {
+      display: inline-flex
+    }
+
+    .video-frame.is-unmuted .video-sound {
+      display: none
+    }
+
+    .approve {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 36px 0 4px
+    }
+
+    .approve-label {
+      font: 700 .74rem/1 var(--body);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-soft)
+    }
+
+    .approve-badges {
+      display: flex;
+      align-items: center;
+      gap: 12px 30px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .approve-badges span {
+      font: 700 1rem var(--display);
+      color: #A79BC2;
+      letter-spacing: .02em;
+      white-space: nowrap
+    }
+
+    /* ============ STATS ============ */
+    .stats {
+      background: var(--cream);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding: clamp(34px, 5vw, 56px) 0;
+    }
+
+    .stat {
+      text-align: center
+    }
+
+    .stat b {
+      font: 800 clamp(1.7rem, 3.6vw, 2.5rem)/1 var(--display);
+      color: var(--purple);
+      display: block
+    }
+
+    .stat span {
+      font-size: .88rem;
+      color: var(--ink-soft)
+    }
+
+    /* ============ OFFER RIBBON ============ */
+    .offer {
+      background: var(--grad);
+      color: #fff
+    }
+
+    .offer-inner {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      padding: clamp(28px, 4vw, 40px) 0;
+    }
+
+    .offer-icon {
+      flex: none;
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .16);
+      display: grid;
+      place-items: center;
+    }
+
+    .offer h3 {
+      font: 800 clamp(1.25rem, 3vw, 1.7rem)/1.2 var(--display)
+    }
+
+    .offer p {
+      color: rgba(255, 255, 255, .92);
+      margin-top: 4px;
+      max-width: 640px
+    }
+
+    .offer .free {
+      background: #fff;
+      color: var(--sun-c);
+      border-radius: 8px;
+      padding: 1px 10px;
+      display: inline-block;
+      transform: rotate(-1.5deg)
+    }
+
+    /* ============ QUOTE FORM ============ */
+    .quote {
+      background: var(--sand)
+    }
+
+    .qwrap {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(30px, 5vw, 64px);
+      align-items: start
+    }
+
+    .qcopy h2 {
+      margin-bottom: 14px
+    }
+
+    .qcopy p {
+      color: var(--ink-soft);
+      max-width: 440px
+    }
+
+    .qcopy ul {
+      list-style: none;
+      margin-top: 26px;
+      display: grid;
+      gap: 14px
+    }
+
+    .qcopy li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: .95rem
+    }
+
+    .qcopy li svg {
+      flex: none;
+      color: var(--purple);
+      margin-top: 2px
+    }
+
+    .qcard {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 3.4vw, 36px);
+    }
+
+    .tape {
+      height: 8px;
+      border-radius: 99px;
+      background: var(--line);
+      overflow: hidden;
+      margin: 6px 0 26px;
+      position: relative;
+    }
+
+    .tape-fill {
+      position: absolute;
+      inset: 0;
+      width: 33.4%;
+      background: var(--grad);
+      border-radius: 99px;
+      transition: width .45s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .qmeta {
+      display: flex;
+      justify-content: space-between;
+      font: 600 .78rem var(--body);
+      color: var(--ink-soft);
+      letter-spacing: .06em;
+      text-transform: uppercase
+    }
+
+    .qstep {
+      border: 0;
+      display: none
+    }
+
+    .qstep.is-active {
+      display: block;
+      animation: stepIn .4s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    @keyframes stepIn {
+      from {
+        opacity: 0;
+        transform: translateX(16px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .qstep legend {
+      font: 700 clamp(1.15rem, 2.4vw, 1.4rem)/1.25 var(--display);
+      margin-bottom: 20px;
+      padding: 0;
+    }
+
+    .opts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px
+    }
+
+    .opt {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      font: 600 .95rem var(--body);
+      color: var(--ink);
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+
+    .opt svg {
+      color: var(--purple)
+    }
+
+    .opt:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(58, 21, 128, .08)
+    }
+
+    .opt.is-picked {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(91, 33, 201, .14)
+    }
+
+    .field {
+      margin-bottom: 16px
+    }
+
+    .field label {
+      display: block;
+      font: 600 .85rem var(--body);
+      margin-bottom: 7px
+    }
+
+    .field input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 2px solid var(--line);
+      background: #fff;
+      font: 500 1rem var(--body);
+      color: var(--ink);
+      transition: border-color .2s;
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: var(--purple)
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .qnav {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px
+    }
+
+    .btn-back {
+      background: transparent;
+      border: 2px solid var(--line);
+      color: var(--ink-soft);
+      font: 700 1rem var(--body);
+      padding: 14px 20px;
+      border-radius: 14px;
+      transition: border-color .2s;
+    }
+
+    .btn-back:hover {
+      border-color: var(--ink-soft)
+    }
+
+    .btn-next {
+      flex: 1
+    }
+
+    .qerr {
+      display: none;
+      color: #C22F4E;
+      font: 600 .85rem var(--body);
+      margin-top: 12px
+    }
+
+    .qerr.is-on {
+      display: block
+    }
+
+    .micro {
+      margin-top: 16px;
+      font-size: .82rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .micro svg {
+      flex: none;
+      color: var(--purple)
+    }
+
+    .qdone {
+      text-align: center;
+      padding: 26px 8px;
+      display: none
+    }
+
+    .qdone.is-on {
+      display: block;
+      animation: stepIn .4s ease
+    }
+
+    .qdone-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      background: var(--grad);
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+
+    .qdone h3 {
+      font: 800 1.5rem var(--display);
+      margin-bottom: 8px
+    }
+
+    .qdone p {
+      color: var(--ink-soft);
+      max-width: 340px;
+      margin: 0 auto
+    }
+
+    /* ============ PRICING ============ */
+    .ptable-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start
+    }
+
+    .pcard {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden
+    }
+
+    .pcard-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 19px 22px;
+      border-bottom: 1px solid var(--line);
+      background: var(--sand)
+    }
+
+    .pcard-head svg {
+      color: var(--purple);
+      flex: none
+    }
+
+    .pcard-head h3 {
+      font: 700 1.12rem var(--display)
+    }
+
+    .prow {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      background: none;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      padding: 15px 22px;
+      text-align: left;
+      transition: background .2s
+    }
+
+    .prow:hover {
+      background: var(--sand)
+    }
+
+    .prow-name {
+      font: 600 .95rem var(--body);
+      color: var(--ink)
+    }
+
+    .prow-right {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .time-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font: 600 .72rem var(--body);
+      color: var(--ink-soft);
+      background: var(--sand);
+      border-radius: 99px;
+      padding: 4px 10px;
+      white-space: nowrap
+    }
+
+    .prow-price {
+      font: 800 .98rem var(--display);
+      color: var(--purple);
+      white-space: nowrap
+    }
+
+    .prow-go {
+      color: var(--ink-soft);
+      flex: none;
+      transition: transform .2s, color .2s
+    }
+
+    .prow:hover .prow-go {
+      transform: translateX(3px);
+      color: var(--purple)
+    }
+
+    .pcard-foot {
+      padding: 13px 22px;
+      font-size: .8rem;
+      color: var(--ink-soft);
+      background: var(--cream);
+      border-top: 1px solid var(--line);
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .pcard-foot svg {
+      flex: none;
+      color: var(--purple)
+    }
+
+    .other-strip {
+      margin-top: 18px;
+      background: var(--purple-deep);
+      color: var(--cream);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap
+    }
+
+    .other-strip p {
+      font: 700 1.02rem var(--display)
+    }
+
+    .other-strip small {
+      display: block;
+      font: 400 .85rem var(--body);
+      color: rgba(255, 255, 255, .78);
+      margin-top: 3px
+    }
+
+    .other-strip .btn {
+      padding: 13px 22px
+    }
+
+    .price-note {
+      margin-top: 26px;
+      font-size: .9rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      max-width: 640px
+    }
+
+    .price-note svg {
+      flex: none;
+      color: var(--purple);
+      margin-top: 3px
+    }
+
+    /* ============ HOW IT WORKS ============ */
+    .how {
+      background: var(--sand)
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+      position: relative;
+    }
+
+    .how-grid::before {
+      content: "";
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      top: 33px;
+      height: 0;
+      border-top: 2.5px dashed var(--line);
+    }
+
+    .how-step {
+      position: relative
+    }
+
+    .how-icon {
+      position: relative;
+      z-index: 1;
+      width: 68px;
+      height: 68px;
+      border-radius: 20px;
+      background: var(--cream);
+      border: 2px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--purple);
+      margin-bottom: 16px;
+    }
+
+    .how-step h3 {
+      font: 700 1.05rem var(--display);
+      margin-bottom: 6px
+    }
+
+    .how-step p {
+      font-size: .9rem;
+      color: var(--ink-soft)
+    }
+
+    /* ============ WHY ============ */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px
+    }
+
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow)
+    }
+
+    .why-icon {
+      flex: none;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--sand);
+      display: grid;
+      place-items: center;
+      color: var(--purple);
+    }
+
+    .why-card h3 {
+      font: 700 1.08rem var(--display);
+      margin-bottom: 5px
+    }
+
+    .why-card p {
+      font-size: .92rem;
+      color: var(--ink-soft)
+    }
+
+    /* ============ MARQUEE ============ */
+    .marquee {
+      background: var(--purple-deep);
+      color: var(--cream);
+      overflow: hidden;
+      padding: 16px 0;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      animation: scroll 34s linear infinite
+    }
+
+    .marquee:hover .marquee-track {
+      animation-play-state: paused
+    }
+
+    .marquee-track span {
+      font: 700 .95rem var(--display);
+      white-space: nowrap;
+      padding: 0 22px;
+      opacity: .92
+    }
+
+    .marquee-track i {
+      font-style: normal;
+      color: var(--sun-a)
+    }
+
+    @keyframes scroll {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* ============ REVIEWS ============ */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .review {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .stars {
+      color: var(--sun-b);
+      display: flex;
+      gap: 3px
+    }
+
+    .review p {
+      font-size: .95rem;
+      flex: 1
+    }
+
+    .review-by {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      flex: none;
+      background: var(--grad);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font: 700 .9rem var(--display);
+    }
+
+    .review-by b {
+      font: 700 .92rem var(--body);
+      display: block
+    }
+
+    .review-by span {
+      font-size: .8rem;
+      color: var(--ink-soft)
+    }
+
+    .gbadge {
+      margin-top: 26px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: 600 .9rem var(--body);
+      color: var(--ink-soft);
+    }
+
+    /* ============ FAQ ============ */
+    .faq {
+      background: var(--sand)
+    }
+
+    .faq-list {
+      max-width: 760px
+    }
+
+    .faq-item {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden
+    }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: none;
+      border: 0;
+      text-align: left;
+      font: 700 1.02rem var(--display);
+      color: var(--ink);
+      padding: 20px 22px;
+    }
+
+    .faq-q svg {
+      flex: none;
+      color: var(--purple);
+      transition: transform .3s
+    }
+
+    .faq-item.is-open .faq-q svg {
+      transform: rotate(45deg)
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease
+    }
+
+    .faq-a p {
+      padding: 0 22px 20px;
+      color: var(--ink-soft);
+      font-size: .95rem
+    }
+
+    /* ============ FINAL CTA ============ */
+    .final {
+      background: var(--grad);
+      color: var(--cream);
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .final h2 {
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      color: #fff
+    }
+
+    .final p {
+      margin: 14px auto 30px;
+      max-width: 480px;
+      color: rgba(255, 255, 255, .94)
+    }
+
+    .final .btn-primary {
+      box-shadow: 0 14px 34px rgba(58, 21, 128, .45)
+    }
+
+    .final-alt {
+      margin-top: 18px;
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .85)
+    }
+
+    .final-alt a {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: underline
+    }
+
+    /* ============ FOOTER + STICKY ============ */
+    footer {
+      padding: 34px 0 110px;
+      font-size: .85rem;
+      color: var(--ink-soft)
+    }
+
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 26px;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .stickybar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 70;
+      display: none;
+      gap: 10px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+    }
+
+    .stickybar a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font: 700 .95rem var(--body);
+      padding: 14px;
+      border-radius: 13px;
+    }
+
+    .sticky-call {
+      border: 2px solid var(--purple);
+      color: var(--purple)
+    }
+
+    .sticky-wa {
+      background: var(--purple);
+      color: #fff;
+      position: relative
+    }
+
+    .sticky-wa::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 13px;
+      box-shadow: 0 0 0 0 rgba(91, 33, 201, .5);
+      animation: pulse 2.4s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      70% {
+        box-shadow: 0 0 0 12px rgba(91, 33, 201, 0)
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(91, 33, 201, 0)
+      }
+    }
+
+    /* ============ REVEAL ============ */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .7s cubic-bezier(.2, .7, .2, 1), transform .7s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .reveal.is-in {
+      opacity: 1;
+      transform: none
+    }
+
+    .reveal[data-delay="1"] {
+      transition-delay: .1s
+    }
+
+    .reveal[data-delay="2"] {
+      transition-delay: .2s
+    }
+
+    .reveal[data-delay="3"] {
+      transition-delay: .3s
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width:960px) {
+      .qwrap {
+        grid-template-columns: 1fr
+      }
+
+      .ptable-grid {
+        grid-template-columns: 1fr
+      }
+
+      .how-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .how-grid::before {
+        display: none
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 26px 12px
+      }
+    }
+
+    @media (max-width:720px) {
+      .stickybar {
+        display: flex
+      }
+
+      .topbar .wa-pill span {
+        display: none
+      }
+
+      .topbar .wa-pill {
+        padding: 10px 13px
+      }
+
+      .top-call {
+        display: none
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr
+      }
+
+      .prow-right {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: 3px
+      }
+
+      .prow-go {
+        display: none
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr
+      }
+
+      .hero {
+        padding: 112px 0 126px
+      }
+
+      .btn {
+        width: 100%
+      }
+
+      .hero-video {
+        margin-top: -82px
+      }
+
+      .video-play {
+        width: 64px;
+        height: 64px
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important
+      }
+
+      html {
+        scroll-behavior: auto
+      }
+
+      .hero-eyebrow,
+      .hero h1,
+      .hero-sub,
+      .hero-cta {
+        opacity: 1;
+        transform: none
+      }
+
+      .js .reveal {
+        opacity: 1;
+        transform: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR + SCROLL ROAD ============ -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="#top" aria-label="PurpleBox home">
+        <img src="https://purplebox.ae/wp-content/uploads/2026/06/logo-1.png" alt="PurpleBox"
+          onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+        <span class="logo-text" hidden>Purple<b>Box</b></span>
+      </a>
+      <div class="top-actions">
+        <a class="top-call js-tel" href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z" />
+          </svg>
+          <span class="js-tel-label">+971 5X XXX XXXX</span>
+        </a>
+        <a class="wa-pill js-wa" href="#" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.4 8.4 0 0 1-9.9 8.3L5.6 21l1.3-5.3A8.5 8.5 0 1 1 21 11.5z" />
+          </svg>
+          <span>WhatsApp us</span>
+        </a>
+      </div>
+    </div>
+    <div class="road" aria-hidden="true">
+      <div class="road-track"></div>
+      <div class="road-fill" id="roadFill"></div>
+      <div class="road-dash"></div>
+      <svg class="road-truck" id="roadTruck" width="44" height="24" viewBox="0 0 44 24" fill="none" aria-hidden="true">
+        <g class="puffs">
+          <circle class="puff p1" cx="2.6" cy="14" r="2" />
+          <circle class="puff p2" cx="5" cy="11" r="1.6" />
+          <circle class="puff p3" cx="1.8" cy="8.5" r="1.3" />
+        </g>
+        <g class="truck-body">
+          <rect x="6" y="2" width="23" height="13.5" rx="2.5" fill="#5B21C9" />
+          <rect x="11" y="6" width="7" height="5.6" rx="1" fill="none" stroke="#FFFFFF" stroke-width="1.2" />
+          <path d="M11 8.7h7" stroke="#FFFFFF" stroke-width="1" />
+          <path d="M29 6h6.5l4.8 4.8v4.7H29z" fill="#3A1580" />
+          <rect x="31.2" y="7.9" width="4.7" height="3.6" rx="1" fill="#FFFFFF" />
+          <rect x="40.6" y="12.3" width="1.6" height="2.3" rx="0.8" fill="#C4B5FD" />
+          <path d="M6 15.5h35" stroke="#3A1580" stroke-width="1.5" />
+        </g>
+        <g class="wheel" id="wheelA">
+          <circle cx="13" cy="19" r="4" fill="#2E1F33" stroke="#FFFFFF" stroke-width="1.2" />
+          <path d="M10.8 19h4.4M13 16.8v4.4" stroke="#FFFFFF" stroke-width="1.1" />
+        </g>
+        <g class="wheel" id="wheelB">
+          <circle cx="33.5" cy="19" r="4" fill="#2E1F33" stroke="#FFFFFF" stroke-width="1.2" />
+          <path d="M31.3 19h4.4M33.5 16.8v4.4" stroke="#FFFFFF" stroke-width="1.1" />
+        </g>
+      </svg>
+      <svg class="road-home" width="13" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 10.5 12 3l9 7.5" />
+        <path d="M5 9.5V21h14V9.5" />
+      </svg>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">We pack &middot; We move &middot; We store</p>
+      <h1>Moving, handled<br class="bx"> with white gloves.</h1>
+      <p class="hero-sub">Trained crews, padded trucks, and a fixed price agreed before we lift a single box.
+        Apartments, villas and offices &mdash; packed, moved, and stored if you need it.</p>
+      <div class="hero-cta">
+        <a class="btn btn-hero js-wa" href="#" target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.4 8.4 0 0 1-9.9 8.3L5.6 21l1.3-5.3A8.5 8.5 0 1 1 21 11.5z" />
+          </svg>
+          Get my quote on WhatsApp
+        </a>
+        <a class="hero-alt" href="#quote">or build your quote here &mdash; takes 40 seconds &darr;</a>
+      </div>
+    </div>
+    <div class="skyline" aria-hidden="true">
+      <svg viewBox="0 0 1200 170" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" preserveAspectRatio="xMidYMax slice">
+        <!-- baseline -->
+        <path d="M0 168h1200" />
+        <!-- low blocks -->
+        <path d="M40 168V128h50v40M110 168V142h34v26M986 168v-30h40v30" />
+        <!-- Burj Al Arab -->
+        <path d="M188 168V60c30 4 54 34 60 108M188 60v108M182 168V78" />
+        <!-- marina towers -->
+        <path d="M300 168V96h30v72M340 168V80l16-12 16 12v88M404 168V106h26v62" />
+        <!-- Emirates towers -->
+        <path d="M480 168V84l30-22v106M524 168V96l26-18v90" />
+        <!-- Burj Khalifa -->
+        <path d="M640 168V62h10V30h8V6M658 6v24h8v32h10v106M640 62h36M648 30h20M600 168v-58h24v58M694 168v-64h24v64" />
+        <!-- downtown blocks -->
+        <path d="M760 168V112h34v56M810 168V90h28v78M856 168v-46h30v46" />
+        <!-- Dubai Frame -->
+        <path d="M920 168V72h14M920 72h56v96M976 72h-14M934 72v96M962 72v96M920 72l28-10 28 10" />
+        <!-- right blocks -->
+        <path d="M1060 168v-52h38v52M1120 168V96h30v72" />
+      </svg>
+    </div>
+  </section>
+
+  <section class="under-hero">
+    <div class="container">
+      <div class="hero-video">
+        <div class="video-frame" id="videoFrame">
+          <video id="heroVideo" autoplay muted loop playsinline preload="auto">
+            <source src="https://purplebox.ae/wp-content/uploads/2026/06/packing-moving.mp4" type="video/mp4">
+          </video>
+          <button class="video-play" id="videoPlay" aria-label="Play the PurpleBox packing and moving video">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5.5v13l11-6.5z" />
+            </svg>
+          </button>
+          <button class="video-sound" id="videoSound" aria-label="Play video sound">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 5 6.5 9H3v6h3.5L11 19V5z" />
+              <path d="m16 9 5 6M21 9l-5 6" />
+            </svg>
+            Tap for sound
+          </button>
+        </div>
+      </div>
+      <div class="approve">
+        <p class="approve-label">Licensed, insured &amp; approved</p>
+        <div class="approve-badges">
+          <span>SIRA Certified</span>
+          <span>Dubai Municipality</span>
+          <span>Dubai Civil Defence</span>
+          <span>Fully Insured</span>
+          <span>&#9733; 4.9 on Google</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats">
+    <div class="container stats-grid">
+      <div class="stat reveal"><b><span class="count" data-target="300"
+            data-suffix="+">0</span></b><span>climate-controlled storage units</span></div>
+      <div class="stat reveal" data-delay="1"><b><span class="count" data-target="30"
+            data-suffix=" min">0</span></b><span>average time to your fixed quote</span></div>
+      <div class="stat reveal" data-delay="2"><b><span class="count" data-target="4.9"
+            data-decimals="1">0</span></b><span>Google rating from real moves</span></div>
+      <div class="stat reveal" data-delay="3"><b><span class="count" data-target="7"
+            data-suffix=" days">0</span></b><span>a week, including weekends</span></div>
+    </div>
+  </section>
+
+  <!-- ============ OFFER RIBBON ============ -->
+  <section class="offer">
+    <div class="container offer-inner">
+      <div class="offer-icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8.5 12 4l9 4.5v8L12 21l-9-4.5z" />
+          <path d="M3 8.5 12 13l9-4.5M12 13v8" />
+          <path d="M7.5 6.2 16.5 10.7" />
+        </svg>
+      </div>
+      <div>
+        <h3>Every move includes a <span class="free">discounted</span> first month of storage</h3>
+        <p>New place not ready? Downsizing? Whatever doesn't fit waits safely in our own SIRA-monitored,
+          climate-controlled facility in Al Quoz — at a first-month rate only a mover with its own storage can give. No
+          other mover in Dubai owns the storage behind the truck.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUOTE FORM ============ -->
+  <section class="section quote" id="quote">
+    <div class="container qwrap">
+      <div class="qcopy reveal">
+        <p class="eyebrow">Fixed quote in 30 minutes</p>
+        <h2>Three taps.<br>One honest price.</h2>
+        <p>Answer three quick questions and your fixed quote lands on WhatsApp — the price we send is the price you pay.
+        </p>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>No site visit needed — we survey by WhatsApp video</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>Boxes, wrap and tape included in the price</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>We handle your building's move permit &amp; NOC</li>
+        </ul>
+      </div>
+
+      <div class="qcard reveal" data-delay="1">
+        <div class="qmeta"><span id="qStepLabel">Step 1 of 3</span><span>≈ 40 seconds</span></div>
+        <div class="tape">
+          <div class="tape-fill" id="tapeFill"></div>
+        </div>
+
+        <form id="quoteForm" novalidate>
+          <!-- STEP 1 -->
+          <fieldset class="qstep is-active" data-step="1">
+            <legend>What are you moving?</legend>
+            <div class="opts">
+              <button type="button" class="opt" data-size="Studio Apartment">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="6" width="18" height="14" rx="2" />
+                  <path d="M3 12h18M12 12v8" />
+                </svg>
+                Studio
+              </button>
+              <button type="button" class="opt" data-size="1 BHK Apartment">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6" />
+                  <path d="M3 18h18M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" />
+                </svg>
+                1 BHK
+              </button>
+              <button type="button" class="opt" data-size="2 BHK Apartment">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 10.5 12 3l9 7.5" />
+                  <path d="M5 9.5V21h14V9.5" />
+                  <path d="M9 21v-7h6v7" />
+                </svg>
+                2 BHK
+              </button>
+              <button type="button" class="opt" data-size="3 BHK Apartment">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 10.5 12 3l9 7.5" />
+                  <path d="M5 9.5V21h14V9.5" />
+                  <path d="M9 21v-7h6v7" />
+                  <path d="M8.5 12h2M13.5 12h2" />
+                </svg>
+                3 BHK
+              </button>
+              <button type="button" class="opt" data-size="Villa">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 21h20M4 21V11l5-4 5 4v10M14 21V9l3-2.5L20 9v12" />
+                  <path d="M7 21v-5h4v5" />
+                </svg>
+                Villa
+              </button>
+              <button type="button" class="opt" data-size="Other">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 8.5 12 4l9 4.5v8L12 21l-9-4.5z" />
+                  <path d="M3 8.5 12 13l9-4.5M12 13v8" />
+                </svg>
+                Something else
+              </button>
+            </div>
+          </fieldset>
+
+          <!-- STEP 2 -->
+          <fieldset class="qstep" data-step="2">
+            <legend>Where and when?</legend>
+            <div class="field">
+              <label for="qFrom">Moving from</label>
+              <input id="qFrom" type="text" list="areas" placeholder="e.g. Dubai Marina" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="qTo">Moving to</label>
+              <input id="qTo" type="text" list="areas" placeholder="e.g. Dubai Hills" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="qDate">Preferred date</label>
+              <input id="qDate" type="date">
+            </div>
+            <datalist id="areas">
+              <option value="Dubai Marina"></option>
+              <option value="Downtown Dubai"></option>
+              <option value="JVC"></option>
+              <option value="JLT"></option>
+              <option value="Business Bay"></option>
+              <option value="Palm Jumeirah"></option>
+              <option value="Arabian Ranches"></option>
+              <option value="Dubai Hills"></option>
+              <option value="Al Barsha"></option>
+              <option value="Mirdif"></option>
+              <option value="DAMAC Hills"></option>
+              <option value="Deira"></option>
+              <option value="Sharjah"></option>
+              <option value="Abu Dhabi"></option>
+            </datalist>
+            <p class="qerr" id="err2">Please add where you're moving from and to.</p>
+            <div class="qnav">
+              <button type="button" class="btn-back" data-back="1">Back</button>
+              <button type="button" class="btn btn-primary btn-next" data-next="3">Next</button>
+            </div>
+          </fieldset>
+
+          <!-- STEP 3 -->
+          <fieldset class="qstep" data-step="3">
+            <legend>Where should we send your quote?</legend>
+            <div class="grid-2">
+              <div class="field">
+                <label for="qName">Your name</label>
+                <input id="qName" type="text" placeholder="e.g. Sara" autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="qPhone">WhatsApp number</label>
+                <input id="qPhone" type="tel" placeholder="05x xxx xxxx" autocomplete="tel">
+              </div>
+            </div>
+            <div class="field">
+              <label for="qEmail">Email address</label>
+              <input id="qEmail" type="email" placeholder="you@example.com" autocomplete="email">
+            </div>
+            <p class="qerr" id="err3">Please add your name and a valid WhatsApp number.</p>
+            <div class="qnav">
+              <button type="button" class="btn-back" data-back="2">Back</button>
+              <button type="submit" class="btn btn-primary btn-next">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 11.5a8.4 8.4 0 0 1-9.9 8.3L5.6 21l1.3-5.3A8.5 8.5 0 1 1 21 11.5z" />
+                </svg>
+                Send me my fixed quote
+              </button>
+            </div>
+            <p class="micro">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="13" rx="2" />
+                <path d="M8 7V5a4 4 0 0 1 8 0v2" />
+              </svg>
+              Quote in 30 minutes. No spam, no calls unless you ask.
+            </p>
+          </fieldset>
+
+          <!-- DONE -->
+          <div class="qdone" id="qDone" role="status">
+            <div class="qdone-icon">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h3>On its way!</h3>
+            <p>We've opened WhatsApp with your details. Hit send and your fixed quote lands within 30 minutes.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section" id="prices">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Honest prices</p>
+        <h2>No surprises. Ever.</h2>
+        <p>Real ranges, real durations — most Dubai movers won’t show you either. Your exact price is fixed in writing
+          after a free WhatsApp video survey, and it never changes on move day.</p>
+      </div>
+      <div class="ptable-grid">
+        <div class="pcard reveal">
+          <div class="pcard-head">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="3" width="16" height="18" rx="2" />
+              <path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" />
+            </svg>
+            <h3>Apartments</h3>
+          </div>
+          <button class="prow" data-pick="Studio Apartment" data-form="Studio Apartment">
+            <span class="prow-name">Studio Apartment</span>
+            <span class="prow-right">
+              <span class="time-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 7v5l3 2" />
+                </svg>3–5 hrs</span>
+              <span class="prow-price">AED 1,000 – 1,200</span>
+              <svg class="prow-go" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <button class="prow" data-pick="1 BHK Apartment" data-form="1 BHK Apartment">
+            <span class="prow-name">1 BHK Apartment</span>
+            <span class="prow-right">
+              <span class="time-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 7v5l3 2" />
+                </svg>4–6 hrs</span>
+              <span class="prow-price">AED 1,250 – 1,500</span>
+              <svg class="prow-go" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <button class="prow" data-pick="2 BHK Apartment" data-form="2 BHK Apartment">
+            <span class="prow-name">2 BHK Apartment</span>
+            <span class="prow-right">
+              <span class="time-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 7v5l3 2" />
+                </svg>5–7 hrs</span>
+              <span class="prow-price">AED 1,700 – 2,100</span>
+              <svg class="prow-go" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <button class="prow" data-pick="3 BHK Apartment" data-form="3 BHK Apartment">
+            <span class="prow-name">3 BHK Apartment</span>
+            <span class="prow-right">
+              <span class="time-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 7v5l3 2" />
+                </svg>6–9 hrs</span>
+              <span class="prow-price">AED 2,300 – 2,800</span>
+              <svg class="prow-go" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <div class="pcard-foot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>Crew, truck &amp; materials included + discounted first-month storage.</div>
+        </div>
+        <div class="pcard reveal" data-delay="1">
+          <div class="pcard-head">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 21h20M4 21V11l5-4 5 4v10M14 21V9l3-2.5L20 9v12" />
+              <path d="M7 21v-5h4v5" />
+            </svg>
+            <h3>Villas</h3>
+          </div>
+          <button class="prow" data-pick="2 BHK Villa" data-form="Villa">
+            <span class="prow-name">2 BHK Villa</span>
+            <span class="prow-right">
+              <span class="time-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 7v5l3 2" />
+                </svg>5–8 hrs</span>
+              <span class="prow-price">AED 2,300 – 2,500</span>
+              <svg class="prow-go" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <button class="prow" data-pick="3 BHK Villa" data-form="Villa">
+            <span class="prow-name">3 BHK Villa</span>
+            <span class="prow-right">
+              <span class="time-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 7v5l3 2" />
+                </svg>6–9 hrs</span>
+              <span class="prow-price">AED 2,700 – 3,500</span>
+              <svg class="prow-go" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <button class="prow" data-pick="4 BHK Villa" data-form="Villa">
+            <span class="prow-name">4 BHK Villa</span>
+            <span class="prow-right">
+              <span class="time-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 7v5l3 2" />
+                </svg>7–10 hrs</span>
+              <span class="prow-price">AED 3,500 – 4,500</span>
+              <svg class="prow-go" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <button class="prow" data-pick="5 BHK Villa" data-form="Villa">
+            <span class="prow-name">5 BHK Villa</span>
+            <span class="prow-right">
+              <span class="time-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9.2" />
+                  <path d="M12 7v5l3 2" />
+                </svg>8–14 hrs</span>
+              <span class="prow-price">AED 5,000 – 7,000</span>
+              <svg class="prow-go" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7" />
+              </svg>
+            </span>
+          </button>
+          <div class="pcard-foot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>Crew, truck &amp; materials included + discounted first-month storage.</div>
+        </div>
+      </div>
+      <div class="other-strip reveal">
+        <p>Office, partial move, or just a few big items?<small>Every move is different — tell us what you’ve got and
+            we’ll price it properly.</small></p>
+        <button class="btn btn-primary" data-pick="Other" data-form="Other">Get a free estimate</button>
+      </div>
+      <p class="price-note reveal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9.2" />
+          <path d="M12 8v5M12 16.5h.01" />
+        </svg>
+        Where you land in the range depends on volume, access and floor — that’s exactly why we fix your price up front,
+        before a single box is packed.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section how" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>From "help" to home in four steps</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step reveal">
+          <div class="how-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.4 8.4 0 0 1-9.9 8.3L5.6 21l1.3-5.3A8.5 8.5 0 1 1 21 11.5z" />
+              <path d="M8.5 10.5h7M8.5 13.5h4.5" />
+            </svg></div>
+          <h3>Free WhatsApp survey</h3>
+          <p>A quick video call of your place. Your fixed quote arrives within 30 minutes.</p>
+        </div>
+        <div class="how-step reveal" data-delay="1">
+          <div class="how-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 8.5 12 4l9 4.5v8L12 21l-9-4.5z" />
+              <path d="M3 8.5 12 13l9-4.5M12 13v8" />
+            </svg></div>
+          <h3>We pack everything</h3>
+          <p>Uniformed crew, proper materials, labelled boxes. You don't lift a thing.</p>
+        </div>
+        <div class="how-step reveal" data-delay="2">
+          <div class="how-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="1.5" y="6" width="13" height="10" rx="1.5" />
+              <path d="M14.5 9h4l3 3.5V16h-7V9z" />
+              <circle cx="6" cy="18" r="2" />
+              <circle cx="17.5" cy="18" r="2" />
+            </svg></div>
+          <h3>The purple truck rolls</h3>
+          <p>Permits and building NOCs handled by us. We move on your schedule, 7 days a week.</p>
+        </div>
+        <div class="how-step reveal" data-delay="3">
+          <div class="how-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 10.5 12 3l9 7.5" />
+              <path d="M5 9.5V21h14V9.5" />
+              <path d="M9.5 16c.8-1.6 4.2-1.6 5 0" />
+              <path d="M9.5 12.5h.01M14.5 12.5h.01" />
+            </svg></div>
+          <h3>Unpacked &amp; settled</h3>
+          <p>Beds built, boxes emptied. Anything extra goes into storage at your discounted first-month rate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why PurpleBox</p>
+        <h2>Movers with their own storage.<br>That changes everything.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9.5" cy="7.5" r="3.5" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.85" />
+              <path d="M15.5 4.1a3.5 3.5 0 0 1 0 6.8" />
+            </svg></div>
+          <div>
+            <h3>One team, start to finish</h3>
+            <p>The people who pack you are the people who move you. No subcontractors, no "that's not our job."</p>
+          </div>
+        </div>
+        <div class="why-card reveal" data-delay="1">
+          <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2 4 5.5v5.6c0 5 3.4 8.4 8 10.4 4.6-2 8-5.4 8-10.4V5.5z" />
+              <path d="m8.5 11.8 2.4 2.4 4.6-4.9" />
+            </svg></div>
+          <div>
+            <h3>Our own facility in Al Quoz</h3>
+            <p>300+ climate-controlled units under SIRA-connected CCTV. Your things stay with us — never a third party.
+            </p>
+          </div>
+        </div>
+        <div class="why-card reveal" data-delay="2">
+          <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.2" />
+              <path d="M12 6.5V12l3.5 2" />
+            </svg></div>
+          <div>
+            <h3>Replies in minutes, not days</h3>
+            <p>Real humans on WhatsApp from first message to last box. Ask anyone who's moved with us.</p>
+          </div>
+        </div>
+        <div class="why-card reveal" data-delay="3">
+          <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M20.5 7.3 12 3 3.5 7.3M20.5 7.3 12 11.5m8.5-4.2v9.4L12 21m0-9.5L3.5 7.3m8.5 4.2V21m-8.5-13.7v9.4L12 21" />
+            </svg></div>
+          <div>
+            <h3>Materials on the house</h3>
+            <p>Boxes, bubble wrap, tape, wardrobe cartons — all included in your fixed price.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>Dubai Marina <i>·</i></span><span>Downtown <i>·</i></span><span>JVC <i>·</i></span><span>Palm Jumeirah
+        <i>·</i></span><span>Business Bay <i>·</i></span><span>Arabian Ranches <i>·</i></span><span>Dubai Hills
+        <i>·</i></span><span>JLT <i>·</i></span><span>Al Barsha <i>·</i></span><span>Mirdif <i>·</i></span><span>DAMAC
+        Hills <i>·</i></span><span>The Springs <i>·</i></span>
+    </div>
+  </div>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Real moves, real people</p>
+        <h2>The reviews say it better</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review reveal">
+          <div class="stars" aria-label="5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg>
+          </div>
+          <p>"Quoted on WhatsApp in 20 minutes, moved on Saturday, beds built by 4pm. The price never changed."</p>
+          <div class="review-by"><span class="avatar">SM</span>
+            <div><b>Sara M.</b><span>Dubai Marina → Dubai Hills</span></div>
+          </div>
+        </div>
+        <div class="review reveal" data-delay="1">
+          <div class="stars" aria-label="5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg>
+          </div>
+          <p>"Our villa wasn't ready for two weeks. Everything went into their storage at the discounted rate and
+            arrived the day we got keys."</p>
+          <div class="review-by"><span class="avatar">AK</span>
+            <div><b>Ahmed K.</b><span>Arabian Ranches</span></div>
+          </div>
+        </div>
+        <div class="review reveal" data-delay="2">
+          <div class="stars" aria-label="5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+            </svg>
+          </div>
+          <p>"They sorted the building NOC and DEWA timing before I even asked. First move in Dubai that didn't need a
+            day off."</p>
+          <div class="review-by"><span class="avatar">PD</span>
+            <div><b>Priya &amp; Dev</b><span>JVC → Business Bay</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="gbadge reveal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="m12 2 2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 16.9 5.9 20.4l1.5-6.8L2.2 9l6.9-.7z" />
+        </svg>
+        Rated 4.9 from verified Google reviews
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Dubai-specific answers</p>
+        <h2>Asked before every move</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Do you arrange the building move permit / NOC?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>Yes — end to end. Send us your building management contact and we handle the move permit, NOC, lift
+              booking and security coordination on both sides.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">What about DEWA disconnection timing?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>We plan your move around your DEWA final-bill and activation dates so you're never packing in the dark or
+              moving into a home without AC. Tell us your dates and we'll build the schedule around them.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Can you move during truck-restriction hours?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>Our schedules are built around Dubai's truck movement timings, so your slot is one we can actually honour
+              — no surprise "the truck is stuck" calls on move day.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Are packing materials and insurance included?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>Both. Boxes, bubble wrap, tape and wardrobe cartons are in your fixed price, and every move is covered by
+              our insurance from first box to last.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">My new place isn't ready yet. What now?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>That's exactly why every move includes a discounted first month in our own climate-controlled Al Quoz
+              facility. We collect now, store safely, and deliver the day you get your keys.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="section final">
+    <div class="container">
+      <h2 class="reveal">Ready when you are.</h2>
+      <p class="reveal" data-delay="1">Three taps, thirty minutes, one fixed price — and discounted first-month storage
+        waiting if you need it.</p>
+      <div class="reveal" data-delay="2">
+        <a class="btn btn-primary js-wa" href="#" target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.4 8.4 0 0 1-9.9 8.3L5.6 21l1.3-5.3A8.5 8.5 0 1 1 21 11.5z" />
+          </svg>
+          Get my quote on WhatsApp
+        </a>
+        <p class="final-alt">Prefer to talk? <a class="js-tel" href="#">Call us</a> — we pick up.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <span><b style="font-family:var(--display)">PurpleBox</b> · We pack, move and store everything.</span>
+      <span>SIRA-certified · Al Quoz Industrial Area 2, Dubai · purplebox.ae</span>
+    </div>
+  </footer>
+
+  <!-- ============ STICKY MOBILE BAR ============ -->
+  <div class="stickybar">
+    <a class="sticky-call js-tel" href="#">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path
+          d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z" />
+      </svg>
+      Call
+    </a>
+    <a class="sticky-wa js-wa" href="#" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 11.5a8.4 8.4 0 0 1-9.9 8.3L5.6 21l1.3-5.3A8.5 8.5 0 1 1 21 11.5z" />
+      </svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <script>
+    /* ================================================================
+       CONFIG — swap these before going live
+       ================================================================ */
+    const WHATSAPP_NUMBER = "9715XXXXXXXX";   // TODO: real number, no + or spaces
+    const PHONE_NUMBER = "+9715XXXXXXXX";  // TODO: real number for tel: links
+    const PHONE_DISPLAY = "+971 5X XXX XXXX"; // TODO: how the number reads on the page
+
+    window.PBX_GA4_ID = 'G-QJZQX0KB9B';
+    window.PBX_GOOGLE_ADS_ID = 'AW-17982250932';
+    window.PBX_GOOGLE_ADS_CONVERSION_LABEL = 'XkuhCMmSpoAcELS_zf5C';
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ---------- default WhatsApp links ---------- */
+    const defaultMsg = encodeURIComponent("Hi PurpleBox! I need a moving quote.");
+    document.querySelectorAll(".js-wa").forEach(a => {
+      a.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${defaultMsg}`;
+    });
+    document.querySelectorAll(".js-tel").forEach(a => { a.href = `tel:${PHONE_NUMBER}`; });
+    document.querySelectorAll(".js-tel-label").forEach(s => { s.textContent = PHONE_DISPLAY; });
+
+    /* ---------- hero video: autoplay muted, tap for sound ---------- */
+    const vFrame = document.getElementById("videoFrame");
+    const vEl = document.getElementById("heroVideo");
+    const vSound = document.getElementById("videoSound");
+    vEl.addEventListener("playing", () => vFrame.classList.add("is-playing"));
+    if (reduceMotion) {
+      vEl.removeAttribute("autoplay");
+      vEl.pause();
+    } else {
+      const attempt = vEl.play();
+      if (attempt) attempt.catch(() => vFrame.classList.remove("is-playing"));
+    }
+    document.getElementById("videoPlay").addEventListener("click", () => {
+      vEl.muted = false;
+      vEl.setAttribute("controls", "");
+      vFrame.classList.add("is-playing", "is-unmuted");
+      vEl.play();
+    });
+    vSound.addEventListener("click", () => {
+      vEl.muted = false;
+      vEl.setAttribute("controls", "");
+      vFrame.classList.add("is-unmuted");
+    });
+
+    /* ---------- scroll road: truck drives, wheels spin, puffs trail ---------- */
+    const truck = document.getElementById("roadTruck");
+    const roadFill = document.getElementById("roadFill");
+    const roadEl = document.querySelector(".road");
+    const wheels = [document.getElementById("wheelA"), document.getElementById("wheelB")];
+    const wheelCx = [13, 33.5];
+    let ticking = false, lastX = 0, wheelAngle = 0, idleTimer;
+    function drive() {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      const trackW = roadEl.offsetWidth - 60;
+      const x = p * trackW;
+      truck.style.transform = `translateX(${x}px)`;
+      roadFill.style.width = (p * 100) + "%";
+      if (!reduceMotion) {
+        wheelAngle += (x - lastX) * (360 / (2 * Math.PI * 4));
+        wheels.forEach((w, i) => w.setAttribute("transform", `rotate(${wheelAngle} ${wheelCx[i]} 19)`));
+        if (Math.abs(x - lastX) > .4) {
+          truck.classList.add("is-moving");
+          clearTimeout(idleTimer);
+          idleTimer = setTimeout(() => truck.classList.remove("is-moving"), 180);
+        }
+      }
+      roadEl.classList.toggle("is-home", p > 0.985);
+      lastX = x;
+      ticking = false;
+    }
+    window.addEventListener("scroll", () => { if (!ticking) { requestAnimationFrame(drive); ticking = true; } }, { passive: true });
+    window.addEventListener("resize", drive);
+    drive();
+
+    /* ---------- scroll reveals ---------- */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+    }, { threshold: .14 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+    /* ---------- animated counters ---------- */
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const co = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseFloat(el.dataset.target);
+        const dec = parseInt(el.dataset.decimals || "0");
+        const suffix = el.dataset.suffix || "";
+        if (reduce) { el.textContent = target.toFixed(dec) + suffix; co.unobserve(el); return; }
+        const t0 = performance.now(), dur = 1400;
+        (function tick(t) {
+          const k = Math.min(1, (t - t0) / dur), ease = 1 - Math.pow(1 - k, 3);
+          el.textContent = (target * ease).toFixed(dec) + suffix;
+          if (k < 1) requestAnimationFrame(tick);
+        })(t0);
+        co.unobserve(el);
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll(".count").forEach(el => co.observe(el));
+
+    /* ---------- marquee: duplicate content for seamless loop ---------- */
+    const mt = document.getElementById("marqueeTrack");
+    mt.innerHTML += mt.innerHTML;
+
+    /* ---------- quote form ---------- */
+    const state = { size: "", from: "", to: "", date: "", name: "", phone: "" };
+    const form = document.getElementById("quoteForm");
+    const steps = form.querySelectorAll(".qstep");
+    const tape = document.getElementById("tapeFill");
+    const stepLabel = document.getElementById("qStepLabel");
+
+    function goTo(n) {
+      steps.forEach(s => s.classList.toggle("is-active", s.dataset.step == n));
+      tape.style.width = (n / 3 * 100) + "%";
+      stepLabel.textContent = `Step ${n} of 3`;
+      document.querySelectorAll(".qerr").forEach(e => e.classList.remove("is-on"));
+    }
+
+    /* step 1: pick a size */
+    form.querySelectorAll(".opt").forEach(btn => {
+      btn.addEventListener("click", () => {
+        form.querySelectorAll(".opt").forEach(b => b.classList.remove("is-picked"));
+        btn.classList.add("is-picked");
+        state.size = btn.dataset.size;
+        setTimeout(() => goTo(2), 240);
+      });
+    });
+
+    /* pricing cards pre-select a size and jump into the form */
+    document.querySelectorAll("[data-pick]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.size = btn.dataset.pick;
+        const hl = btn.dataset.form || btn.dataset.pick;
+        form.querySelectorAll(".opt").forEach(b => b.classList.toggle("is-picked", b.dataset.size === hl));
+        goTo(2);
+        document.getElementById("quote").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+      });
+    });
+
+    /* nav */
+    form.querySelectorAll("[data-back]").forEach(b => b.addEventListener("click", () => goTo(b.dataset.back)));
+    form.querySelector("[data-next]").addEventListener("click", () => {
+      state.from = document.getElementById("qFrom").value.trim();
+      state.to = document.getElementById("qTo").value.trim();
+      state.date = document.getElementById("qDate").value;
+      if (!state.from || !state.to) { document.getElementById("err2").classList.add("is-on"); return; }
+      goTo(3);
+    });
+
+    /* min date = today */
+    document.getElementById("qDate").min = new Date().toISOString().split("T")[0];
+
+    /* submit → compose WhatsApp message + capture lead */
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      state.name = document.getElementById("qName").value.trim();
+      state.phone = document.getElementById("qPhone").value.trim();
+      state.email = (document.getElementById("qEmail").value || "").trim();
+      if (!state.name || state.phone.replace(/\D/g, "").length < 9) {
+        document.getElementById("err3").classList.add("is-on"); return;
+      }
+      const msg =
+        `Hi PurpleBox! I'd like a fixed moving quote.
+• Size: ${state.size || "Not sure yet"}
+• From: ${state.from}
+• To: ${state.to}
+• Date: ${state.date || "Flexible"}
+• Name: ${state.name}
+My WhatsApp: ${state.phone}`;
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+
+      /* capture lead to backend */
+      var leadConfig = window.PBXLeadConfig || {};
+      var payload = new URLSearchParams();
+      payload.set('action', 'pbx_submit_reservation');
+      payload.set('nonce', leadConfig.nonce || '');
+      payload.set('source_page_name', 'Landing - Moving Dubai');
+      payload.set('source_page', window.location.href.split('#')[0]);
+      payload.set('full_name', state.name);
+      payload.set('mobile', state.phone);
+      payload.set('email', state.email);
+      payload.set('emirate', 'Dubai');
+      payload.set('storing_for', 'Moving Inquiry');
+      payload.set('move_in_date', state.date || 'Flexible');
+      payload.set('unit_size', state.size || 'Not selected');
+      payload.set('unit_label', 'Moving Quote');
+      payload.set('monthly_rent', '0');
+      payload.set('promo_code', '');
+      payload.set('supplies_total', '0');
+      payload.set('due_today', '0');
+      payload.set('supplies_text', 'No supplies selected');
+      payload.set('summary_text', [
+        'Moving lead submitted',
+        'Name: ' + state.name,
+        'Phone: ' + state.phone,
+        'Email: ' + state.email,
+        'Size: ' + (state.size || 'Not selected'),
+        'From: ' + state.from,
+        'To: ' + state.to,
+        'Date: ' + (state.date || 'Flexible')
+      ].join('\n'));
+
+      var submitUrl = leadConfig.ajaxUrl || '/wp-admin/admin-ajax.php';
+      fetch(submitUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+        credentials: 'same-origin',
+        body: payload.toString()
+      }).catch(function () { /* non-blocking */ });
+
+      /* GA conversion */
+      if (typeof window.gtag === 'function' && window.PBX_GOOGLE_ADS_ID && window.PBX_GOOGLE_ADS_CONVERSION_LABEL) {
+        window.gtag('event', 'conversion', {
+          'send_to': window.PBX_GOOGLE_ADS_ID + '/' + window.PBX_GOOGLE_ADS_CONVERSION_LABEL,
+          'value': 1.0,
+          'currency': 'AED'
+        });
+      }
+
+      steps.forEach(s => s.classList.remove("is-active"));
+      tape.style.width = "100%";
+      stepLabel.textContent = "Done";
+      document.getElementById("qDone").classList.add("is-on");
+    });
+
+    /* ---------- FAQ accordion ---------- */
+    document.querySelectorAll(".faq-item").forEach(item => {
+      const q = item.querySelector(".faq-q");
+      const a = item.querySelector(".faq-a");
+      q.addEventListener("click", () => {
+        const open = item.classList.contains("is-open");
+        document.querySelectorAll(".faq-item").forEach(i => {
+          i.classList.remove("is-open");
+          i.querySelector(".faq-a").style.maxHeight = null;
+          i.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+        });
+        if (!open) {
+          item.classList.add("is-open");
+          a.style.maxHeight = a.scrollHeight + "px";
+          q.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
