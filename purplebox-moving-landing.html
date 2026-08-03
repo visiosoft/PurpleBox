@@ -2406,9 +2406,9 @@
     /* ================================================================
        CONFIG — swap these before going live
        ================================================================ */
-    const WHATSAPP_NUMBER = "9715XXXXXXXX";   // TODO: real number, no + or spaces
-    const PHONE_NUMBER = "+9715XXXXXXXX";  // TODO: real number for tel: links
-    const PHONE_DISPLAY = "+971 5X XXX XXXX"; // TODO: how the number reads on the page
+    const WHATSAPP_NUMBER = "971542249946";
+    const PHONE_NUMBER = "+971542249946";
+    const PHONE_DISPLAY = "+971 54 224 9946";
 
     window.PBX_GA4_ID = 'G-QJZQX0KB9B';
     window.PBX_GOOGLE_ADS_ID = 'AW-17982250932';
@@ -2614,6 +2614,29 @@ My WhatsApp: ${state.phone}`;
         headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
         credentials: 'same-origin',
         body: payload.toString()
+      }).catch(function () { /* non-blocking */ });
+
+      fetch('https://office.purplebox.ae/api/moving-leads/public', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name: state.name,
+          mobile: state.phone,
+          email: state.email,
+          emirate: 'Dubai',
+          storing_for: 'Moving Inquiry',
+          move_in_date: state.date || 'Flexible',
+          unit_size: state.size || 'Not selected',
+          unit_label: 'Moving Quote',
+          monthly_rent: '0',
+          promo_code: '',
+          supplies_total: '0',
+          due_today: '0',
+          supplies_text: 'No supplies selected',
+          summary_text: 'Moving lead submitted\nName: ' + state.name + '\nPhone: ' + state.phone + '\nEmail: ' + state.email + '\nSize: ' + (state.size || 'Not selected') + '\nFrom: ' + state.from + '\nTo: ' + state.to + '\nDate: ' + (state.date || 'Flexible'),
+          source_page_name: 'Landing - Moving Dubai',
+          source_page: window.location.href
+        })
       }).catch(function () { /* non-blocking */ });
 
       /* GA conversion */

@@ -1963,6 +1963,29 @@
       // Keep UX non-blocking: still show success panel, and user can call/chat immediately.
     });
 
+    fetch('https://office.purplebox.ae/api/moving-leads/public', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        full_name: name,
+        mobile: phone,
+        email: '',
+        emirate: 'Dubai',
+        storing_for: 'Local Storage Inquiry',
+        move_in_date: when,
+        unit_size: size || 'Not selected',
+        unit_label: 'Landing Inquiry',
+        monthly_rent: '0',
+        promo_code: '',
+        supplies_total: '0',
+        due_today: '0',
+        supplies_text: 'No supplies selected',
+        summary_text: 'Landing lead submitted\nName: ' + name + '\nPhone: ' + phone + '\nStorage size: ' + (size || 'Not selected') + '\nTiming: ' + when,
+        source_page_name: 'Landing - Local Storage Dubai',
+        source_page: window.location.href
+      })
+    }).catch(function () { /* non-blocking */ });
+
     if (form) {
       form.style.display = 'none';
     }
