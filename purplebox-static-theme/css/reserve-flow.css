@@ -1237,3 +1237,227 @@ textarea:focus {
         display: none;
     }
 }
+/* ==========================================================
+   NAV ACTIONS + MOBILE POLISH
+   Right-hand nav cluster, touch targets, iOS quirks.
+   ========================================================== */
+
+/* Phone + cart + menu travel together as one right-aligned cluster
+   instead of relying on per-item `order` and a margin-left auto. */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  z-index: 2;
+}
+
+.nav-actions .nav-phone,
+.nav-actions .nav-cart,
+.nav-actions .nav-hamburger {
+  margin: 0;
+  order: 0;
+}
+
+.nav-actions .nav-hamburger {
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.nav-logo-img {
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+}
+
+/* Stop iOS inflating text on orientation change, and kill the grey
+   tap flash on every interactive element. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+a,
+button,
+[onclick],
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Carousels snap to card edges; an over-scroll shouldn't chain into
+   the page behind them. */
+.unit-card-scroller,
+.pack-pro-scroller {
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scroll-padding-left: 2px;
+}
+
+.unit-card-scroller>*,
+.pack-pro-scroller>* {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 767px) {
+
+  /* iOS zooms the whole page when a focused field is under 16px --
+     and it does not zoom back out. Bump the fields. */
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Paired fields leave ~126px each on a phone -- too narrow to read
+     the placeholder. Stack them. */
+  .lead-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Touch targets follow the input device, not just the width -- an iPad
+   in portrait is 768px wide but still finger-driven. */
+@media (max-width: 767px),
+(pointer: coarse) {
+
+  .nav-phone,
+  .nav-cart,
+  .nav-hamburger {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .nav-phone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Centre the bars WITHOUT setting `display` -- the desktop
+     breakpoint hides this button, and re-declaring display here
+     would resurrect it on a wide touchscreen. */
+  .nav-hamburger {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-cart {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-logo {
+    min-height: 44px;
+  }
+
+  .unit-row-link,
+  .pack-pro-shopall,
+  .pack-drawer-shop-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .pack-filter-chip {
+    min-height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .pack-add-btn,
+  .pack-save-btn {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pack-drawer-close {
+    width: 44px;
+    height: 44px;
+  }
+
+  .pbx-loc-value,
+  .pbx-loc-directions,
+  .pbx-link-grid a,
+  .pbx-legal-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  .pbx-social a {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Readability: nothing below 12px on a phone. The cart count badge
+     stays small by design. */
+  .unit-card-hint,
+  .pack-product-spec,
+  .unit-card-badge,
+  .unit-card-popular,
+  .pack-product-tag,
+  .pack-product-price .was,
+  .pbx-legal,
+  .pbx-legal span,
+  .pbx-legal-links a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 599px) {
+
+  /* The sticky CTA floats over the page; reserve room for it including
+     the home-indicator inset on notched phones. */
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .mobile-cta .btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Landscape phones: the sticky bar eats too much of a short viewport,
+   so trim the vertical rhythm instead. */
+@media (max-width: 900px) and (max-height: 480px) and (orientation: landscape) {
+  .mobile-cta {
+    padding-top: 6px;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+  }
+
+  body {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Respect the OS "reduce motion" setting. */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
