@@ -2,13 +2,30 @@
 <html lang="en">
 
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }; if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '980499678398496');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=980499678398496&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
   <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unit Details | PurpleBox Storage Dubai</title>
+  <link rel="canonical" href="https://purplebox.ae/unit-details.html" />
   <meta name="description"
     content="View storage unit details, pricing, size guide and video walkthrough. Climate-controlled self-storage in Al Quoz, Dubai." />
-  <link rel="canonical" href="https://purplebox.ae/unit-details.html" />
   <meta name="robots" content="index, follow" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJZQX0KB9B"></script>
@@ -21,6 +38,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/shared.css" />
   <style>
     body {
@@ -31,11 +51,11 @@
     .ud-breadcrumb {
       padding: 14px 0 0;
       font-size: 13px;
-      color: #6b7280;
+      color: #71717a;
     }
 
     .ud-breadcrumb a {
-      color: #1976d2;
+      color: #7c3aed;
       font-weight: 500;
     }
 
@@ -70,9 +90,9 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
-      border-radius: 14px;
-      background: #f1f5f9;
-      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      background: #f4f4f5;
+      border: 1px solid #ececee;
     }
 
     .ud-thumbs {
@@ -86,17 +106,17 @@
       width: 72px;
       height: 54px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 12px;
       border: 2px solid transparent;
       cursor: pointer;
       flex-shrink: 0;
-      background: #f1f5f9;
+      background: #f4f4f5;
       transition: border-color .15s;
     }
 
     .ud-thumb:hover,
     .ud-thumb.active {
-      border-color: #1976d2;
+      border-color: #7c3aed;
     }
 
     @media (min-width: 768px) {
@@ -121,47 +141,47 @@
     }
 
     .ud-size-badge {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      color: #fff;
-      background: #1d4ed8;
-      border-radius: 999px;
-      padding: 5px 12px;
-      line-height: 1;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: #fafafa;
+      background: #3f3f46;
+      border-radius: 12px;
+      padding: 4px 8px;
+      line-height: 1.3;
     }
 
     .ud-popular-badge {
-      font-size: 11px;
-      font-weight: 700;
-      color: #92400e;
-      background: #fef3c7;
-      border-radius: 999px;
-      padding: 5px 12px;
-      line-height: 1;
+      font-size: 12px;
+      font-weight: 500;
+      color: #ffffff;
+      background: #7c3aed;
+      border-radius: 12px;
+      padding: 4px 8px;
+      line-height: 1.3;
     }
 
     .ud-title {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 900;
-      color: #111827;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 600;
+      color: #09090b;
+      line-height: 1.28;
+      letter-spacing: 0;
       margin: 0;
     }
 
     .ud-subtitle {
       font-size: 15px;
-      color: #4b5563;
+      color: #52525b;
       line-height: 1.55;
       margin: 0;
     }
 
     /* Price block */
     .ud-price-block {
-      background: #f8fbff;
-      border: 1px solid #e5edf8;
-      border-radius: 12px;
+      background: #fafafa;
+      border: 1px solid #ececee;
+      border-radius: 14px;
       padding: 16px 18px;
       display: flex;
       flex-direction: column;
@@ -176,21 +196,21 @@
     }
 
     .ud-discounted {
-      font-size: 28px;
-      font-weight: 900;
-      color: #111827;
+      font-size: 26px;
+      font-weight: 600;
+      color: #09090b;
       line-height: 1;
     }
 
     .ud-period {
       font-size: 13px;
-      font-weight: 600;
-      color: #6b7280;
+      font-weight: 400;
+      color: #52525b;
     }
 
     .ud-price-note {
       font-size: 12px;
-      color: #6b7280;
+      color: #71717a;
       margin: 0;
     }
 
@@ -207,10 +227,10 @@
       gap: 8px;
       font-size: 13px;
       font-weight: 500;
-      color: #374151;
-      background: #f9fafb;
-      border: 1px solid #f3f4f6;
-      border-radius: 8px;
+      color: #3f3f46;
+      background: #fafafa;
+      border: 1px solid #ececee;
+      border-radius: 12px;
       padding: 8px 10px;
     }
 
@@ -218,7 +238,7 @@
       width: 18px;
       height: 18px;
       flex-shrink: 0;
-      color: #1976d2;
+      color: #7c3aed;
     }
 
     /* CTA buttons */
@@ -233,18 +253,18 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #1976d2;
+      background: #7c3aed;
       color: #fff;
       font-size: 15px;
-      font-weight: 800;
+      font-weight: 600;
       padding: 14px 24px;
-      border-radius: 12px;
+      border-radius: 14px;
       text-decoration: none;
       transition: background .15s;
     }
 
     .ud-btn-reserve:hover {
-      background: #1565c0;
+      background: #6d28d9;
     }
 
     .ud-btn-wa {
@@ -258,7 +278,7 @@
       font-size: 14px;
       font-weight: 700;
       padding: 12px 24px;
-      border-radius: 12px;
+      border-radius: 14px;
       text-decoration: none;
       transition: background .15s;
     }
@@ -281,13 +301,13 @@
     /* ---- Sections below fold ---- */
     .ud-section {
       padding: 40px 0;
-      border-top: 1px solid #f3f4f6;
+      border-top: 1px solid #ececee;
     }
 
     .ud-section-title {
       font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-      font-weight: 800;
-      color: #111827;
+      font-weight: 600;
+      color: #09090b;
       margin: 0 0 20px;
       line-height: 1.2;
     }
@@ -307,9 +327,9 @@
 
     .ud-fits-card {
       text-align: center;
-      background: #f9fafb;
-      border: 1px solid #f3f4f6;
-      border-radius: 12px;
+      background: #fafafa;
+      border: 1px solid #ececee;
+      border-radius: 14px;
       padding: 18px 12px;
     }
 
@@ -321,13 +341,13 @@
     .ud-fits-label {
       font-size: 13px;
       font-weight: 600;
-      color: #374151;
+      color: #3f3f46;
       margin: 0;
     }
 
     .ud-fits-count {
       font-size: 11px;
-      color: #6b7280;
+      color: #71717a;
       margin: 2px 0 0;
     }
 
@@ -342,9 +362,9 @@
     .ud-size-card {
       flex-shrink: 0;
       width: 130px;
-      background: #f9fafb;
-      border: 2px solid #e5e7eb;
-      border-radius: 12px;
+      background: #fafafa;
+      border: 2px solid #ececee;
+      border-radius: 14px;
       padding: 14px 10px;
       text-align: center;
       text-decoration: none;
@@ -353,31 +373,31 @@
     }
 
     .ud-size-card:hover {
-      border-color: #1976d2;
-      box-shadow: 0 2px 12px rgba(25, 118, 210, 0.1);
+      border-color: #7c3aed;
+      box-shadow: none;
     }
 
     .ud-size-card.current {
-      border-color: #1976d2;
-      background: #eff6ff;
+      border-color: #7c3aed;
+      background: #ede9fe;
     }
 
     .ud-sc-label {
       font-size: 13px;
-      font-weight: 800;
-      color: #111827;
+      font-weight: 600;
+      color: #09090b;
       margin: 0 0 2px;
     }
 
     .ud-sc-sqft {
       font-size: 11px;
-      color: #6b7280;
+      color: #71717a;
       margin: 0 0 6px;
     }
 
     .ud-sc-price {
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 600;
       color: #15803d;
       margin: 0;
     }
@@ -386,9 +406,9 @@
       display: inline-block;
       font-size: 9px;
       font-weight: 700;
-      background: #dbeafe;
-      color: #1d4ed8;
-      border-radius: 4px;
+      background: #ede9fe;
+      color: #7c3aed;
+      border-radius: 12px;
       padding: 2px 6px;
       margin-top: 6px;
     }
@@ -398,9 +418,9 @@
       position: relative;
       width: 100%;
       padding-bottom: 56.25%;
-      border-radius: 14px;
+      border-radius: 24px;
       overflow: hidden;
-      background: #111;
+      background: #09090b;
     }
 
     .ud-video-wrap iframe {
@@ -420,8 +440,8 @@
     }
 
     .ud-faq {
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
+      border: 1px solid #ececee;
+      border-radius: 14px;
       overflow: hidden;
     }
 
@@ -430,11 +450,11 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 16px;
-      background: #fafbfc;
+      background: #fafafa;
       cursor: pointer;
       font-size: 14px;
       font-weight: 600;
-      color: #111827;
+      color: #09090b;
       border: none;
       width: 100%;
       text-align: left;
@@ -442,7 +462,7 @@
     }
 
     .ud-faq-q:hover {
-      background: #f3f4f6;
+      background: #ececee;
     }
 
     .ud-faq-q svg {
@@ -450,7 +470,7 @@
       height: 18px;
       flex-shrink: 0;
       transition: transform .2s;
-      color: #6b7280;
+      color: #71717a;
     }
 
     .ud-faq.open .ud-faq-q svg {
@@ -471,13 +491,13 @@
       padding: 0 16px 14px;
       font-size: 13px;
       line-height: 1.6;
-      color: #4b5563;
+      color: #52525b;
     }
 
     /* Bottom CTA banner */
     .ud-cta-banner {
-      background: linear-gradient(135deg, #1d4ed8, #1976d2);
-      border-radius: 16px;
+      background: #7c3aed;
+      border-radius: 24px;
       padding: 32px 24px;
       text-align: center;
       margin: 40px 0 20px;
@@ -486,7 +506,7 @@
     .ud-cta-banner h3 {
       color: #fff;
       font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-      font-weight: 800;
+      font-weight: 600;
       margin: 0 0 6px;
     }
 
@@ -505,11 +525,11 @@
 
     .ud-cta-banner .ud-btn-reserve {
       background: #fff;
-      color: #1d4ed8;
+      color: #7c3aed;
     }
 
     .ud-cta-banner .ud-btn-reserve:hover {
-      background: #f0f4ff;
+      background: #ede9fe;
     }
 
     .ud-cta-banner .ud-btn-wa {
@@ -534,17 +554,17 @@
 
     .ud-not-found p {
       margin: 0 0 20px;
-      color: #6b7280;
+      color: #71717a;
       font-size: 15px;
     }
 
     .ud-not-found a {
       display: inline-block;
-      background: #1976d2;
+      background: #7c3aed;
       color: #fff;
       font-weight: 700;
       padding: 12px 28px;
-      border-radius: 10px;
+      border-radius: 14px;
       text-decoration: none;
     }
   </style>
@@ -552,14 +572,13 @@
   <link rel="stylesheet" href="css/mobile-base.css" />
 </head>
 
-</head>
+<body>
 
 
 
 <nav class="site-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg"
-        alt="PurpleBox Storage" class="nav-logo-img" width="402" height="130" fetchpriority="high" /></a>
+      <a href="index.html" class="nav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg" alt="PurpleBox Storage" class="nav-logo-img no-lazyload skip-lazy" data-no-lazy="1" loading="eager" width="402" height="130" fetchpriority="high" /></a>
       <div class="nav-links">
         <a href="book-unit.html">Reserve Unit</a>
         <a href="store.html">Shop Now</a>
@@ -742,7 +761,7 @@
               </svg>
             </a>
             <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
-              style="color:#22c55e;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);">
+              style="color:#15803d;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
                 aria-hidden="true">
                 <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
@@ -782,8 +801,8 @@
       sqft: '10 sq ft',
       dimensions: '5\' x 2\' (approx.)',
       subtitle: 'Perfect for boxes, suitcases, and seasonal items. Ideal for decluttering a studio apartment.',
-      discounted: 'AED 350',
-      monthlyRent: 350,
+      discounted: 'AED 330',
+      monthlyRent: 330,
       period: 'per month',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/10_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
@@ -820,8 +839,8 @@
       sqft: '50 sq ft',
       dimensions: '5\' x 10\' (approx.)',
       subtitle: 'Fits a full 1-bedroom apartment. Best for boxes, appliances, and extra furniture.',
-      discounted: 'AED 980',
-      monthlyRent: 980,
+      discounted: 'AED 950',
+      monthlyRent: 950,
       period: 'per month',
       popular: true,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/50_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/50_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp'],
@@ -839,8 +858,8 @@
       sqft: '35 sq ft',
       dimensions: '5\' x 7\' (approx.)',
       subtitle: 'Good balance of space and price. Fits contents of a 2-bedroom apartment.',
-      discounted: 'AED 770',
-      monthlyRent: 770,
+      discounted: 'AED 775',
+      monthlyRent: 775,
       period: 'per month',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/75_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
@@ -858,8 +877,8 @@
       sqft: '75 sq ft',
       dimensions: '7.5\' x 10\' (approx.)',
       subtitle: 'Extra room for larger household furniture and bulkier items. Great for bigger apartment moves.',
-      discounted: 'AED 1,400 – 1,500',
-      monthlyRent: 1400,
+      discounted: 'AED 1,300',
+      monthlyRent: 1300,
       period: 'per month',
       popular: true,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/75_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
@@ -877,8 +896,8 @@
       sqft: '100 sq ft',
       dimensions: '10\' x 10\' (approx.)',
       subtitle: 'Fits a small villa or 3-bedroom home. For larger furniture sets and cartons.',
-      discounted: 'AED 1,700 – 2,000',
-      monthlyRent: 1700,
+      discounted: 'AED 1,600',
+      monthlyRent: 1600,
       period: 'per month',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/100_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit3.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp'],
@@ -896,8 +915,8 @@
       sqft: '150 sq ft',
       dimensions: '10\' x 15\' (approx.)',
       subtitle: 'Full villa contents from a 4-bedroom home. Large household storage volume.',
-      discounted: 'AED 2,600 – 3,000',
-      monthlyRent: 2600,
+      discounted: 'AED 2,500',
+      monthlyRent: 2500,
       period: 'per month',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/150_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit3.webp'],
@@ -915,8 +934,8 @@
       sqft: '200 sq ft',
       dimensions: '10\' x 20\' (approx.)',
       subtitle: 'Maximum space for major moves. Full villa contents, business storage, or bulky items.',
-      discounted: 'AED 3,300 – 4,000',
-      monthlyRent: 3300,
+      discounted: 'AED 3,000',
+      monthlyRent: 3000,
       period: 'per month',
       popular: false,
       images: ['https://purplebox.ae/wp-content/uploads/2026/05/200_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
@@ -1032,6 +1051,7 @@
     html += '<span class="ud-period">' + u.period + '</span>';
     html += '</div>';
     html += '<p class="ud-price-note">Flexible monthly billing.</p>';
+    html += '<p class="ud-price-note" style="color:#15803d;font-weight:700;">10% off your first month.</p>';
     html += '</div>';
 
     // Features
@@ -1152,6 +1172,28 @@
   });
 </script>
 <script src="templates/layout-loader.js"></script>
+  <script>
+    (function () {
+      var nav = document.querySelector('.site-nav');
+      if (!nav) return;
+      var ticking = false;
+      function update() {
+        if (window.scrollY > 4) {
+          nav.classList.add('is-scrolled');
+        } else {
+          nav.classList.remove('is-scrolled');
+        }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 
 </html>

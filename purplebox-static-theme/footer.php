@@ -145,6 +145,28 @@ if (!defined('ABSPATH')) {
   <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   <a href="<?php echo esc_url(home_url('/reserve-step-1.html')); ?>" class="btn btn-primary btn-full">Reserve</a>
 </div>
+<script>
+  (function () {
+    var nav = document.querySelector('.site-nav');
+    if (!nav) return;
+    var ticking = false;
+    function update() {
+      if (window.scrollY > 4) {
+        nav.classList.add('is-scrolled');
+      } else {
+        nav.classList.remove('is-scrolled');
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    update();
+  })();
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -2,6 +2,23 @@
 <html lang="en">
 
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }; if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '980499678398496');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=980499678398496&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
   <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,9 +31,9 @@
     gtag('config', 'G-QJZQX0KB9B');
   </script>
   <title>Packing & Moving Dubai — Storage Pickup Service | PurpleBox</title>
+  <link rel="canonical" href="https://purplebox.ae/packing-moving.html" />
   <meta name="description"
     content="Professional packing, moving and storage in Dubai. One provider for pack, wrap, transport, store and re-deliver. Get a quote via WhatsApp." />
-  <link rel="canonical" href="https://purplebox.ae/packing-moving/" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://purplebox.ae/packing-moving/" />
@@ -34,13 +51,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Manrope:wght@700;800&family=Space+Grotesk:wght@700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/shared.css" />
   <link rel="stylesheet" href="css/layout-template.css" />
   <style>
     .pm-hero {
-      background: linear-gradient(145deg, #ffffff 0%, #f4f7ff 55%, #eef2ff 100%);
+      background: #fafafa;
       padding-top: 24px;
     }
 
@@ -61,16 +78,16 @@
 
     .pm-badge {
       background: #ffffff;
-      border: 1px solid #d9def1;
+      border: 1px solid #ececee;
       border-radius: 999px;
       padding: 7px 12px;
       font-size: 12px;
       font-weight: 600;
-      color: #24324a;
+      color: #18181b;
     }
 
     .pm-visual {
-      background: linear-gradient(140deg, #4f46e5 0%, #6d28d9 100%);
+      background: #7c3aed;
       border-radius: var(--radius-xl);
       border: 1px solid rgba(255, 255, 255, 0.25);
       color: #ffffff;
@@ -88,16 +105,16 @@
     }
 
     .pm-review-stars {
-      color: #f59e0b;
+      color: #7c3aed;
       font-size: 14px;
       letter-spacing: 1px;
     }
 
     /* Trust bar */
     .trust-bar {
-      background: #f8faff;
-      border-top: 1px solid #eef2ff;
-      border-bottom: 1px solid #eef2ff;
+      background: #fafafa;
+      border-top: 1px solid #ede9fe;
+      border-bottom: 1px solid #ede9fe;
       padding: 20px 0;
     }
 
@@ -119,17 +136,17 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: #eef2ff;
+      background: #ede9fe;
       display: grid;
       place-items: center;
-      color: #4f46e5;
+      color: #7c3aed;
       font-size: 16px;
     }
 
     .trust-item span {
       font-size: 12px;
       font-weight: 600;
-      color: #24324a;
+      color: #18181b;
       line-height: 1.3;
     }
 
@@ -143,7 +160,7 @@
     .pm-step {
       background: #ffffff;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 14px;
     }
 
@@ -171,20 +188,20 @@
 
     /* Pricing */
     .pricing-section {
-      background: #f8faff;
+      background: #fafafa;
     }
 
     .pricing-table {
       width: 100%;
       border-collapse: collapse;
       background: #fff;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       border: 1px solid var(--border);
     }
 
     .pricing-table thead {
-      background: #eef2ff;
+      background: #ede9fe;
     }
 
     .pricing-table th {
@@ -192,7 +209,7 @@
       font-size: 12px;
       font-weight: 700;
       text-align: left;
-      color: #24324a;
+      color: #18181b;
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
@@ -200,17 +217,17 @@
     .pricing-table td {
       padding: 11px 14px;
       font-size: 13px;
-      border-top: 1px solid #f0f3fa;
-      color: #374151;
+      border-top: 1px solid #fafafa;
+      color: #3f3f46;
     }
 
     .pricing-table tbody tr:hover {
-      background: #fafbff;
+      background: #fafafa;
     }
 
     .pricing-note {
       font-size: 12px;
-      color: #6b7280;
+      color: #71717a;
       margin-top: 12px;
       line-height: 1.5;
     }
@@ -222,7 +239,7 @@
     .pricing-card {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 14px;
     }
 
@@ -234,14 +251,14 @@
     .pricing-card .price {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #4f46e5;
+      color: #7c3aed;
     }
 
     .price-old {
       display: block;
       font-size: 12px;
       font-weight: 600;
-      color: #9ca3af;
+      color: #a1a1aa;
       text-decoration: line-through;
       margin-bottom: 2px;
     }
@@ -250,7 +267,7 @@
       display: block;
       font-size: 13px;
       font-weight: 700;
-      color: #4f46e5;
+      color: #7c3aed;
     }
 
     .price-new strong {
@@ -259,7 +276,7 @@
 
     .pricing-card .time {
       font-size: 12px;
-      color: #6b7280;
+      color: #71717a;
       margin-top: 2px;
     }
 
@@ -273,20 +290,20 @@
     .service-card {
       background: #ffffff;
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 24px;
       padding: 18px;
       transition: box-shadow 0.2s;
     }
 
     .service-card:hover {
-      box-shadow: 0 4px 20px rgba(79, 70, 229, 0.08);
+      box-shadow: none;
     }
 
     .service-icon {
       width: 40px;
       height: 40px;
-      border-radius: 10px;
-      background: #eef2ff;
+      border-radius: 14px;
+      background: #ede9fe;
       display: grid;
       place-items: center;
       font-size: 18px;
@@ -303,7 +320,7 @@
       font-size: 13px;
       line-height: 1.4;
       margin: 0;
-      color: #4b5563;
+      color: #52525b;
     }
 
     /* Why choose */
@@ -316,7 +333,7 @@
     .why-card {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 16px;
       display: flex;
       gap: 12px;
@@ -326,9 +343,9 @@
     .why-icon {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
-      background: #ecfdf5;
-      color: #059669;
+      border-radius: 12px;
+      background: #ede9fe;
+      color: #15803d;
       display: grid;
       place-items: center;
       flex-shrink: 0;
@@ -346,12 +363,12 @@
       font-size: 12px;
       line-height: 1.4;
       margin: 0;
-      color: #4b5563;
+      color: #52525b;
     }
 
     /* Reviews */
     .reviews-section {
-      background: #f8faff;
+      background: #fafafa;
     }
 
     .reviews-grid {
@@ -363,12 +380,12 @@
     .review-card {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 24px;
       padding: 18px;
     }
 
     .review-stars {
-      color: #f59e0b;
+      color: #7c3aed;
       font-size: 13px;
       letter-spacing: 1px;
       margin-bottom: 8px;
@@ -377,33 +394,33 @@
     .review-text {
       font-size: 14px;
       line-height: 1.5;
-      color: #1f2937;
+      color: #18181b;
       font-style: italic;
       margin-bottom: 10px;
     }
 
     .review-author {
       font-size: 12px;
-      color: #6b7280;
+      color: #71717a;
       font-weight: 600;
     }
 
     .google-badge {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 24px;
       padding: 18px;
       text-align: center;
     }
 
     .google-badge .rating {
       font-size: 2rem;
-      font-weight: 800;
-      color: #1f2937;
+      font-weight: 600;
+      color: #18181b;
     }
 
     .google-badge .stars {
-      color: #f59e0b;
+      color: #7c3aed;
       font-size: 20px;
       letter-spacing: 2px;
       margin: 4px 0;
@@ -411,7 +428,7 @@
 
     .google-badge .count {
       font-size: 13px;
-      color: #6b7280;
+      color: #71717a;
     }
 
     /* Gallery */
@@ -427,11 +444,11 @@
 
     .pm-gallery-item {
       flex: 0 0 min(82vw, 360px);
-      border-radius: 14px;
+      border-radius: 24px;
       overflow: hidden;
-      border: 1px solid #dbe3f1;
+      border: 1px solid #ececee;
       background: #ffffff;
-      box-shadow: 0 4px 16px rgba(22, 30, 60, 0.08);
+      box-shadow: none;
       scroll-snap-align: start;
     }
 
@@ -470,14 +487,14 @@
     .pm-form label {
       font-size: 13px;
       font-weight: 600;
-      color: #1f2d45;
+      color: #18181b;
     }
 
     .pm-form input,
     .pm-form select,
     .pm-form textarea {
-      border: 1px solid #d5ddeb;
-      border-radius: 12px;
+      border: 1px solid #ececee;
+      border-radius: 14px;
       padding: 11px 12px;
       background: #fff;
       font-size: 14px;
@@ -488,7 +505,7 @@
     .pm-form select:focus,
     .pm-form textarea:focus {
       border-color: #6d28d9;
-      box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
+      box-shadow: 0 0 0 2px rgba(124, 58, 237, .35);
       outline: none;
     }
 
@@ -505,13 +522,13 @@
     }
 
     .pm-check {
-      border: 1px solid #d8e1ef;
-      border-radius: 10px;
+      border: 1px solid #ececee;
+      border-radius: 14px;
       padding: 8px 10px;
       display: flex;
       gap: 8px;
       align-items: center;
-      background: #f9fbff;
+      background: #fafafa;
       font-size: 13px;
       cursor: pointer;
     }
@@ -522,12 +539,12 @@
 
     .pm-note {
       font-size: 12px;
-      color: #5f6e86;
+      color: #52525b;
     }
 
     /* FAQ */
     .faq-section {
-      background: #f8faff;
+      background: #fafafa;
     }
 
     .faq-list {
@@ -538,7 +555,7 @@
     .faq-item {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
     }
 
@@ -551,7 +568,7 @@
       gap: 12px;
       font-weight: 600;
       font-size: 14px;
-      color: #1f2937;
+      color: #18181b;
       background: none;
       border: none;
       width: 100%;
@@ -560,7 +577,7 @@
     }
 
     .faq-q:hover {
-      background: #fafbff;
+      background: #fafafa;
     }
 
     .faq-toggle {
@@ -568,11 +585,11 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: #eef2ff;
+      background: #ede9fe;
       display: grid;
       place-items: center;
       font-size: 14px;
-      color: #4f46e5;
+      color: #7c3aed;
       transition: transform 0.2s;
     }
 
@@ -585,7 +602,7 @@
       padding: 0 16px 14px;
       font-size: 13px;
       line-height: 1.6;
-      color: #4b5563;
+      color: #52525b;
     }
 
     .faq-item.open .faq-a {
@@ -594,7 +611,7 @@
 
     /* Final CTA */
     .final-cta {
-      background: linear-gradient(140deg, #4f46e5 0%, #6d28d9 100%);
+      background: #7c3aed;
       color: #fff;
       text-align: center;
       padding: 40px 0;
@@ -624,11 +641,11 @@
 
     .final-cta .btn-primary {
       background: #fff;
-      color: #4f46e5;
+      color: #7c3aed;
     }
 
     .final-cta .btn-primary:hover {
-      background: #f0f0ff;
+      background: #ede9fe;
     }
 
     .final-cta .cta-terms {
@@ -655,42 +672,108 @@
     }
 
     /* Mini quote form in hero */
-    .mini-quote {
-      background: #eef2ff;
-      border: 1px solid #d9def1;
-      border-radius: 14px;
-      padding: 16px;
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Quick quote bar (single row) */
+    .quote-bar {
+      background: #7c3aed;
+      border-radius: 24px;
+      padding: 18px 20px;
       margin-top: 18px;
+      box-shadow: none;
     }
 
-    .mini-quote h4 {
-      margin: 0 0 10px;
-      font-size: 0.9rem;
-    }
-
-    .mini-quote-fields {
+    .quote-bar-inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      grid-template-columns: 1fr 1fr 1fr 1fr auto;
+      align-items: end;
+      gap: 18px;
     }
 
-    .mini-quote input {
-      border: 1px solid #d5ddeb;
-      border-radius: 10px;
-      padding: 9px 10px;
-      font-size: 13px;
-      background: #fff;
+    .qb-field {
+      position: relative;
+    }
+
+    .qb-field input,
+    .qb-field select {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+      background: transparent;
+      color: #fff;
       font-family: inherit;
+      font-size: 15px;
+      padding: 6px 0 9px;
+      border-radius: 0;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
-    .mini-quote input:focus {
-      border-color: #6d28d9;
+    .qb-field input::placeholder {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .qb-field input:focus,
+    .qb-field select:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
+      border-bottom-color: #fff;
     }
 
-    .mini-quote .btn {
-      margin-top: 8px;
+    .qb-field select option {
+      color: #09090b;
+    }
+
+    .qb-select::after {
+      content: "";
+      position: absolute;
+      right: 4px;
+      bottom: 15px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid rgba(255, 255, 255, 0.92);
+      pointer-events: none;
+    }
+
+    .qb-field input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+      opacity: 0.9;
+      cursor: pointer;
+    }
+
+    .qb-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #ddd6fe;
+      color: #09090b;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 16px 26px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .qb-btn:hover {
+      background: #ddd6fe;
+      transform: translateY(-1px);
     }
 
     /* Intro */
@@ -705,7 +788,7 @@
     .intro-text p {
       font-size: 14px;
       line-height: 1.65;
-      color: #374151;
+      color: #3f3f46;
       margin-bottom: 10px;
     }
 
@@ -737,8 +820,18 @@
         padding: 20px;
       }
 
-      .mini-quote-fields {
+      .quote-bar {
+        padding: 16px;
+      }
+
+      .quote-bar-inner {
         grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .qb-btn {
+        width: 100%;
+        padding: 14px 20px;
       }
 
       .pricing-table-desktop {
@@ -752,7 +845,7 @@
 
       .pm-quote-card {
         padding: 16px;
-        border-radius: 14px;
+        border-radius: 24px;
       }
 
       .pm-check {
@@ -862,8 +955,7 @@
 
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg"
-          alt="PurpleBox Storage" class="nav-logo-img" width="402" height="130" fetchpriority="high" /></a>
+      <a href="index.html" class="nav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg" alt="PurpleBox Storage" class="nav-logo-img no-lazyload skip-lazy" data-no-lazy="1" loading="eager" width="402" height="130" fetchpriority="high" /></a>
       <div class="nav-links">
         <a href="packing-moving.html">Packing & Moving</a>
         <a href="book-unit.html">Reserve Unit</a>
@@ -931,7 +1023,7 @@
             <span class="pm-badge">Insured handling</span>
             <span class="pm-badge">Dubai-wide coverage</span>
           </div>
-          <p class="pm-review-stars" style="margin-top:14px;">★★★★★ <span style="color:#374151;font-size:13px;">4.9 ·
+          <p class="pm-review-stars" style="margin-top:14px;">★★★★★ <span style="color:#3f3f46;font-size:13px;">4.9 ·
               Google reviews</span></p>
         </div>
         <aside class="pm-visual" aria-label="Packing and moving hero video">
@@ -944,13 +1036,34 @@
       </div>
 
       <!-- Mini quote form -->
-      <div class="mini-quote">
-        <h4>Quick quote</h4>
-        <form id="miniQuoteForm" class="mini-quote-fields">
-          <input type="text" name="from" placeholder="Move from (area)" required />
-          <input type="text" name="to" placeholder="Move to (area)" required />
-          <input type="tel" name="phone" placeholder="Phone / WhatsApp" required />
-          <button type="submit" class="btn btn-primary">Get price</button>
+      <div class="quote-bar">
+        <form id="miniQuoteForm" class="quote-bar-inner">
+          <div class="qb-field">
+            <label class="sr-only" for="qbFrom">Moving From</label>
+            <input id="qbFrom" type="text" name="from" placeholder="Moving From" required />
+          </div>
+          <div class="qb-field">
+            <label class="sr-only" for="qbTo">Moving To</label>
+            <input id="qbTo" type="text" name="to" placeholder="Moving To" required />
+          </div>
+          <div class="qb-field">
+            <label class="sr-only" for="qbDate">Date</label>
+            <input id="qbDate" type="text" name="date" placeholder="Date"
+              onfocus="this.type='date'; this.showPicker &amp;&amp; this.showPicker();"
+              onblur="if(!this.value){this.type='text';}" />
+          </div>
+          <div class="qb-field qb-select">
+            <label class="sr-only" for="qbSize">Move Size</label>
+            <select id="qbSize" name="size">
+              <option value="">Move Size</option>
+              <option>Studio Apartment</option>
+              <option>1 BHK Apartment</option>
+              <option>2-3 BHK Apartment</option>
+              <option>Villa</option>
+              <option>Office / Business</option>
+            </select>
+          </div>
+          <button type="submit" class="qb-btn">Get a quote <span aria-hidden="true">&#8599;</span></button>
         </form>
       </div>
     </div>
@@ -998,7 +1111,7 @@
           <span>Same-Day & Weekend</span>
         </div>
         <div class="trust-item">
-          <div class="trust-icon" style="color:#f59e0b;">
+          <div class="trust-icon" style="color:#7c3aed;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
@@ -1065,7 +1178,7 @@
     <div class="container">
       <p class="label mb-8">Pricing</p>
       <h2 class="mb-8">Moving prices in Dubai — honest, with no surprises</h2>
-      <p style="font-size:14px;color:#4b5563;max-width:720px;margin-bottom:18px;">Final cost depends on what's inside
+      <p style="font-size:14px;color:#52525b;max-width:720px;margin-bottom:18px;">Final cost depends on what's inside
         your home or office. The most accurate way to know your price is a free, no-obligation quote. These ranges are a
         starting point.</p>
 
@@ -1260,7 +1373,7 @@
   </section>
 
   <!-- ============ WHY CHOOSE ============ -->
-  <section class="section pm-section-tight" style="background:#f8faff;">
+  <section class="section pm-section-tight" style="background:#fafafa;">
     <div class="container">
       <p class="label mb-8">Why PurpleBox</p>
       <h2 class="mb-16">Why Dubai chooses PurpleBox movers and packers</h2>
@@ -1440,7 +1553,7 @@
             <li>You get a fixed price on WhatsApp.</li>
             <li>You lock your move slot.</li>
           </ul>
-          <div class="card" style="margin-top:18px;padding:18px;background:var(--purple-lt);border-color:#d7ccf5;">
+          <div class="card" style="margin-top:18px;padding:18px;background:var(--purple-lt);border-color:#ddd6fe;">
             <h4 style="margin-bottom:6px;">Need to talk now?</h4>
             <p style="font-size:14px;margin-bottom:12px;">Call us directly for urgent or same-day requests.</p>
             <a href="tel:+971542249946" class="btn btn-outline btn-full">Call +971 54 224 9946</a>
@@ -1695,7 +1808,7 @@
                 </svg>
               </a>
               <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
-                style="color:#22c55e;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);">
+                style="color:#15803d;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
                   aria-hidden="true">
                   <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
@@ -1749,10 +1862,12 @@
       var data = new FormData(e.target);
       var fromField = document.getElementById("fromArea");
       var toField = document.getElementById("toArea");
-      var phoneField = document.getElementById("phone");
+      var dateField = document.getElementById("moveDate");
+      var typeField = document.getElementById("moveType");
       if (fromField) fromField.value = data.get("from") || "";
       if (toField) toField.value = data.get("to") || "";
-      if (phoneField) phoneField.value = data.get("phone") || "";
+      if (dateField && data.get("date")) dateField.value = data.get("date");
+      if (typeField && data.get("size")) typeField.value = data.get("size");
       document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" });
     });
 
@@ -1835,8 +1950,8 @@
         '<strong style="display:block;margin-bottom:6px;">Request received!</strong>' +
         'Your quote request has been sent to our team. We\'ll contact you on WhatsApp shortly — usually within the hour.' +
         '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">' +
-        '<a href="tel:+971542249946" style="display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:8px;border:1px solid #93c5fd;background:#fff;color:#1e3a8a;text-decoration:none;font-weight:700;font-size:12px;">Call Now</a>' +
-        '<a href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20a%20packing%20and%20moving%20quote%20request" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:8px;border:1px solid #86efac;background:#fff;color:#166534;text-decoration:none;font-weight:700;font-size:12px;">Chat Right Away</a>' +
+        '<a href="tel:+971542249946" style="display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius: 12px;border:1px solid #a78bfa;background:#fff;color:#5b21b6;text-decoration:none;font-weight:700;font-size:12px;">Call Now</a>' +
+        '<a href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20a%20packing%20and%20moving%20quote%20request" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius: 12px;border:1px solid #86efac;background:#fff;color:#15803d;text-decoration:none;font-weight:700;font-size:12px;">Chat Right Away</a>' +
         '</div>';
 
       form.parentNode.appendChild(box);
@@ -1862,6 +1977,28 @@
     });
   </script>
   <script src="templates/layout-loader.js"></script>
+  <script>
+    (function () {
+      var nav = document.querySelector('.site-nav');
+      if (!nav) return;
+      var ticking = false;
+      function update() {
+        if (window.scrollY > 4) {
+          nav.classList.add('is-scrolled');
+        } else {
+          nav.classList.remove('is-scrolled');
+        }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 
 </html>

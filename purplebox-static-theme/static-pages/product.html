@@ -2,14 +2,35 @@
 <html lang="en">
 
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }; if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '980499678398496');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=980499678398496&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
   <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Details | PurpleBox Storage Supplies</title>
+  <meta name="robots" content="noindex, follow" />
   <meta name="description"
     content="Buy packing supplies for your storage unit — boxes, tape, bubble wrap, locks and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/shared.css" />
   <link rel="stylesheet" href="css/layout-template.css" />
 
@@ -23,18 +44,18 @@
 
   <style>
     body {
-      background: #f8fafc;
+      background: #fafafa;
     }
 
     /* ── Breadcrumb ── */
     .pd-breadcrumb {
       padding: 14px 0 0;
       font-size: 13px;
-      color: #6b7280;
+      color: #71717a;
     }
 
     .pd-breadcrumb a {
-      color: #1976d2;
+      color: #7c3aed;
       font-weight: 600;
     }
 
@@ -48,11 +69,11 @@
       grid-template-columns: 1fr;
       gap: 0;
       background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
+      border: 1px solid #ececee;
+      border-radius: 32px;
       overflow: hidden;
       margin: 18px 0 32px;
-      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+      box-shadow: none;
     }
 
     @media(min-width: 680px) {
@@ -63,7 +84,7 @@
 
     /* ── Left: Image ── */
     .pd-img-panel {
-      background: #f6f4ef;
+      background: #f4f4f5;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -77,7 +98,7 @@
       width: 100%;
       height: auto;
       object-fit: contain;
-      border-radius: 12px;
+      border-radius: 14px;
     }
 
     .pd-img-panel svg {
@@ -90,12 +111,12 @@
       top: 14px;
       left: 14px;
       background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
+      border: 1px solid #ececee;
+      border-radius: 12px;
       padding: 4px 10px;
       font-size: 11px;
       font-weight: 700;
-      color: #1f2d44;
+      color: #18181b;
     }
 
     /* ── Right: Details ── */
@@ -111,28 +132,28 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #1976d2;
+      color: #7c3aed;
       margin: 0;
     }
 
     .pd-name {
       font-size: clamp(1.4rem, 3vw, 1.9rem);
-      font-weight: 900;
-      color: #0e1b2c;
+      font-weight: 600;
+      color: #18181b;
       line-height: 1.15;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
       margin: 0;
     }
 
     .pd-spec {
       font-size: 14px;
-      color: #5b6b82;
+      color: #52525b;
       margin: 0;
     }
 
     .pd-divider {
       border: none;
-      border-top: 1px solid #f1f5f9;
+      border-top: 1px solid #f4f4f5;
       margin: 4px 0;
     }
 
@@ -144,27 +165,27 @@
     }
 
     .pd-price {
-      font-size: 2rem;
-      font-weight: 900;
-      color: #0e1b2c;
+      font-size: 26px;
+      font-weight: 600;
+      color: #09090b;
       line-height: 1;
     }
 
     .pd-was {
       font-size: 15px;
-      font-weight: 600;
-      color: #b91c1c;
+      font-weight: 400;
+      color: #71717a;
       text-decoration: line-through;
-      opacity: 0.75;
+      opacity: 1;
     }
 
     .pd-save {
       font-size: 12px;
-      font-weight: 800;
-      background: linear-gradient(90deg, #22c55e, #86efac);
-      color: #052e16;
-      border-radius: 6px;
-      padding: 3px 8px;
+      font-weight: 500;
+      background: #7c3aed;
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 4px 8px;
     }
 
     /* ── Qty stepper ── */
@@ -177,14 +198,14 @@
     .pd-qty-label {
       font-size: 13px;
       font-weight: 600;
-      color: #374151;
+      color: #3f3f46;
     }
 
     .pd-qty {
       display: flex;
       align-items: center;
-      border: 1.5px solid #dbe3ee;
-      border-radius: 10px;
+      border: 1.5px solid #ececee;
+      border-radius: 14px;
       overflow: hidden;
     }
 
@@ -192,8 +213,8 @@
       width: 40px;
       height: 44px;
       border: none;
-      background: #f8fafe;
-      color: #0e1b2c;
+      background: #fafafa;
+      color: #18181b;
       font-size: 20px;
       font-weight: 700;
       cursor: pointer;
@@ -203,15 +224,15 @@
     }
 
     .pd-qty-btn:hover {
-      background: #e8eef8;
+      background: #ececee;
     }
 
     .pd-qty-val {
       min-width: 48px;
       text-align: center;
       font-size: 16px;
-      font-weight: 800;
-      color: #0e1b2c;
+      font-weight: 600;
+      color: #18181b;
     }
 
     /* ── Buttons ── */
@@ -228,19 +249,19 @@
       justify-content: center;
       gap: 8px;
       padding: 14px 20px;
-      border-radius: 12px;
+      border-radius: 14px;
       border: none;
-      background: #0e1b2c;
+      background: #18181b;
       color: #fff;
       font-size: 15px;
-      font-weight: 800;
+      font-weight: 600;
       font-family: inherit;
       cursor: pointer;
       transition: background .15s, transform .15s;
     }
 
     .pd-btn-cart:hover {
-      background: #1d4ed8;
+      background: #7c3aed;
       transform: translateY(-1px);
     }
 
@@ -254,11 +275,11 @@
       justify-content: center;
       gap: 8px;
       padding: 13px 20px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #1d4ed8, #1976d2);
+      border-radius: 14px;
+      background: #7c3aed;
       color: #fff;
       font-size: 15px;
-      font-weight: 800;
+      font-weight: 600;
       text-decoration: none;
       transition: opacity .15s, transform .15s;
       display: none;
@@ -275,9 +296,9 @@
 
     /* ── Cart Summary ── */
     .pd-cart-summary {
-      background: #f8fafe;
-      border: 1px solid #e2e8f2;
-      border-radius: 12px;
+      background: #fafafa;
+      border: 1px solid #ececee;
+      border-radius: 14px;
       padding: 14px 16px;
       display: none;
     }
@@ -291,7 +312,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #1976d2;
+      color: #7c3aed;
       margin: 0 0 8px;
     }
 
@@ -299,7 +320,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 13px;
-      color: #374151;
+      color: #3f3f46;
       padding: 3px 0;
     }
 
@@ -307,9 +328,9 @@
       display: flex;
       justify-content: space-between;
       font-size: 14px;
-      font-weight: 800;
-      color: #0e1b2c;
-      border-top: 1px solid #e2e8f2;
+      font-weight: 600;
+      color: #18181b;
+      border-top: 1px solid #ececee;
       margin-top: 6px;
       padding-top: 6px;
     }
@@ -321,8 +342,8 @@
 
     .pd-related-title {
       font-size: 18px;
-      font-weight: 800;
-      color: #0e1b2c;
+      font-weight: 600;
+      color: #18181b;
       margin: 0 0 16px;
     }
 
@@ -340,8 +361,8 @@
 
     .pd-related-card {
       background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
+      border: 1px solid #ececee;
+      border-radius: 14px;
       overflow: hidden;
       text-decoration: none;
       color: inherit;
@@ -352,13 +373,13 @@
 
     .pd-related-card:hover {
       transform: translateY(-3px);
-      border-color: #1976d2;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border-color: #7c3aed;
+      box-shadow: none;
     }
 
     .pd-related-img {
       height: 90px;
-      background: #f6f4ef;
+      background: #f4f4f5;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -388,7 +409,7 @@
 
     .pd-related-price {
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 600;
       color: #15803d;
     }
 
@@ -404,25 +425,24 @@
 
     .pd-not-found a {
       display: inline-block;
-      background: #1976d2;
+      background: #7c3aed;
       color: #fff;
       padding: 12px 28px;
-      border-radius: 10px;
+      border-radius: 14px;
       font-weight: 700;
     }
   </style>
   <link rel="stylesheet" href="css/mobile-base.css" />
 </head>
 
-</head>
+<body>
 
 
 
 <!-- Header -->
 <nav class="site-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg"
-        alt="PurpleBox Storage" class="nav-logo-img" width="402" height="130" fetchpriority="high" /></a>
+      <a href="index.html" class="nav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg" alt="PurpleBox Storage" class="nav-logo-img no-lazyload skip-lazy" data-no-lazy="1" loading="eager" width="402" height="130" fetchpriority="high" /></a>
       <div class="nav-links">
         <a href="book-unit.html">Reserve Unit</a>
         <a href="store.html">Shop Now</a>
@@ -606,7 +626,7 @@
       '<h1 class="pd-name">' + product.name + '</h1>' +
       '<p class="pd-spec">' + product.spec + '</p>' +
       '<hr class="pd-divider">' +
-      '<p style="font-size:14px;color:#374151;line-height:1.6;margin:0;">' + (product.desc || '') + '</p>' +
+      '<p style="font-size:14px;color:#3f3f46;line-height:1.6;margin:0;">' + (product.desc || '') + '</p>' +
       '<hr class="pd-divider">' +
       '<div class="pd-price-row">' +
       '<span class="pd-price">' + product.price + '</span>' +
@@ -676,6 +696,28 @@
   render();
 </script>
 <script src="templates/layout-loader.js"></script>
+  <script>
+    (function () {
+      var nav = document.querySelector('.site-nav');
+      if (!nav) return;
+      var ticking = false;
+      function update() {
+        if (window.scrollY > 4) {
+          nav.classList.add('is-scrolled');
+        } else {
+          nav.classList.remove('is-scrolled');
+        }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 
 </html>

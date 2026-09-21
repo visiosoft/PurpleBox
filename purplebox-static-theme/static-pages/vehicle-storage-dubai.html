@@ -2,21 +2,38 @@
 <html lang="en">
 
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }; if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '980499678398496');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=980499678398496&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
   <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Secure Vehicle Storage in Dubai - PurpleBox Parking Storage Al Quoz</title>
+  <title>Car Storage in Dubai | Secure Vehicle Storage Al Quoz - PurpleBox</title>
+  <link rel="canonical" href="https://purplebox.ae/vehicle-storage-dubai.html" />
   <meta name="description"
     content="Leaving Dubai? Store your car safely at PurpleBox Al Quoz. Covered parking, 24/7 CCTV, flexible monthly contracts. Get a free quote today." />
-  <link rel="canonical" href="https://purplebox.ae/vehicle-storage-dubai" />
-  <meta property="og:title" content="Vehicle Parking Storage in Dubai | PurpleBox Al Quoz" />
+  <meta property="og:title" content="Car Storage in Dubai | Secure Vehicle Storage Al Quoz - PurpleBox" />
   <meta property="og:description"
     content="Secure vehicle storage in Al Quoz, Dubai. Covered parking, 24/7 CCTV, flexible terms. Perfect for expats leaving Dubai." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://purplebox.ae/vehicle-storage-dubai" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="css/layout-template.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJZQX0KB9B"></script>
@@ -46,21 +63,21 @@
     }
 
     :root {
-      --navy: #0f1b2d;
-      --navy-mid: #1a2b45;
-      --blue: #1d4ed8;
-      --blue-dk: #1e40af;
-      --blue-lt: #eff6ff;
-      --gold: #f59e0b;
-      --gold-lt: #fef3c7;
-      --ink: #0f172a;
-      --ink-mid: #334155;
-      --ink-soft: #6b7280;
-      --border: #e5e7eb;
+      --navy: #18181b;
+      --navy-mid: #18181b;
+      --blue: #7c3aed;
+      --blue-dk: #5b21b6;
+      --blue-lt: #ede9fe;
+      --gold: #7c3aed;
+      --gold-lt: #ede9fe;
+      --ink: #09090b;
+      --ink-mid: #3f3f46;
+      --ink-soft: #71717a;
+      --border: #ececee;
       --white: #ffffff;
       --green: #25D366;
-      --shell: #f3f7fc;
-      --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --shell: #f4f4f5;
+      --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     html {
@@ -70,7 +87,7 @@
     body {
       font-family: var(--font);
       color: var(--ink);
-      background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 28%, #fff 100%);
+      background: #fafafa;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
@@ -98,7 +115,7 @@
       z-index: 100;
       background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid #ececee;
     }
 
     .lp-nav-inner {
@@ -150,30 +167,51 @@
     }
 
     .lp-nav-links a:hover {
-      color: var(--blue);
+      color: #7c3aed;
     }
 
     .lp-nav-cta {
       display: inline-flex;
       align-items: center;
       padding: 8px 18px;
-      border-radius: 8px;
-      background: var(--blue);
+      border-radius: 12px;
+      background: #7c3aed;
       color: #fff;
       font-size: 13px;
       font-weight: 700;
       white-space: nowrap;
+      transition: background .15s, transform .15s;
+    }
+
+    .lp-nav-cta:hover {
+      background: #6d28d9;
+      transform: translateY(-1px);
+    }
+
+    .lp-nav-cta:active,
+    .lp-nav-hamburger:active {
+      transform: scale(.97);
+    }
+
+    .lp-nav-links a:focus-visible,
+    .lp-nav-cta:focus-visible,
+    .lp-nav-hamburger:focus-visible,
+    .lp-mobile-menu a:focus-visible {
+      outline: 2px solid #7c3aed;
+      outline-offset: 2px;
+      border-radius: 12px;
     }
 
     .lp-nav-hamburger {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
+      border-radius: 12px;
       border: 1px solid var(--border);
       background: #fff;
       display: grid;
       place-items: center;
       cursor: pointer;
+      transition: transform .15s;
     }
 
     .lp-nav-hamburger span {
@@ -224,20 +262,20 @@
       align-items: center;
       justify-content: center;
       padding: 10px;
-      border-radius: 8px;
+      border-radius: 12px;
       font-size: 13px;
       font-weight: 700;
     }
 
     .lp-mobile-menu-cta .btn-primary {
-      background: var(--blue);
+      background: #7c3aed;
       color: #fff;
     }
 
     .lp-mobile-menu-cta .btn-wa {
-      background: #ecfdf5;
+      background: #ede9fe;
       color: #15803d;
-      border: 1px solid #bbf7d0;
+      border: 1px solid #ddd6fe;
     }
 
     @media(min-width:768px) {
@@ -257,7 +295,7 @@
     /* ---- Hero ---- */
     .hero {
       padding: 56px 0 48px;
-      background: linear-gradient(170deg, rgba(7, 13, 24, 0.78) 0%, rgba(15, 27, 45, 0.72) 40%, rgba(22, 38, 64, 0.7) 100%), url('https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      background: linear-gradient(170deg, rgba(9, 9, 11, 0.78) 0%, rgba(9, 9, 11, 0.72) 40%, rgba(9, 9, 11, 0.7) 100%), url('https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
       color: #fff;
       position: relative;
       overflow: hidden;
@@ -271,7 +309,7 @@
       width: 400px;
       height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(29, 78, 216, 0.2) 0%, transparent 70%);
+      background: none;
     }
 
     .hero::after {
@@ -282,7 +320,7 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+      background: none;
     }
 
     .hero .container {
@@ -298,7 +336,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #93c5fd;
+      color: #a78bfa;
       margin-bottom: 14px;
     }
 
@@ -306,7 +344,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #22c55e;
+      background: #15803d;
       box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
       animation: heroPulse 1.5s ease-out infinite;
     }
@@ -317,8 +355,7 @@
       }
 
       70% {
-        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0)
-      }
+        box-shadow: 0 0 0 2px rgba(124, 58, 237, .35)}
 
       100% {
         box-shadow: 0 0 0 0 rgba(34, 197, 94, 0)
@@ -327,16 +364,16 @@
 
     .hero h1 {
       font-size: clamp(1.8rem, 4.5vw, 3rem);
-      font-weight: 800;
+      font-weight: 600;
       line-height: 1.1;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
       margin-bottom: 14px;
       max-width: 700px;
     }
 
     .hero h1 em {
       font-style: normal;
-      color: #60a5fa;
+      color: #a78bfa;
     }
 
     .hero-sub {
@@ -369,7 +406,7 @@
       height: 18px;
       flex-shrink: 0;
       fill: none;
-      stroke: #60a5fa;
+      stroke: #a78bfa;
       stroke-width: 2;
     }
 
@@ -384,19 +421,19 @@
       align-items: center;
       justify-content: center;
       padding: 13px 28px;
-      border-radius: 10px;
-      background: linear-gradient(180deg, #fff 0%, #f0f4ff 100%);
-      border: 1px solid #bfdbfe;
-      color: #1e40af;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid #ddd6fe;
+      color: #5b21b6;
       font-size: 14px;
       font-weight: 700;
-      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.18);
+      box-shadow: none;
       transition: transform .15s, box-shadow .15s;
     }
 
     .hero-btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(30, 64, 175, 0.24);
+      box-shadow: none;
     }
 
     .hero-btn-wa {
@@ -405,10 +442,10 @@
       justify-content: center;
       gap: 6px;
       padding: 13px 24px;
-      border-radius: 10px;
+      border-radius: 14px;
       background: rgba(34, 197, 94, 0.12);
       border: 1px solid rgba(34, 197, 94, 0.3);
-      color: #4ade80;
+      color: #86efac;
       font-size: 14px;
       font-weight: 700;
       transition: background .15s;
@@ -439,7 +476,7 @@
 
     .section-title {
       font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-      font-weight: 800;
+      font-weight: 600;
       color: var(--ink);
       text-align: center;
       margin-bottom: 6px;
@@ -477,21 +514,21 @@
     .why-card {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 24px;
       padding: 20px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      box-shadow: none;
       transition: transform .15s, box-shadow .15s;
     }
 
     .why-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      box-shadow: none;
     }
 
     .why-card-icon {
       width: 40px;
       height: 40px;
-      border-radius: 10px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
       margin-bottom: 12px;
@@ -505,19 +542,19 @@
     }
 
     .why-card-icon.blue {
-      background: #dbeafe;
+      background: #ede9fe;
     }
 
     .why-card-icon.blue svg {
-      stroke: #2563eb;
+      stroke: #7c3aed;
     }
 
     .why-card-icon.green {
-      background: #dcfce7;
+      background: #ede9fe;
     }
 
     .why-card-icon.green svg {
-      stroke: #16a34a;
+      stroke: #15803d;
     }
 
     .why-card-icon.purple {
@@ -529,19 +566,19 @@
     }
 
     .why-card-icon.amber {
-      background: #fef3c7;
+      background: #ede9fe;
     }
 
     .why-card-icon.amber svg {
-      stroke: #d97706;
+      stroke: #6d28d9;
     }
 
     .why-card-icon.sky {
-      background: #e0f2fe;
+      background: #ede9fe;
     }
 
     .why-card-icon.sky svg {
-      stroke: #0284c7;
+      stroke: #7c3aed;
     }
 
     .why-card-icon.rose {
@@ -581,7 +618,7 @@
       text-align: center;
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 18px 10px;
       transition: transform .15s;
     }
@@ -629,7 +666,7 @@
       background: var(--blue);
       color: #fff;
       font-size: 16px;
-      font-weight: 800;
+      font-weight: 600;
       display: inline-grid;
       place-items: center;
       margin-bottom: 12px;
@@ -654,10 +691,10 @@
 
     .lead-card {
       background: var(--white);
-      border: 1px solid #d9e5f3;
-      border-radius: 22px;
+      border: 1px solid #ececee;
+      border-radius: 32px;
       padding: 30px 26px;
-      box-shadow: 0 18px 36px rgba(15, 23, 42, .12);
+      box-shadow: none;
       max-width: 620px;
       margin: 0 auto;
     }
@@ -702,10 +739,10 @@
       width: 100%;
       padding: 11px 13px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       font-size: 14px;
       font-family: inherit;
-      background: #f9fafb;
+      background: #fafafa;
       transition: border-color .2s;
     }
 
@@ -719,21 +756,21 @@
     .form-submit {
       width: 100%;
       padding: 14px;
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      background: #7c3aed;
       color: #fff;
-      border: 1px solid #2563eb;
-      border-radius: 10px;
+      border: 1px solid #7c3aed;
+      border-radius: 14px;
       font-size: 15px;
       font-weight: 700;
       font-family: inherit;
       cursor: pointer;
-      box-shadow: 0 12px 20px rgba(59, 130, 246, .2);
+      box-shadow: none;
       transition: transform .2s, box-shadow .2s;
     }
 
     .form-submit:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 24px rgba(59, 130, 246, .26);
+      box-shadow: none;
     }
 
     .form-trust-row {
@@ -777,10 +814,10 @@
       height: 56px;
       margin-bottom: 14px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #dcfce7, #bbf7d0);
-      color: #166534;
+      background: #ede9fe;
+      color: #15803d;
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 600;
     }
 
     .lead-success h4 {
@@ -815,15 +852,15 @@
       justify-content: center;
       min-height: 48px;
       padding: 12px 16px;
-      border-radius: 12px;
+      border-radius: 14px;
       font-size: 14px;
       font-weight: 700;
     }
 
     .lead-success-action.call-now {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1d4ed8;
+      background: #ede9fe;
+      border: 1px solid #ddd6fe;
+      color: #7c3aed;
     }
 
     .lead-success-action.chat-now {
@@ -847,7 +884,7 @@
 
     .gallery-item {
       flex: 0 0 220px;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       height: 150px;
     }
@@ -874,12 +911,12 @@
     .review-card {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 24px;
       padding: 20px;
     }
 
     .review-stars {
-      color: #f59e0b;
+      color: #7c3aed;
       font-size: 14px;
       letter-spacing: 1px;
       margin-bottom: 8px;
@@ -909,7 +946,7 @@
 
     .faq-item {
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 14px;
       overflow: hidden;
       background: #fff;
     }
@@ -931,7 +968,7 @@
     }
 
     .faq-q:hover {
-      background: #f9fafb;
+      background: #fafafa;
     }
 
     .faq-icon {
@@ -961,7 +998,7 @@
     .loc-card {
       background: var(--navy);
       color: #fff;
-      border-radius: 16px;
+      border-radius: 24px;
       padding: 28px 22px;
       text-align: center;
     }
@@ -991,7 +1028,7 @@
       align-items: center;
       gap: 6px;
       padding: 10px 20px;
-      border-radius: 10px;
+      border-radius: 14px;
       font-size: 13px;
       font-weight: 700;
     }
@@ -1010,7 +1047,7 @@
     .loc-btn-wa {
       background: rgba(34, 197, 94, 0.15);
       border: 1px solid rgba(34, 197, 94, 0.3);
-      color: #4ade80;
+      color: #86efac;
     }
 
     /* ---- Mobile Sticky ---- */
@@ -1034,7 +1071,7 @@
       justify-content: center;
       gap: 6px;
       padding: 12px;
-      border-radius: 10px;
+      border-radius: 14px;
       font-size: 13px;
       font-weight: 700;
     }
@@ -1066,7 +1103,7 @@
   <link rel="stylesheet" href="css/mobile-base.css" />
 </head>
 
-</head>
+<body>
 
 
 
@@ -1265,7 +1302,7 @@
   <div class="container">
     <div class="lead-card">
       <h3>Get a Vehicle Storage Quote in 30 Seconds</h3>
-      <p class="form-sub"><strong style="color:#d97706;">Spaces filling fast!</strong> Fill out this quick form and our
+      <p class="form-sub"><strong style="color:#6d28d9;">Spaces filling fast!</strong> Fill out this quick form and our
         team will contact you within 15 minutes with a personalised quote.</p>
       <form id="reserveForm" action="#" onsubmit="return handleSubmit(event)">
         <div class="form-row">
@@ -1570,7 +1607,7 @@
                 <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z" />
               </svg></a>
             <a href="https://wa.me/971542249946" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
-              style="color:#22c55e;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);"><svg width="16"
+              style="color:#15803d;border-color:rgba(34,197,94,0.55);background:rgba(34,197,94,0.12);"><svg width="16"
                 height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
                 <path d="M20 12a8 8 0 0 1-11.8 7l-3.2 1 1-3.1A8 8 0 1 1 20 12Z" />
                 <path
