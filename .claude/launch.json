@@ -4,9 +4,25 @@
     {
       "name": "purplebox",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "C:/Users/LENOVO/Desktop/purplebox-pages", "--no-clipboard"],
+      "runtimeArgs": [
+        "serve",
+        "C:/Users/LENOVO/Desktop/purplebox-pages",
+        "--no-clipboard"
+      ],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--directory",
+        "C:/Users/LENOVO/Desktop/zulfiqar-portfolio"
+      ],
+      "port": 8765
     }
   ]
 }

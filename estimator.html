@@ -312,11 +312,8 @@
           stage: 1, tab: 'bundles', cat: 'all', search: '',
           lines: [], rooms: {}, openBundle: null,
           customName: '', customW: '', customD: '', customH: '',
-          weeks: 12, moveIn: '', exactDate: '', service: '',
           plan: null, planVersion: 0, selectedId: null, placeMsg: '', topView: false,
-          requestType: 'storage', formName: '', formPhone: '',
-          consentReply: false, consentFollow: false, formError: '',
-          submitted: false, requestRef: '', threeMissing: false
+          threeMissing: false
         };
       }
 
@@ -339,8 +336,6 @@
       byId(id) { this.items(); return Estimator.BY_ID[id]; }
 
       sizes() { return Estimator.SIZES.filter(s => s.sqft <= (this.props.maxSingleSqft ?? 250)); }
-      vat() { return Number(this.props.vatRate ?? 5); }
-      padlock() { return Number(this.props.padlockFee ?? 45); }
       waNumber() { return String(this.props.whatsappNumber ?? '971542249946').replace(/[^0-9]/g, ''); }
 
       track(ev, data) {
@@ -525,27 +520,7 @@
         return { units: units, requiredSqft: requiredSqft, footprint: footprint, combined: units.length > 1 };
       }
 
-      // ---------- quotation ----------
-      quote() {
-        const plan = this.state.plan;
-        if (!plan || !plan.units) return null;
-        const weeks = this.state.weeks;
-        const groups = {};
-        plan.units.forEach(u => { groups[u.size.sqft] = (groups[u.size.sqft] || 0) + 1; });
-        const comps = Object.keys(groups).map(Number).sort((a, b) => b - a).map(sqft => {
-          const size = Estimator.SIZES.find(s => s.sqft === sqft);
-          const weekly = size.rate4w / 4;
-          return { sqft: sqft, qty: groups[sqft], weekly: weekly, storage: weekly * weeks * groups[sqft] };
-        });
-        const storage = comps.reduce((a, c) => a + c.storage, 0);
-        const padlocks = plan.units.length;
-        const padlockTotal = padlocks * this.padlock();
-        const sub = storage + padlockTotal;
-        const vat = sub * this.vat() / 100;
-        return { comps: comps, storage: storage, padlocks: padlocks, padlockTotal: padlockTotal,
-          sub: sub, vat: vat, total: sub + vat, weeks: weeks };
-      }
-
+      // ---------- pricing ----------
       money(n) { return 'AED ' + Math.round(n).toLocaleString('en-US'); }
 
       offerLabel() {
@@ -586,14 +561,6 @@
           window.gsap.to(o, { v: target, duration: .9, ease: 'power2.out',
             onUpdate: () => { if (this.headlineEl) this.headlineEl.textContent = Math.round(o.v); },
             onComplete: () => { if (this.headlineEl) this.headlineEl.textContent = this.recHeadlineText(); } });
-        }
-        if (this.state.stage === 5 && prevState.stage !== 5 && window.gsap && this.totalEl) {
-          const q = this.quote();
-          if (q) {
-            const o = { v: 0 };
-            window.gsap.to(o, { v: q.total, duration: 1, ease: 'power2.out',
-              onUpdate: () => { if (this.totalEl) this.totalEl.textContent = this.money(o.v); } });
-          }
         }
         this.maybeBuild3D();
         if (this.state.topView !== prevState.topView) this.applyView();
@@ -784,41 +751,6 @@
           this.setState({ stage: 3, plan: plan, planVersion: this.state.planVersion + 1, selectedId: null, placeMsg: '' });
           return;
         }
-        if (s === 3) { this.setState({ stage: 4 }); return; }
-        if (s === 4) {
-          if (!this.state.moveIn) return;
-          this.track('quotation_viewed', { weeks: this.state.weeks });
-          this.track('availability_checked', { offer: this.offerLabel() });
-          this.setState({ stage: 5 }); return;
-        }
-        if (s === 5) { this.setState({ stage: 6 }); return; }
-        if (s === 6) this.submit();
-      }
-
-      submit() {
-        const st = this.state;
-        if (!st.formName.trim()) { this.setState({ formError: 'Please tell us your name so we know who to reply to.' }); return; }
-        if (st.formPhone.replace(/[^0-9]/g, '').length < 8) { this.setState({ formError: 'Please enter a valid WhatsApp number.' }); return; }
-        if (!st.consentReply) { this.setState({ formError: 'We need your permission to reply to this request.' }); return; }
-        const q = this.quote();
-        const ref = 'PB-' + Date.now().toString(36).toUpperCase().slice(-6);
-        const payload = { ref: ref, createdAt: new Date().toISOString(), requestType: st.requestType,
-          name: st.formName.trim(), whatsapp: st.formPhone.trim(),
-          consent: { reply: st.consentReply, followUp: st.consentFollow },
-          inventory: st.lines.map(l => ({ id: l.itemId, name: l.name, size: l.size, qty: l.qty, dims: l.dims, mode: l.mode, thickness: l.thickness })),
-          offer: this.offerLabel(), units: st.plan && st.plan.units ? st.plan.units.map(u => u.size.sqft) : [],
-          layoutEdited: !!(st.plan && st.plan.edited), splitValidated: false,
-          weeks: st.weeks, moveIn: st.moveIn, exactDate: st.exactDate, service: st.service,
-          quote: q ? { storage: q.storage, padlock: q.padlockTotal, vatPct: this.vat(), total: q.total, ratesApproved: !!this.props.ratesApproved } : null,
-          source: new URLSearchParams(location.search).get('src') || 'direct' };
-        try {
-          const key = 'pb_requests';
-          const all = JSON.parse(localStorage.getItem(key) || '[]');
-          if (!all.some(r => r.ref === ref)) all.push(payload);
-          localStorage.setItem(key, JSON.stringify(all));
-        } catch (e) { this.setState({ formError: 'We could not save your request. Your details are still here — please try again.' }); return; }
-        this.track('request_submitted', { ref: ref, type: st.requestType });
-        this.setState({ submitted: true, requestRef: ref, formError: '' });
       }
 
       recHeadlineText() {
@@ -827,25 +759,20 @@
         return plan.units.length > 1 ? this.offerTotalSqft() + '' : plan.units[0].size.sqft + '';
       }
 
-      waSummary() {
-        const st = this.state, q = this.quote();
-        const L = ['PurpleBox storage request ' + (st.requestRef || '(draft)'),
-          'Type: ' + (Estimator.REQUEST_TYPES.find(t => t[0] === st.requestType) || [, ''])[1],
-          'Offered: ' + this.offerLabel(), 'Duration: ' + st.weeks + ' weeks',
-          'Move-in: ' + (st.moveIn || 'not stated') + (st.exactDate ? ' (' + st.exactDate + ')' : ''),
-          'Items: ' + st.lines.reduce((a, l) => a + l.qty, 0) + ' pieces across ' + st.lines.length + ' lines'];
-        if (q) L.push('Draft total: ' + this.money(q.total) + ' incl. ' + this.vat() + '% VAT');
-        if (st.service) L.push('Moving: ' + st.service);
-        L.push('(Draft quotation — please confirm rates and availability.)');
-        return L.join('\n');
+      waMessage() {
+        const plan = this.state.plan;
+        const sqft = plan && plan.units ? this.offerTotalSqft() : 0;
+        return sqft
+          ? 'Hi, I used the size estimator and got a recommendation of ' + sqft + ' sq ft. Can you help me book?'
+          : 'Hi, I used the size estimator and would like help finding the right storage size.';
       }
 
       renderVals() {
         const st = this.state, S = this;
-        const purple = '#5B2BC9';
+        const purple = '#7c3aed';
         const card = 'background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:14px';
-        const cardSel = 'background:#fff;border:2px solid ' + purple + ';border-radius:18px;padding:13px;box-shadow:0 8px 24px rgba(91,43,201,.14)';
-        const titles = ['', 'Choose your belongings', 'Review items and dimensions', 'Your recommended storage', 'Duration and move-in', 'Quotation and availability', 'Submit your request'];
+        const cardSel = 'background:#fff;border:2px solid ' + purple + ';border-radius:18px;padding:13px;box-shadow:0 8px 24px rgba(124,58,237,.14)';
+        const titles = ['', 'Choose your belongings', 'Review items and dimensions', 'Your recommended storage'];
         const qty = st.lines.reduce((a, l) => a + l.qty, 0);
 
         const glyph = (dims, size) => {
@@ -858,9 +785,6 @@
 
         const pill = (on, extra) => 'display:flex;align-items:center;justify-content:center;height:38px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;flex:0 0 auto;' +
           (on ? 'background:' + purple + ';color:#fff;border:0;' : 'background:#fff;color:#4A4357;border:1px solid rgba(20,8,31,.16);') + (extra || '');
-        const radio = on => 'display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;font-size:15px;font-weight:600;' +
-          (on ? 'background:#F7F3FF;border:2px solid ' + purple + ';color:#14081F;' : 'background:#fff;border:1px solid rgba(20,8,31,.14);color:#14081F;');
-        const dot = on => 'width:20px;height:20px;border-radius:999px;flex:0 0 auto;' + (on ? 'background:' + purple + ';box-shadow:inset 0 0 0 4px #fff;' : 'background:transparent;border:2px solid rgba(20,8,31,.22);');
 
         const tabs = [['bundles', 'Whole property'], ['rooms', 'Rooms'], ['items', 'Items']].map(([k, label]) => ({
           label: label, onClick: () => this.setState({ tab: k }),
@@ -881,7 +805,7 @@
             summary: list.length + ' item types · ' + pieces + ' pieces suggested',
             preview: list.slice(0, 9).map(x => (x[2] > 1 ? x[2] + '× ' : '') + this.byId(x[0]).name),
             cardStyle: open ? cardSel : card,
-            iconStyle: 'width:44px;height:44px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-weight:700;font-size:15px;' +
+            iconStyle: "width:44px;height:44px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-weight:700;font-size:15px;" +
               (open ? 'background:' + purple + ';color:#fff;' : 'background:#F7F3FF;color:' + purple + ';'),
             checkStyle: 'width:26px;height:26px;border-radius:999px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;' +
               (open ? 'background:' + purple + ';color:#fff;' : 'background:#F1ECE1;color:transparent;'),
@@ -1029,58 +953,22 @@
           { label: '↓', onClick: () => this.nudge(0, 10, false) }
         ];
 
-        // stage 4
-        const weekOptions = [];
-        for (let w = 2; w <= 52; w++) weekOptions.push({ value: w, label: w + ' weeks' + (w === 4 ? ' (1 month)' : w === 13 ? ' (3 months)' : w === 26 ? ' (6 months)' : w === 52 ? ' (1 year)' : '') });
+        // stage 3 result CTA — price pulled from Estimator.SIZES, never invented
+        const ctaSqft = plan && plan.units ? this.offerTotalSqft() : 0;
+        const ctaPrice = plan && plan.units ? plan.units.reduce((a, u) => a + u.size.rate4w, 0) : 0;
+        const ctaPriceHint = ctaSqft && !plan.error ? 'From ' + this.money(ctaPrice) + ' for 4 weeks' : '';
 
-        // stage 5
-        const q = this.quote();
-        const qLineStyle = 'display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid rgba(20,8,31,.07)';
-        const quoteLines = [];
-        if (q) {
-          q.comps.forEach(c => quoteLines.push({
-            label: c.sqft + ' sq ft' + (c.qty > 1 ? ' × ' + c.qty : ''),
-            sub: this.money(c.weekly) + ' per week' + (this.props.ratesApproved ? '' : ' (draft rate)'),
-            value: this.money(c.storage), rowStyle: qLineStyle, labelStyle: 'font-size:14px;font-weight:600',
-            valueStyle: 'font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;flex:0 0 auto'
-          }));
-          quoteLines.push({ label: 'Selected duration', sub: '', value: q.weeks + ' weeks', rowStyle: qLineStyle, labelStyle: 'font-size:14px;color:#4A4357', valueStyle: 'font-size:14px;font-weight:600;flex:0 0 auto' });
-          quoteLines.push({ label: 'Discount', sub: 'No promotion is active for this duration', value: 'AED 0', rowStyle: qLineStyle, labelStyle: 'font-size:14px;color:#4A4357', valueStyle: 'font-size:14px;font-weight:600;flex:0 0 auto' });
-          quoteLines.push({ label: 'Padlock', sub: q.padlocks > 1 ? 'One per unit × ' + q.padlocks : 'One padlock', value: this.money(q.padlockTotal), rowStyle: qLineStyle, labelStyle: 'font-size:14px;color:#4A4357', valueStyle: 'font-size:14px;font-weight:600;flex:0 0 auto' });
-          quoteLines.push({ label: 'Moving and packing', sub: st.service && st.service !== 'I will move in myself' ? st.service + ' — quoted separately, excluded from this total' : 'Not requested', value: 'Excluded', rowStyle: qLineStyle, labelStyle: 'font-size:14px;color:#4A4357', valueStyle: 'font-size:13px;font-weight:600;color:#756E80;flex:0 0 auto' });
-          quoteLines.push({ label: 'Subtotal', sub: '', value: this.money(q.sub), rowStyle: qLineStyle, labelStyle: 'font-size:14px;font-weight:700', valueStyle: 'font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;flex:0 0 auto' });
-          quoteLines.push({ label: 'VAT ' + this.vat() + '%', sub: '', value: this.money(q.vat), rowStyle: qLineStyle.replace(';border-bottom:1px solid rgba(20,8,31,.07)', ''), labelStyle: 'font-size:14px;color:#4A4357', valueStyle: 'font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;flex:0 0 auto' });
-        }
-
-        const availabilityRows = plan && plan.units ? Object.entries(plan.units.reduce((a, u) => { a[u.size.sqft] = (a[u.size.sqft] || 0) + 1; return a; }, {}))
-          .map(([sqft, n]) => ({ label: sqft + ' sq ft × ' + n, value: 'Unknown — staff to confirm' })) : [];
-
-        const summaryRows = [
-          { label: 'Request type', value: (Estimator.REQUEST_TYPES.find(t => t[0] === st.requestType) || [, '—'])[1] },
-          { label: 'Offered storage', value: this.offerLabel() },
-          { label: 'Duration', value: st.weeks + ' weeks' },
-          { label: 'Move-in', value: (st.moveIn || '—') + (st.exactDate ? ' · ' + st.exactDate : '') },
-          { label: 'Inventory', value: st.lines.length + ' lines · ' + qty + ' pieces' },
-          { label: 'Moving help', value: st.service || 'Not requested' },
-          { label: 'Draft total', value: q ? this.money(q.total) : '—' }
-        ];
-
-        const ctaLabels = ['', 'Review my items →', 'Find my storage size →', 'Choose duration →', 'See my quotation →', 'Continue to request →', 'Submit my request'];
-        const ctaDisabled = (st.stage === 2 && !st.lines.length) || (st.stage === 4 && !st.moveIn) || (st.stage === 3 && plan && plan.error);
-        const ctaHint = st.stage === 2 && !st.lines.length ? 'Add at least one item to continue'
-          : st.stage === 4 && !st.moveIn ? 'Choose when you plan to move in'
-          : st.stage === 3 && plan && plan.error ? 'Our team will size this one manually — message us on WhatsApp'
-          : st.stage === 6 ? 'We reply on WhatsApp. No payment is taken here.' : '';
+        const ctaLabels = ['', 'Review my items →', 'Find my storage size →'];
+        const ctaDisabled = (st.stage === 2 && !st.lines.length);
+        const ctaHint = st.stage === 2 && !st.lines.length ? 'Add at least one item to continue' : '';
 
         return {
-          stage: st.stage, stageTitle: titles[st.stage], canGoBack: st.stage > 1 && !st.submitted,
-          steps: [1, 2, 3, 4, 5, 6].map(n => ({ barStyle: 'flex:1;height:4px;border-radius:999px;display:block;background:' + (n <= st.stage ? purple : 'rgba(20,8,31,.12)') })),
+          stage: st.stage, stageTitle: titles[st.stage], canGoBack: st.stage > 1,
+          steps: [1, 2, 3].map(n => ({ barStyle: 'flex:1;height:4px;border-radius:999px;display:block;background:' + (n <= st.stage ? purple : 'rgba(20,8,31,.12)') })),
           goBack: () => this.setState({ stage: Math.max(1, st.stage - 1), placeMsg: '' }),
           isStage1: st.stage === 1, isStage2: st.stage === 2, isStage3: st.stage === 3,
-          isStage4: st.stage === 4, isStage5: st.stage === 5, isStage6: st.stage === 6,
           stageRef: el => { this.stageEl = el; },
           headlineRef: el => { this.headlineEl = el; },
-          totalRef: el => { this.totalEl = el; },
           canvasRef: el => { this.canvasEl = el; if (el) this.maybeBuild3D(); },
 
           tabs: tabs, tabBundles: st.tab === 'bundles', tabRooms: st.tab === 'rooms', tabItems: st.tab === 'items',
@@ -1107,39 +995,15 @@
           viewerBtns: viewerBtns, moveBtns: moveBtns, placeMsg: st.placeMsg,
           selectedName: selMesh ? selMesh.userData.name + (selMesh.userData.count > 1 ? ' × ' + selMesh.userData.count : '') : '',
 
-          weeks: st.weeks, weekOptions: weekOptions, onWeeks: e => this.setState({ weeks: Number(e.target.value), plan: st.plan }),
-          weeksNote: st.weeks + ' weeks' + (st.weeks % 4 === 0 ? ' is about ' + (st.weeks / 4) + ' month' + (st.weeks / 4 > 1 ? 's' : '') : '') + '. Rates are calculated weekly from the approved rate card.',
-          moveOptions: Estimator.MOVE_OPTIONS.map(label => ({ label: label, onClick: () => this.setState({ moveIn: label }), style: radio(st.moveIn === label), dotStyle: dot(st.moveIn === label) })),
-          serviceOptions: Estimator.SERVICE_OPTIONS.map(label => ({ label: label, onClick: () => this.setState({ service: label }), style: radio(st.service === label), dotStyle: dot(st.service === label) })),
-          exactDate: st.exactDate, onExactDate: e => this.setState({ exactDate: e.target.value }),
-
-          showDraftBanner: !this.props.ratesApproved,
-          quoteTitle: this.offerLabel(), quoteSubtitle: (plan && plan.units && plan.units.length > 1 ? 'Combined offer · ' : 'Single unit · ') + st.weeks + ' weeks in Al Quoz 2',
-          quoteLines: quoteLines, quoteTotal: q ? this.money(q.total) : '—',
-          availabilityNote: 'Live inventory is not connected to this estimator. Our team confirms whether ' + this.offerLabel() + ' is free for your move-in date' + (st.exactDate ? ' of ' + st.exactDate : '') + '.',
-          availabilityRows: availabilityRows,
-
-          requestTypes: Estimator.REQUEST_TYPES.map(([k, label, note]) => ({
-            key: k, label: label, note: note, onClick: () => this.setState({ requestType: k }),
-            style: radio(st.requestType === k) + 'align-items:flex-start;', dotStyle: dot(st.requestType === k) + 'margin-top:4px;'
-          })),
-          formName: st.formName, formPhone: st.formPhone, formError: st.formError,
-          consentReply: st.consentReply, consentFollow: st.consentFollow,
-          onFormName: e => this.setState({ formName: e.target.value, formError: '' }),
-          onFormPhone: e => this.setState({ formPhone: e.target.value, formError: '' }),
-          onConsentReply: e => this.setState({ consentReply: e.target.checked, formError: '' }),
-          onConsentFollow: e => this.setState({ consentFollow: e.target.checked }),
-          summaryRows: summaryRows, submitted: st.submitted, notSubmitted: !st.submitted,
-          requestRef: st.requestRef,
-          handoffNote: 'This opens WhatsApp with your summary ready to send — nothing is sent automatically. Your request is stored on this device in this preview build; connect a server API to save it for staff.',
           waHelpLink: 'https://wa.me/' + this.waNumber(),
-          waHandoffLink: 'https://wa.me/' + this.waNumber() + '?text=' + encodeURIComponent(this.waSummary()),
-          restart: () => this.setState({ stage: 1, lines: [], rooms: {}, plan: null, submitted: false, requestRef: '', formName: '', formPhone: '', consentReply: false, consentFollow: false, moveIn: '', exactDate: '', service: '' }),
+          bookHref: 'book-unit.html',
+          resultWaLink: 'https://wa.me/' + this.waNumber() + '?text=' + encodeURIComponent(this.waMessage()),
+          ctaPriceHint: ctaPriceHint, stage3Error: !!(plan && plan.error),
 
-          showCta: !(st.stage === 6 && st.submitted), ctaLabel: ctaLabels[st.stage], ctaHint: ctaHint,
+          showCta: true, ctaLabel: ctaLabels[st.stage], ctaHint: ctaHint,
           onCta: () => { if (!ctaDisabled) this.next(); },
           ctaStyle: 'display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:56px;border:0;border-radius:999px;font-size:16px;font-weight:700;cursor:' + (ctaDisabled ? 'not-allowed' : 'pointer') + ';' +
-            (ctaDisabled ? 'background:#DDD0FF;color:#fff;' : 'background:' + purple + ';color:#fff;box-shadow:0 10px 28px rgba(91,43,201,.3);')
+            (ctaDisabled ? 'background:#DDD0FF;color:#fff;' : 'background:' + purple + ';color:#fff;box-shadow:0 10px 28px rgba(124,58,237,.3);')
         };
       }
 
@@ -1152,14 +1016,14 @@
               <div style={sx('position:sticky;top:0;z-index:20;background:rgba(251,248,242,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(20,8,31,.10)')}>
                 <div style={sx('display:flex;align-items:center;justify-content:space-between;padding:14px 18px 10px')}>
                   <div style={sx('display:flex;align-items:center;gap:9px')}>
-                    <span style={sx('width:30px;height:30px;border-radius:8px;background:#5B2BC9;display:block;position:relative;box-shadow:0 4px 14px rgba(91,43,201,.35)')}>
+                    <span style={sx('width:30px;height:30px;border-radius:8px;background:#7c3aed;display:block;position:relative;box-shadow:0 4px 14px rgba(124,58,237,.35)')}>
                       <span style={sx('position:absolute;inset:6px;border:2px solid rgba(255,255,255,.9);border-radius:3px;display:block')}></span>
                       <span style={sx('position:absolute;left:6px;right:6px;top:14px;height:2px;background:rgba(255,255,255,.9);display:block')}></span>
                     </span>
-                    <span style={sx("font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-weight:700;font-size:19px;letter-spacing:0")}>PurpleBox<span style={sx('color:#5B2BC9')}>.</span></span>
+                    <span style={sx("font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-weight:700;font-size:19px;letter-spacing:0")}>PurpleBox<span style={sx('color:#7c3aed')}>.</span></span>
                   </div>
                   <div style={sx('display:flex;align-items:center;gap:10px')}>
-                    <span style={sx('font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#756E80')}>Step {v.stage}/6</span>
+                    <span style={sx('font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#756E80')}>Step {v.stage}/3</span>
                     <a href={v.waHelpLink} target="_blank" rel="noopener noreferrer" style={sx('display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;background:#25D366;color:#fff;font-size:12px;font-weight:600')}>Ask us</a>
                   </div>
                 </div>
@@ -1204,13 +1068,13 @@
                                   <React.Fragment>
                                     <p style={sx('margin:0 0 8px;font-size:12px;font-weight:600;color:#14081F')}>You already have {v.lineCount} item lines. Choose how to apply this bundle:</p>
                                     <div style={sx('display:flex;gap:8px')}>
-                                      <button onClick={b.onMerge} style={sx('flex:1;height:48px;border:1px solid #5B2BC9;background:#fff;color:#4A1FA0;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer')}>Add to my list</button>
-                                      <button onClick={b.onReplace} style={sx('flex:1;height:48px;border:0;background:#5B2BC9;color:#fff;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer')}>Replace my list</button>
+                                      <button onClick={b.onMerge} style={sx('flex:1;height:48px;border:1px solid #7c3aed;background:#fff;color:#4A1FA0;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer')}>Add to my list</button>
+                                      <button onClick={b.onReplace} style={sx('flex:1;height:48px;border:0;background:#7c3aed;color:#fff;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer')}>Replace my list</button>
                                     </div>
                                   </React.Fragment>
                                 )}
                                 {v.noLines && (
-                                  <button onClick={b.onReplace} style={sx('display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:54px;border:0;border-radius:999px;background:#5B2BC9;color:#fff;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(91,43,201,.28)')}>Use this bundle &amp; review items →</button>
+                                  <button onClick={b.onReplace} style={sx('display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:54px;border:0;border-radius:999px;background:#7c3aed;color:#fff;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(124,58,237,.28)')}>Use this bundle &amp; review items →</button>
                                 )}
                               </div>
                             )}
@@ -1233,11 +1097,11 @@
                                 <span style={sx('display:flex;align-items:center;gap:2px;background:#F7F3FF;border:1px solid #DDD0FF;border-radius:999px;padding:3px')}>
                                   <button onClick={r.onMinus} style={sx('width:36px;height:36px;border:0;background:#fff;color:#4A1FA0;border-radius:999px;font-size:18px;font-weight:700;cursor:pointer')}>−</button>
                                   <span style={sx('min-width:26px;text-align:center;font-size:15px;font-weight:700;color:#4A1FA0')}>{r.count}</span>
-                                  <button onClick={r.onPlus} style={sx('width:36px;height:36px;border:0;background:#5B2BC9;color:#fff;border-radius:999px;font-size:18px;font-weight:700;cursor:pointer')}>+</button>
+                                  <button onClick={r.onPlus} style={sx('width:36px;height:36px;border:0;background:#7c3aed;color:#fff;border-radius:999px;font-size:18px;font-weight:700;cursor:pointer')}>+</button>
                                 </span>
                               )}
                               {r.notAdded && (
-                                <button onClick={r.onPlus} style={sx('height:42px;padding:0 18px;border:1px solid #5B2BC9;background:#fff;color:#4A1FA0;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;flex:0 0 auto')}>Add</button>
+                                <button onClick={r.onPlus} style={sx('height:42px;padding:0 18px;border:1px solid #7c3aed;background:#fff;color:#4A1FA0;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;flex:0 0 auto')}>Add</button>
                               )}
                             </div>
                           ))}
@@ -1260,7 +1124,7 @@
                                   <span style={sx('display:block;font-size:15px;font-weight:700;letter-spacing:0')}>{it.name}</span>
                                   <span style={sx('display:block;font-size:11px;color:#756E80;margin-top:2px')}>{it.note}</span>
                                 </span>
-                                {it.selected && <span style={sx('display:flex;align-items:center;gap:5px;background:#5B2BC9;color:#fff;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700;flex:0 0 auto')}>✓ Selected · {it.qty}</span>}
+                                {it.selected && <span style={sx('display:flex;align-items:center;gap:5px;background:#7c3aed;color:#fff;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700;flex:0 0 auto')}>✓ Selected · {it.qty}</span>}
                               </div>
                               <div style={sx('display:flex;flex-direction:column;gap:6px;margin-top:11px')}>
                                 {it.sizes.map(sz => (
@@ -1273,7 +1137,7 @@
                                       <span style={sx('display:flex;align-items:center;gap:2px;flex:0 0 auto')}>
                                         <button onClick={sz.onMinus} style={sx('width:34px;height:34px;border:1px solid #DDD0FF;background:#fff;color:#4A1FA0;border-radius:999px;font-size:17px;font-weight:700;cursor:pointer')}>−</button>
                                         <span style={sx('min-width:24px;text-align:center;font-size:14px;font-weight:700;color:#4A1FA0')}>{sz.qty}</span>
-                                        <button onClick={sz.onPlus} style={sx('width:34px;height:34px;border:0;background:#5B2BC9;color:#fff;border-radius:999px;font-size:17px;font-weight:700;cursor:pointer')}>+</button>
+                                        <button onClick={sz.onPlus} style={sx('width:34px;height:34px;border:0;background:#7c3aed;color:#fff;border-radius:999px;font-size:17px;font-weight:700;cursor:pointer')}>+</button>
                                       </span>
                                     )}
                                     {sz.none && (
@@ -1286,7 +1150,7 @@
                           ))}
                         </div>
 
-                        <div style={sx('margin-top:18px;background:#fff;border:1px dashed rgba(91,43,201,.4);border-radius:18px;padding:16px')}>
+                        <div style={sx('margin-top:18px;background:#fff;border:1px dashed rgba(124,58,237,.4);border-radius:18px;padding:16px')}>
                           <p style={sx('margin:0 0 12px;font-size:14px;font-weight:700')}>Something not listed?</p>
                           <input value={v.customName} onChange={v.onCustomName} placeholder="Item name" style={sx('width:100%;height:46px;border:1px solid rgba(20,8,31,.16);border-radius:12px;padding:0 14px;font-size:14px;background:#f4f4f5;margin-bottom:8px')} />
                           <div style={sx('display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px')}>
@@ -1294,7 +1158,7 @@
                             <input value={v.customD} onChange={v.onCustomD} type="number" placeholder="D cm" style={sx('height:46px;border:1px solid rgba(20,8,31,.16);border-radius:12px;padding:0 12px;font-size:14px;background:#f4f4f5;min-width:0')} />
                             <input value={v.customH} onChange={v.onCustomH} type="number" placeholder="H cm" style={sx('height:46px;border:1px solid rgba(20,8,31,.16);border-radius:12px;padding:0 12px;font-size:14px;background:#f4f4f5;min-width:0')} />
                           </div>
-                          <button onClick={v.addCustom} style={sx('width:100%;height:48px;border:1px solid #5B2BC9;background:#F7F3FF;color:#4A1FA0;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer')}>Add custom item</button>
+                          <button onClick={v.addCustom} style={sx('width:100%;height:48px;border:1px solid #7c3aed;background:#F7F3FF;color:#4A1FA0;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer')}>Add custom item</button>
                         </div>
                       </div>
                     )}
@@ -1307,7 +1171,7 @@
                       <div style={sx('background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:28px 20px;text-align:center')}>
                         <p style={sx('margin:0 0 6px;font-size:16px;font-weight:700')}>Your list is empty</p>
                         <p style={sx('margin:0 0 18px;font-size:14px;color:#4A4357;line-height:1.5')}>Add a bundle, a room or individual items before we size your storage.</p>
-                        <button onClick={v.goBack} style={sx('height:50px;padding:0 24px;border:0;background:#5B2BC9;color:#fff;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer')}>Choose belongings</button>
+                        <button onClick={v.goBack} style={sx('height:50px;padding:0 24px;border:0;background:#7c3aed;color:#fff;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer')}>Choose belongings</button>
                       </div>
                     )}
 
@@ -1327,7 +1191,7 @@
                             <span style={sx('display:flex;align-items:center;gap:2px;background:#F7F3FF;border:1px solid #DDD0FF;border-radius:999px;padding:3px')}>
                               <button onClick={r.onMinus} style={sx('width:34px;height:34px;border:0;background:#fff;color:#4A1FA0;border-radius:999px;font-size:17px;font-weight:700;cursor:pointer')}>−</button>
                               <span style={sx('min-width:34px;text-align:center;font-size:14px;font-weight:700;color:#4A1FA0')}>× {r.qty}</span>
-                              <button onClick={r.onPlus} style={sx('width:34px;height:34px;border:0;background:#5B2BC9;color:#fff;border-radius:999px;font-size:17px;font-weight:700;cursor:pointer')}>+</button>
+                              <button onClick={r.onPlus} style={sx('width:34px;height:34px;border:0;background:#7c3aed;color:#fff;border-radius:999px;font-size:17px;font-weight:700;cursor:pointer')}>+</button>
                             </span>
                             <span style={sx('display:flex;gap:4px')}>
                               {r.sizeBtns.map(sb => <button key={sb.key} onClick={sb.onClick} style={sx(sb.style)}>{sb.label}</button>)}
@@ -1369,7 +1233,7 @@
                       <div style={sx('margin-top:16px;display:flex;flex-direction:column;gap:10px')}>
                         <div style={sx('display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:14px;padding:13px 15px')}>
                           <span style={sx('font-size:13px;color:#4A4357')}>{v.lineCount} lines · {v.totalPieces} pieces</span>
-                          <button onClick={v.addMore} style={sx('height:36px;padding:0 14px;border:1px solid #5B2BC9;background:#F7F3FF;color:#4A1FA0;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer')}>+ Add more</button>
+                          <button onClick={v.addMore} style={sx('height:36px;padding:0 14px;border:1px solid #7c3aed;background:#F7F3FF;color:#4A1FA0;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer')}>+ Add more</button>
                         </div>
                         <div style={sx('background:#F6F0E4;border:1px solid rgba(20,8,31,.10);border-radius:14px;padding:14px 15px')}>
                           <p style={sx('margin:0 0 6px;font-size:13px;font-weight:700')}>What we cannot store</p>
@@ -1384,7 +1248,7 @@
 
                 {v.isStage3 && (
                   <div>
-                    <div style={sx('background:#5B2BC9;border-radius:22px;padding:22px;color:#fff;position:relative;overflow:hidden')}>
+                    <div style={sx('background:#7c3aed;border-radius:22px;padding:22px;color:#fff;position:relative;overflow:hidden')}>
                       <span style={sx('font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#DDD0FF')}>Recommended for your items</span>
                       <div style={sx('display:flex;align-items:flex-end;gap:8px;margin-top:10px')}>
                         <span ref={v.headlineRef} style={sx("font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-weight:800;font-size:44px;line-height:1;letter-spacing:0")}>{v.recHeadline}</span>
@@ -1436,179 +1300,26 @@
                   </div>
                 )}
 
-                {v.isStage4 && (
-                  <div>
-                    <div style={sx('background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:18px')}>
-                      <p style={sx("margin:0 0 4px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:19px;font-weight:700;letter-spacing:0")}>How long do you need your storage?</p>
-                      <p style={sx('margin:0 0 14px;font-size:13px;color:#756E80')}>Any whole number of weeks from 2 to 52. You can extend later.</p>
-                      <select value={v.weeks} onChange={v.onWeeks} style={sx('width:100%;height:54px;border:1px solid rgba(20,8,31,.16);border-radius:14px;padding:0 14px;font-size:16px;font-weight:600;background:#f4f4f5;color:#14081F;appearance:none')}>
-                        {v.weekOptions.map(w => <option key={w.value} value={w.value}>{w.label}</option>)}
-                      </select>
-                      <p style={sx('margin:10px 0 0;font-size:12px;color:#4A4357')}>{v.weeksNote}</p>
-                    </div>
-
-                    <div style={sx('margin-top:12px;background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:18px')}>
-                      <p style={sx("margin:0 0 4px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:19px;font-weight:700;letter-spacing:0")}>When do you plan to move in?</p>
-                      <p style={sx('margin:0 0 14px;font-size:13px;color:#756E80')}>This helps us hold the right unit ready for you.</p>
-                      <div style={sx('display:flex;flex-direction:column;gap:7px')}>
-                        {v.moveOptions.map((m, i) => (
-                          <button key={i} onClick={m.onClick} style={sx(m.style)}>
-                            <span style={sx('flex:1;text-align:left')}>{m.label}</span>
-                            <span style={sx(m.dotStyle)}></span>
-                          </button>
-                        ))}
-                      </div>
-                      <label style={sx('display:block;margin-top:14px')}>
-                        <span style={sx('display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#756E80;margin-bottom:6px')}>Exact date (optional)</span>
-                        <input value={v.exactDate} onChange={v.onExactDate} type="date" style={sx('width:100%;height:48px;border:1px solid rgba(20,8,31,.16);border-radius:13px;padding:0 14px;font-size:15px;background:#f4f4f5;color:#14081F')} />
-                      </label>
-                    </div>
-
-                    <div style={sx('margin-top:12px;background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:18px')}>
-                      <p style={sx('margin:0 0 12px;font-size:14px;font-weight:700')}>Do you need help moving in?</p>
-                      <div style={sx('display:flex;flex-direction:column;gap:7px')}>
-                        {v.serviceOptions.map((s, i) => (
-                          <button key={i} onClick={s.onClick} style={sx(s.style)}>
-                            <span style={sx('flex:1;text-align:left')}>{s.label}</span>
-                            <span style={sx(s.dotStyle)}></span>
-                          </button>
-                        ))}
-                      </div>
-                      <p style={sx('margin:10px 0 0;font-size:11px;color:#756E80;line-height:1.5')}>Moving and packing are quoted separately by our team and are not included in the storage total.</p>
-                    </div>
-                  </div>
-                )}
-
-                {v.isStage5 && (
-                  <div>
-                    {v.showDraftBanner && <p style={sx('margin:0 0 12px;font-size:12px;font-weight:600;color:#7A4A00;background:#FFF6E5;border:1px solid #F5D89B;border-radius:12px;padding:11px 13px;line-height:1.5')}>Draft rates. These figures are placeholders until PurpleBox approves the rate card — your final quotation is confirmed by our team.</p>}
-
-                    <div style={sx('background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:20px;overflow:hidden')}>
-                      <div style={sx('padding:18px;border-bottom:1px solid rgba(20,8,31,.08)')}>
-                        <span style={sx('font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#756E80')}>Your quotation</span>
-                        <p style={sx("margin:8px 0 0;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:24px;font-weight:700;letter-spacing:0")}>{v.quoteTitle}</p>
-                        <p style={sx('margin:4px 0 0;font-size:13px;color:#4A4357')}>{v.quoteSubtitle}</p>
-                      </div>
-                      <div style={sx('padding:6px 18px 12px')}>
-                        {v.quoteLines.map((q, i) => (
-                          <div key={i} style={sx(q.rowStyle)}>
-                            <span style={sx('flex:1;min-width:0')}>
-                              <span style={sx(q.labelStyle)}>{q.label}</span>
-                              {q.sub && <span style={sx('display:block;font-size:11px;color:#756E80;margin-top:2px')}>{q.sub}</span>}
-                            </span>
-                            <span style={sx(q.valueStyle)}>{q.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div style={sx('padding:16px 18px;background:#5B2BC9;color:#fff;display:flex;align-items:center;justify-content:space-between')}>
-                        <span style={sx('font-size:14px;font-weight:600')}>Total for {v.weeks} weeks</span>
-                        <span ref={v.totalRef} style={sx("font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:26px;font-weight:800;letter-spacing:0;font-variant-numeric:tabular-nums")}>{v.quoteTotal}</span>
-                      </div>
-                    </div>
-
-                    <div style={sx('margin-top:12px;background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:16px')}>
-                      <div style={sx('display:flex;align-items:center;gap:9px')}>
-                        <span style={sx('width:9px;height:9px;border-radius:999px;background:#E9A23B;animation:pbpulse 2s ease-in-out infinite;flex:0 0 auto')}></span>
-                        <span style={sx('font-size:14px;font-weight:700')}>Availability: to be confirmed</span>
-                      </div>
-                      <p style={sx('margin:9px 0 0;font-size:12px;color:#4A4357;line-height:1.55')}>{v.availabilityNote}</p>
-                      {v.availabilityRows.map((a, i) => (
-                        <div key={i} style={sx('display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid rgba(20,8,31,.07)')}>
-                          <span style={sx('font-size:12px;color:#4A4357')}>{a.label}</span>
-                          <span style={sx('font-size:12px;font-weight:700;color:#7A4A00')}>{a.value}</span>
-                        </div>
-                      ))}
-                      <p style={sx('margin:9px 0 0;font-size:11px;color:#756E80;line-height:1.5')}>Submitting a request does not reserve a unit. Current stock is not a guarantee of future availability.</p>
-                    </div>
-
-                    <div style={sx('margin-top:12px;background:#F6F0E4;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:16px')}>
-                      <p style={sx('margin:0 0 8px;font-size:13px;font-weight:700')}>Not included in this total</p>
-                      <p style={sx('margin:0;font-size:12px;color:#4A4357;line-height:1.55')}>Moving, packing materials and any staff-approved exception are quoted separately. Payment terms are agreed with our team — the duration above is the rental period, not a payment schedule.</p>
-                    </div>
-                  </div>
-                )}
-
-                {v.isStage6 && (
-                  <div>
-                    {v.notSubmitted && (
-                      <div>
-                        <p style={sx('margin:0 0 12px;font-size:14px;color:#4A4357;line-height:1.5')}>Tell us what you would like to do next. A PurpleBox team member replies on WhatsApp.</p>
-                        <div style={sx('display:flex;flex-direction:column;gap:8px;margin-bottom:14px')}>
-                          {v.requestTypes.map(t => (
-                            <button key={t.key} onClick={t.onClick} style={sx(t.style)}>
-                              <span style={sx('flex:1;text-align:left')}>
-                                <span style={sx('display:block;font-size:15px;font-weight:700')}>{t.label}</span>
-                                <span style={sx('display:block;font-size:12px;color:#756E80;margin-top:2px')}>{t.note}</span>
-                              </span>
-                              <span style={sx(t.dotStyle)}></span>
-                            </button>
-                          ))}
-                        </div>
-
-                        <div style={sx('background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:18px')}>
-                          <label style={sx('display:block;margin-bottom:12px')}>
-                            <span style={sx('display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#756E80;margin-bottom:6px')}>Your name</span>
-                            <input value={v.formName} onChange={v.onFormName} style={sx('width:100%;height:50px;border:1px solid rgba(20,8,31,.16);border-radius:13px;padding:0 14px;font-size:15px;background:#f4f4f5')} />
-                          </label>
-                          <label style={sx('display:block;margin-bottom:14px')}>
-                            <span style={sx('display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#756E80;margin-bottom:6px')}>WhatsApp number</span>
-                            <input value={v.formPhone} onChange={v.onFormPhone} type="tel" placeholder="+971 5X XXX XXXX" style={sx('width:100%;height:50px;border:1px solid rgba(20,8,31,.16);border-radius:13px;padding:0 14px;font-size:15px;background:#f4f4f5')} />
-                          </label>
-                          <label style={sx('display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;cursor:pointer')}>
-                            <input checked={v.consentReply} onChange={v.onConsentReply} type="checkbox" style={sx('width:22px;height:22px;accent-color:#5B2BC9;margin:1px 0 0;flex:0 0 auto')} />
-                            <span style={sx('font-size:13px;color:#4A4357;line-height:1.45')}>Yes, PurpleBox may contact me on WhatsApp about this request.</span>
-                          </label>
-                          <label style={sx('display:flex;gap:10px;align-items:flex-start;cursor:pointer')}>
-                            <input checked={v.consentFollow} onChange={v.onConsentFollow} type="checkbox" style={sx('width:22px;height:22px;accent-color:#5B2BC9;margin:1px 0 0;flex:0 0 auto')} />
-                            <span style={sx('font-size:13px;color:#4A4357;line-height:1.45')}>Optional: send me occasional offers and follow-ups. I can opt out any time.</span>
-                          </label>
-                          {v.formError && <p style={sx('margin:12px 0 0;font-size:12px;font-weight:600;color:#B42318;background:#FEF3F2;border-radius:10px;padding:9px 11px')}>{v.formError}</p>}
-                        </div>
-
-                        <div style={sx('margin-top:12px;background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:16px')}>
-                          <p style={sx('margin:0 0 10px;font-size:13px;font-weight:700')}>Request summary</p>
-                          {v.summaryRows.map((s, i) => (
-                            <div key={i} style={sx('display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid rgba(20,8,31,.07)')}>
-                              <span style={sx('font-size:12px;color:#4A4357')}>{s.label}</span>
-                              <span style={sx('font-size:12px;font-weight:700;text-align:right')}>{s.value}</span>
-                            </div>
-                          ))}
-                          <p style={sx('margin:10px 0 0;font-size:11px;color:#756E80;line-height:1.5')}>No card details are collected here. Nothing is charged and no unit is reserved by this request.</p>
-                        </div>
-                      </div>
-                    )}
-
-                    {v.submitted && (
-                      <div>
-                        <div style={sx('background:#5B2BC9;border-radius:22px;padding:24px;color:#fff')}>
-                          <span style={sx('display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.16);font-size:20px')}>✓</span>
-                          <p style={sx("margin:14px 0 0;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:24px;font-weight:700;letter-spacing:0")}>Request saved</p>
-                          <p style={sx('margin:8px 0 0;font-size:14px;color:rgba(255,255,255,.88);line-height:1.5')}>Your reference is <span style={sx('font-weight:700;font-variant-numeric:tabular-nums')}>{v.requestRef}</span>. Keep it handy — quote it in any message to us.</p>
-                          <a href={v.waHandoffLink} target="_blank" rel="noopener noreferrer" style={sx('display:flex;align-items:center;justify-content:center;gap:8px;height:54px;margin-top:18px;border-radius:999px;background:#25D366;color:#fff;font-size:16px;font-weight:700')}>Send my summary on WhatsApp</a>
-                          <p style={sx('margin:10px 0 0;font-size:11px;color:rgba(255,255,255,.75);line-height:1.5')}>{v.handoffNote}</p>
-                        </div>
-                        <div style={sx('margin-top:12px;background:#fff;border:1px solid rgba(20,8,31,.10);border-radius:18px;padding:16px')}>
-                          <p style={sx('margin:0 0 10px;font-size:13px;font-weight:700')}>What we saved</p>
-                          {v.summaryRows.map((s, i) => (
-                            <div key={i} style={sx('display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid rgba(20,8,31,.07)')}>
-                              <span style={sx('font-size:12px;color:#4A4357')}>{s.label}</span>
-                              <span style={sx('font-size:12px;font-weight:700;text-align:right')}>{s.value}</span>
-                            </div>
-                          ))}
-                        </div>
-                        <button onClick={v.restart} style={sx('width:100%;height:50px;margin-top:12px;border:1px solid rgba(20,8,31,.16);background:transparent;color:#4A4357;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer')}>Start another estimate</button>
-                      </div>
-                    )}
-                  </div>
-                )}
 
               </div>
 
               {v.showCta && (
                 <div style={sx('position:fixed;bottom:0;left:0;right:0;z-index:30;display:flex;justify-content:center;pointer-events:none')}>
                   <div style={sx('width:100%;max-width:560px;padding:14px 18px 18px;background:linear-gradient(to top,#f4f4f5 55%,rgba(244,244,245,0));pointer-events:auto')}>
-                    {v.ctaHint && <p style={sx('margin:0 0 8px;font-size:12px;color:#756E80;text-align:center')}>{v.ctaHint}</p>}
-                    <button onClick={v.onCta} style={sx(v.ctaStyle)}>{v.ctaLabel}</button>
+                    {v.isStage3 ? (
+                      <div>
+                        {v.ctaPriceHint && <p style={sx('margin:0 0 8px;font-size:12px;color:#756E80;text-align:center')}>{v.ctaPriceHint}</p>}
+                        <div style={sx('display:flex;gap:8px')}>
+                          {!v.stage3Error && <a href={v.bookHref} style={sx('flex:1;display:flex;align-items:center;justify-content:center;height:56px;border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;background:#7c3aed;color:#fff;box-shadow:0 10px 28px rgba(124,58,237,.3)')}>Book this unit size</a>}
+                          <a href={v.resultWaLink} target="_blank" rel="noopener noreferrer" style={sx('flex:1;display:flex;align-items:center;justify-content:center;height:56px;border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;' + (v.stage3Error ? 'background:#7c3aed;color:#fff;box-shadow:0 10px 28px rgba(124,58,237,.3)' : 'background:#fff;color:#4A1FA0;border:1px solid #7c3aed'))}>Ask on WhatsApp</a>
+                        </div>
+                      </div>
+                    ) : (
+                      <React.Fragment>
+                        {v.ctaHint && <p style={sx('margin:0 0 8px;font-size:12px;color:#756E80;text-align:center')}>{v.ctaHint}</p>}
+                        <button onClick={v.onCta} style={sx(v.ctaStyle)}>{v.ctaLabel}</button>
+                      </React.Fragment>
+                    )}
                   </div>
                 </div>
               )}
@@ -1763,13 +1474,9 @@ tv_box|Flat-screen box|boxes|120,20,80|140,25,95|170,30,110|UF
 
     Estimator.CATS = [['all','All'],['bedroom','Bedroom'],['living','Living'],['dining','Dining'],['appliances','Appliances'],['villa','Villa & garden'],['business','Business'],['boxes','Boxes']];
 
-    Estimator.MOVE_OPTIONS = ['Today','Within 3 days','Within 7 days','Within 2 weeks','Within 30 days','Within 1–3 months','More than 3 months','Just researching'];
-    Estimator.SERVICE_OPTIONS = ['I will move in myself','I need help moving','I need packing and moving'];
-    Estimator.REQUEST_TYPES = [['storage','Request this storage','Reserve-ready request for the size above'],['visit','Arrange a facility visit','See the unit in Al Quoz before you decide'],['confirm','Help me confirm my quotation','A team member checks the details with you']];
-
     const rootEl = document.getElementById('estimator-root');
     const root = ReactDOM.createRoot(rootEl);
-    root.render(<Estimator ratesApproved={false} vatRate={5} padlockFee={45} maxSingleSqft={250} reserveAccessAisle={true} whatsappNumber="971542249946" />);
+    root.render(<Estimator maxSingleSqft={250} reserveAccessAisle={true} whatsappNumber="971542249946" />);
   </script>
 
   <script>
