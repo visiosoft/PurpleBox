@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Frequently Asked Questions | PurpleBox Self Storage Dubai</title>
+
+  <meta name="description"
+    content="Find answers to common questions about PurpleBox self storage in Dubai, including pricing, pickup service, climate-controlled units, minimum rental period and storage unit sizes.">
+
+  <link rel="canonical" href="https://purplebox.ae/faq.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f7;
+      color: #252525;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #111111;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #7c3aed;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #252525;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #7c3aed;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #f3e8ff, #ffffff);
+      padding: 80px 20px 65px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 46px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: #171717;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 18px;
+      color: #52525b;
+    }
+
+    /* FAQ SECTION */
+    .faq-section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 35px;
+      color: #171717;
+    }
+
+    .faq-item {
+      border: 1px solid #ececec;
+      border-radius: 24px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #c4b5fd;
+      transform: translateY(-1px);
+    }
+
+    .faq-btn {
+      width: 100%;
+      padding: 20px 24px;
+      background: #ffffff;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 700;
+      color: #252525;
+    }
+
+    .faq-btn:hover {
+      color: #7c3aed;
+    }
+
+    .faq-icon {
+      min-width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #f3e8ff;
+      color: #7c3aed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      margin-left: 15px;
+    }
+
+    .faq-body {
+      display: none;
+      padding: 0 24px 22px;
+      color: #52525b;
+      font-size: 16px;
+    }
+
+    .faq-body.open {
+      display: block;
+    }
+
+    .faq-body a {
+      color: #7c3aed;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .faq-body a:hover {
+      text-decoration: underline;
+    }
+
+    /* CTA */
+    .faq-cta {
+      max-width: 900px;
+      margin: 20px auto 70px;
+      padding: 40px 25px;
+      background: #171717;
+      border-radius: 28px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .faq-cta h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .faq-cta p {
+      color: #d4d4d8;
+      margin-bottom: 22px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #7c3aed;
+      color: #ffffff;
+      padding: 13px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .cta-btn:hover {
+      background: #6d28d9;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111111;
+      color: #ffffff;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 14px;
+    }
+
+    footer p {
+      color: #a1a1aa;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 15px 20px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 60px 20px 50px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .faq-section {
+        margin: 40px auto;
+      }
+
+      .faq-section h2 {
+        font-size: 27px;
+      }
+
+      .faq-btn {
+        padding: 17px 18px;
+        font-size: 15px;
+      }
+
+      .faq-body {
+        padding: 0 18px 20px;
+        font-size: 15px;
+      }
+
+      .faq-cta {
+        margin: 20px 20px 50px;
+      }
+
+      .faq-cta h2 {
+        font-size: 25px;
+      }
+    }
+  </style>
+
+  <!-- FAQ PAGE STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is storage priced?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Monthly, based on unit size. No setup or admin fees. VAT at standard UAE rate. Cancel after the first month with no penalty."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you pick up from my home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Pickup service is available in Dubai. Send your address and item list via WhatsApp and we'll quote within hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are units climate-controlled?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All units have AC and humidity control. Dubai summers damage furniture, electronics, and documents - our facility prevents that."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the minimum period?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "One month minimum. After that, extend month-to-month or lock in a longer period for better value."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does self storage cost in Dubai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PurpleBox units run from AED 330/month for a 10 sq ft locker up to AED 3,000/month for a 200 sq ft unit, with 10% off your first month. Price depends on size, not location or duration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What size storage unit do I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "As a rough guide: 10-25 sq ft suits a studio or 1BHK, 35-50 sq ft fits a 1-2 bedroom apartment, 75-100 sq ft covers a 2-3 bedroom home, and 150-200 sq ft holds a full villa. See the size guide for photos of each unit."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="logo">
+  <img src="logo-1.png" alt="PurpleBox Storage">
+</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="size-guide.html">Size Guide</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>
+      Find answers to common questions about PurpleBox self storage,
+      pricing, pickup service, unit sizes and storage requirements in Dubai.
+    </p>
+  </header>
+
+  <!-- FAQ -->
+  <main class="faq-section">
+
+    <h2>Questions About Self Storage in Dubai</h2>
+
+    <div class="faq-content">
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          How is storage priced?
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-body">
+          <p>
+            Monthly, based on unit size. No setup or admin fees.
+            VAT at standard UAE rate. Cancel after the first month
+            with no penalty.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Can you pick up from my home?
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-body">
+          <p>
+            Yes. Pickup service is available in Dubai. Send your address
+            and item list via WhatsApp and we'll quote within hours.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Are units climate-controlled?
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-body">
+          <p>
+            All units have AC and humidity control. Dubai summers damage
+            furniture, electronics, and documents - our facility prevents that.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          What's the minimum period?
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-body">
+          <p>
+            One month minimum. After that, extend month-to-month or
+            lock in a longer period for better value.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          How much does self storage cost in Dubai?
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-body">
+          <p>
+            PurpleBox units run from AED 330/month for a 10 sq ft locker
+            up to AED 3,000/month for a 200 sq ft unit, with 10% off your
+            first month. Price depends on size, not location or duration.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          What size storage unit do I need?
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-body">
+          <p>
+            As a rough guide: 10-25 sq ft suits a studio or 1BHK,
+            35-50 sq ft fits a 1-2 bedroom apartment, 75-100 sq ft
+            covers a 2-3 bedroom home, and 150-200 sq ft holds a full villa.
+            See the <a href="size-guide.html">size guide</a> for photos
+            of each unit.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- CTA -->
+  <section class="faq-cta">
+    <h2>Still Have Questions?</h2>
+    <p>
+      Contact PurpleBox and our team can help you choose the right storage solution.
+    </p>
+
+    <a href="contact.html" class="cta-btn">
+      Contact PurpleBox
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 PurpleBox. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    function toggleFaq(button) {
+
+      const currentBody = button.nextElementSibling;
+      const currentIcon = button.querySelector(".faq-icon");
+
+      const allBodies = document.querySelectorAll(".faq-body");
+      const allIcons = document.querySelectorAll(".faq-icon");
+
+      allBodies.forEach(function(body) {
+        if (body !== currentBody) {
+          body.classList.remove("open");
+        }
+      });
+
+      allIcons.forEach(function(icon) {
+        if (icon !== currentIcon) {
+          icon.textContent = "+";
+        }
+      });
+
+      currentBody.classList.toggle("open");
+
+      if (currentBody.classList.contains("open")) {
+        currentIcon.textContent = "−";
+      } else {
+        currentIcon.textContent = "+";
+      }
+    }
+  </script>
+
+</body>
+</html>
