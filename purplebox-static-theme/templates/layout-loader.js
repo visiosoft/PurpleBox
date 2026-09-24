@@ -132,29 +132,45 @@
     if (!placeholder) return;
     if (String(placeholder.innerHTML || '').trim() !== '') return;
 
+    /* Minimal copy of templates/header.html, used only if that file can't be fetched */
     placeholder.innerHTML = [
-      '<nav class="site-nav">',
-      '  <div class="nav-inner">',
-      '    <a href="index.html" class="nav-logo"><img src="https://purplebox.ae/wp-content/uploads/2026/06/logo-1.png" alt="PurpleBox Storage" class="nav-logo-img" /></a>',
-      '    <a href="tel:+971542249946" class="nav-phone"><span class="call-label">+971 54 224 9946</span></a>',
-      '    <div class="nav-links">',
-      '      <a href="book-unit.html">Reserve Unit</a>',
-      '      <a href="store.html">Shop Now</a>',
-      '      <a href="packing-moving.html">Packing & Moving</a>',
-      '      <a href="about.html">Contact</a>',
+      '<nav class="pbnav" aria-label="Main">',
+      '  <div class="pbnav-card">',
+      '    <a href="index.html" class="pbnav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg" alt="PurpleBox Storage" width="402" height="130" /></a>',
+      '    <div class="pbnav-links">',
+      '      <a href="index.html">Home</a><a href="book-unit.html">Reserve Unit</a><a href="store.html">Shop Now</a>',
+      '      <a href="packing-moving.html">Packing &amp; Moving</a><a href="community/">Blog</a><a href="contact.html">Contact</a>',
       '    </div>',
-      '    <a href="store.html" class="nav-cart" aria-label="Open cart"><span class="nav-cart-badge" id="shopCartBadge">0</span></a>',
-      '    <div class="nav-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>',
+      '    <div class="pbnav-actions">',
+      '      <a href="tel:+971542249946" class="pbnav-icon pbnav-phone" aria-label="Call +971 54 224 9946">&#9990;</a>',
+      '      <a href="index.html#leadForm" class="pbnav-quote">Get a Quote</a>',
+      '      <button type="button" class="pbnav-toggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">&#8942;</button>',
+      '    </div>',
       '  </div>',
-      '</nav>',
-      '<div class="mobile-menu" id="mobileMenu">',
-      '  <a href="tel:+971542249946" class="mobile-phone">+971 54 224 9946</a>',
-      '  <a href="book-unit.html">Reserve Unit</a>',
-      '  <a href="store.html">Shop Now</a>',
-      '  <a href="packing-moving.html">Packing & Moving</a>',
-      '  <a href="about.html">Contact</a>',
-      '</div>'
+      '  <div class="pbnav-menu" id="mobileMenu">',
+      '    <a href="index.html">Home</a><a href="book-unit.html">Reserve Unit</a><a href="store.html">Shop Now</a>',
+      '    <a href="packing-moving.html">Packing &amp; Moving</a><a href="community/">Blog</a><a href="contact.html">Contact</a>',
+      '  </div>',
+      '</nav>'
     ].join('');
+  }
+
+  /* Pages that pull the nav in via [data-site-header] still need its stylesheet and script. */
+  function ensureSiteNavAssets() {
+    if (!document.querySelector('[data-site-header] .pbnav')) return;
+    if (!document.querySelector('link[href$="site-nav.css"]')) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'css/site-nav.css';
+      document.head.appendChild(link);
+    }
+    if (window.pbnavInit) {
+      window.pbnavInit();
+    } else if (!document.querySelector('script[src$="site-nav.js"]')) {
+      var script = document.createElement('script');
+      script.src = 'js/site-nav.js';
+      document.head.appendChild(script);
+    }
   }
 
   /* ─── Mobile menu toggle ─── */
@@ -194,6 +210,7 @@
       loadFooterTemplate(getTemplateCandidates('footer.html'))
     ]);
     applyHeaderFallback();
+    ensureSiteNavAssets();
     /* Sync badge after templates loaded (or immediately if inlined) */
     syncGlobalCartBadge();
   }

@@ -175,6 +175,22 @@ function purplebox_static_enqueue_theme_assets() {
         );
     }
 
+    // Standard site nav (markup in header.php); loaded last so it wins the cascade.
+    wp_enqueue_style(
+        'purplebox-site-nav',
+        $theme_uri . '/css/site-nav.css',
+        ['purplebox-theme'],
+        '1.0.0'
+    );
+
+    wp_enqueue_script(
+        'purplebox-site-nav',
+        $theme_uri . '/js/site-nav.js',
+        [],
+        '1.0.0',
+        true
+    );
+
     wp_enqueue_script(
         'purplebox-layout-loader',
         $theme_uri . '/templates/layout-loader.js',

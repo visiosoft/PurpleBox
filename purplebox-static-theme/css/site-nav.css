@@ -1,0 +1,428 @@
+/* ============================================================
+   PurpleBox site nav — the one standard header for every page.
+   Markup lives in templates/header.html; behaviour in js/site-nav.js.
+   Self-contained: does not rely on shared.css, so it renders the
+   same on pages that load a different stylesheet.
+   ============================================================ */
+
+.pbnav {
+  position: relative;
+  z-index: 100;
+  padding: 14px 20px 0;
+  background: transparent; /* sits on each page's own canvas */
+  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pbnav *,
+.pbnav *::before,
+.pbnav *::after {
+  box-sizing: border-box;
+}
+
+.pbnav a {
+  text-decoration: none;
+}
+
+.pbnav-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1320px;
+  min-height: 76px;
+  margin: 0 auto;
+  padding: 0 12px 0 0;
+  background: #fbfaff;
+  border: 1px solid #efedf5;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px -12px rgba(76, 29, 149, .14), 0 2px 6px rgba(24, 24, 27, .04);
+  overflow: hidden;
+}
+
+/* White logo panel with a lavender swoosh trailing off its right edge */
+.pbnav-logo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  flex: 0 0 auto;
+  padding: 0 56px 0 26px;
+  background: #ffffff;
+}
+
+.pbnav-logo img {
+  display: block;
+  width: auto;
+  height: 42px;
+  max-width: none;
+}
+
+.pbnav-logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 130px;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 100' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='1' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23c4b5fd'/%3E%3Cstop offset='1' stop-color='%23ddd6fe'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 0H118C82 0 78 100 22 100H0Z' fill='url(%23g)'/%3E%3Cpath d='M0 0H62C34 0 40 88 0 93Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat 0 0 / 100% 100%;
+}
+
+/* Lavender line under the logo panel, fading in towards the swoosh */
+.pbnav-logo::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(221, 214, 254, 0) 0%, rgba(221, 214, 254, .6) 55%, #ddd6fe 100%);
+}
+
+.pbnav-links {
+  position: relative;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  gap: 2px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  background: #ffffff;
+  border: 1px solid #f1eff6;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px -8px rgba(24, 24, 27, .12);
+}
+
+.pbnav-links a {
+  position: relative;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #27272a;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+
+.pbnav-links a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: #7c3aed;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+}
+
+.pbnav-links a:hover {
+  color: #09090b;
+}
+
+.pbnav-links a:hover::after,
+.pbnav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.pbnav-links a.active {
+  color: #6d28d9;
+}
+
+.pbnav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.pbnav-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 10000px;
+  transition: background .15s ease;
+}
+
+.pbnav-phone {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.pbnav-phone:hover {
+  background: #ddd6fe;
+}
+
+.pbnav-cart {
+  background: #ffffff;
+  border: 1px solid #ececee;
+  color: #18181b;
+}
+
+.pbnav-cart:hover {
+  background: #ede9fe;
+}
+
+.pbnav-cart svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Keeps the legacy class: product.html rewrites className on this node */
+.pbnav .nav-cart-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border: 2px solid #ffffff;
+  border-radius: 9px;
+  background: #7c3aed;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.pbnav .nav-cart-badge.has-items {
+  display: flex;
+}
+
+.pbnav-quote {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 55%, #4f46e5 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px -8px rgba(109, 40, 217, .6), inset 0 1px 0 rgba(255, 255, 255, .25);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+
+.pbnav-quote svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .2s ease;
+}
+
+.pbnav-quote:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -8px rgba(109, 40, 217, .7), inset 0 1px 0 rgba(255, 255, 255, .25);
+}
+
+.pbnav-quote:hover svg {
+  transform: translateX(3px);
+}
+
+.pbnav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #52525b;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background .15s ease;
+}
+
+.pbnav-toggle:hover,
+.pbnav-toggle[aria-expanded="true"] {
+  background: #f1eff6;
+}
+
+.pbnav-toggle svg {
+  fill: currentColor;
+}
+
+.pbnav a:focus-visible,
+.pbnav-toggle:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, .35);
+  outline-offset: 2px;
+}
+
+/* Dropdown menu (dots button) */
+.pbnav-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 20px;
+  right: 20px;
+  z-index: 101;
+  display: none;
+  flex-direction: column;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 14px 18px 18px;
+  background: #ffffff;
+  border: 1px solid #efedf5;
+  border-radius: 20px;
+  box-shadow: 0 16px 36px -14px rgba(76, 29, 149, .22);
+}
+
+.pbnav-menu.is-open {
+  display: flex;
+}
+
+.pbnav-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 12px 4px;
+  border-bottom: 1px solid #ececee;
+  font-size: 15px;
+  font-weight: 500;
+  color: #18181b;
+}
+
+.pbnav-menu a:last-child {
+  border-bottom: 0;
+}
+
+.pbnav-menu a:hover {
+  color: #09090b;
+  background: #fafafa;
+}
+
+.pbnav-menu a.active {
+  color: #6d28d9;
+}
+
+.pbnav-menu .pbnav-menu-phone {
+  justify-content: center;
+  margin-bottom: 8px;
+  padding: 12px;
+  border: 0;
+  border-radius: 10000px;
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.pbnav-menu .pbnav-menu-phone:hover {
+  background: #ddd6fe;
+  color: #5b21b6;
+}
+
+.pbnav-menu .pbnav-menu-quote {
+  justify-content: center;
+  margin-top: 12px;
+  padding: 12px;
+  border: 0;
+  border-radius: 14px;
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+.pbnav-menu .pbnav-menu-quote:hover {
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+/* Tablet: quote button joins the bar, so drop it from the dropdown */
+@media (min-width: 768px) {
+  .pbnav-quote {
+    display: inline-flex;
+  }
+
+  .pbnav-menu .pbnav-menu-quote {
+    display: none;
+  }
+}
+
+/* Desktop: links fit in the bar, dots menu no longer needed */
+@media (min-width: 1200px) {
+  .pbnav-links {
+    display: flex;
+  }
+
+  .pbnav-toggle {
+    display: none;
+  }
+
+  .pbnav-menu,
+  .pbnav-menu.is-open {
+    display: none;
+  }
+}
+
+@media (max-width: 599px) {
+  .pbnav {
+    padding: 10px 10px 0;
+  }
+
+  .pbnav-card {
+    min-height: 64px;
+    padding-right: 6px;
+    border-radius: 20px;
+  }
+
+  .pbnav-logo {
+    padding: 0 30px 0 14px;
+  }
+
+  .pbnav-logo img {
+    height: 32px;
+  }
+
+  .pbnav-logo::after {
+    width: 72px;
+  }
+
+  .pbnav-actions {
+    gap: 2px;
+  }
+
+  .pbnav-menu {
+    left: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 359px) {
+  .pbnav-logo {
+    padding: 0 22px 0 10px;
+  }
+
+  .pbnav-logo img {
+    height: 28px;
+  }
+
+  .pbnav-logo::after {
+    width: 56px;
+  }
+}

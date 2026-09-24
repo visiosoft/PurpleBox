@@ -570,59 +570,49 @@
   </style>
   <link rel="stylesheet" href="css/layout-template.css" />
   <link rel="stylesheet" href="css/mobile-base.css" />
+  <link rel="stylesheet" href="css/site-nav.css" />
+  <script src="js/site-nav.js" defer></script>
 </head>
 
 <body>
 
 
 
-<nav class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg" alt="PurpleBox Storage" class="nav-logo-img no-lazyload skip-lazy" data-no-lazy="1" loading="eager" width="402" height="130" fetchpriority="high" /></a>
-      <div class="nav-links">
-        <a href="book-unit.html">Reserve Unit</a>
+  <!-- NAV (standard: css/site-nav.css + js/site-nav.js) -->
+  <nav class="pbnav" aria-label="Main">
+    <div class="pbnav-card">
+      <a href="index.html" class="pbnav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg" alt="PurpleBox Storage" class="no-lazyload skip-lazy" data-no-lazy="1" loading="eager" fetchpriority="high" width="402" height="130" /></a>
+      <div class="pbnav-links">
+        <a href="index.html">Home</a>
+        <a href="book-unit.html" class="active" aria-current="page">Reserve Unit</a>
         <a href="store.html">Shop Now</a>
-        <a href="community/">Blog</a> <a href="packing-moving.html">Packing &amp; Moving</a>
+        <a href="packing-moving.html">Packing &amp; Moving</a>
+        <a href="community/">Blog</a>
         <a href="contact.html">Contact</a>
-        </div>
-      <div class="nav-actions">
-        <a href="tel:+971542249946" class="nav-phone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-          viewBox="0 0 24 24" fill="currentColor">
-          <path fill-rule="evenodd"
-          d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
-          clip-rule="evenodd" />
-          </svg><span class="call-label">+971 54 224 9946</span></a>
-        <a href="store.html" class="nav-cart" aria-label="Open cart">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="9" cy="20" r="1.5"></circle>
-          <circle cx="17" cy="20" r="1.5"></circle>
-          <path d="M3 4h2l1.5 10h11l2-7H7"></path>
-          </svg>
-          <span class="nav-cart-badge" id="shopCartBadge">0</span>
-          </a>
-        <button type="button" class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Open menu"
-          aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
+      <div class="pbnav-actions">
+        <a href="tel:+971542249946" class="pbnav-icon pbnav-phone" aria-label="Call +971 54 224 9946"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" /></svg></a>
+        <a href="store.html" class="pbnav-icon pbnav-cart" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"></circle><circle cx="17" cy="20" r="1.5"></circle><path d="M3 4h2l1.5 10h11l2-7H7"></path></svg>
+          <span class="nav-cart-badge" id="shopCartBadge">0</span>
+        </a>
+        <a href="index.html#leadForm" class="pbnav-quote">Get a Quote
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+        <button type="button" class="pbnav-toggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><svg viewBox="0 0 18 18" width="18" height="18" aria-hidden="true"><circle cx="3" cy="3" r="1.6" /><circle cx="9" cy="3" r="1.6" /><circle cx="15" cy="3" r="1.6" /><circle cx="3" cy="9" r="1.6" /><circle cx="9" cy="9" r="1.6" /><circle cx="15" cy="9" r="1.6" /><circle cx="3" cy="15" r="1.6" /><circle cx="9" cy="15" r="1.6" /><circle cx="15" cy="15" r="1.6" /></svg></button>
+      </div>
+    </div>
+    <div class="pbnav-menu" id="mobileMenu">
+      <a href="tel:+971542249946" class="pbnav-menu-phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" /></svg> +971 54 224 9946</a>
+      <a href="index.html">Home</a>
+      <a href="book-unit.html" class="active" aria-current="page">Reserve Unit</a>
+      <a href="store.html">Shop Now</a>
+      <a href="packing-moving.html">Packing &amp; Moving</a>
+      <a href="community/">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#leadForm" class="pbnav-menu-quote">Get a Quote</a>
     </div>
   </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="tel:+971542249946" class="mobile-phone"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-      viewBox="0 0 24 24" fill="currentColor">
-      <path fill-rule="evenodd"
-        d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
-        clip-rule="evenodd" />
-    </svg> +971 54 224 9946</a>
-  <a href="book-unit.html">Reserve Unit</a>
-  <a href="store.html">Shop Now</a>
-  <a href="community/">Blog</a> <a href="packing-moving.html">Packing &amp; Moving</a>
-  <a href="contact.html">Contact</a>
-  <div class="mobile-menu-cta">
-    <a href="reserve-step-1.html" class="btn btn-primary btn-full">Book Now</a>
-    <a href="https://wa.me/971542249946" class="btn btn-wa btn-full" target="_blank" rel="noopener noreferrer">WhatsApp
-      Us</a>
-  </div>
-</div>
 
 <main class="container" id="udMain">
   <!-- Populated by JS based on hash -->

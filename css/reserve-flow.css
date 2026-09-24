@@ -28,7 +28,6 @@ body {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--ink);
     background: #f4f4f5;
-    padding-top: 4.5rem;
 }
 
 .site-nav {
@@ -1021,10 +1020,6 @@ textarea:focus {
 }
 
 @media (min-width: 64rem) {
-    body {
-        padding-top: 5rem;
-    }
-
     .nav-inner {
         padding: 0.9rem 1.5rem;
     }

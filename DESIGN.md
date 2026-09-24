@@ -58,7 +58,7 @@ Single family, every role: **DM Sans** (the reference's substitute for Cosmica).
 
 ## 4. Component Stylings
 
-* **Navigation:** Sticky Snow bar, no border at rest, hairline `#ececee` bottom border plus `--shadow-md` once scrolled. Logo left, 14px Graphite links, phone pill (Violet Tint fill, Violet Darker text, 10000px pill), cart, violet CTA right. Hover: Obsidian text with a violet underline scaling in from the left. Active page: violet text, underline locked. 76px desktop, 60px mobile, 44px tap targets.
+* **Navigation (one standard on every page):** `css/site-nav.css` + `js/site-nav.js`, markup in `templates/header.html`. A floating card (not sticky; scrolls with the page), 24px radius, faint violet-tinted shadow, 14px inset from the viewport. Left: a white logo panel whose right edge is a lavender swoosh, with a lavender line along its bottom fading in toward the swoosh. Centre: the links in a white 16px-radius pill (Home, Reserve Unit, Shop Now, Packing & Moving, Blog, Contact), 14px Slate text, violet underline scaling in on hover. Active page: violet text, underline locked (set `class="active" aria-current="page"`). Right: round phone button (Violet Tint), round cart button, then the "Get a Quote" CTA. A 9-dot button opens a dropdown card holding the same links. 76px desktop, 64px mobile, 44px tap targets.
 * **Primary button:** Brand Violet fill, Snow text, 14px radius, 12px/16px padding, 15px weight 500. Hover: Violet Deep, `translateY(-1px)`. Active: `scale(.97)`. Inset highlight `inset 0 0.5px 0 rgba(255,255,255,.35)` for the reference's "depth without drop shadow" feel. No outer glow.
 * **Secondary / ghost button:** Snow fill, Iron text, 1px Iron border, 14px radius, same padding. On dark surfaces: Snow fill, Graphite text.
 * **Neutral pill button:** `#fafafa` fill, Graphite text, 14px radius, no border. For low-priority actions ("See size guide").
@@ -88,7 +88,7 @@ Single family, every role: **DM Sans** (the reference's substitute for Cosmica).
 - Headlines scale with `clamp()`; body never below 14px; inputs 16px on touch.
 - 44px minimum tap targets on all interactive elements.
 - Section padding shrinks via the clamp; card radius drops to 24px and padding to 20px below 600px.
-- Desktop nav collapses to the hamburger menu; nav height 76px -> 60px.
+- Nav: links in the bar from 1200px; 768-1199px hides them behind the 9-dot dropdown but keeps the Get a Quote CTA; below 768px the CTA moves into the dropdown. Card height 76px -> 64px.
 
 ## 7. Motion & Interaction
 - Easing `cubic-bezier(0.16, 1, 0.3, 1)` for reveals and hovers; nothing linear.
@@ -103,8 +103,8 @@ Single family, every role: **DM Sans** (the reference's substitute for Cosmica).
 - No second font family; no Inter; no serif.
 - No pure `#000000`; Obsidian `#09090b` is the darkest ink.
 - No blue anywhere; no second chromatic accent beside Brand Violet (Success/WhatsApp/Error greens and red are functional exceptions).
-- No drop shadows on cards; hairline `#ececee` borders are the elevation system. `--shadow-md` only on the scrolled nav and floating controls.
-- No gradient text, no gradient buttons, no violet glow blobs behind content.
+- No drop shadows on cards; hairline `#ececee` borders are the elevation system. Soft shadows only on the nav card and floating controls.
+- No gradient text, no gradient buttons, no violet glow blobs behind content. Sole exception: the nav's Get a Quote CTA (violet-to-indigo) and logo swoosh, which are part of the standard nav design.
 - No container radius below 12px; no sharp corners on visible UI.
 - No custom cursors, no scroll cues ("Scroll to explore", bouncing chevrons).
 - No 3-equal-card generic feature rows.
