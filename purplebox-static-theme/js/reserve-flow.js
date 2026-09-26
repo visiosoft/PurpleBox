@@ -4,6 +4,20 @@
         if (menu) menu.classList.toggle('open');
     };
 
+    // Fill these in via window.PBXBookingConfig before this script loads, e.g.:
+    // <script>window.PBXBookingConfig = { bookingApiBase: 'https://api.purplebox.ae/api/public/bookings', checkoutApiBase: 'https://checkout.purplebox.ae' };</script>
+    var bookingConfig = window.PBXBookingConfig || {};
+    var PBX_BOOKING_API_BASE = bookingConfig.bookingApiBase || 'REPLACE_WITH_BOOKING_API_BASE_URL';
+    var PBX_CHECKOUT_API_BASE = bookingConfig.checkoutApiBase || 'REPLACE_WITH_CHECKOUT_API_BASE_URL';
+
+    function parseSizeSqf(unitSize, unitLabel) {
+        var fromSize = String(unitSize || '').match(/(\d+)/);
+        if (fromSize) return Number(fromSize[1]);
+        var fromLabel = String(unitLabel || '').match(/(\d+)/);
+        if (fromLabel) return Number(fromLabel[1]);
+        return null;
+    }
+
     function getParams() {
         return new URLSearchParams(window.location.search);
     }
@@ -544,7 +558,6 @@
         });
 
         const reserveAction = document.getElementById('reserveAction');
-        const leadConfig = window.PBXLeadConfig || {};
 
         function showLeadNotice(type, message) {
             var parent = reserveAction ? reserveAction.closest('.sticky-bar') : null;
@@ -589,58 +602,66 @@
             notice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        function submitLeadForm() {
-            var form = document.createElement('form');
-            form.method = 'post';
-            form.action = leadConfig.submitUrl || '/wp-admin/admin-post.php';
-            form.style.display = 'none';
+        async function startBookingAndPayment() {
+            var nameParts = String(data.fullName || '').trim().split(/\s+/);
+            var firstName = nameParts.shift() || 'Guest';
+            var lastName = nameParts.join(' ') || '-';
+            var sizeSqf = parseSizeSqf(data.unitSize, data.unitLabel);
 
-            var payload = {
-                action: leadConfig.submitAction || 'pbx_submit_reservation_form',
-                pbx_lead_nonce: leadConfig.formNonce || '',
-                source_page_name: 'Reserve Step 3',
-                full_name: data.fullName,
-                mobile: data.mobile,
-                email: data.email,
-                emirate: data.emirate,
-                storing_for: data.storingFor,
-                move_in_date: data.moveInDate,
-                move_out_date: data.moveOutDate,
-                rental_months: String(data.rentalMonths),
-                unit_size: data.unitSize,
-                unit_label: data.unitLabel,
-                monthly_rent: String(data.monthlyRent),
-                promo_code: '',
-                supplies_total: String(suppliesTotal),
-                due_today: String(due),
-                estimated_total: String(estimatedTotal),
-                supplies_text: supplyLines.length ? supplyLines.join('\n') : 'No supplies selected',
-                summary_text: text,
-                source_page: window.location.href.split('#')[0]
-            };
+            if (!sizeSqf) {
+                throw new Error('We could not determine your unit size. Please go back and re-select a unit.');
+            }
 
-            Object.keys(payload).forEach(function (key) {
-                var input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = payload[key];
-                form.appendChild(input);
+            const bookingResp = await fetch(PBX_BOOKING_API_BASE, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName,
+                    phone: data.mobile,
+                    email: data.email,
+                    sizeSqf: sizeSqf,
+                    startDate: data.moveInDate
+                })
             });
+            const bookingJson = await bookingResp.json().catch(function () { return {}; });
 
-            document.body.appendChild(form);
-            form.submit();
+            if (!bookingResp.ok) {
+                throw new Error(bookingJson.error || 'Could not create your booking. Please try again.');
+            }
+            if (bookingJson.available === false) {
+                throw new Error(bookingJson.message || 'No unit is available for that size right now.');
+            }
+
+            const checkoutResp = await fetch(PBX_CHECKOUT_API_BASE + '/api/public/checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    bookingId: bookingJson.bookingId,
+                    confirmToken: bookingJson.confirmToken,
+                    sizeSqf: sizeSqf,
+                    supplies: qty,
+                    customer: { firstName: firstName, lastName: lastName, email: data.email }
+                })
+            });
+            const checkoutJson = await checkoutResp.json().catch(function () { return {}; });
+
+            if (!checkoutResp.ok || !checkoutJson.url) {
+                throw new Error(checkoutJson.error || 'Could not start Stripe checkout. Please try again.');
+            }
+
+            window.location.href = checkoutJson.url;
         }
 
-        if (leadConfig.leadSubmitted === '1') {
-            showLeadNotice('success', leadConfig.leadMessage || 'Request received.');
+        const paymentStatus = p.get('payment');
+        if (paymentStatus === 'success') {
+            showLeadNotice('success', 'Payment received! Our team will confirm your unit shortly.');
             if (reserveAction) {
-                reserveAction.textContent = 'Submitted';
+                reserveAction.textContent = 'Paid';
                 reserveAction.setAttribute('aria-disabled', 'true');
             }
-        }
-
-        if (leadConfig.leadSubmitted === '0') {
-            showLeadNotice('error', leadConfig.leadMessage || 'We could not submit your reservation right now. Please try again in a moment.');
+        } else if (paymentStatus === 'cancelled') {
+            showLeadNotice('error', 'Payment was cancelled. You can try again whenever you are ready.');
         }
 
         if (reserveAction) {
@@ -648,8 +669,13 @@
                 e.preventDefault();
                 reserveAction.classList.add('is-loading');
                 reserveAction.setAttribute('aria-disabled', 'true');
-                reserveAction.textContent = 'Submitting...';
-                submitLeadForm();
+                reserveAction.textContent = 'Processing...';
+                startBookingAndPayment().catch(function (err) {
+                    reserveAction.classList.remove('is-loading');
+                    reserveAction.removeAttribute('aria-disabled');
+                    reserveAction.textContent = 'Reserve';
+                    showLeadNotice('error', err.message || 'Something went wrong. Please try again.');
+                });
             });
         }
     }
