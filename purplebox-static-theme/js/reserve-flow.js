@@ -655,24 +655,44 @@
 
         const paymentStatus = p.get('payment');
         if (paymentStatus === 'success') {
-            showLeadNotice('success', 'Payment received! Our team will confirm your unit shortly.');
-            if (reserveAction) {
-                reserveAction.textContent = 'Paid';
-                reserveAction.setAttribute('aria-disabled', 'true');
+            const sessionId = p.get('session_id');
+            if (sessionId) {
+                fetch(PBX_CHECKOUT_API_BASE + '/api/public/checkout-status?session_id=' + encodeURIComponent(sessionId))
+                    .then(function (r) { return r.json(); })
+                    .catch(function () { return { paid: false }; })
+                    .then(function (statusJson) {
+                        if (statusJson && statusJson.paid) {
+                            showLeadNotice('success', 'Payment received! Our team will confirm your unit shortly.');
+                            if (reserveAction) {
+                                reserveAction.textContent = 'Paid';
+                                reserveAction.setAttribute('aria-disabled', 'true');
+                            }
+                        } else {
+                            showLeadNotice('error', 'We are confirming your payment, this can take a minute. Please check back shortly.');
+                        }
+                    });
+            } else {
+                showLeadNotice('error', 'We are confirming your payment, this can take a minute. Please check back shortly.');
             }
         } else if (paymentStatus === 'cancelled') {
             showLeadNotice('error', 'Payment was cancelled. You can try again whenever you are ready.');
         }
 
+        var isSubmitting = false;
         if (reserveAction) {
             reserveAction.addEventListener('click', function (e) {
                 e.preventDefault();
+                if (isSubmitting) return;
+                isSubmitting = true;
                 reserveAction.classList.add('is-loading');
                 reserveAction.setAttribute('aria-disabled', 'true');
+                reserveAction.style.pointerEvents = 'none';
                 reserveAction.textContent = 'Processing...';
                 startBookingAndPayment().catch(function (err) {
+                    isSubmitting = false;
                     reserveAction.classList.remove('is-loading');
                     reserveAction.removeAttribute('aria-disabled');
+                    reserveAction.style.pointerEvents = '';
                     reserveAction.textContent = 'Reserve';
                     showLeadNotice('error', err.message || 'Something went wrong. Please try again.');
                 });
