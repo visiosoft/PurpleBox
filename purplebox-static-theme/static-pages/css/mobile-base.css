@@ -1,0 +1,257 @@
+/* ==========================================================
+   mobile-base.css
+   Site-wide mobile layer. Loaded LAST on every page so it can
+   correct page-level styles.
+
+   Note on !important: several pages set these same properties
+   from their own inline <style> block, which sits after the
+   stylesheet links and wins on equal specificity. The rules
+   below are deliberate corrections to those values (iOS zoom,
+   touch-target size), so they are marked !important rather
+   than being duplicated into twenty inline blocks.
+   ========================================================== */
+
+/* Stop iOS inflating text on orientation change. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Kill the grey tap flash on interactive elements. */
+a,
+button,
+[onclick],
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Media should never be the thing that forces a horizontal scrollbar. */
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+/* Long URLs and unbroken strings in legal copy are a common source of
+   overflow on narrow screens. */
+p,
+li,
+td,
+dd,
+blockquote {
+  overflow-wrap: break-word;
+}
+
+table {
+  max-width: 100%;
+}
+
+/* ---- Floating WhatsApp button -------------------------------------
+   The markup ships on several pages but only one of them styled it,
+   so elsewhere it rendered as a bare glyph in the page flow. This is
+   the design from storage-unit-size-guide-in-dubai.html, applied
+   everywhere. `bottom` clears the sticky .mobile-cta bar. */
+.wa-float {
+  position: fixed;
+  bottom: 78px;
+  right: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 12px 26px rgba(37, 211, 102, .36);
+  z-index: 90;
+}
+
+@media (min-width: 600px) {
+
+  /* No sticky CTA bar above 599px, so drop it back down. */
+  .wa-float {
+    bottom: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  /* iOS zooms the whole page when a focused field is under 16px --
+     and it does not zoom back out. */
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  input[type="search"],
+  input[type="password"],
+  input:not([type]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Touch targets follow the input device, not just the width -- an iPad
+   in portrait is 768px wide but still finger-driven.
+   Inline links inside body copy are deliberately excluded: forcing a
+   44px box on them would break the text flow. */
+@media (max-width: 767px),
+(pointer: coarse) {
+
+  .nav-phone,
+  .nav-cart,
+  .nav-hamburger,
+  .nav-logo {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .nav-cart {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .nav-phone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Centre the bars WITHOUT setting `display` -- the desktop
+     breakpoint hides this button, and re-declaring display here
+     would resurrect it on a wide touchscreen. */
+  .nav-hamburger {
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Chip / filter rows */
+  .shop-chip,
+  .pack-filter-chip,
+  .filter-chip {
+    min-height: 40px !important;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* A link wrapping nothing but an image is a logo/icon control, not
+     prose -- give it a real hit area. */
+  a:has(> img) {
+    min-height: 44px;
+  }
+
+  /* Icon buttons */
+  .add-btn,
+  .pack-add-btn,
+  .pack-save-btn {
+    width: 40px !important;
+    height: 40px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pack-drawer-close {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .pbx-social a {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Standalone link controls (not prose links) */
+  .breadcrumb a,
+  .pp-back,
+  .header-phone,
+  .js-tel,
+  .hero-alt,
+  .ch-value a,
+  .unit-row-link,
+  .pack-pro-shopall,
+  .pack-drawer-shop-link,
+  .pbx-loc-value,
+  .pbx-loc-directions,
+  .pbx-link-grid a,
+  .pbx-legal-links a,
+  .pp-footer-links a,
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  /* Readability: nothing below 12px on a phone. The cart count badge
+     stays small by design. */
+  .unit-card-hint,
+  .pack-product-spec,
+  .unit-card-badge,
+  .unit-card-popular,
+  .pack-product-tag,
+  .pack-product-price .was,
+  .pbx-legal,
+  .pbx-legal span,
+  .pbx-legal-links a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 599px) {
+
+  /* The sticky CTA floats over the page; reserve room for it including
+     the home-indicator inset on notched phones. */
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .mobile-cta .btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Landscape phones: the sticky bar eats too much of a short viewport,
+   so trim the vertical rhythm instead. */
+@media (max-width: 900px) and (max-height: 480px) and (orientation: landscape) {
+  .mobile-cta {
+    padding-top: 6px;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+  }
+
+  body {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .wa-float {
+    bottom: 68px;
+  }
+}
+
+/* Respect the OS "reduce motion" setting. */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
