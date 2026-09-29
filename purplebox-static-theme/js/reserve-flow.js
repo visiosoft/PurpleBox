@@ -628,7 +628,23 @@
             });
 
             document.body.appendChild(form);
-            form.submit();
+
+            var apiPayload = Object.assign({}, payload);
+            delete apiPayload.action;
+            delete apiPayload.pbx_lead_nonce;
+
+            // form.submit() navigates away and can cancel an in-flight request, so wait for the
+            // lead API first, but never let a slow or failing API block the WordPress submission.
+            var apiRequest = fetch('https://api.purplebox.ae/api/moving-leads/public', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(apiPayload)
+            }).catch(function () { /* non-blocking */ });
+            var timeout = new Promise(function (resolve) { setTimeout(resolve, 4000); });
+
+            Promise.race([apiRequest, timeout]).then(function () {
+                form.submit();
+            });
         }
 
         if (leadConfig.leadSubmitted === '1') {

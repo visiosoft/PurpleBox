@@ -1721,6 +1721,16 @@
       body: payload.toString()
     }).catch(function () { });
 
+    var apiPayload = {};
+    payload.forEach(function (value, key) {
+      if (key !== 'action' && key !== 'nonce') apiPayload[key] = value;
+    });
+    fetch('https://api.purplebox.ae/api/moving-leads/public', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(apiPayload)
+    }).catch(function () { });
+
     if (form) form.style.display = 'none';
     if (formActions) formActions.style.display = 'none';
 

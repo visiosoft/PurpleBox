@@ -256,7 +256,9 @@
 
     @media (min-width: 768px) {
       .hero-ctas {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
         margin-bottom: 36px;
       }
     }
@@ -280,6 +282,27 @@
       background: #6d28d9;
       transform: translateY(-1px);
       box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, .35);
+    }
+
+    .hero-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 16px;
+      background: #fff;
+      color: #6d28d9;
+      border: 1px solid #c4b5fd;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .22s ease, border-color .22s ease, transform .22s ease;
+    }
+
+    .hero-btn-ghost:hover {
+      background: #ede9fe;
+      border-color: #7c3aed;
+      transform: translateY(-1px);
     }
 
     /* Review row (Glofox-style) */
@@ -3376,6 +3399,7 @@
         </ul>
         <div class="hero-ctas">
           <a href="book-unit.html" class="hero-btn-primary">Reserve Your Unit -></a>
+          <a href="estimator.html" class="hero-btn-ghost">Get Size Estimate -></a>
         </div>
         <!-- Review badges -->
         <div class="hero-review-row">
@@ -4045,6 +4069,16 @@
         headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
         credentials: 'same-origin',
         body: payload.toString()
+      }).catch(function () { });
+
+      var apiPayload = {};
+      payload.forEach(function (value, key) {
+        if (key !== 'action' && key !== 'nonce') apiPayload[key] = value;
+      });
+      fetch('https://api.purplebox.ae/api/moving-leads/public', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(apiPayload)
       }).catch(function () { });
 
       if (form) form.style.display = 'none';

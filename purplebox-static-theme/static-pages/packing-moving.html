@@ -1913,6 +1913,16 @@
         body: payload.toString()
       }).catch(function () { });
 
+      var apiPayload = {};
+      payload.forEach(function (value, key) {
+        if (key !== 'action' && key !== 'nonce') apiPayload[key] = value;
+      });
+      fetch('https://api.purplebox.ae/api/moving-leads/public', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(apiPayload)
+      }).catch(function () { });
+
       // GA4 + Ads conversion
       if (typeof gtag === "function") {
         gtag("event", "generate_lead", {
