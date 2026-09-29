@@ -302,13 +302,16 @@ function purplebox_static_rewrite_asset_urls($html) {
     };
 
     $html = preg_replace_callback(
-        '/\b(href|src)=(["\'])(css|js|images|templates)\/([^"\']+)\2/i',
+        '/\b(href|src)=(["\'])(css|js|images|templates|estimator-widget)\/([^"\']+)\2/i',
         function ($m) use ($theme_uri, $images_base_uri, $append_asset_version) {
-            $base_uri = ($m[3] === 'images') ? $images_base_uri : ($theme_uri . '/' . $m[3]);
+            // The estimator widget is a self-contained app (its own JS, JSON and vendor files),
+            // so it must be loaded straight from the theme folder rather than routed through WordPress.
+            $group = ($m[3] === 'estimator-widget') ? 'static-pages/estimator-widget' : $m[3];
+            $base_uri = ($m[3] === 'images') ? $images_base_uri : ($theme_uri . '/' . $group);
             $asset_url = $base_uri . '/' . $m[4];
 
             if ($m[3] !== 'images') {
-                $asset_url = $append_asset_version($asset_url, $m[3], $m[4]);
+                $asset_url = $append_asset_version($asset_url, $group, $m[4]);
             }
 
             return $m[1] . '=' . $m[2] . $asset_url . $m[2];
