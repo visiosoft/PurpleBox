@@ -1,0 +1,67 @@
+/* PurpleBox theme overrides for the 3D storage estimator widget. Loaded after style.css. */
+:root{
+  --purple:#7c3aed;
+  --purple-dk:#6d28d9;
+  --purple-darker:#5b21b6;
+  --purple-lt:#ede9fe;
+  --border:#ececee;
+  --border-2:#d4d4d8;
+  --ink-display:#09090b;
+  --ink:#18181b;
+  --ink-mid:#52525b;
+  --ink-soft:#71717a;
+}
+:root,body,main,header{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif !important;background:#ffffff;color:var(--ink);}
+body{background:#ffffff;}
+h1,h2,h3{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif !important;color:var(--ink-display);letter-spacing:-0.02em;}
+.eyebrow{color:var(--purple) !important;}
+a{color:var(--purple);}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,canvas:focus-visible{outline:3px solid var(--purple-lt);outline-offset:3px;}
+
+/* progress bar */
+.progress-track .complete,.progress-track .current{background:var(--purple) !important;}
+.progress-track i{background:var(--border-2);}
+
+/* buttons */
+.primary,.primary:hover,.catalog-actions button,.choice-grid button[aria-pressed=true]{background:var(--purple) !important;color:#fff !important;border:0;box-shadow:0 8px 20px rgba(124,58,237,.25);}
+.primary:hover{background:var(--purple-dk) !important;}
+.secondary,.custom-button,.text-button,.list-pill button{color:var(--purple-darker) !important;}
+.secondary,.custom-button{border-color:var(--border-2) !important;}
+.catalog-actions [data-minus]{background:#fff !important;color:var(--purple-darker) !important;border:2px solid var(--purple-lt) !important;}
+.back{background:var(--purple-lt) !important;color:var(--purple-darker) !important;}
+
+/* cards / surfaces */
+.room-browser,.packing-card,.layout-editor,.stack-setting,.storage-rules,.offer-summary,.availability-note,.list-pill,.result-card,.quote-card,.theatre,.modify-card,.alternatives,.plan-details,.facility-card,.packing-plan{
+  background:#fff;border:1px solid var(--border-2);box-shadow:0 4px 12px rgba(0,0,0,.04);border-radius:20px;
+}
+.bottom-bar{background:rgba(255,255,255,.97);border-top:1px solid var(--border-2);}
+.bag-item{border:1px solid var(--border-2);border-radius:16px;}
+
+/* catalog cards */
+.catalog-grid .item-card{border:2px solid var(--border-2);border-radius:18px;background:#fff;}
+.catalog-grid .item-card.is-selected{border-color:var(--purple) !important;background:var(--purple-lt) !important;box-shadow:0 0 0 1px var(--purple) inset;}
+.is-selected .selection-label{color:var(--purple-darker) !important;}
+.room-cards .room-added{border-color:var(--purple) !important;background:var(--purple-lt) !important;}
+.start-method button[aria-pressed=true]{border-color:var(--purple) !important;background:var(--purple-lt) !important;}
+
+/* result / theatre */
+.result-card>span{color:var(--purple) !important;}
+.result-card>strong,.recommendation strong{color:var(--ink-display);}
+.theatre{background:#2d1259;color:#f4eafa;}
+.theatre-top h2,.theatre-top p,.live-label{color:#f4eafa !important;}
+.glass,.viewer-controls button{background:rgba(255,255,255,.12) !important;color:#fff !important;border:1px solid rgba(255,255,255,.25) !important;}
+.viewer-controls [aria-pressed=true]{background:var(--purple) !important;}
+.fit-strip{background:var(--purple-lt) !important;border-color:var(--purple-lt) !important;}
+.fit-strip p,.fit-strip strong,.fit-strip>span{color:var(--purple-darker) !important;}
+
+/* recommendations */
+.recommendation.selected{border-color:var(--purple) !important;box-shadow:0 0 0 1px var(--purple) inset;}
+.recommendation .tag{color:var(--purple) !important;}
+
+.spinner{border:3px solid var(--purple-lt);border-top-color:var(--purple);}
+
+/* dialogs */
+dialog{border:1px solid var(--border-2);border-radius:22px;}
+dialog::backdrop{background:rgba(24,24,27,.45);}
+
+body.result-mode main{padding-bottom:130px;}

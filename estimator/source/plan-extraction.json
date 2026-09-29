@@ -1,0 +1,4500 @@
+[
+  {
+    "id": "F0-P001",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 01",
+    "area": 243.16,
+    "sqm": 22.59,
+    "poly": [
+      [
+        3.3122,
+        5.7536
+      ],
+      [
+        0.0,
+        5.7536
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        4.1426,
+        0.0
+      ],
+      [
+        4.1426,
+        4.2545
+      ],
+      [
+        3.3122,
+        4.2545
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P002",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 02",
+    "area": 148.97,
+    "sqm": 13.84,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.2545
+      ],
+      [
+        3.2531,
+        4.2545
+      ],
+      [
+        3.2531,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P003",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 03",
+    "area": 148.97,
+    "sqm": 13.84,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.2545
+      ],
+      [
+        3.2531,
+        4.2545
+      ],
+      [
+        3.2531,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P004",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 04",
+    "area": 148.97,
+    "sqm": 13.84,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.2565
+      ],
+      [
+        3.2515,
+        4.2565
+      ],
+      [
+        3.2515,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P005",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 05",
+    "area": 148.97,
+    "sqm": 13.84,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.2545
+      ],
+      [
+        3.2531,
+        4.2545
+      ],
+      [
+        3.2531,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P006",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 06",
+    "area": 148.97,
+    "sqm": 13.84,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.2545
+      ],
+      [
+        3.2531,
+        4.2545
+      ],
+      [
+        3.2531,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P007",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 07",
+    "area": 145.1,
+    "sqm": 13.48,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.254
+      ],
+      [
+        3.1688,
+        4.254
+      ],
+      [
+        3.1688,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P008",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 08",
+    "area": 53.71,
+    "sqm": 4.99,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.9489
+      ],
+      [
+        1.6922,
+        2.9489
+      ],
+      [
+        1.6922,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P009",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 09",
+    "area": 50.48,
+    "sqm": 4.69,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.8965
+      ],
+      [
+        1.6192,
+        2.8965
+      ],
+      [
+        1.6192,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P010",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 10",
+    "area": 27.23,
+    "sqm": 2.53,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5629
+      ],
+      [
+        1.6188,
+        1.5629
+      ],
+      [
+        1.6188,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P011",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 11",
+    "area": 207.1,
+    "sqm": 19.24,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        5.9654
+      ],
+      [
+        3.2253,
+        5.9654
+      ],
+      [
+        3.2253,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P012",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 12",
+    "area": 199.13,
+    "sqm": 18.5,
+    "poly": [
+      [
+        0.0,
+        5.9687
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0995,
+        0.0
+      ],
+      [
+        3.0995,
+        5.9687
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P013",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 13",
+    "area": 199.46,
+    "sqm": 18.53,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        5.9676
+      ],
+      [
+        3.1051,
+        5.9676
+      ],
+      [
+        3.1051,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P014",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 14",
+    "area": 111.41,
+    "sqm": 10.35,
+    "poly": [
+      [
+        3.0951,
+        3.344
+      ],
+      [
+        3.0951,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        3.344
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P015",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 15",
+    "area": 111.73,
+    "sqm": 10.38,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        3.3455
+      ],
+      [
+        3.1027,
+        3.3455
+      ],
+      [
+        3.1027,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P016",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 16",
+    "area": 24.54,
+    "sqm": 2.28,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.4991
+      ],
+      [
+        1.5209,
+        1.4991
+      ],
+      [
+        1.5209,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P017",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 17",
+    "area": 49.19,
+    "sqm": 4.57,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.3546
+      ],
+      [
+        1.9409,
+        2.3546
+      ],
+      [
+        1.9409,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P018",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 18",
+    "area": 75.35,
+    "sqm": 7.0,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        3.6089
+      ],
+      [
+        1.9397,
+        3.6089
+      ],
+      [
+        1.9397,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P019",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 19",
+    "area": 151.66,
+    "sqm": 14.09,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.1731
+      ],
+      [
+        3.3764,
+        4.1731
+      ],
+      [
+        3.3764,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P020",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 20",
+    "area": 153.06,
+    "sqm": 14.22,
+    "poly": [
+      [
+        0.0,
+        4.1712
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.4091,
+        0.0
+      ],
+      [
+        3.4091,
+        4.1712
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P021",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 21",
+    "area": 152.2,
+    "sqm": 14.14,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.1728
+      ],
+      [
+        3.3886,
+        4.1728
+      ],
+      [
+        3.3886,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P022",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 22",
+    "area": 152.42,
+    "sqm": 14.16,
+    "poly": [
+      [
+        0.0,
+        4.1738
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.3926,
+        0.0
+      ],
+      [
+        3.3926,
+        4.1738
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P023",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 23",
+    "area": 196.12,
+    "sqm": 18.22,
+    "poly": [
+      [
+        0.0,
+        5.9824
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0456,
+        0.0
+      ],
+      [
+        3.0456,
+        5.9824
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P024",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 24",
+    "area": 199.56,
+    "sqm": 18.54,
+    "poly": [
+      [
+        0.0,
+        5.9829
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0988,
+        0.0
+      ],
+      [
+        3.0988,
+        5.9829
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P025",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 25",
+    "area": 199.56,
+    "sqm": 18.54,
+    "poly": [
+      [
+        0.0,
+        5.9829
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0988,
+        0.0
+      ],
+      [
+        3.0988,
+        5.9829
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P026",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 26",
+    "area": 199.56,
+    "sqm": 18.54,
+    "poly": [
+      [
+        0.0,
+        5.9799
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1004,
+        0.0
+      ],
+      [
+        3.1004,
+        5.9799
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P027",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 27",
+    "area": 199.56,
+    "sqm": 18.54,
+    "poly": [
+      [
+        0.0,
+        5.9829
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0988,
+        0.0
+      ],
+      [
+        3.0988,
+        5.9829
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P028",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 28",
+    "area": 199.56,
+    "sqm": 18.54,
+    "poly": [
+      [
+        0.0,
+        5.9829
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0988,
+        0.0
+      ],
+      [
+        3.0988,
+        5.9829
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P029",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 29",
+    "area": 73.3,
+    "sqm": 6.81,
+    "poly": [
+      [
+        0.0,
+        1.9311
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.5264,
+        0.0
+      ],
+      [
+        3.5264,
+        1.9311
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P030",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 30",
+    "area": 153.6,
+    "sqm": 14.27,
+    "poly": [
+      [
+        0.0,
+        4.0495
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.5239,
+        0.0
+      ],
+      [
+        3.5239,
+        4.0495
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P031",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 31",
+    "area": 50.91,
+    "sqm": 4.73,
+    "poly": [
+      [
+        0.0,
+        2.3915
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.9779,
+        0.0
+      ],
+      [
+        1.9779,
+        2.3915
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P032",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 32",
+    "area": 37.89,
+    "sqm": 3.52,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.7793
+      ],
+      [
+        1.9783,
+        1.7793
+      ],
+      [
+        1.9783,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P033",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 33",
+    "area": 147.57,
+    "sqm": 13.71,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.202
+      ],
+      [
+        3.2627,
+        4.202
+      ],
+      [
+        3.2627,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P034",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 34",
+    "area": 151.88,
+    "sqm": 14.11,
+    "poly": [
+      [
+        0.0,
+        4.2032
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.357,
+        0.0
+      ],
+      [
+        3.357,
+        4.2032
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P035",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 35",
+    "area": 151.34,
+    "sqm": 14.06,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.1985
+      ],
+      [
+        3.3488,
+        4.1985
+      ],
+      [
+        3.3488,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P036",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 36",
+    "area": 151.56,
+    "sqm": 14.08,
+    "poly": [
+      [
+        0.0,
+        4.1925
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.3584,
+        0.0
+      ],
+      [
+        3.3584,
+        4.1925
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P037",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 37",
+    "area": 151.45,
+    "sqm": 14.07,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.1856
+      ],
+      [
+        3.3615,
+        4.1856
+      ],
+      [
+        3.3615,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P038",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 38",
+    "area": 77.82,
+    "sqm": 7.23,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.6935,
+        0.0
+      ],
+      [
+        1.6935,
+        0.1961
+      ],
+      [
+        1.8025,
+        0.1961
+      ],
+      [
+        1.8025,
+        2.4593
+      ],
+      [
+        1.6313,
+        2.4593
+      ],
+      [
+        1.6313,
+        4.1871
+      ],
+      [
+        0.0,
+        4.1871
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P039",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 39",
+    "area": 38.43,
+    "sqm": 3.57,
+    "poly": [
+      [
+        0.0,
+        1.5084
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.3668,
+        0.0
+      ],
+      [
+        2.3668,
+        1.5084
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P040",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 40",
+    "area": 25.19,
+    "sqm": 2.34,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5081
+      ],
+      [
+        1.5516,
+        1.5081
+      ],
+      [
+        1.5516,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P041",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 41",
+    "area": 150.48,
+    "sqm": 13.98,
+    "poly": [
+      [
+        0.0,
+        2.9949
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        4.668,
+        0.0
+      ],
+      [
+        4.668,
+        2.9949
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P042",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 42",
+    "area": 147.68,
+    "sqm": 13.72,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.9375
+      ],
+      [
+        4.6707,
+        2.9375
+      ],
+      [
+        4.6707,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P043",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 43",
+    "area": 192.35,
+    "sqm": 17.87,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        5.9303
+      ],
+      [
+        3.0133,
+        5.9303
+      ],
+      [
+        3.0133,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P044",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 44",
+    "area": 197.95,
+    "sqm": 18.39,
+    "poly": [
+      [
+        0.0,
+        5.9338
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0992,
+        0.0
+      ],
+      [
+        3.0992,
+        5.9338
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P045",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 45",
+    "area": 197.95,
+    "sqm": 18.39,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        5.9338
+      ],
+      [
+        3.0992,
+        5.9338
+      ],
+      [
+        3.0992,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P046",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 46",
+    "area": 197.95,
+    "sqm": 18.39,
+    "poly": [
+      [
+        0.0,
+        5.9309
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1007,
+        0.0
+      ],
+      [
+        3.1007,
+        5.9309
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P047",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 47",
+    "area": 197.95,
+    "sqm": 18.39,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        5.9338
+      ],
+      [
+        3.0992,
+        5.9338
+      ],
+      [
+        3.0992,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F0-P048",
+    "floor": 0,
+    "label": "Ground \u00b7 plan 48",
+    "area": 93.22,
+    "sqm": 8.66,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.3624
+      ],
+      [
+        2.0256,
+        4.3624
+      ],
+      [
+        1.9447,
+        0.0
+      ]
+    ],
+    "source": "3001 (GROUND LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P001",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 01",
+    "area": 50.48,
+    "sqm": 4.69,
+    "poly": [
+      [
+        0.0,
+        1.5423
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.041,
+        0.0
+      ],
+      [
+        3.041,
+        1.5423
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P002",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 02",
+    "area": 35.84,
+    "sqm": 3.33,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5336
+      ],
+      [
+        2.1713,
+        1.5336
+      ],
+      [
+        2.1713,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P003",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 03",
+    "area": 35.63,
+    "sqm": 3.31,
+    "poly": [
+      [
+        0.0,
+        1.527
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.1677,
+        0.0
+      ],
+      [
+        2.1677,
+        1.527
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P004",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 04",
+    "area": 35.41,
+    "sqm": 3.29,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5166
+      ],
+      [
+        2.1693,
+        1.5166
+      ],
+      [
+        2.1693,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P005",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 05",
+    "area": 25.19,
+    "sqm": 2.34,
+    "poly": [
+      [
+        0.0,
+        1.5112
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.5485,
+        0.0
+      ],
+      [
+        1.5485,
+        1.5112
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P006",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 06",
+    "area": 25.08,
+    "sqm": 2.33,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5064
+      ],
+      [
+        1.5468,
+        1.5064
+      ],
+      [
+        1.5468,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P007",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 07",
+    "area": 24.97,
+    "sqm": 2.32,
+    "poly": [
+      [
+        0.0,
+        1.5
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.5466,
+        0.0
+      ],
+      [
+        1.5466,
+        1.5
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P008",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 08",
+    "area": 24.86,
+    "sqm": 2.31,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.4922
+      ],
+      [
+        1.548,
+        1.4922
+      ],
+      [
+        1.548,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P009",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 09",
+    "area": 24.86,
+    "sqm": 2.31,
+    "poly": [
+      [
+        0.0,
+        1.4906
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.5497,
+        0.0
+      ],
+      [
+        1.5497,
+        1.4906
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P010",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 10",
+    "area": 24.76,
+    "sqm": 2.3,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.4843
+      ],
+      [
+        1.5496,
+        1.4843
+      ],
+      [
+        1.5496,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P011",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 11",
+    "area": 24.65,
+    "sqm": 2.29,
+    "poly": [
+      [
+        0.0,
+        1.4764
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.551,
+        0.0
+      ],
+      [
+        1.551,
+        1.4764
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P012",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 12",
+    "area": 24.54,
+    "sqm": 2.28,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.4716
+      ],
+      [
+        1.5494,
+        1.4716
+      ],
+      [
+        1.5494,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P013",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 13",
+    "area": 48.11,
+    "sqm": 4.47,
+    "poly": [
+      [
+        0.0,
+        2.7399
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.6315,
+        0.0
+      ],
+      [
+        1.6315,
+        2.7399
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P014",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 14",
+    "area": 51.99,
+    "sqm": 4.83,
+    "poly": [
+      [
+        1.7027,
+        0.0
+      ],
+      [
+        1.7027,
+        2.8367
+      ],
+      [
+        0.0,
+        2.8367
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P015",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 15",
+    "area": 51.99,
+    "sqm": 4.83,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.8352
+      ],
+      [
+        1.7036,
+        2.8352
+      ],
+      [
+        1.7036,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P016",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 16",
+    "area": 34.98,
+    "sqm": 3.25,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.9067
+      ],
+      [
+        1.7045,
+        1.9067
+      ],
+      [
+        1.7045,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P017",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 17",
+    "area": 48.98,
+    "sqm": 4.55,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.6706
+      ],
+      [
+        1.7037,
+        2.6706
+      ],
+      [
+        1.7037,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P018",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 18",
+    "area": 27.02,
+    "sqm": 2.51,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.3604
+      ],
+      [
+        1.845,
+        1.3604
+      ],
+      [
+        1.845,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P019",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 19",
+    "area": 29.82,
+    "sqm": 2.77,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5008
+      ],
+      [
+        1.8457,
+        1.5008
+      ],
+      [
+        1.8457,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P020",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 20",
+    "area": 35.2,
+    "sqm": 3.27,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.773
+      ],
+      [
+        1.8444,
+        1.773
+      ],
+      [
+        1.8444,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P021",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 21",
+    "area": 82.67,
+    "sqm": 7.68,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.9017
+      ],
+      [
+        2.6467,
+        2.9017
+      ],
+      [
+        2.6467,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P022",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 22",
+    "area": 101.5,
+    "sqm": 9.43,
+    "poly": [
+      [
+        0.0,
+        2.9002
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.2515,
+        0.0
+      ],
+      [
+        3.2515,
+        2.9002
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P023",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 23",
+    "area": 101.5,
+    "sqm": 9.43,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.9002
+      ],
+      [
+        3.2515,
+        2.9002
+      ],
+      [
+        3.2515,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P024",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 24",
+    "area": 101.5,
+    "sqm": 9.43,
+    "poly": [
+      [
+        0.0,
+        2.9002
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.2515,
+        0.0
+      ],
+      [
+        3.2515,
+        2.9002
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P025",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 25",
+    "area": 99.57,
+    "sqm": 9.25,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.9003
+      ],
+      [
+        3.1894,
+        2.9003
+      ],
+      [
+        3.1894,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P026",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 26",
+    "area": 44.67,
+    "sqm": 4.15,
+    "poly": [
+      [
+        0.0,
+        1.7369
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.3894,
+        0.0
+      ],
+      [
+        2.3894,
+        1.7369
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P027",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 27",
+    "area": 44.67,
+    "sqm": 4.15,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.7369
+      ],
+      [
+        2.3894,
+        1.7369
+      ],
+      [
+        2.3894,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P028",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 28",
+    "area": 44.67,
+    "sqm": 4.15,
+    "poly": [
+      [
+        2.3894,
+        0.0
+      ],
+      [
+        2.3894,
+        1.7369
+      ],
+      [
+        0.0,
+        1.7369
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P029",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 29",
+    "area": 31.54,
+    "sqm": 2.93,
+    "poly": [
+      [
+        0.0,
+        1.7384
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.6855,
+        0.0
+      ],
+      [
+        1.6855,
+        1.7384
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P030",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 30",
+    "area": 31.43,
+    "sqm": 2.92,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.737
+      ],
+      [
+        1.6811,
+        1.737
+      ],
+      [
+        1.6811,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P031",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 31",
+    "area": 31.0,
+    "sqm": 2.88,
+    "poly": [
+      [
+        0.0,
+        1.7363
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.6587,
+        0.0
+      ],
+      [
+        1.6587,
+        1.7363
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P032",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 32",
+    "area": 31.97,
+    "sqm": 2.97,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.7374
+      ],
+      [
+        1.7094,
+        1.7374
+      ],
+      [
+        1.7094,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P033",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 33",
+    "area": 31.43,
+    "sqm": 2.92,
+    "poly": [
+      [
+        0.0,
+        1.737
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.6811,
+        0.0
+      ],
+      [
+        1.6811,
+        1.737
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P034",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 34",
+    "area": 36.27,
+    "sqm": 3.37,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.0335
+      ],
+      [
+        1.6573,
+        2.0335
+      ],
+      [
+        1.6573,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P035",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 35",
+    "area": 24.86,
+    "sqm": 2.31,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.3978
+      ],
+      [
+        1.6526,
+        1.3978
+      ],
+      [
+        1.6526,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P036",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 36",
+    "area": 48.98,
+    "sqm": 4.55,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.7909
+      ],
+      [
+        1.6303,
+        2.7909
+      ],
+      [
+        1.6303,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P037",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 37",
+    "area": 48.76,
+    "sqm": 4.53,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.7785
+      ],
+      [
+        1.6304,
+        2.7785
+      ],
+      [
+        1.6304,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P038",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 38",
+    "area": 15.61,
+    "sqm": 1.45,
+    "poly": [
+      [
+        1.0374,
+        0.0
+      ],
+      [
+        1.0374,
+        1.3977
+      ],
+      [
+        0.0,
+        1.3977
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P039",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 39",
+    "area": 32.29,
+    "sqm": 3.0,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.4075
+      ],
+      [
+        2.1314,
+        1.4075
+      ],
+      [
+        2.1314,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P040",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 40",
+    "area": 32.29,
+    "sqm": 3.0,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.4059
+      ],
+      [
+        2.1338,
+        1.4059
+      ],
+      [
+        2.1338,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P041",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 41",
+    "area": 92.03,
+    "sqm": 8.55,
+    "poly": [
+      [
+        0.0,
+        2.8157
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0366,
+        0.0
+      ],
+      [
+        3.0366,
+        2.8157
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P042",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 42",
+    "area": 92.03,
+    "sqm": 8.55,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.8157
+      ],
+      [
+        3.0366,
+        2.8157
+      ],
+      [
+        3.0366,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P043",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 43",
+    "area": 92.03,
+    "sqm": 8.55,
+    "poly": [
+      [
+        0.0,
+        2.8157
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0366,
+        0.0
+      ],
+      [
+        3.0366,
+        2.8157
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P044",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 44",
+    "area": 12.59,
+    "sqm": 1.17,
+    "poly": [
+      [
+        0.0,
+        1.1939
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.98,
+        0.0
+      ],
+      [
+        0.98,
+        1.1939
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P045",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 45",
+    "area": 11.52,
+    "sqm": 1.07,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0917
+      ],
+      [
+        0.9801,
+        1.0917
+      ],
+      [
+        0.9801,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P046",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 46",
+    "area": 11.52,
+    "sqm": 1.07,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0917
+      ],
+      [
+        0.9801,
+        1.0917
+      ],
+      [
+        0.9801,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P047",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 47",
+    "area": 11.52,
+    "sqm": 1.07,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0917
+      ],
+      [
+        0.9801,
+        1.0917
+      ],
+      [
+        0.9801,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P048",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 48",
+    "area": 11.52,
+    "sqm": 1.07,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0917
+      ],
+      [
+        0.9801,
+        1.0917
+      ],
+      [
+        0.9801,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P049",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 49",
+    "area": 103.01,
+    "sqm": 9.57,
+    "poly": [
+      [
+        3.1311,
+        0.0
+      ],
+      [
+        3.1311,
+        3.0565
+      ],
+      [
+        0.0,
+        3.0565
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P050",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 50",
+    "area": 101.83,
+    "sqm": 9.46,
+    "poly": [
+      [
+        3.129,
+        3.0233
+      ],
+      [
+        3.129,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        3.0233
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P051",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 51",
+    "area": 159.63,
+    "sqm": 14.83,
+    "poly": [
+      [
+        0.0,
+        4.1327
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.5885,
+        0.0
+      ],
+      [
+        3.5885,
+        4.1327
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P052",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 52",
+    "area": 151.34,
+    "sqm": 14.06,
+    "poly": [
+      [
+        0.0,
+        4.1278
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.4062,
+        0.0
+      ],
+      [
+        3.4062,
+        4.1278
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P053",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 53",
+    "area": 150.26,
+    "sqm": 13.96,
+    "poly": [
+      [
+        0.0,
+        4.1213
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.3873,
+        0.0
+      ],
+      [
+        3.3873,
+        4.1213
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P054",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 54",
+    "area": 145.1,
+    "sqm": 13.48,
+    "poly": [
+      [
+        0.0,
+        4.1134
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.2771,
+        0.0
+      ],
+      [
+        3.2771,
+        4.1134
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P055",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 55",
+    "area": 100.75,
+    "sqm": 9.36,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        3.167
+      ],
+      [
+        2.9555,
+        3.167
+      ],
+      [
+        2.9555,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P056",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 56",
+    "area": 35.74,
+    "sqm": 3.32,
+    "poly": [
+      [
+        0.0,
+        1.5823
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.0983,
+        0.0
+      ],
+      [
+        2.0983,
+        1.5823
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P057",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 57",
+    "area": 35.74,
+    "sqm": 3.32,
+    "poly": [
+      [
+        2.0983,
+        1.5823
+      ],
+      [
+        2.0983,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5823
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P058",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 58",
+    "area": 35.74,
+    "sqm": 3.32,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5823
+      ],
+      [
+        2.0983,
+        1.5823
+      ],
+      [
+        2.0983,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P059",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 59",
+    "area": 35.74,
+    "sqm": 3.32,
+    "poly": [
+      [
+        2.0983,
+        0.0
+      ],
+      [
+        2.0983,
+        1.5823
+      ],
+      [
+        0.0,
+        1.5823
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P060",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 60",
+    "area": 50.38,
+    "sqm": 4.68,
+    "poly": [
+      [
+        0.0,
+        1.5835
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.9555,
+        0.0
+      ],
+      [
+        2.9555,
+        1.5835
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P061",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 61",
+    "area": 50.27,
+    "sqm": 4.67,
+    "poly": [
+      [
+        2.9523,
+        1.5818
+      ],
+      [
+        2.9523,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5818
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P062",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 62",
+    "area": 50.27,
+    "sqm": 4.67,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5818
+      ],
+      [
+        2.9523,
+        1.5818
+      ],
+      [
+        2.9523,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P063",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 63",
+    "area": 50.38,
+    "sqm": 4.68,
+    "poly": [
+      [
+        2.9555,
+        0.0
+      ],
+      [
+        2.9555,
+        1.5835
+      ],
+      [
+        0.0,
+        1.5835
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P064",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 64",
+    "area": 100.75,
+    "sqm": 9.36,
+    "poly": [
+      [
+        0.0,
+        3.167
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.9555,
+        0.0
+      ],
+      [
+        2.9555,
+        3.167
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P065",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 65",
+    "area": 25.83,
+    "sqm": 2.4,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.3362
+      ],
+      [
+        1.7961,
+        1.3362
+      ],
+      [
+        1.7961,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P066",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 66",
+    "area": 51.56,
+    "sqm": 4.79,
+    "poly": [
+      [
+        0.0,
+        1.536
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1186,
+        0.0
+      ],
+      [
+        3.1186,
+        1.536
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P067",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 67",
+    "area": 51.67,
+    "sqm": 4.8,
+    "poly": [
+      [
+        0.0,
+        1.5391
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1187,
+        0.0
+      ],
+      [
+        3.1187,
+        1.5391
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P068",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 68",
+    "area": 51.77,
+    "sqm": 4.81,
+    "poly": [
+      [
+        0.0,
+        1.5407
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1219,
+        0.0
+      ],
+      [
+        3.1219,
+        1.5407
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P069",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 69",
+    "area": 51.77,
+    "sqm": 4.81,
+    "poly": [
+      [
+        0.0,
+        1.5423
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1188,
+        0.0
+      ],
+      [
+        3.1188,
+        1.5423
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P070",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 70",
+    "area": 51.88,
+    "sqm": 4.82,
+    "poly": [
+      [
+        0.0,
+        1.5454
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1189,
+        0.0
+      ],
+      [
+        3.1189,
+        1.5454
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P071",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 71",
+    "area": 51.77,
+    "sqm": 4.81,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5415
+      ],
+      [
+        3.1203,
+        1.5415
+      ],
+      [
+        3.1203,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P072",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 72",
+    "area": 45.85,
+    "sqm": 4.26,
+    "poly": [
+      [
+        0.0,
+        2.5294
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.6842,
+        0.0
+      ],
+      [
+        1.6842,
+        2.5294
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P073",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 73",
+    "area": 37.46,
+    "sqm": 3.48,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.0579
+      ],
+      [
+        1.6911,
+        2.0579
+      ],
+      [
+        1.6911,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P074",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 74",
+    "area": 48.98,
+    "sqm": 4.55,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.6802
+      ],
+      [
+        1.6976,
+        2.6802
+      ],
+      [
+        1.6976,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P075",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 75",
+    "area": 91.39,
+    "sqm": 8.49,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.5444
+      ],
+      [
+        3.3367,
+        2.5444
+      ],
+      [
+        3.3367,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P076",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 76",
+    "area": 91.39,
+    "sqm": 8.49,
+    "poly": [
+      [
+        0.0,
+        2.5464
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.3361,
+        0.0031
+      ],
+      [
+        3.3361,
+        2.5464
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P077",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 77",
+    "area": 91.17,
+    "sqm": 8.47,
+    "poly": [
+      [
+        0.0,
+        2.5395
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.3353,
+        0.0
+      ],
+      [
+        3.3353,
+        2.5395
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P078",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 78",
+    "area": 58.88,
+    "sqm": 5.47,
+    "poly": [
+      [
+        0.0,
+        2.0414
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.6811,
+        0.0025
+      ],
+      [
+        2.6811,
+        2.0414
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P079",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 79",
+    "area": 90.96,
+    "sqm": 8.45,
+    "poly": [
+      [
+        0.0,
+        2.5334
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.3354,
+        0.0
+      ],
+      [
+        3.3354,
+        2.5334
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P080",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 80",
+    "area": 48.87,
+    "sqm": 4.54,
+    "poly": [
+      [
+        0.0,
+        2.5248
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.7981,
+        0.0
+      ],
+      [
+        1.7981,
+        2.5248
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P081",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 81",
+    "area": 81.81,
+    "sqm": 7.6,
+    "poly": [
+      [
+        3.1339,
+        0.0
+      ],
+      [
+        3.1339,
+        2.4251
+      ],
+      [
+        0.0,
+        2.4251
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P082",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 82",
+    "area": 81.81,
+    "sqm": 7.6,
+    "poly": [
+      [
+        0.0,
+        2.4263
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1324,
+        0.0
+      ],
+      [
+        3.1324,
+        2.4263
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P083",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 83",
+    "area": 0.0,
+    "sqm": 0.0,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.4
+      ],
+      [
+        3.1015,
+        2.4
+      ],
+      [
+        3.1015,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": false,
+    "note": "Area label is 00.00; excluded from recommendations."
+  },
+  {
+    "id": "F1-P084",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 84",
+    "area": 81.81,
+    "sqm": 7.6,
+    "poly": [
+      [
+        0.0,
+        2.4251
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1339,
+        0.0
+      ],
+      [
+        3.1339,
+        2.4251
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P085",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 85",
+    "area": 81.81,
+    "sqm": 7.6,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.4263
+      ],
+      [
+        3.1324,
+        2.4263
+      ],
+      [
+        3.1324,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P086",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 86",
+    "area": 81.81,
+    "sqm": 7.6,
+    "poly": [
+      [
+        0.0,
+        2.4251
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.1339,
+        0.0
+      ],
+      [
+        3.1339,
+        2.4251
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P087",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 87",
+    "area": 37.89,
+    "sqm": 3.52,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.4221
+      ],
+      [
+        1.4533,
+        2.4221
+      ],
+      [
+        1.4533,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P088",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 88",
+    "area": 99.46,
+    "sqm": 9.24,
+    "poly": [
+      [
+        0.0,
+        2.3332
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.9602,
+        0.0
+      ],
+      [
+        3.9602,
+        2.3332
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P089",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 89",
+    "area": 99.46,
+    "sqm": 9.24,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.3332
+      ],
+      [
+        3.9602,
+        2.3332
+      ],
+      [
+        3.9602,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P090",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 90",
+    "area": 99.46,
+    "sqm": 9.24,
+    "poly": [
+      [
+        0.0,
+        2.3332
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.9602,
+        0.0
+      ],
+      [
+        3.9602,
+        2.3332
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P091",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 91",
+    "area": 99.46,
+    "sqm": 9.24,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.3332
+      ],
+      [
+        3.9602,
+        2.3332
+      ],
+      [
+        3.9602,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P092",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 92",
+    "area": 75.24,
+    "sqm": 6.99,
+    "poly": [
+      [
+        0.0,
+        2.332
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.9974,
+        0.0
+      ],
+      [
+        2.9974,
+        2.332
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P093",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 93",
+    "area": 35.84,
+    "sqm": 3.33,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.3301
+      ],
+      [
+        1.4291,
+        2.3301
+      ],
+      [
+        1.4291,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P094",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 94",
+    "area": 35.95,
+    "sqm": 3.34,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5315
+      ],
+      [
+        2.1808,
+        1.5315
+      ],
+      [
+        2.1808,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P095",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 95",
+    "area": 35.95,
+    "sqm": 3.34,
+    "poly": [
+      [
+        0.0,
+        1.5326
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.1793,
+        0.0
+      ],
+      [
+        2.1793,
+        1.5326
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P096",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 96",
+    "area": 35.95,
+    "sqm": 3.34,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5326
+      ],
+      [
+        2.1793,
+        1.5326
+      ],
+      [
+        2.1793,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P097",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 97",
+    "area": 35.95,
+    "sqm": 3.34,
+    "poly": [
+      [
+        0.0,
+        1.5315
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.1808,
+        0.0
+      ],
+      [
+        2.1808,
+        1.5315
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P098",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 98",
+    "area": 35.95,
+    "sqm": 3.34,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5326
+      ],
+      [
+        2.1793,
+        1.5326
+      ],
+      [
+        2.1793,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P099",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 99",
+    "area": 35.95,
+    "sqm": 3.34,
+    "poly": [
+      [
+        0.0,
+        1.5326
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        2.1793,
+        0.0
+      ],
+      [
+        2.1793,
+        1.5326
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P100",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 100",
+    "area": 36.7,
+    "sqm": 3.41,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5312
+      ],
+      [
+        2.227,
+        1.5312
+      ],
+      [
+        2.227,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P101",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 101",
+    "area": 35.2,
+    "sqm": 3.27,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.533
+      ],
+      [
+        2.1331,
+        1.533
+      ],
+      [
+        2.1331,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P102",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 102",
+    "area": 26.26,
+    "sqm": 2.44,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5328
+      ],
+      [
+        1.5919,
+        1.5328
+      ],
+      [
+        1.5919,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P103",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 103",
+    "area": 50.27,
+    "sqm": 4.67,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.5335
+      ],
+      [
+        3.0453,
+        1.5335
+      ],
+      [
+        3.0453,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P104",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 104",
+    "area": 30.03,
+    "sqm": 2.79,
+    "poly": [
+      [
+        1.864,
+        0.0
+      ],
+      [
+        1.8951,
+        1.4844
+      ],
+      [
+        0.0,
+        1.4844
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P105",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 105",
+    "area": 49.3,
+    "sqm": 4.58,
+    "poly": [
+      [
+        1.8926,
+        0.0
+      ],
+      [
+        1.9454,
+        2.3867
+      ],
+      [
+        0.0,
+        2.3867
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  },
+  {
+    "id": "F1-P106",
+    "floor": 1,
+    "label": "Floor 1 \u00b7 plan 106",
+    "area": 74.06,
+    "sqm": 6.88,
+    "poly": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.9461,
+        0.0
+      ],
+      [
+        1.9927,
+        3.8176
+      ],
+      [
+        0.4166,
+        3.8176
+      ],
+      [
+        0.4166,
+        2.285
+      ],
+      [
+        0.0,
+        2.285
+      ]
+    ],
+    "source": "3002 (MEZZANINE LEVEL PARTITION) (1).pdf",
+    "dimensionSource": "Outline scaled to labelled plan area",
+    "eligible": true,
+    "note": ""
+  }
+]

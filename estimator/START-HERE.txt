@@ -1,0 +1,27 @@
+PURPLEBOX STORAGE ESTIMATOR — HTML & CSS DOWNLOAD
+Latest published source, version 12.
+
+MAIN FILES
+public/index.html — customer page
+public/style.css — white background, black text and large typography
+public/app.js, engine.js, models.js, room-catalog.js, journey.js — interactive estimator and 3D
+public/vendor/ — bundled Three.js and license
+public/units.json — unit geometry
+
+PREVIEW THE ITEM PICKER AND 3D
+From this extracted folder, run:
+  python -m http.server 8000 --directory public
+Then open http://localhost:8000 in a browser.
+Use an HTTP server rather than double-clicking the HTML, because the app uses JavaScript modules and fetches unit data.
+
+QUOTES, AVAILABILITY AND REQUESTS
+These require the included server and database, not HTML/CSS alone.
+server/ contains the Worker API; db/ and drizzle/ contain the database schema and migration.
+Run npm ci and npm run build for the Worker build output in dist/server/.
+Configure a D1 database binding called DB and apply the included migration.
+Configure ADMIN_EMAILS and trustworthy server-side staff authentication.
+The existing admin identity check uses a Sites-injected header. On other hosting, replace that check with verified authentication; do not trust a header supplied by a visitor.
+Configure approved pricing, availability and WhatsApp details before customer use.
+No live database records, credentials or account secrets are included.
+
+This export includes the full source for integration. It does not modify the published website.

@@ -1,0 +1,3 @@
+import assert from 'node:assert/strict';import test from 'node:test';import {CATALOG,packUnit,movePack} from '../public/engine.js';
+const unit=(height,area)=>({id:'test',w:1,d:1,height,area,poly:[[0,0],[1,0],[1,1],[0,1]]});
+test('Stacks use actual height and never overfill 1m lockers',()=>{const box={...CATALOG.find(i=>i.id==='box'),qty:6};const tall=packUnit(unit(2.4,25),[box]);assert.equal(tall.placed.length,1);assert.equal(tall.placed[0].n,6);const locker=packUnit(unit(1,10),[box]);assert.ok(locker.placed.every(p=>p.ph<=1));const wardrobe={...CATALOG.find(i=>i.id==='wardrobe'),w:.4,d:.4,qty:1};assert.equal(packUnit(unit(1,10),[wardrobe]).fit,false);});

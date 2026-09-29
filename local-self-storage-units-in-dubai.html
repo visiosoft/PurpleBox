@@ -252,9 +252,13 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 36px;
-      align-items: center;
+      align-items: start;
       position: relative;
       z-index: 1;
+    }
+
+    .hero-form-col {
+      width: 100%;
     }
 
     .hero-eyebrow {
@@ -415,6 +419,12 @@
     .lead-section .lead-card {
       max-width: 620px;
       margin: 0 auto;
+    }
+
+    .hero-form-col .lead-card {
+      box-shadow: 0 28px 60px rgba(9, 9, 11, .1);
+      max-width: 480px;
+      margin: 0 0 0 auto;
     }
 
     .lead-card h3 {
@@ -1338,7 +1348,12 @@
     /* ---- Responsive ---- */
     @media (min-width: 768px) {
       .hero-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1.15fr .85fr;
+        gap: 48px;
+      }
+
+      .hero-form-col .lead-card {
+        margin: 0;
       }
 
       .hero-sub {
@@ -1450,6 +1465,7 @@
         <a href="book-unit.html">Reserve Unit</a>
         <a href="store.html">Shop Now</a>
         <a href="packing-moving.html">Packing &amp; Moving</a>
+        <a href="estimator.html">Estimator</a>
         <a href="community/">Blog</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -1470,6 +1486,7 @@
       <a href="book-unit.html">Reserve Unit</a>
       <a href="store.html">Shop Now</a>
       <a href="packing-moving.html">Packing &amp; Moving</a>
+      <a href="estimator.html">Estimator</a>
       <a href="community/">Blog</a>
       <a href="contact.html">Contact</a>
       <a href="#leadForm" class="pbnav-menu-quote">Get a Quote</a>
@@ -1530,6 +1547,80 @@
             Packing &amp; Moving Support
           </li>
         </ul>
+      </div>
+
+      <div class="hero-form-col">
+        <div class="lead-card" id="leadForm">
+          <h3>30 Second to Get a Storage Quote</h3>
+          <p class="form-sub"><strong style="color:#6d28d9;">Hurry! Limited units available in popular sizes.</strong>
+            Fill out this quick form - your request will be emailed to our team and we'll contact you within 15
+            minutes with your custom quote.</p>
+          <form id="reserveForm" action="#" onsubmit="return handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="+971 5X XXX XXXX" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="size">What size do you need?</label>
+              <select id="size" name="size">
+                <option value="">Not sure yet - help me choose</option>
+                <option value="locker">Locker - documents & essentials</option>
+                <option value="lite-10">Lite (10 sqft) - suitcases & seasonal items</option>
+                <option value="small-25">Compact (25 sqft) - boxes & small furniture</option>
+                <option value="small-35">Studio (35 sqft) - apartment essentials</option>
+                <option value="average-50">Smart (50 sqft) - 1-room storage</option>
+                <option value="medium-75">Family (75 sqft) - medium apartment</option>
+                <option value="large-100">Home (100 sqft) - 1-bed apartment</option>
+                <option value="xlarge-150">Villa (150 sqft) - 2-bed apartment</option>
+                <option value="xxl-200">Business XXL (200 sqft) - villa / office inventory</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="when">When do you need it?</label>
+              <select id="when" name="when">
+                <option value="asap">As soon as possible</option>
+                <option value="this-week">This week</option>
+                <option value="this-month">This month</option>
+                <option value="planning">Just planning ahead</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit">Get A Quote -></button>
+          </form>
+          <div id="formActions">
+            <div class="form-trust-row">
+              <span><svg viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg> No spam</span>
+              <span><svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg> Reply &lt;15 min</span>
+              <span><svg viewBox="0 0 24 24">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <path d="M22 4 12 14.01l-3-3" />
+                </svg> Free quote</span>
+            </div>
+          </div>
+          <div class="lead-success" id="leadSuccess" aria-live="polite">
+            <div class="lead-success-badge">✓</div>
+            <h4>Request received</h4>
+            <p>Your request has been prepared for contact@purplebox.ae. Our representative will contact you within
+              the next 15 minutes to confirm your storage needs and recommend the best unit.</p>
+            <p class="lead-success-note">Need help right away? Start a live WhatsApp chat or call us now.</p>
+            <div class="lead-success-actions">
+              <a href="tel:+971542249946" class="lead-success-action call-now">Call Now</a>
+              <a id="successChatLink"
+                href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20the%20storage%20form%20and%20want%20to%20connect%20right%20away"
+                class="lead-success-action chat-now" target="_blank" rel="noopener noreferrer">Chat Right Away</a>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1604,83 +1695,6 @@
 </section>
 
 <!-- Transparent Pricing section removed as per request -->
-
-<!-- Lead Form (Primary CTA) -->
-<section class="lead-section">
-  <div class="container">
-    <div class="lead-card" id="leadForm">
-      <h3>30 Second to Get a Storage Quote</h3>
-      <p class="form-sub"><strong style="color:#6d28d9;">Hurry! Limited units available in popular sizes.</strong>
-        Fill out this quick form - your request will be emailed to our team and we'll contact you within 15 minutes
-        with your custom quote.</p>
-      <form id="reserveForm" action="#" onsubmit="return handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="+971 5X XXX XXXX" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="size">What size do you need?</label>
-          <select id="size" name="size">
-            <option value="">Not sure yet - help me choose</option>
-            <option value="locker">Locker - documents & essentials</option>
-            <option value="lite-10">Lite (10 sqft) - suitcases & seasonal items</option>
-            <option value="small-25">Compact (25 sqft) - boxes & small furniture</option>
-            <option value="small-35">Studio (35 sqft) - apartment essentials</option>
-            <option value="average-50">Smart (50 sqft) - 1-room storage</option>
-            <option value="medium-75">Family (75 sqft) - medium apartment</option>
-            <option value="large-100">Home (100 sqft) - 1-bed apartment</option>
-            <option value="xlarge-150">Villa (150 sqft) - 2-bed apartment</option>
-            <option value="xxl-200">Business XXL (200 sqft) - villa / office inventory</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="when">When do you need it?</label>
-          <select id="when" name="when">
-            <option value="asap">As soon as possible</option>
-            <option value="this-week">This week</option>
-            <option value="this-month">This month</option>
-            <option value="planning">Just planning ahead</option>
-          </select>
-        </div>
-        <button type="submit" class="form-submit">Get A Quote -></button>
-      </form>
-      <div id="formActions">
-        <div class="form-trust-row">
-          <span><svg viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg> No spam</span>
-          <span><svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 6v6l4 2" />
-            </svg> Reply &lt;15 min</span>
-          <span><svg viewBox="0 0 24 24">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <path d="M22 4 12 14.01l-3-3" />
-            </svg> Free quote</span>
-        </div>
-      </div>
-      <div class="lead-success" id="leadSuccess" aria-live="polite">
-        <div class="lead-success-badge">✓</div>
-        <h4>Request received</h4>
-        <p>Your request has been prepared for contact@purplebox.ae. Our representative will contact you within the
-          next 15 minutes to confirm your storage needs and recommend the best unit.</p>
-        <p class="lead-success-note">Need help right away? Start a live WhatsApp chat or call us now.</p>
-        <div class="lead-success-actions">
-          <a href="tel:+971542249946" class="lead-success-action call-now">Call Now</a>
-          <a id="successChatLink"
-            href="https://wa.me/971542249946?text=Hi%2C%20I%20just%20submitted%20the%20storage%20form%20and%20want%20to%20connect%20right%20away"
-            class="lead-success-action chat-now" target="_blank" rel="noopener noreferrer">Chat Right Away</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Facility Gallery -->
 <section class="gallery-section">
