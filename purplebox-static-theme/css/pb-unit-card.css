@@ -1,0 +1,199 @@
+/*
+ * Unit cards — PurpleBox design system, PriceCard option A ("Savings green").
+ * Applies to the home page carousel (.unit-card) and the booking grid (.book-card).
+ * Loaded after each page's inline <style>, so these rules win at equal specificity.
+ * Purple is an accent only: it is never used for prices, discounts or tags.
+ */
+:root {
+  --pb-surface: #ffffff;
+  --pb-surface-100: #f6f5f8;
+  --pb-line: #e7e5ec;
+  --pb-ink: #121117;
+  --pb-ink-muted: #55525e;
+  --pb-ink-subtle: #6b6875;
+  --pb-save-700: #047857;
+  --pb-save-50: #e8f8f0;
+  --pb-radius-sm: 6px;
+  --pb-radius-xl: 20px;
+  --pb-radius-pill: 999px;
+}
+
+/* ---------- Card shell ---------- */
+.unit-card,
+.book-card {
+  background: var(--pb-surface);
+  border: 1px solid var(--pb-line);
+  border-radius: var(--pb-radius-xl);
+  color: var(--pb-ink);
+}
+
+.unit-card {
+  width: 224px;
+  flex: 0 0 224px;
+}
+
+.unit-card-media,
+.book-card-media {
+  background: var(--pb-surface-100);
+}
+
+.book-card-media {
+  border-bottom: 1px solid var(--pb-line);
+}
+
+/* Size badge: ink pill on the photo */
+.unit-card-badge,
+.book-badge {
+  top: 10px;
+  left: 10px;
+  background: var(--pb-ink);
+  color: var(--pb-surface);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 8px;
+  border-radius: var(--pb-radius-pill);
+}
+
+/* "Popular": neutral pill, so it never competes with the savings chip */
+.unit-card-popular,
+.book-popular {
+  top: 10px;
+  right: 10px;
+  background: var(--pb-surface);
+  color: var(--pb-ink);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 8px;
+  border-radius: var(--pb-radius-pill);
+}
+
+.unit-card-body,
+.book-card-body {
+  padding: 16px;
+}
+
+.unit-card-size,
+.book-size {
+  margin: 0;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--pb-ink);
+}
+
+.unit-card-hint,
+.book-fit {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--pb-ink-muted);
+}
+
+.book-meta {
+  color: var(--pb-ink-muted);
+  line-height: 1.4;
+}
+
+.unit-card-footer,
+.book-card-footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* ---------- Price block ----------
+   The "was" line keeps its height even when empty, so every card's price
+   sits on the same baseline. */
+.pb-price {
+  padding-top: 24px;
+}
+
+.pb-price__was {
+  display: block;
+  min-height: 18px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--pb-ink-subtle);
+  text-decoration: line-through;
+}
+
+.pb-price__was--label {
+  text-decoration: none;
+}
+
+.pb-price__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 6px;
+}
+
+.pb-price__now {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--pb-ink);
+  white-space: nowrap;
+}
+
+.pb-price__per {
+  font-size: 13px;
+  color: var(--pb-ink-muted);
+  white-space: nowrap;
+}
+
+/* Savings chip: money saved first, period as support */
+.pb-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  margin-top: 8px;
+  background: var(--pb-save-50);
+  color: var(--pb-save-700);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--pb-radius-sm);
+}
+
+.pb-save span {
+  font-weight: 500;
+}
+
+.pb-save--empty {
+  visibility: hidden;
+}
+
+.pb-save--soldout {
+  background: var(--pb-surface-100);
+  color: var(--pb-ink-muted);
+}
+
+.pbx-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 599px) {
+  .unit-card,
+  .book-card {
+    border-radius: var(--pb-radius-xl);
+  }
+
+  /* Keep the site's phone rule: nothing below 12px */
+  .unit-card-badge,
+  .unit-card-popular,
+  .book-badge,
+  .book-popular {
+    font-size: 12px;
+  }
+}

@@ -1,4 +1,14 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="description" content="Find your PurpleBox storage size in a few simple steps. Choose what you are storing, explore your estimate in 3D, and adjust your list."><title>Lets figure out how much space you need | PurpleBox</title><link rel="stylesheet" href="style.css"><script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script></head><body>
+<!doctype html><html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SWD86TM761"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SWD86TM761');
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="description" content="Find your PurpleBox storage size in a few simple steps. Choose what you are storing, explore your estimate in 3D, and adjust your list."><title>Lets figure out how much space you need | PurpleBox</title><link rel="stylesheet" href="style.css"><script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script></head><body>
 <header><a class="brand" href="./">purplebox<span>SELF STORAGE</span></a><span class="header-label">Storage Estimate</span></header>
 <main><nav class="progress" aria-label="Estimate progress"><div class="progress-top"><span id="stepLabel">Step 1 of 6</span><span id="stepName">Your belongings</span></div><div class="progress-track"><i></i><i></i><i></i><i></i><i></i><i></i></div></nav>
 <section class="wizard-step" data-step="2"><h1 tabindex="-1">Lets figure out how much space you need</h1><p class="lede opening-subtitle">Choose The Items You Like to Store</p><div class="room-browser"><label for="roomChoice">Browse a room or category</label><select id="roomChoice" aria-controls="catalog"></select><p id="roomDescription" class="small-help"></p></div><div id="pickPanel"><div class="catalog-heading"><h2 id="catalogHeading">Bedroom</h2><span id="catalogCount" role="status"></span></div><p class="small-help">Choose a size, then tap Add item. Use + and − to adjust quantity. Your selections stay on one list as you browse.</p><label class="sr-only" for="search">Search items</label><input id="search" class="search" placeholder="Search all rooms: king bed, dresser, boxes…"><div class="catalog-grid" id="catalog"></div></div><p id="selectionFeedback" role="status"></p><button id="customOpen" class="custom-button">＋ Add an item that’s not listed</button><div class="list-pill" id="listPill"><span id="addedCount">0 items added</span><button id="reviewShortcut">Review my list →</button></div></section>
