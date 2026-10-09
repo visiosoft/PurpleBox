@@ -17,6 +17,13 @@
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <?php wp_head(); ?>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yuzxdljgn6");
+</script>
 </head>
 <body <?php body_class(); ?>>
 <main style="max-width: 900px; margin: 48px auto; padding: 0 16px; font-family: Arial, sans-serif; line-height: 1.6;">
