@@ -38,7 +38,7 @@
         const end = new Date(moveOutDate + 'T00:00:00');
         if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || end <= start) return 1;
         const dayDiff = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
-        return Math.max(1, Math.ceil(dayDiff / 30));
+        return Math.max(1, Math.ceil(dayDiff / 28)); // 4-week billing cycles
     }
 
     function setupSegmented() {
@@ -160,26 +160,26 @@
         const estimatedTotal = dueToday + remainingTotal;
 
         document.querySelectorAll('.state-chip').forEach(function (chip) {
-            chip.textContent = fmtAED(dueToday) + ' / month - ' + selectedLabel + ' Selected';
+            chip.textContent = fmtAED(dueToday) + ' / 4 weeks - ' + selectedLabel + ' Selected';
         });
 
         document.querySelectorAll('.total-val').forEach(function (el) {
             if (rentalMonths > 1) {
-                el.textContent = fmtAED(estimatedTotal) + ' total for ' + rentalMonths + ' months';
+                el.textContent = fmtAED(estimatedTotal) + ' total for ' + rentalMonths + ' x 4 weeks';
             } else {
-                el.textContent = fmtAED(dueToday) + ' first month total';
+                el.textContent = fmtAED(dueToday) + ' first 4 weeks total';
             }
         });
 
         const breakdownHtml = rentalMonths > 1
             ? [
-                '<span class="line">First month total: ' + fmtAED(dueToday) + '</span>',
-                '<span class="line">Remaining months total: ' + fmtAED(remainingTotal) + '</span>',
-                '<span class="line total">Total for ' + rentalMonths + ' months: ' + fmtAED(estimatedTotal) + '</span>'
+                '<span class="line">First 4 weeks total: ' + fmtAED(dueToday) + '</span>',
+                '<span class="line">Remaining cycles total: ' + fmtAED(remainingTotal) + '</span>',
+                '<span class="line total">Total for ' + rentalMonths + ' x 4 weeks: ' + fmtAED(estimatedTotal) + '</span>'
             ].join('')
             : [
-                '<span class="line">Monthly rent: ' + fmtAED(monthlyRent) + '</span>',
-                '<span class="line total">Month 1 total: ' + fmtAED(dueToday) + '</span>'
+                '<span class="line">Rent per 4 weeks: ' + fmtAED(monthlyRent) + '</span>',
+                '<span class="line total">First 4 weeks total: ' + fmtAED(dueToday) + '</span>'
             ].join('');
 
         document.querySelectorAll('.total-breakdown').forEach(function (el) {
@@ -371,12 +371,12 @@
             const remainingValueEl = document.getElementById('sumRemaining');
             const estimatedEl = document.getElementById('sumEstimated');
 
-            if (month1LabelEl) month1LabelEl.textContent = 'Monthly rent';
+            if (month1LabelEl) month1LabelEl.textContent = 'Rent per 4 weeks';
             if (month1ValueEl) month1ValueEl.textContent = fmtAED(rent);
             if (remainingLabelEl) {
                 remainingLabelEl.textContent = remainingMonths > 0
-                    ? ('Remaining months total')
-                    : 'Remaining months';
+                    ? ('Remaining cycles total')
+                    : 'Remaining cycles';
             }
             if (remainingValueEl) remainingValueEl.textContent = fmtAED(remainingRentTotal);
             if (estimatedEl) estimatedEl.textContent = fmtAED(estimatedTotal);
@@ -384,7 +384,7 @@
             const fields = {
                 sumSupplies: fmtAED(supplies),
                 sumDue: fmtAED(due),
-                runningTotal: rentalMonths > 1 ? (fmtAED(estimatedTotal) + ' total for ' + rentalMonths + ' months') : (fmtAED(due) + ' first month total'),
+                runningTotal: rentalMonths > 1 ? (fmtAED(estimatedTotal) + ' total for ' + rentalMonths + ' x 4 weeks') : (fmtAED(due) + ' first 4 weeks total'),
                 selChip: rentalMonths > 1
                     ? (fmtAED(estimatedTotal) + ' Estimated total')
                     : (fmtAED(due) + ' Due today'),
@@ -496,17 +496,17 @@
             '- Size: ' + data.unitSize,
             '- Move-in: ' + fmtInputDate(data.moveInDate),
             '- Move-out: ' + fmtInputDate(data.moveOutDate),
-            '- Rental period: ' + data.rentalMonths + ' month(s)',
+            '- Rental period: ' + data.rentalMonths + ' x 4 weeks',
             '- Facility: purplebox Al Quoz',
             '',
             '➕ SUPPLIES',
             supplyLines.length ? supplyLines.join('\n') : '- No supplies selected',
             '',
             '💰 PRICING',
-            '- Monthly rent: ' + fmtAED(data.monthlyRent) + '/m',
+            '- Rent: ' + fmtAED(data.monthlyRent) + ' / 4 weeks',
             '- Supplies: ' + fmtAED(suppliesTotal),
             '- Due today: ' + fmtAED(due),
-            '- Estimated total (' + data.rentalMonths + ' month(s)): ' + fmtAED(estimatedTotal),
+            '- Estimated total (' + data.rentalMonths + ' x 4 weeks): ' + fmtAED(estimatedTotal),
             '',
             '👤 MY DETAILS',
             '- Name: ' + data.fullName,

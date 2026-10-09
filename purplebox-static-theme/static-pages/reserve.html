@@ -314,40 +314,39 @@
         <!-- STEP 1: SIZE -->
         <div class="step-panel active" id="panel1">
           <h2 style="margin-bottom:6px;">Pick a unit size</h2>
-          <p style="font-size:14px;color:var(--ink-soft);margin-bottom:20px;">Not sure? Use our <a
-              href="size-guide.html" style="color:var(--purple);">Size Guide calculator</a> or WhatsApp us a photo.
+          <p style="font-size:14px;color:var(--ink-soft);margin-bottom:20px;">Not sure? WhatsApp us a photo.
           </p>
           <div class="grid-3" style="gap:14px;">
             <div class="card size-opt" onclick="selectSize(this,'5×5 ft','Small closet','from AED ___')">
               <div class="img-placeholder" style="height:70px;margin-bottom:10px;">Diagram</div>
               <div class="so-code">5-5</div>
               <div class="so-label">Small closet</div>
-              <div class="so-price">from AED ___/mo</div>
+              <div class="so-price">from AED ___ / 4 weeks</div>
             </div>
             <div class="card size-opt" onclick="selectSize(this,'5×10 ft','Studio worth','from AED ___')">
               <div class="img-placeholder" style="height:70px;margin-bottom:10px;">Diagram</div>
               <div class="so-code">5-10</div>
               <div class="so-label">Studio worth</div>
-              <div class="so-price">from AED ___/mo</div>
+              <div class="so-price">from AED ___ / 4 weeks</div>
             </div>
             <div class="card size-opt" onclick="selectSize(this,'10×10 ft','1-2 bedroom','from AED ___')">
               <div class="img-placeholder" style="height:70px;margin-bottom:10px;">Diagram</div>
               <div class="so-code">10-10</div>
               <div class="so-label">1-2 bedroom</div>
-              <div class="so-price">from AED ___/mo</div>
+              <div class="so-price">from AED ___ / 4 weeks</div>
               <div style="margin-top:6px;"><span class="tag" style="font-size:10px;">Popular</span></div>
             </div>
             <div class="card size-opt" onclick="selectSize(this,'10×15 ft','3BR / villa','from AED ___')">
               <div class="img-placeholder" style="height:70px;margin-bottom:10px;">Diagram</div>
               <div class="so-code">10-15</div>
               <div class="so-label">3BR / villa</div>
-              <div class="so-price">from AED ___/mo</div>
+              <div class="so-price">from AED ___ / 4 weeks</div>
             </div>
             <div class="card size-opt" onclick="selectSize(this,'10×20 ft','Large villa','from AED ___')">
               <div class="img-placeholder" style="height:70px;margin-bottom:10px;">Diagram</div>
               <div class="so-code">10-20</div>
               <div class="so-label">Large villa</div>
-              <div class="so-price">from AED ___/mo</div>
+              <div class="so-price">from AED ___ / 4 weeks</div>
             </div>
             <div class="card size-opt" onclick="selectSize(this,'Custom','Talk to us','Quote on request')">
               <div class="img-placeholder" style="height:70px;margin-bottom:10px;">??</div>
@@ -473,7 +472,7 @@
           <div class="summary-line"><span>Move-in</span><span id="sumDate" style="font-weight:600;">-</span></div>
           <div class="summary-line"><span>Pickup</span><span id="sumPickup" style="font-weight:600;">-</span></div>
           <div class="summary-line"><span>Add-ons</span><span id="sumAddons" style="font-weight:600;">-</span></div>
-          <div class="summary-line"><span>Monthly rate</span><span id="sumPrice" class="summary-total">-</span></div>
+          <div class="summary-line"><span>Rate per 4 weeks</span><span id="sumPrice" class="summary-total">-</span></div>
           <button class="btn btn-primary btn-full mt-16"
             onclick="goToStep(parseInt(document.querySelector('.step-panel.active').id.replace('panel',''))+1)">Continue
             ?</button>
@@ -570,7 +569,6 @@
               <li><a href="book-unit.html">Reserve Unit</a></li>
               <li><a href="store.html">Shop Now</a></li>
               <li><a href="packing-moving.html">Packing &amp; Moving</a></li>
-              <li><a href="size-guide.html">Size Guide</a></li>
             </ul>
           </nav>
           <nav aria-label="Company links">

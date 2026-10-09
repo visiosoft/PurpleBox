@@ -96,7 +96,7 @@ function wireJourney(){
  $('addFromReview').onclick=()=>{go(2);};$('editResult').onclick=()=>go(3);$('reveal3D').onclick=revealModel;$('addResult').onclick=()=>go(2);
  $('quoteStart').onclick=goToReserve;
 }
-const RESERVE_PLANS=[[10,'XS',330],[25,'SS',650],[35,'M',775],[50,'S',950],[75,'M+',1300],[100,'L',1600],[150,'XL',2500],[200,'XXL',3000]];
+const RESERVE_PLANS=[[10,'XS',330],[25,'SS',625],[35,'M',770],[50,'S',975],[75,'M+',1400],[100,'L',1650],[150,'XL',2700],[200,'XXL',3100]];/* live prices from the pricing API; values above are the fallback */fetch('https://api.purplebox.ae/api/public/pricing',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(!d||!Array.isArray(d.sizes))return;for(const p of RESERVE_PLANS){const s=d.sizes.find(z=>z.sizeSqf===p[0]);if(s)p[2]=s.price;}}).catch(()=>{});
 function nearestReservePlan(sqft){for(const p of RESERVE_PLANS){if(sqft<=p[0])return p;}return RESERVE_PLANS[RESERVE_PLANS.length-1];}
 function goToReserve(){const plan=nearestReservePlan(selected?selected.area:0);const params=new URLSearchParams();params.set('unitLabel',plan[1]);params.set('unitSize',plan[0]+' sq ft ('+plan[1]+')');params.set('monthlyRent',String(plan[2]));const qs=params.toString();let embedded=false;try{embedded=window.top&&window.top!==window&&!!window.top.location.href;}catch(e){embedded=false;}if(embedded){const abs=new URL('reserve-step-1.html',window.top.location.href);abs.search=qs;window.top.location.href=abs.href;}else{location.href='/reserve-step-1.html?'+qs;}}
 let editorInstalled=false,dragState=null;
