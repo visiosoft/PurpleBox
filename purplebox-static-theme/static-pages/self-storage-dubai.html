@@ -2624,6 +2624,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
           credentials: 'same-origin',
+          keepalive: true,
           body: payload.toString()
         }).catch(function () { });
 
@@ -2632,6 +2633,7 @@
         fetch('https://api.purplebox.ae/api/moving-leads/public', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          keepalive: true,
           body: JSON.stringify(apiPayload)
         }).catch(function () { });
 
@@ -2643,15 +2645,30 @@
         success.focus({ preventScroll: true });
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+        try {
+          sessionStorage.setItem('pbx_lp_lead', JSON.stringify({ name: name, size: sizeLabel, when: when }));
+        } catch (err) { }
+
+        // Go to the thank-you page once the conversion tag has fired (1.5s at most).
+        var THANK_YOU = /\.html$/.test(window.location.pathname) ? 'thank-you-self-storage.html' : '/thank-you-self-storage';
+        var redirected = false;
+        function goThankYou() {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = THANK_YOU;
+        }
+        setTimeout(goThankYou, 1500);
+
         track('generate_lead', { form_name: 'lp1_quote', unit_size: sizeVal || 'not_sure', timing: when });
+        if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'conversion', {
             'send_to': window.PBX_GOOGLE_ADS_ID + '/' + window.PBX_GOOGLE_ADS_CONVERSION_LABEL,
             'value': 1.0,
-            'currency': 'AED'
+            'currency': 'AED',
+            'event_callback': function () { setTimeout(goThankYou, 300); }
           });
         }
-        if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
       });
 
       ['qName', 'qPhone', 'qConsent'].forEach(function (id) {
