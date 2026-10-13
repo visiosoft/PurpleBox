@@ -99,7 +99,7 @@
     .ud-main-img {
       width: 100%;
       aspect-ratio: 4 / 3;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 24px;
       background: #f4f4f5;
       border: 1px solid #ececee;
@@ -177,6 +177,21 @@
       color: #09090b;
       line-height: 1.28;
       letter-spacing: 0;
+      margin: 0;
+    }
+
+    .ud-tagline {
+      font-size: 17px;
+      font-weight: 600;
+      color: #18181b;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .ud-dims {
+      font-size: 14px;
+      font-weight: 600;
+      color: #7c3aed;
       margin: 0;
     }
 
@@ -802,18 +817,25 @@
 </div>
 
 <script>
+  // Unit photos: local images/ folder, or the WordPress uploads folder on the live site.
+  var IMG_BASE = /(^|\.)purplebox\.ae$/.test(window.location.hostname)
+    ? 'https://purplebox.ae/wp-content/uploads/2026/10/'
+    : 'images/newimages/';
+
   var UNITS = {
     'unit-xs': {
       badge: 'XS',
       title: '10 sq ft Storage Unit',
       sqft: '10 sq ft',
-      dimensions: '5\' x 2\' (approx.)',
-      subtitle: 'Perfect for boxes, suitcases, and seasonal items. Ideal for decluttering a studio apartment.',
+      dimensions: 'L 1m x W 1m x H 1.2m',
+      dimensionsFull: 'Unit 10 sq ft: Length 1m x Width 1m x Height 1.2m',
+      tagline: 'Smart storage for the little things that take up big space.',
+      subtitle: 'Boxes, suitcases, seasonal clothes, ideal for studio living.',
       discounted: 'AED 330',
       monthlyRent: 330,
       period: '/ 4 weeks',
       popular: false,
-      images: ['https://purplebox.ae/wp-content/uploads/2026/05/10_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
+      images: [IMG_BASE + '10A.png', IMG_BASE + '10B.jpeg', IMG_BASE + '00All.png'],
       fits: [
         { icon: '📦', label: 'Moving Boxes', count: '6-8 boxes' },
         { icon: '🧳', label: 'Suitcases', count: '2-3 large' },
@@ -823,16 +845,18 @@
       videoId: ''
     },
     'unit-ss': {
-      badge: 'SS',
+      badge: 'S',
       title: '25 sq ft Storage Unit',
       sqft: '25 sq ft',
-      dimensions: '5\' x 5\' (approx.)',
-      subtitle: 'Fits contents of a 1-bedroom apartment. Great for furniture storage during moves.',
+      dimensions: 'L 1.5m x W 1.5m x H 2.4m',
+      dimensionsFull: 'Unit 25 sq ft: Length 1.5m x Width 1.5m x Height 2.4m',
+      tagline: 'Perfect for furniture &amp; boxes from a 1-bedroom apartment.',
+      subtitle: 'Ideal for storage during moves or renovations.',
       discounted: 'AED 625',
       monthlyRent: 625,
       period: '/ 4 weeks',
       popular: true,
-      images: ['https://purplebox.ae/wp-content/uploads/2026/05/25_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/25_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit3.webp'],
+      images: [IMG_BASE + '25A.png', IMG_BASE + '25B.jpeg', IMG_BASE + '00All.png'],
       fits: [
         { icon: '🛋️', label: 'Sofa', count: '1 two-seater' },
         { icon: '📦', label: 'Moving Boxes', count: '12-16 boxes' },
@@ -842,16 +866,18 @@
       videoId: ''
     },
     'unit-s50': {
-      badge: 'S',
+      badge: 'L',
       title: '50 sq ft Storage Unit',
       sqft: '50 sq ft',
-      dimensions: '5\' x 10\' (approx.)',
-      subtitle: 'Fits a full 1-bedroom apartment. Best for boxes, appliances, and extra furniture.',
+      dimensions: 'L 3m x W 1.55m x H 2.4m',
+      dimensionsFull: 'Unit 50 sq ft: Length 3m x Width 1.55m x Height 2.4m',
+      tagline: 'The sweet spot between space and price.',
+      subtitle: 'Fits a full 2-bedroom apartment with room to spare.',
       discounted: 'AED 975',
       monthlyRent: 975,
       period: '/ 4 weeks',
       popular: true,
-      images: ['https://purplebox.ae/wp-content/uploads/2026/05/50_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/50_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp'],
+      images: [IMG_BASE + '50A.png', IMG_BASE + '50B.jpeg', IMG_BASE + '00All.png'],
       fits: [
         { icon: '🛏️', label: 'Bedroom Set', count: 'Bed + wardrobe' },
         { icon: '📦', label: 'Moving Boxes', count: '20-25 boxes' },
@@ -864,13 +890,15 @@
       badge: 'M',
       title: '35 sq ft Storage Unit',
       sqft: '35 sq ft',
-      dimensions: '5\' x 7\' (approx.)',
-      subtitle: 'Good balance of space and price. Fits contents of a 2-bedroom apartment.',
+      dimensions: 'L 2.1m x W 1.5m x H 2.4m',
+      dimensionsFull: 'Unit 35 sq ft: Length 2.1m x Width 1.5m x Height 2.4m',
+      tagline: 'Spacious enough for a full 1-bedroom apartment.',
+      subtitle: 'Ideal for boxes, appliances &amp; extra furniture.',
       discounted: 'AED 770',
       monthlyRent: 770,
       period: '/ 4 weeks',
       popular: false,
-      images: ['https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/75_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
+      images: [IMG_BASE + '35A.png', IMG_BASE + '35B.png', IMG_BASE + '00All.png'],
       fits: [
         { icon: '🛋️', label: 'Living Room', count: 'Sofa + table' },
         { icon: '📦', label: 'Moving Boxes', count: '16-20 boxes' },
@@ -880,16 +908,18 @@
       videoId: ''
     },
     'unit-m75': {
-      badge: 'M+',
+      badge: 'XL',
       title: '75 sq ft Storage Unit',
       sqft: '75 sq ft',
-      dimensions: '7.5\' x 10\' (approx.)',
-      subtitle: 'Extra room for larger household furniture and bulkier items. Great for bigger apartment moves.',
+      dimensions: 'L 3m x W 2.3m x H 2.4m',
+      dimensionsFull: 'Unit 75 sq ft: Length 3m x Width 2.3m x Height 2.4m',
+      tagline: 'Room to breathe for bigger moves.',
+      subtitle: 'Fits larger furniture, bulkier items &amp; full apartment contents.',
       discounted: 'AED 1,400',
       monthlyRent: 1400,
       period: '/ 4 weeks',
       popular: true,
-      images: ['https://purplebox.ae/wp-content/uploads/2026/05/75_sq_ft.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
+      images: [IMG_BASE + '75A.png', IMG_BASE + '75B.jpeg', IMG_BASE + '00All.png'],
       fits: [
         { icon: '🛏️', label: 'Bedroom Sets', count: '2 complete rooms' },
         { icon: '📦', label: 'Moving Boxes', count: '24-30 boxes' },
@@ -899,16 +929,18 @@
       videoId: ''
     },
     'unit-l': {
-      badge: 'L',
+      badge: 'XXL',
       title: '100 sq ft Storage Unit',
       sqft: '100 sq ft',
-      dimensions: '10\' x 10\' (approx.)',
-      subtitle: 'Fits a small villa or 3-bedroom home. For larger furniture sets and cartons.',
+      dimensions: 'L 4m x W 2.3m x H 2.4m',
+      dimensionsFull: 'Unit 100 sq ft: Length 4m x Width 2.3m x Height 2.4m',
+      tagline: 'Big enough for a small villa or full 3-bedroom home.',
+      subtitle: 'Handles larger furniture sets, appliances &amp; cartons with ease.',
       discounted: 'AED 1,650',
       monthlyRent: 1650,
       period: '/ 4 weeks',
       popular: false,
-      images: ['https://purplebox.ae/wp-content/uploads/2026/05/100_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit3.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp'],
+      images: [IMG_BASE + '100A.png', IMG_BASE + '100B.jpeg', IMG_BASE + '00All.png'],
       fits: [
         { icon: '🏡', label: 'Villa Contents', count: '3-bed home' },
         { icon: '📦', label: 'Moving Boxes', count: '32-40 boxes' },
@@ -918,16 +950,18 @@
       videoId: ''
     },
     'unit-xl': {
-      badge: 'XL',
+      badge: '3XL',
       title: '150 sq ft Storage Unit',
       sqft: '150 sq ft',
-      dimensions: '10\' x 15\' (approx.)',
-      subtitle: 'Full villa contents from a 4-bedroom home. Large household storage volume.',
+      dimensions: 'L 4m x W 3.4m x H 2.4m',
+      dimensionsFull: 'Unit 150 sq ft: Length 4m x Width 3.4m x Height 2.4m',
+      tagline: 'Serious space for serious needs.',
+      subtitle: 'Fits a full 4-bedroom villa or high-volume business stock.',
       discounted: 'AED 2,700',
       monthlyRent: 2700,
       period: '/ 4 weeks',
       popular: false,
-      images: ['https://purplebox.ae/wp-content/uploads/2026/05/150_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit3.webp'],
+      images: [IMG_BASE + '150A.png', IMG_BASE + '150B.jpeg', IMG_BASE + '00All.png'],
       fits: [
         { icon: '🏡', label: 'Full Villa', count: '4-bed home' },
         { icon: '📦', label: 'Moving Boxes', count: '50-65 boxes' },
@@ -937,16 +971,18 @@
       videoId: ''
     },
     'unit-xxl': {
-      badge: 'XXL',
+      badge: '4XL',
       title: '200 sq ft Storage Unit',
       sqft: '200 sq ft',
-      dimensions: '10\' x 20\' (approx.)',
-      subtitle: 'Maximum space for major moves. Full villa contents, business storage, or bulky items.',
+      dimensions: 'L 5.75m x W 3.4m x H 2.4m',
+      dimensionsFull: 'Unit 200 sq ft: Length 5.75m x Width 3.4m x Height 2.4m',
+      tagline: 'The biggest unit we offer.',
+      subtitle: 'Fits a full villa, major business stock, or bulky items with ease.',
       discounted: 'AED 3,100',
       monthlyRent: 3100,
       period: '/ 4 weeks',
       popular: false,
-      images: ['https://purplebox.ae/wp-content/uploads/2026/05/200_sq.jpg', 'https://purplebox.ae/wp-content/uploads/2026/05/unit1.webp', 'https://purplebox.ae/wp-content/uploads/2026/05/unit2.webp'],
+      images: [IMG_BASE + '200A.png', IMG_BASE + '200B.jpeg', IMG_BASE + '00All.png'],
       fits: [
         { icon: '🏡', label: 'Large Villa', count: '5+ bed home' },
         { icon: '📦', label: 'Moving Boxes', count: '65-85 boxes' },
@@ -969,24 +1005,24 @@
 
   var FAQS = [
     {
-      q: 'How do I access my storage unit?',
-      a: 'Our facility is accessible 24 hours a day, 7 days a week. You will receive a personal access code when you reserve your unit. Simply enter your code at the gate and head to your unit.'
+      q: 'Can I access my storage unit anytime?',
+      a: 'Your belongings are always within reach. Enjoy 24/7 access, 7 days a week, using your personal access code.'
     },
     {
-      q: 'Is the unit climate-controlled?',
-      a: 'Yes. All PurpleBox units are fully climate-controlled to protect your belongings from Dubai\'s heat and humidity. Temperature is maintained between 20-24°C year-round.'
+      q: 'Will my belongings be protected from Dubai\'s heat?',
+      a: 'Yes. Every PurpleBox unit is climate-controlled, with temperatures maintained at 20–24°C year-round to help protect your belongings from heat and humidity.'
     },
     {
-      q: 'Can I change my unit size later?',
-      a: 'Absolutely. You can upgrade or downgrade to a different size at any time, subject to availability. Contact us and we\'ll arrange the transfer at no extra cost.'
+      q: 'What if I need more or less storage space?',
+      a: 'No problem. Upgrade or downsize your unit anytime, subject to availability. We\'ll arrange the transfer at no extra cost.'
     },
     {
-      q: 'Is there insurance for my stored items?',
-      a: 'We recommend insuring your items. Basic coverage is available through our partner insurance provider at affordable rates. Ask our team for details when you reserve.'
+      q: 'Can I insure my stored belongings?',
+      a: 'For added peace of mind, we recommend insuring your belongings. Basic coverage is available through our insurance partner at affordable rates. Ask our team for details when you reserve.'
     },
     {
-      q: 'What is your cancellation policy?',
-      a: 'PurpleBox operates on flexible contracts billed every 4 weeks. You can cancel with 14 days\' notice before your next billing date, in line with your contract terms.'
+      q: 'Can I cancel my storage plan at any time?',
+      a: 'Yes. PurpleBox offers flexible contracts billed every 4 weeks. Simply give 14 days\' notice before your next billing date, in accordance with your contract terms.'
     }
   ];
 
@@ -1050,7 +1086,9 @@
 
     // Title & subtitle
     html += '<h1 class="ud-title">' + u.title + '</h1>';
+    html += '<p class="ud-tagline">' + u.tagline + '</p>';
     html += '<p class="ud-subtitle">' + u.subtitle + '</p>';
+    html += '<p class="ud-dims">' + u.dimensionsFull + '</p>';
 
     // Price block
     html += '<div class="ud-price-block">';
@@ -1058,7 +1096,6 @@
     html += '<span class="ud-discounted">' + u.discounted + '</span>';
     html += '<span class="ud-period">' + u.period + '</span>';
     html += '</div>';
-    html += '<p class="ud-price-note">Billed every 4 weeks. Same price for every unit of this size.</p>';
     if (u.offer) html += '<p class="ud-price-note" style="color:#15803d;font-weight:700;">' + u.offer + '</p>';
     html += '</div>';
 

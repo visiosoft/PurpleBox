@@ -115,16 +115,17 @@
             return 'MULTI';
         }
 
-        const fromLabel = String(unitLabel || '').match(/\b(XXL|XL|XS|SS|S|M|L)\b/i);
+        const fromLabel = String(unitLabel || '').match(/\b(4XL|3XL|XXL|XL|XS|S|M|L)\b/i);
         if (fromLabel) return fromLabel[1].toUpperCase();
 
         const sizeText = sizeTextRaw;
-        if (sizeText.includes('200')) return 'XXL';
-        if (sizeText.includes('150')) return 'XL';
-        if (sizeText.includes('100')) return 'L';
-        if (sizeText.includes('50')) return 'S';
+        if (sizeText.includes('200')) return '4XL';
+        if (sizeText.includes('150')) return '3XL';
+        if (sizeText.includes('100')) return 'XXL';
+        if (sizeText.includes('75')) return 'XL';
+        if (sizeText.includes('50')) return 'L';
         if (sizeText.includes('35')) return 'M';
-        if (sizeText.includes('25')) return 'SS';
+        if (sizeText.includes('25')) return 'S';
         if (sizeText.includes('10')) return 'XS';
         return 'M';
     }
