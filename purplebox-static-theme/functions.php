@@ -303,14 +303,17 @@ function purplebox_static_rewrite_asset_urls($html) {
 
     $html = preg_replace_callback(
         '/\b(href|src)=(["\'])(css|js|images|templates|estimator-widget)\/([^"\']+)\2/i',
-        function ($m) use ($theme_uri, $images_base_uri, $append_asset_version) {
+        function ($m) use ($theme_uri, $theme_dir, $images_base_uri, $append_asset_version) {
             // The estimator widget is a self-contained app (its own JS, JSON and vendor files),
             // so it must be loaded straight from the theme folder rather than routed through WordPress.
             $group = ($m[3] === 'estimator-widget') ? 'static-pages/estimator-widget' : $m[3];
-            $base_uri = ($m[3] === 'images') ? $images_base_uri : ($theme_uri . '/' . $group);
+            // Images shipped inside the theme (e.g. the optimized hero media) are served from it;
+            // everything else under images/ still lives in the uploads folder.
+            $in_theme = ($m[3] === 'images') && file_exists($theme_dir . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $m[4]));
+            $base_uri = ($m[3] === 'images' && !$in_theme) ? $images_base_uri : ($theme_uri . '/' . $group);
             $asset_url = $base_uri . '/' . $m[4];
 
-            if ($m[3] !== 'images') {
+            if ($m[3] !== 'images' || $in_theme) {
                 $asset_url = $append_asset_version($asset_url, $group, $m[4]);
             }
 
@@ -518,6 +521,7 @@ function purplebox_static_get_store_products() {
                     'was' => $was_text,
                     'tag' => $product->is_on_sale() ? 'Sale' : '',
                     'image' => $image,
+                    'url' => esc_url_raw(get_permalink($id)),
                 ];
             }
 

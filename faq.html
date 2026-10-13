@@ -1,8 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  /* PBX: load tracking scripts on first interaction (or 10s after load) to keep them off the critical path. */
+  (function (w, d) {
+    var q = [], done = false, evs = ['pointerdown', 'keydown', 'touchstart', 'scroll', 'mousemove'];
+    function run() {
+      if (done) return;
+      done = true;
+      evs.forEach(function (e) { w.removeEventListener(e, run, true); });
+      q.forEach(function (fn) { try { fn(); } catch (err) { } });
+      q = [];
+    }
+    w.pbxDelay = function (fn) { done ? fn() : q.push(fn); };
+    w.pbxLoadScript = function (src) {
+      w.pbxDelay(function () {
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = src;
+        d.head.appendChild(s);
+      });
+    };
+    evs.forEach(function (e) { w.addEventListener(e, run, { capture: true, passive: true }); });
+    w.addEventListener('load', function () { setTimeout(run, 10000); });
+  })(window, document);
+</script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SWD86TM761"></script>
+<script>pbxLoadScript('https://www.googletagmanager.com/gtag/js?id=G-SWD86TM761');</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -343,8 +367,7 @@
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        pbxLoadScript("https://www.clarity.ms/tag/"+i);
     })(window, document, "clarity", "script", "yuzxdljgn6");
 </script>
 </head>

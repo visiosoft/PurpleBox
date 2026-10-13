@@ -2,8 +2,32 @@
 <html lang="en">
 
 <head>
+<script>
+  /* PBX: load tracking scripts on first interaction (or 10s after load) to keep them off the critical path. */
+  (function (w, d) {
+    var q = [], done = false, evs = ['pointerdown', 'keydown', 'touchstart', 'scroll', 'mousemove'];
+    function run() {
+      if (done) return;
+      done = true;
+      evs.forEach(function (e) { w.removeEventListener(e, run, true); });
+      q.forEach(function (fn) { try { fn(); } catch (err) { } });
+      q = [];
+    }
+    w.pbxDelay = function (fn) { done ? fn() : q.push(fn); };
+    w.pbxLoadScript = function (src) {
+      w.pbxDelay(function () {
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = src;
+        d.head.appendChild(s);
+      });
+    };
+    evs.forEach(function (e) { w.addEventListener(e, run, { capture: true, passive: true }); });
+    w.addEventListener('load', function () { setTimeout(run, 10000); });
+  })(window, document);
+</script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SWD86TM761"></script>
+<script>pbxLoadScript('https://www.googletagmanager.com/gtag/js?id=G-SWD86TM761');</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -33,7 +57,7 @@
   <meta name="twitter:description"
     content="Premium climate-controlled self-storage in Al Quoz 2, Dubai. Units from AED 330 per 4 weeks. Flexible contract terms." />
   <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJZQX0KB9B"></script>
+  <script>pbxLoadScript('https://www.googletagmanager.com/gtag/js?id=G-QJZQX0KB9B');</script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -47,8 +71,7 @@
         n.callMethod ?
           n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       }; if (!f._fbq) f._fbq = n;
-      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; pbxLoadScript(v)
     }
       (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '980499678398496');
@@ -61,9 +84,7 @@
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
           new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      }); var dl = l != 'dataLayer' ? '&l=' + l : ''; pbxLoadScript('https://www.googletagmanager.com/gtm.js?id=' + i + dl);
     })(window, document, 'script', 'dataLayer', 'GTM-56Z5JGR6');</script>
   <!-- End Google Tag Manager -->
 
@@ -75,11 +96,10 @@
       'currency': 'AED'
     });
   </script>
+  <link rel="preload" as="image" href="images/hero-poster.webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="css/shared.css" />
   <link rel="stylesheet" href="css/layout-template.css" />
   <style>
@@ -371,13 +391,51 @@
       box-shadow: none;
     }
 
-    .hero-banner video {
+    .hero-banner video,
+    .hero-poster {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    /* Video stays transparent over the poster image until it is actually playing. */
+    .hero-banner video {
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+
+    .hero-banner video.is-playing {
+      opacity: 1;
+    }
+
+    .hero-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(255, 255, 255, .92);
+      color: #7c3aed;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(9, 9, 11, .25);
+    }
+
+    .hero-play[hidden] {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .hero-play {
+        display: none;
+      }
     }
 
 
@@ -1097,6 +1155,15 @@
       position: relative;
       height: 160px;
       background: #ede9fe;
+    }
+
+    .unit-card-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .unit-card-media.business {
@@ -2475,7 +2542,6 @@
     }
 
     .hero h1 {
-      animation: fadeUp .6s ease both .1s;
       font-size: clamp(40px, 5vw, 64px);
     }
 
@@ -2491,9 +2557,7 @@
       animation: fadeUp .6s ease both .55s;
     }
 
-    .hero-banner {
-      animation: fadeUp .6s ease both .3s;
-    }
+
 
     .reveal {
       opacity: 0;
@@ -2944,8 +3008,8 @@
       }
 
       .mobile-cta .btn-wa {
-        background: #25d366;
-        border: 1px solid #25d366;
+        background: #15803d;
+        border: 1px solid #15803d;
         color: #ffffff;
         display: inline-flex;
         align-items: center;
@@ -3625,8 +3689,7 @@
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        pbxLoadScript("https://www.clarity.ms/tag/"+i);
     })(window, document, "clarity", "script", "yuzxdljgn6");
 </script>
 </head>
@@ -3640,9 +3703,9 @@
       <div class="pbnav-links">
         <a href="index.html" class="active" aria-current="page">Home</a>
         <a href="book-unit.html">Reserve Unit</a>
-        <a href="store.html">Shop Now</a>
-        <a href="packing-moving.html">Packing &amp; Moving</a>
         <a href="estimator.html">Estimator</a>
+        <a href="packing-moving.html">Packing &amp; Moving</a>
+        <a href="store.html">Shop Supplies</a>
         <a href="community/">Blog</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -3661,9 +3724,9 @@
       <a href="tel:+971542249946" class="pbnav-menu-phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" /></svg> +971 54 224 9946</a>
       <a href="index.html" class="active" aria-current="page">Home</a>
       <a href="book-unit.html">Reserve Unit</a>
-      <a href="store.html">Shop Now</a>
-      <a href="packing-moving.html">Packing &amp; Moving</a>
       <a href="estimator.html">Estimator</a>
+      <a href="packing-moving.html">Packing &amp; Moving</a>
+      <a href="store.html">Shop Supplies</a>
       <a href="community/">Blog</a>
       <a href="contact.html">Contact</a>
       <a href="#leadForm" class="pbnav-menu-quote">Get a Quote</a>
@@ -3671,6 +3734,7 @@
   </nav>
 
 
+  <main id="main">
   <!-- HERO - Glofox-style full-bleed two-column -->
   <section class="hero" style="background-color:#ffffff !important; position: relative;">
     <div
@@ -3736,12 +3800,16 @@
 
       <!-- Right: full-bleed image + video + floating card -->
       <div class="hero-banner">
-        <video id="heroVideo"
-          poster="https://purplebox.ae/wp-content/uploads/2026/05/purplebox_storage_sharp_optimized.webp" muted loop
-          playsinline webkit-playsinline autoplay preload="none">
-          <source src="https://purplebox.ae/wp-content/uploads/2026/06/video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <img class="hero-poster no-lazyload skip-lazy" data-no-lazy="1" src="images/hero-poster.webp"
+          alt="Customer loading PurpleBox boxes into a storage unit" width="900" height="900"
+          fetchpriority="high" loading="eager" />
+        <video id="heroVideo" muted loop playsinline webkit-playsinline preload="none" aria-hidden="true">
+          <source data-src="images/hero-video.webm" type="video/webm">
+          <source data-src="images/hero-video.mp4" type="video/mp4">
         </video>
+        <button type="button" class="hero-play" id="heroPlay" aria-label="Play facility video">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+        </button>
       </div>
 
     </div>
@@ -3769,12 +3837,12 @@
 
           <div class="unit-card-scroller">
             <a href="unit-details.html#unit-xs" class="unit-card reveal reveal-delay-1">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/10_sq_.jpg') center/cover no-repeat;">
+              <div class="unit-card-media">
+                <img class="unit-card-img" src="images/card-10_sq_.webp" alt="" width="480" height="344" loading="lazy" decoding="async" />
                 <span class="unit-card-badge">XS</span>
               </div>
               <div class="unit-card-body">
-                <h4 class="unit-card-size">10 sq ft</h4>
+                <h3 class="unit-card-size">10 sq ft</h3>
                 <p class="unit-card-hint">Studio essentials, boxes, suitcases.</p>
                 <div class="unit-card-footer">
                   <div class="pb-price" data-pbx-price="10">
@@ -3786,13 +3854,13 @@
             </a>
 
             <a href="unit-details.html#unit-ss" class="unit-card reveal reveal-delay-2">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/25_sq.jpg') center/cover no-repeat;">
+              <div class="unit-card-media">
+                <img class="unit-card-img" src="images/card-25_sq.webp" alt="" width="480" height="344" loading="lazy" decoding="async" />
                 <span class="unit-card-badge">SS</span>
               </div>
               <div class="unit-card-body">
-                <h4 class="unit-card-size">25 sq ft</h4>
-                <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
+                <h3 class="unit-card-size">25 sq ft</h3>
+                <p class="unit-card-hint">Perfect for furniture &amp; boxes from a 1-bedroom apartment.</p>
                 <div class="unit-card-footer">
                   <div class="pb-price" data-pbx-price="25">
                     <span class="pb-price__was" aria-hidden="true"></span>
@@ -3803,13 +3871,13 @@
             </a>
 
             <a href="unit-details.html#unit-m35" class="unit-card reveal reveal-delay-3">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/75_sq_.jpg') center/cover no-repeat;">
+              <div class="unit-card-media">
+                <img class="unit-card-img" src="images/card-75_sq_.webp" alt="" width="480" height="344" loading="lazy" decoding="async" />
                 <span class="unit-card-badge">M</span>
               </div>
               <div class="unit-card-body">
-                <h4 class="unit-card-size">35 sq ft</h4>
-                <p class="unit-card-hint">Fits a 2-bedroom apartment.</p>
+                <h3 class="unit-card-size">35 sq ft</h3>
+                <p class="unit-card-hint">Spacious enough for a full 1-bedroom apartment.</p>
                 <div class="unit-card-footer">
                   <div class="pb-price" data-pbx-price="35">
                     <span class="pb-price__was" aria-hidden="true"></span>
@@ -3820,14 +3888,14 @@
             </a>
 
             <a href="unit-details.html#unit-s50" class="unit-card reveal reveal-delay-4">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/50_sq.jpg') center/cover no-repeat;">
+              <div class="unit-card-media">
+                <img class="unit-card-img" src="images/card-50_sq.webp" alt="" width="480" height="344" loading="lazy" decoding="async" />
                 <span class="unit-card-badge">S</span>
                 <span class="unit-card-popular">Popular</span>
               </div>
               <div class="unit-card-body">
-                <h4 class="unit-card-size">50 sq ft</h4>
-                <p class="unit-card-hint">Fits a 1-bedroom apartment.</p>
+                <h3 class="unit-card-size">50 sq ft</h3>
+                <p class="unit-card-hint">Fits a full 2-bedroom apartment with room to spare.</p>
                 <div class="unit-card-footer">
                   <div class="pb-price" data-pbx-price="50">
                     <span class="pb-price__was" aria-hidden="true"></span>
@@ -3838,14 +3906,14 @@
             </a>
 
             <a href="unit-details.html#unit-m75" class="unit-card reveal reveal-delay-5">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/75_sq_ft.jpg') center/cover no-repeat;">
+              <div class="unit-card-media">
+                <img class="unit-card-img" src="images/card-75_sq_ft.webp" alt="" width="480" height="344" loading="lazy" decoding="async" />
                 <span class="unit-card-badge">M+</span>
                 <span class="unit-card-popular">Popular</span>
               </div>
               <div class="unit-card-body">
-                <h4 class="unit-card-size">75 sq ft</h4>
-                <p class="unit-card-hint">Fits a 2-3 bedroom apartment.</p>
+                <h3 class="unit-card-size">75 sq ft</h3>
+                <p class="unit-card-hint">Fits larger furniture, bulkier items &amp; full apartment contents.</p>
                 <div class="unit-card-footer">
                   <div class="pb-price" data-pbx-price="75">
                     <span class="pb-price__was" aria-hidden="true"></span>
@@ -3856,12 +3924,12 @@
             </a>
 
             <a href="unit-details.html#unit-l" class="unit-card reveal reveal-delay-6">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/100_sq.jpg') center/cover no-repeat;">
+              <div class="unit-card-media">
+                <img class="unit-card-img" src="images/card-100_sq.webp" alt="" width="480" height="344" loading="lazy" decoding="async" />
                 <span class="unit-card-badge">L</span>
               </div>
               <div class="unit-card-body">
-                <h4 class="unit-card-size">100 sq ft</h4>
+                <h3 class="unit-card-size">100 sq ft</h3>
                 <p class="unit-card-hint">Fits a small villa / 3-bed home.</p>
                 <div class="unit-card-footer">
                   <div class="pb-price" data-pbx-price="100">
@@ -3873,12 +3941,12 @@
             </a>
 
             <a href="unit-details.html#unit-xl" class="unit-card reveal reveal-delay-6">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/150_sq.jpg') center/cover no-repeat;">
+              <div class="unit-card-media">
+                <img class="unit-card-img" src="images/card-150_sq.webp" alt="" width="480" height="344" loading="lazy" decoding="async" />
                 <span class="unit-card-badge">XL</span>
               </div>
               <div class="unit-card-body">
-                <h4 class="unit-card-size">150 sq ft</h4>
+                <h3 class="unit-card-size">150 sq ft</h3>
                 <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
                 <div class="unit-card-footer">
                   <div class="pb-price" data-pbx-price="150">
@@ -3890,12 +3958,12 @@
             </a>
 
             <a href="unit-details.html#unit-xxl" class="unit-card reveal reveal-delay-6">
-              <div class="unit-card-media"
-                style="background: url('https://purplebox.ae/wp-content/uploads/2026/05/200_sq.jpg') center/cover no-repeat;">
+              <div class="unit-card-media">
+                <img class="unit-card-img" src="images/card-200_sq.webp" alt="" width="480" height="344" loading="lazy" decoding="async" />
                 <span class="unit-card-badge">XXL</span>
               </div>
               <div class="unit-card-body">
-                <h4 class="unit-card-size">200 sq ft</h4>
+                <h3 class="unit-card-size">200 sq ft</h3>
                 <p class="unit-card-hint">Full villa contents, 4-bed home.</p>
                 <div class="unit-card-footer">
                   <div class="pb-price" data-pbx-price="200">
@@ -4063,7 +4131,7 @@
   </section>
 
   <div class="pack-pro-drawer-backdrop" id="packDrawerBackdrop" aria-hidden="true"></div>
-  <aside class="pack-pro-drawer" id="packDrawer" aria-hidden="true" role="dialog" aria-modal="true"
+  <aside class="pack-pro-drawer" id="packDrawer" aria-hidden="true" inert role="dialog" aria-modal="true"
     aria-labelledby="packDrawerName">
     <!-- Close -->
     <button class="pack-drawer-close" id="packDrawerClose" aria-label="Close product detail">&times;</button>
@@ -4184,6 +4252,8 @@
   </section>
 
 
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="pbx-footer-shell" aria-label="Footer">
@@ -4453,41 +4523,48 @@
       });
     });
 
-    /* ---- Hero video: load after page ready, poster shows until it plays ---- */
+    /* ---- Hero video: poster image paints first; video loads after the page on
+       desktop, and only on tap on mobile (saves ~750 KB on phones). ---- */
     (function () {
       var video = document.getElementById('heroVideo');
+      var playBtn = document.getElementById('heroPlay');
       if (!video) return;
-      var srcEl = video.querySelector('source');
-      var fallbackSrc = 'http://purplebox.ae/wp-content/uploads/2026/06/video.mp4';
+      var started = false;
 
       video.muted = true;
       video.defaultMuted = true;
       video.playsInline = true;
-      video.autoplay = true;
 
-      if (!srcEl || !srcEl.getAttribute('src')) {
-        video.src = fallbackSrc;
-      }
-
-      function loadVideo() {
-        video.preload = 'auto';
+      function start() {
+        if (started) return;
+        started = true;
+        Array.prototype.forEach.call(video.querySelectorAll('source[data-src]'), function (s) {
+          s.src = s.getAttribute('data-src');
+        });
         video.load();
         video.play().catch(function () {
-          // autoplay blocked - poster stays visible, no error shown
+          // autoplay blocked - poster stays visible
+          started = false;
         });
       }
 
       function ensurePlaying() {
-        if (document.hidden || !video.paused) return;
-        video.play().catch(function () {
-          // ignore browser autoplay restrictions
-        });
+        if (!started || document.hidden || !video.paused) return;
+        video.play().catch(function () { });
       }
 
-      if (document.readyState === 'complete') {
-        loadVideo();
-      } else {
-        window.addEventListener('load', loadVideo);
+      video.addEventListener('playing', function () {
+        video.classList.add('is-playing');
+        if (playBtn) playBtn.hidden = true;
+      });
+      if (playBtn) playBtn.addEventListener('click', start);
+
+      var conn = navigator.connection || {};
+      var autoLoad = window.matchMedia('(min-width: 768px)').matches && !conn.saveData;
+      function scheduleAuto() { setTimeout(start, 1500); }
+      if (autoLoad) {
+        if (document.readyState === 'complete') scheduleAuto();
+        else window.addEventListener('load', scheduleAuto);
       }
 
       document.addEventListener('visibilitychange', ensurePlaying);
@@ -4827,6 +4904,7 @@
         drawer.classList.add('is-open');
         drawerBackdrop.classList.add('is-open');
         drawer.setAttribute('aria-hidden', 'false');
+        drawer.inert = false;
         drawer.scrollTop = 0;
       }
 
@@ -4834,6 +4912,7 @@
         drawer.classList.remove('is-open');
         drawerBackdrop.classList.remove('is-open');
         drawer.setAttribute('aria-hidden', 'true');
+        drawer.inert = true;
       }
 
       // Qty stepper
@@ -4866,8 +4945,8 @@
             '</button>' +
             productVisual(item) +
             '</div>' +
-            '<div class="pack-product-main" data-open-id="' + item.id + '" tabindex="0" role="button" aria-label="View details for ' + item.name + '">' +
-            '<h4 class="pack-product-name">' + item.name + '</h4>' +
+            '<div class="pack-product-main" data-open-id="' + item.id + '" tabindex="0" role="button">' +
+            '<h3 class="pack-product-name">' + item.name + '</h3>' +
             '<p class="pack-product-spec">' + item.spec + '</p>' +
             '<div class="pack-product-footer">' +
             '<div class="pack-product-price">' + item.price + (item.was ? ' <span class="was">' + item.was + '</span>' : '') + '</div>' +
