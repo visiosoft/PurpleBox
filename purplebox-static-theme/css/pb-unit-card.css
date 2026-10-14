@@ -83,17 +83,24 @@
   color: var(--pb-ink);
 }
 
+/* Description: one paragraph, at most two lines, then an ellipsis. */
 .unit-card-hint,
 .book-fit {
   margin: 4px 0 0;
   font-size: 13px;
   line-height: 19px;
   color: var(--pb-ink-muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 
 .book-meta {
-  color: var(--pb-ink-muted);
-  line-height: 1.4;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .unit-card-footer,
