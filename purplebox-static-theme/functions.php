@@ -335,11 +335,12 @@ function purplebox_static_rewrite_asset_urls($html) {
     // Fix inline CSS background URLs like: url('images/file.jpg')
     $html = preg_replace_callback(
         '/url\((\s*["\']?)(css|js|images|templates)\/([^\)"\']+)(["\']?\s*)\)/i',
-        function ($m) use ($theme_uri, $images_base_uri, $append_asset_version) {
-            $base_uri = ($m[2] === 'images') ? $images_base_uri : ($theme_uri . '/' . $m[2]);
+        function ($m) use ($theme_uri, $theme_dir, $images_base_uri, $append_asset_version) {
+            $in_theme = ($m[2] === 'images') && file_exists($theme_dir . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $m[3]));
+            $base_uri = ($m[2] === 'images' && !$in_theme) ? $images_base_uri : ($theme_uri . '/' . $m[2]);
             $asset_url = $base_uri . '/' . $m[3];
 
-            if ($m[2] !== 'images') {
+            if ($m[2] !== 'images' || $in_theme) {
                 $asset_url = $append_asset_version($asset_url, $m[2], $m[3]);
             }
 
