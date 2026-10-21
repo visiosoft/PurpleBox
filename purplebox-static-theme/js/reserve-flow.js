@@ -188,9 +188,25 @@
         });
     }
 
+    // Show the photo of the chosen unit size instead of the generic one. Same photos
+    // as unit-details.html.
+    const UNIT_PHOTO_SQFT = { XS: 10, S: 25, M: 35, L: 50, XL: 75, XXL: 100, '3XL': 150, '4XL': 200 };
+
+    function setUnitPhoto() {
+        const p = getParams();
+        if (!p.get('unitLabel') && !p.get('unitSize')) return;
+        const sqft = UNIT_PHOTO_SQFT[getSelectedSizeLabel(p.get('unitLabel'), p.get('unitSize'))];
+        if (!sqft) return;
+        document.querySelectorAll('.hero-unit-img, .desk-unit-img').forEach(function (img) {
+            img.src = 'https://purplebox.ae/wp-content/uploads/2026/10/' + sqft + '.png';
+            img.alt = sqft + ' sq ft PurpleBox storage unit';
+        });
+    }
+
     function setupStep1() {
         fillFromQuery();
         syncStep1Summary();
+        setUnitPhoto();
         setupSegmented();
         setupDateChips();
         const form = document.getElementById('step1Form');

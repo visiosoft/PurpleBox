@@ -317,13 +317,6 @@
       margin: 0;
     }
 
-    .ud-dims {
-      font-size: 14px;
-      font-weight: 600;
-      color: #7c3aed;
-      margin: 0;
-    }
-
     .ud-subtitle {
       font-size: 15px;
       color: #52525b;
@@ -467,42 +460,30 @@
     }
 
     /* What fits */
-    .ud-fits-grid {
+    .ud-fits-list {
+      margin: 0 0 18px;
+      padding-left: 20px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    @media (min-width: 768px) {
-      .ud-fits-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .ud-fits-card {
-      text-align: center;
-      background: #fafafa;
-      border: 1px solid #ececee;
-      border-radius: 14px;
-      padding: 18px 12px;
-    }
-
-    .ud-fits-icon {
-      font-size: 28px;
-      margin-bottom: 6px;
-    }
-
-    .ud-fits-label {
-      font-size: 13px;
-      font-weight: 600;
+      gap: 8px;
+      font-size: 15px;
       color: #3f3f46;
-      margin: 0;
+      line-height: 1.55;
     }
 
-    .ud-fits-count {
-      font-size: 11px;
-      color: #71717a;
-      margin: 2px 0 0;
+    .ud-fits-list li::marker {
+      color: #7c3aed;
+    }
+
+    .ud-fits-note {
+      font-size: 15px;
+      color: #52525b;
+      line-height: 1.55;
+      margin: 0 0 12px;
+    }
+
+    .ud-fits-note strong {
+      color: #18181b;
+      font-weight: 600;
     }
 
     /* Size comparison */
@@ -964,6 +945,8 @@
   var IMG_BASE = /(^|\.)purplebox\.ae$/.test(window.location.hostname)
     ? 'https://purplebox.ae/wp-content/uploads/2026/10/'
     : 'images/newimages/';
+  // Photos of each unit with items inside (Oct 2026), served from the live uploads folder.
+  var NEW_IMG_BASE = 'https://purplebox.ae/wp-content/uploads/2026/10/';
 
   var UNITS = {
     'unit-xs': {
@@ -972,19 +955,22 @@
       sqft: '10 sq ft',
       dimensions: 'L 1m x W 1m x H 1.2m',
       dimensionsFull: 'Unit 10 sq ft: Length 1m x Width 1m x Height 1.2m',
-      tagline: 'Smart storage for the little things that take up big space.',
-      subtitle: 'Boxes, suitcases, seasonal clothes, ideal for studio living.',
+      tagline: 'Compact, Secure &amp; Affordable Storage',
+      subtitle: 'Ideal for suitcases, boxes, documents and everyday essentials. Perfect for decluttering a studio apartment or storing personal belongings.',
       discounted: 'AED 330',
       monthlyRent: 330,
       period: '/ 4 weeks',
       popular: false,
-      images: [IMG_BASE + '10A.png', IMG_BASE + '10B.jpeg', IMG_BASE + '00All.png'],
+      images: [NEW_IMG_BASE + '10.png', IMG_BASE + '10B.jpeg', IMG_BASE + '00All.png'],
       fits: [
-        { icon: '📦', label: 'Moving Boxes', count: '6-8 boxes' },
-        { icon: '🧳', label: 'Suitcases', count: '2-3 large' },
-        { icon: '🎿', label: 'Sports Gear', count: 'Skis, bikes' },
-        { icon: '📚', label: 'Books & Files', count: '3-4 cartons' }
+        '2–3 medium suitcases',
+        '4–6 moving boxes or storage totes',
+        '2–4 archive boxes',
+        'Backpacks, sports gear and seasonal clothing'
       ],
+      fitsNote: 'Fits approximately 10 typical items with efficient vertical stacking.',
+      idealFor: 'Students, expats, frequent travellers, and small business storage.',
+      note: 'Locker-style unit. Not suitable for furniture or large appliances.',
       videoId: ''
     },
     'unit-ss': {
@@ -993,19 +979,22 @@
       sqft: '25 sq ft',
       dimensions: 'L 1.5m x W 1.5m x H 2.4m',
       dimensionsFull: 'Unit 25 sq ft: Length 1.5m x Width 1.5m x Height 2.4m',
-      tagline: 'Perfect for furniture &amp; boxes from a 1-bedroom apartment.',
-      subtitle: 'Ideal for storage during moves or renovations.',
+      tagline: 'Extra Space for Boxes, Luggage &amp; Personal Belongings',
+      subtitle: 'A practical storage solution for moving, home renovations, or keeping extra belongings out of the way. Ideal for students, expats, and small apartment storage.',
       discounted: 'AED 625',
       monthlyRent: 625,
       period: '/ 4 weeks',
       popular: true,
-      images: [IMG_BASE + '25A.png', IMG_BASE + '25B.jpeg', IMG_BASE + '00All.png'],
+      images: [NEW_IMG_BASE + '25.png', IMG_BASE + '25B.jpeg', IMG_BASE + '00All.png'],
       fits: [
-        { icon: '🛋️', label: 'Sofa', count: '1 two-seater' },
-        { icon: '📦', label: 'Moving Boxes', count: '12-16 boxes' },
-        { icon: '🪑', label: 'Furniture', count: 'Desk + chair' },
-        { icon: '🏠', label: 'Apartment', count: '1-bed studio' }
+        '8–12 medium moving boxes or storage totes, depending on packing',
+        '2–4 suitcases, depending on size',
+        'Plastic storage bins and seasonal clothing',
+        'Backpacks, sports gear, and personal belongings',
+        'Small household items and selected compact appliances'
       ],
+      idealFor: 'Studio moves, temporary storage during renovations, students, expats, and extra household storage.',
+      note: 'Locker-style unit with vertical stacking space. Actual capacity depends on item dimensions and packing arrangement. Not suitable for bulky furniture or large appliances.',
       videoId: ''
     },
     'unit-s50': {
@@ -1014,19 +1003,23 @@
       sqft: '50 sq ft',
       dimensions: 'L 3m x W 1.55m x H 2.4m',
       dimensionsFull: 'Unit 50 sq ft: Length 3m x Width 1.55m x Height 2.4m',
-      tagline: 'The sweet spot between space and price.',
-      subtitle: 'Fits a full 2-bedroom apartment with room to spare.',
+      tagline: 'Spacious Storage for Furniture, Boxes &amp; Household Belongings',
+      subtitle: 'Ideal for storing furniture, moving boxes, luggage, and household essentials. A practical solution for apartment moves, home renovations, relocation, or extra business storage.',
       discounted: 'AED 975',
       monthlyRent: 975,
       period: '/ 4 weeks',
       popular: true,
-      images: [IMG_BASE + '50A.png', IMG_BASE + '50B.jpeg', IMG_BASE + '00All.png'],
+      images: [NEW_IMG_BASE + '50.png', IMG_BASE + '50B.jpeg', IMG_BASE + '00All.png'],
       fits: [
-        { icon: '🛏️', label: 'Bedroom Set', count: 'Bed + wardrobe' },
-        { icon: '📦', label: 'Moving Boxes', count: '20-25 boxes' },
-        { icon: '📺', label: 'Appliances', count: 'TV, washer' },
-        { icon: '🏠', label: 'Apartment', count: 'Full 1-bed' }
+        '1 sofa or loveseat',
+        '1–2 suitcases',
+        'Approximately 10–15 medium moving boxes or plastic storage totes alongside a sofa, depending on item sizes and packing arrangement',
+        'Small furniture pieces, such as side tables or a compact dresser',
+        'Seasonal clothing, sports equipment, and personal belongings',
+        'Selected small household appliances'
       ],
+      idealFor: 'Apartment moves, families, expats, home renovations, and small businesses needing extra storage space.',
+      note: 'Actual capacity depends on the size and quantity of your belongings. Arrange larger items along the walls and stack boxes efficiently to maximise storage space.',
       videoId: ''
     },
     'unit-m35': {
@@ -1035,19 +1028,22 @@
       sqft: '35 sq ft',
       dimensions: 'L 2.1m x W 1.5m x H 2.4m',
       dimensionsFull: 'Unit 35 sq ft: Length 2.1m x Width 1.5m x Height 2.4m',
-      tagline: 'Spacious enough for a full 1-bedroom apartment.',
-      subtitle: 'Ideal for boxes, appliances &amp; extra furniture.',
+      tagline: 'More Space for Furniture, Boxes &amp; Household Items',
+      subtitle: 'Ideal for storing a sofa, luggage, bicycle and household essentials during a move or renovation. A practical option for studio storage or selected belongings from a 1-bedroom apartment.',
       discounted: 'AED 770',
       monthlyRent: 770,
       period: '/ 4 weeks',
       popular: false,
-      images: [IMG_BASE + '35A.png', IMG_BASE + '35B.png', IMG_BASE + '00All.png'],
+      images: [NEW_IMG_BASE + '35.png', IMG_BASE + '35B.png', IMG_BASE + '00All.png'],
       fits: [
-        { icon: '🛋️', label: 'Living Room', count: 'Sofa + table' },
-        { icon: '📦', label: 'Moving Boxes', count: '16-20 boxes' },
-        { icon: '🪑', label: 'Dining Set', count: '4-seat table' },
-        { icon: '🏠', label: 'Apartment', count: '2-bed contents' }
+        '1 mattress and disassembled bed frame',
+        '1 armchair or small sofa with a coffee table',
+        'Multiple suitcases and sports gear',
+        'Moving boxes, storage totes and seasonal clothing',
+        'Small household appliances and personal belongings'
       ],
+      idealFor: 'Apartment moves, home renovations, students, expats, small families, and small business storage.',
+      note: 'Full-height unit with a central support pole. Plan your layout carefully to maximise usable space and allow access to items at the back. Actual capacity depends on item sizes and packing arrangement.',
       videoId: ''
     },
     'unit-m75': {
@@ -1056,19 +1052,22 @@
       sqft: '75 sq ft',
       dimensions: 'L 3m x W 2.3m x H 2.4m',
       dimensionsFull: 'Unit 75 sq ft: Length 3m x Width 2.3m x Height 2.4m',
-      tagline: 'Room to breathe for bigger moves.',
-      subtitle: 'Fits larger furniture, bulkier items &amp; full apartment contents.',
+      tagline: 'Spacious Storage for Furniture, Appliances &amp; Moving Boxes',
+      subtitle: 'Ideal for storing the contents of a 1–2 bedroom apartment, including furniture, household appliances, luggage, and personal belongings. Perfect for moving, home renovations, relocation, or business storage.',
       discounted: 'AED 1,400',
       monthlyRent: 1400,
       period: '/ 4 weeks',
       popular: true,
-      images: [IMG_BASE + '75A.png', IMG_BASE + '75B.jpeg', IMG_BASE + '00All.png'],
+      images: [NEW_IMG_BASE + '75.png', IMG_BASE + '75B.jpeg', IMG_BASE + '00All.png'],
       fits: [
-        { icon: '🛏️', label: 'Bedroom Sets', count: '2 complete rooms' },
-        { icon: '📦', label: 'Moving Boxes', count: '24-30 boxes' },
-        { icon: '🛋️', label: 'Large Furniture', count: 'Sofa, dining, TV unit' },
-        { icon: '🏠', label: 'Apartment', count: '2-3 bed contents' }
+        '1 queen mattress with a disassembled bed frame',
+        '1 sofa or loveseat with selected furniture pieces',
+        '1 bicycle and sports equipment',
+        'Multiple suitcases and household appliances',
+        'Approximately 20–40 medium moving boxes, depending on furniture and packing arrangements'
       ],
+      idealFor: 'Families, expats, apartment moves, home renovations, and small businesses needing extra storage space.',
+      note: 'Full-height storage unit with a mesh ceiling and roll-up door. Actual capacity depends on item sizes and packing arrangements.',
       videoId: ''
     },
     'unit-l': {
@@ -1077,19 +1076,23 @@
       sqft: '100 sq ft',
       dimensions: 'L 4m x W 2.3m x H 2.4m',
       dimensionsFull: 'Unit 100 sq ft: Length 4m x Width 2.3m x Height 2.4m',
-      tagline: 'Big enough for a small villa or full 3-bedroom home.',
-      subtitle: 'Handles larger furniture sets, appliances &amp; cartons with ease.',
+      tagline: 'Spacious Storage for Furniture, Appliances &amp; Household Belongings',
+      subtitle: 'Ideal for storing furniture, appliances, moving boxes, and personal belongings from a 2–3 bedroom apartment or a small villa. Perfect for moving, home renovations, relocation, or business storage.',
       discounted: 'AED 1,650',
       monthlyRent: 1650,
       period: '/ 4 weeks',
       popular: false,
-      images: [IMG_BASE + '100A.png', IMG_BASE + '100B.jpeg', IMG_BASE + '00All.png'],
+      images: [NEW_IMG_BASE + '100.png', IMG_BASE + '100B.jpeg', IMG_BASE + '00All.png'],
       fits: [
-        { icon: '🏡', label: 'Villa Contents', count: '3-bed home' },
-        { icon: '📦', label: 'Moving Boxes', count: '32-40 boxes' },
-        { icon: '🛏️', label: 'Bedroom Sets', count: '2-3 rooms' },
-        { icon: '🚗', label: 'Large Items', count: 'Gym, bikes' }
+        '1–2 mattress sets with disassembled bed frames',
+        'Large sofa or sectional with additional seating',
+        'Multiple suitcases and storage boxes',
+        '1–2 bicycles and sports equipment',
+        'Household appliances, such as a refrigerator, washing machine, or microwave',
+        'Dressers, storage furniture, and seasonal belongings'
       ],
+      idealFor: 'Families, expats, 2–3 bedroom apartment moves, villa relocations, home renovations, and businesses needing extra space for furniture and inventory.',
+      note: 'Full-height storage unit with a mesh ceiling and wide roll-up door. Actual capacity depends on item dimensions and packing arrangements. Stack boxes efficiently and position larger furniture along the walls to maximise storage space.',
       videoId: ''
     },
     'unit-xl': {
@@ -1098,19 +1101,24 @@
       sqft: '150 sq ft',
       dimensions: 'L 4m x W 3.4m x H 2.4m',
       dimensionsFull: 'Unit 150 sq ft: Length 4m x Width 3.4m x Height 2.4m',
-      tagline: 'Serious space for serious needs.',
-      subtitle: 'Fits a full 4-bedroom villa or high-volume business stock.',
+      tagline: 'Extra-Large Storage for Full Homes, Villas &amp; Furniture',
+      subtitle: 'Ideal for storing the contents of a 3–4 bedroom home or villa, including large furniture, household appliances, moving boxes, and personal belongings. Perfect for home moves, renovations, relocation, or business inventory storage.',
       discounted: 'AED 2,700',
       monthlyRent: 2700,
       period: '/ 4 weeks',
       popular: false,
-      images: [IMG_BASE + '150A.png', IMG_BASE + '150B.jpeg', IMG_BASE + '00All.png'],
+      images: [NEW_IMG_BASE + '150.png', IMG_BASE + '150B.jpeg', IMG_BASE + '00All.png'],
       fits: [
-        { icon: '🏡', label: 'Full Villa', count: '4-bed home' },
-        { icon: '📦', label: 'Moving Boxes', count: '50-65 boxes' },
-        { icon: '🛋️', label: 'All Furniture', count: 'Complete home' },
-        { icon: '🏢', label: 'Business', count: 'Office inventory' }
+        '2–3 mattress sets with disassembled bed frames',
+        'Large sofa or sectional with additional seating',
+        'Dining table and chairs',
+        'Multiple wardrobes, dressers, and storage furniture',
+        'Major household appliances, including a refrigerator and washing machine',
+        'Multiple bicycles, sports equipment, and suitcases',
+        '80–120+ medium moving boxes or plastic storage totes'
       ],
+      idealFor: 'Families, villa relocations, large home moves, renovations, and businesses requiring spacious furniture and inventory storage.',
+      note: 'Full-height storage unit with a mesh ceiling and wide roll-up door for easy loading. Actual capacity depends on item sizes and packing arrangements. Position bulky furniture along the walls and stack boxes efficiently to maximise storage space.',
       videoId: ''
     },
     'unit-xxl': {
@@ -1119,19 +1127,25 @@
       sqft: '200 sq ft',
       dimensions: 'L 5.75m x W 3.4m x H 2.4m',
       dimensionsFull: 'Unit 200 sq ft: Length 5.75m x Width 3.4m x Height 2.4m',
-      tagline: 'The biggest unit we offer.',
-      subtitle: 'Fits a full villa, major business stock, or bulky items with ease.',
+      tagline: 'Maximum Storage Space for Villas, Large Homes &amp; Business Inventory',
+      subtitle: 'Ideal for storing the contents of a 4-bedroom home or villa, including large furniture, appliances, moving boxes, and personal belongings. Perfect for major moves, renovations, relocation, or high-volume business storage.',
       discounted: 'AED 3,100',
       monthlyRent: 3100,
       period: '/ 4 weeks',
       popular: false,
-      images: [IMG_BASE + '200A.png', IMG_BASE + '200B.jpeg', IMG_BASE + '00All.png'],
+      images: [NEW_IMG_BASE + '200.png', IMG_BASE + '200B.jpeg', IMG_BASE + '00All.png'],
       fits: [
-        { icon: '🏡', label: 'Large Villa', count: '5+ bed home' },
-        { icon: '📦', label: 'Moving Boxes', count: '65-85 boxes' },
-        { icon: '🏢', label: 'Business Stock', count: 'Full inventory' },
-        { icon: '🚛', label: 'Vehicles', count: 'Small vehicle' }
+        'Multiple mattress sets with disassembled bed frames',
+        'Large sectional sofa with additional seating',
+        'Dining tables and chairs',
+        'Multiple wardrobes, dressers, and storage furniture',
+        'Major household appliances, including refrigerators, washing machines, and dryers',
+        'Bicycles, outdoor furniture, and bulky equipment',
+        'Approximately 100–150+ medium moving boxes or plastic storage totes',
+        'Multiple suitcases, seasonal items, and personal belongings'
       ],
+      idealFor: 'Large families, villa relocations, 4-bedroom home moves, major renovations, and businesses requiring extensive furniture and inventory storage.',
+      note: 'Full-height storage unit with a mesh ceiling and wide roll-up door for easy loading. Actual capacity depends on item sizes and packing arrangements. Position bulky furniture along the walls and stack boxes efficiently to maximise storage space.',
       videoId: ''
     }
   };
@@ -1234,7 +1248,6 @@
     html += '<h1 class="ud-title">' + u.title + '</h1>';
     html += '<p class="ud-tagline">' + u.tagline + '</p>';
     html += '<p class="ud-subtitle">' + u.subtitle + '</p>';
-    html += '<p class="ud-dims">' + u.dimensionsFull + '</p>';
 
     // Price block
     html += '<div class="ud-price-block">';
@@ -1272,16 +1285,16 @@
 
     // What fits inside
     html += '<section class="ud-section">';
-    html += '<h2 class="ud-section-title">What Fits Inside</h2>';
-    html += '<div class="ud-fits-grid">';
+    html += '<h2 class="ud-section-title">What Fits?</h2>';
+    html += '<ul class="ud-fits-list">';
     for (var f = 0; f < u.fits.length; f++) {
-      html += '<div class="ud-fits-card">' +
-        '<div class="ud-fits-icon">' + u.fits[f].icon + '</div>' +
-        '<p class="ud-fits-label">' + u.fits[f].label + '</p>' +
-        '<p class="ud-fits-count">' + u.fits[f].count + '</p>' +
-        '</div>';
+      html += '<li>' + u.fits[f] + '</li>';
     }
-    html += '</div></section>';
+    html += '</ul>';
+    if (u.fitsNote) html += '<p class="ud-fits-note">' + u.fitsNote + '</p>';
+    html += '<p class="ud-fits-note"><strong>Ideal For:</strong> ' + u.idealFor + '</p>';
+    html += '<p class="ud-fits-note"><strong>Please Note:</strong> ' + u.note + '</p>';
+    html += '</section>';
 
     // Size comparison
     html += '<section class="ud-section">';
@@ -1458,8 +1471,6 @@
         // Lead with the discounted first-period price; the full price shows struck through.
         u.was = u.discounted;
         u.discounted = 'AED ' + Math.round(sz.offerPrice).toLocaleString('en-US');
-        u.offer = sz.discountPct + '% off your first ' + period + ', then ' +
-          u.was + ' / ' + period + '.';
       }
     });
     renderUnit(getUnitId());
