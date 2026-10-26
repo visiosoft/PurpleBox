@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script>
+  /* PBX: load tracking scripts on first interaction (or 10s after load) to keep them off the critical path. */
+  (function (w, d) {
+    var q = [], done = false, evs = ['pointerdown', 'keydown', 'touchstart', 'scroll', 'mousemove'];
+    function run() {
+      if (done) return;
+      done = true;
+      evs.forEach(function (e) { w.removeEventListener(e, run, true); });
+      q.forEach(function (fn) { try { fn(); } catch (err) { } });
+      q = [];
+    }
+    w.pbxDelay = function (fn) { done ? fn() : q.push(fn); };
+    w.pbxLoadScript = function (src) {
+      w.pbxDelay(function () {
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = src;
+        d.head.appendChild(s);
+      });
+    };
+    evs.forEach(function (e) { w.addEventListener(e, run, { capture: true, passive: true }); });
+    w.addEventListener('load', function () { setTimeout(run, 10000); });
+  })(window, document);
+</script>
+<!-- Google tag (gtag.js) -->
+<script>pbxLoadScript('https://www.googletagmanager.com/gtag/js?id=G-SWD86TM761');</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SWD86TM761');
+</script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }; if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; pbxLoadScript(v)
+    }
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '980499678398496');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=980499678398496&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+    <link rel="icon" type="image/png" href="http://purplebox.ae/wp-content/uploads/2026/06/favicon.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Delete Your Account — PurpleBox Storage App</title>
+  <link rel="canonical" href="https://purplebox.ae/delete-account.html" />
+    <meta name="description"
+        content="How to request deletion of your PurpleBox Storage app account and data, what we delete, and what we keep for legal reasons." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" /></noscript>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --navy: #18181b;
+            --blue: #7c3aed;
+            --blue-lt: #ede9fe;
+            --ink: #18181b;
+            --ink-mid: #52525b;
+            --ink-soft: #71717a;
+            --border: #ececee;
+            --white: #ffffff;
+            --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--ink);
+            background: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--blue);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .pp-header {
+            background: var(--navy);
+            padding: 16px 0;
+            overflow: visible;
+        }
+
+        .pp-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            min-height: 40px;
+        }
+
+        .pp-logo {
+            height: 34px;
+            max-width: 140px;
+            filter: brightness(0) invert(1);
+            flex-shrink: 0;
+        }
+
+        .pp-back {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .7);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .pp-back:hover {
+            color: #fff;
+        }
+
+        .pp-back:focus-visible {
+          outline: 2px solid #a78bfa;
+          outline-offset: 3px;
+          border-radius: 12px;
+        }
+
+        .pp-back svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .pp-hero {
+            background: #fafafa;
+            padding: 48px 0 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pp-hero h1 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0;
+        }
+
+        .pp-hero .updated {
+            font-size: 13px;
+            color: var(--ink-soft);
+        }
+
+        .pp-content {
+            padding: 40px 0 64px;
+        }
+
+        .pp-content h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 36px 0 10px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--ink);
+        }
+
+        .pp-content h2:first-child {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .pp-content p {
+            margin-bottom: 14px;
+            color: var(--ink-mid);
+        }
+
+        .pp-content ul {
+            margin: 0 0 14px 20px;
+            color: var(--ink-mid);
+        }
+
+        .pp-content li {
+            margin-bottom: 6px;
+        }
+
+        .pp-content strong {
+            color: var(--ink);
+        }
+
+        .pp-content a {
+            color: var(--blue);
+        }
+
+        .contact-box {
+            background: var(--blue-lt);
+            border: 1px solid #ddd6fe;
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-top: 24px;
+        }
+
+        .contact-box h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+
+        .contact-box p {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .pp-footer {
+            background: #09090b;
+            color: rgba(255, 255, 255, .5);
+            text-align: center;
+            padding: 24px 16px;
+            font-size: 12px;
+        }
+
+        .pp-footer a {
+            color: rgba(255, 255, 255, .7);
+            text-decoration: none;
+        }
+
+        .pp-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 480px) {
+            .pp-header {
+                padding: 12px 0;
+            }
+
+            .pp-header .container {
+                padding: 0 16px;
+            }
+
+            .pp-logo {
+                height: 28px;
+            }
+
+            .pp-back {
+                font-size: 12px;
+            }
+
+            .pp-hero {
+                padding: 32px 0 24px;
+            }
+
+            .pp-hero h1 {
+                font-size: 1.4rem;
+                word-break: break-word;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+  <link rel="stylesheet" href="css/mobile-base.css" />
+  <link rel="stylesheet" href="css/site-nav.css" />
+  <script src="js/site-nav.js" defer></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        pbxLoadScript("https://www.clarity.ms/tag/"+i);
+    })(window, document, "clarity", "script", "yuzxdljgn6");
+</script>
+</head>
+
+<body>
+
+    <!-- Header -->
+  <!-- NAV (standard: css/site-nav.css + js/site-nav.js) -->
+  <nav class="pbnav" aria-label="Main">
+    <div class="pbnav-card">
+      <a href="index.html" class="pbnav-logo" aria-label="PurpleBox Storage home"><img src="images/logo-1.svg" alt="PurpleBox Storage" class="no-lazyload skip-lazy" data-no-lazy="1" loading="eager" fetchpriority="high" width="402" height="130" /></a>
+      <div class="pbnav-links">
+        <a href="index.html">Home</a>
+        <a href="book-unit.html">Reserve Unit</a>
+        <a href="estimator.html">Estimator</a>
+        <a href="packing-moving.html">Packing &amp; Moving</a>
+        <a href="store.html">Shop Supplies</a>
+        <a href="community/">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="pbnav-actions">
+        <a href="tel:+971542249946" class="pbnav-icon pbnav-phone" aria-label="Call +971 54 224 9946"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" /></svg></a>
+        <a href="store.html" class="pbnav-icon pbnav-cart" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"></circle><circle cx="17" cy="20" r="1.5"></circle><path d="M3 4h2l1.5 10h11l2-7H7"></path></svg>
+          <span class="nav-cart-badge" id="shopCartBadge">0</span>
+        </a>
+        <a href="index.html#leadForm" class="pbnav-quote">Get a Quote
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+        <button type="button" class="pbnav-toggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><svg viewBox="0 0 18 18" width="18" height="18" aria-hidden="true"><circle cx="3" cy="3" r="1.6" /><circle cx="9" cy="3" r="1.6" /><circle cx="15" cy="3" r="1.6" /><circle cx="3" cy="9" r="1.6" /><circle cx="9" cy="9" r="1.6" /><circle cx="15" cy="9" r="1.6" /><circle cx="3" cy="15" r="1.6" /><circle cx="9" cy="15" r="1.6" /><circle cx="15" cy="15" r="1.6" /></svg></button>
+      </div>
+    </div>
+    <div class="pbnav-menu" id="mobileMenu">
+      <a href="tel:+971542249946" class="pbnav-menu-phone"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" /></svg> +971 54 224 9946</a>
+      <a href="index.html">Home</a>
+      <a href="book-unit.html">Reserve Unit</a>
+      <a href="estimator.html">Estimator</a>
+      <a href="packing-moving.html">Packing &amp; Moving</a>
+      <a href="store.html">Shop Supplies</a>
+      <a href="community/">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#leadForm" class="pbnav-menu-quote">Get a Quote</a>
+    </div>
+  </nav>
+
+    <!-- Hero -->
+    <section class="pp-hero">
+        <div class="container">
+            <h1>Delete your PurpleBox Storage account</h1>
+            <p class="updated">Last updated: October 26, 2026</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <main class="pp-content">
+        <div class="container">
+
+            <p>This page explains how customers of the <strong>PurpleBox Storage</strong> app (by PurpleBox / Short
+                Term Storage LLC, Dubai) can request deletion of their account and associated data.</p>
+
+            <h2>How to request deletion</h2>
+            <p>Send a request from the phone number or email address registered on your PurpleBox account:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:info@purplebox.ae?subject=Account%20deletion%20request">info@purplebox.ae</a>
+                    with the subject "Account deletion request", or</li>
+                <li><strong>WhatsApp</strong> our team using the chat in the app or at <a
+                        href="https://purplebox.ae">purplebox.ae</a>.</li>
+            </ul>
+            <p>Include your full name and registered phone number.</p>
+            <p>We will verify your identity and confirm deletion within <strong>30 days</strong>.</p>
+            <p>If you have an active storage contract or unpaid balance, we will first help you close the contract and
+                collect your belongings. The account can be deleted once the contract has ended.</p>
+
+            <h2>What we delete</h2>
+            <ul>
+                <li>Your app account and login (phone number)</li>
+                <li>Profile details: name, email address, phone number and addresses</li>
+                <li>Photos and documents you uploaded in the app</li>
+                <li>Saved bookings, pickup requests and app preferences</li>
+            </ul>
+
+            <h2>What we keep, and for how long</h2>
+            <ul>
+                <li>Invoices, payment records and signed storage contracts are kept for the period required by UAE
+                    commercial and tax law (generally up to 5 years), then deleted.</li>
+                <li>Card details are never stored by PurpleBox; payments are processed by Stripe under its own <a
+                        href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">privacy
+                        policy</a>.</li>
+            </ul>
+
+            <div class="contact-box">
+                <h3>Questions?</h3>
+                <p>Contact us at <a href="mailto:info@purplebox.ae">info@purplebox.ae</a> or call Customer Service on <a
+                        href="tel:+971544046407">+971 54 404 6407</a>. See also our <a
+                        href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pp-footer">
+        <div class="container">
+            <div class="pp-footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2026 Short Term Storage L.L.C. Al Quoz 2, Dubai, UAE. <a href="tel:+971542249946">+971 54 224
+                    9946</a></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
