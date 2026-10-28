@@ -1163,6 +1163,7 @@
     params.set('unitLabel', u.badge);
     params.set('unitSize', u.sqft + ' (' + u.badge + ')');
     params.set('monthlyRent', String(u.monthlyRent));
+    if (u.firstRent) params.set('firstRent', String(u.firstRent));
     return 'reserve-step-1.html?' + params.toString();
   }
 
@@ -1473,12 +1474,13 @@
       u.period = '/ ' + period;
       u.offer = '';
       u.was = '';
-      if (sz.available === 0) {
-        u.offer = 'Currently fully booked. WhatsApp us to join the waiting list.';
-      } else if (sz.hasDiscount && sz.offerPrice < sz.price) {
+      u.firstRent = 0;
+      // Availability is deliberately never shown, even when a size is sold out.
+      if (sz.hasDiscount && sz.offerPrice < sz.price) {
         // Lead with the discounted first-period price; the full price shows struck through.
         u.was = u.discounted;
         u.discounted = 'AED ' + Math.round(sz.offerPrice).toLocaleString('en-US');
+        u.firstRent = Math.round(sz.offerPrice);
       }
     });
     renderUnit(getUnitId());

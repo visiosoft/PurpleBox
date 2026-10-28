@@ -93,7 +93,7 @@
 
     function fillFromQuery() {
         const p = getParams();
-        ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent'].forEach(function (id) {
+        ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent', 'firstRent'].forEach(function (id) {
             const q = p.get(id);
             if (!q) return;
 
@@ -130,6 +130,13 @@
         return 'M';
     }
 
+    // Offer price for the first 4-week cycle (from the pricing API via unit-details);
+    // later cycles are charged at the full monthlyRent. Falls back to full price.
+    function firstCycleRent(value, monthlyRent) {
+        const n = Number(value);
+        return n > 0 && n < monthlyRent ? n : monthlyRent;
+    }
+
     function syncStep1Summary() {
         const monthlyRent = Number(
             (document.getElementById('monthlyRent') && document.getElementById('monthlyRent').value) ||
@@ -154,7 +161,11 @@
             '';
 
         const selectedLabel = getSelectedSizeLabel(unitLabel, unitSize);
-        const dueToday = monthlyRent;
+        const dueToday = firstCycleRent(
+            (document.getElementById('firstRent') && document.getElementById('firstRent').value) ||
+            (document.querySelector('input[name="firstRent"]') && document.querySelector('input[name="firstRent"]').value),
+            monthlyRent
+        );
         const rentalMonths = getRentalMonths(moveInDate, moveOutDate);
         const remainingMonths = Math.max(0, rentalMonths - 1);
         const remainingTotal = remainingMonths * monthlyRent;
@@ -179,7 +190,9 @@
                 '<span class="line total">Total for ' + rentalMonths + ' x 4 weeks: ' + fmtAED(estimatedTotal) + '</span>'
             ].join('')
             : [
-                '<span class="line">Rent per 4 weeks: ' + fmtAED(monthlyRent) + '</span>',
+                (dueToday < monthlyRent
+                    ? '<span class="line">Offer price, first 4 weeks: ' + fmtAED(dueToday) + ' (then ' + fmtAED(monthlyRent) + ')</span>'
+                    : '<span class="line">Rent per 4 weeks: ' + fmtAED(monthlyRent) + '</span>'),
                 '<span class="line total">First 4 weeks total: ' + fmtAED(dueToday) + '</span>'
             ].join('');
 
@@ -292,6 +305,7 @@
                 unitLabel: document.getElementById('unitLabel').value,
                 unitSize: document.getElementById('unitSize').value,
                 monthlyRent: document.getElementById('monthlyRent').value,
+                firstRent: (document.getElementById('firstRent') || {}).value || '',
                 rentalMonths: getRentalMonths(
                     (document.getElementById('moveInDate') || {}).value || '',
                     (document.getElementById('moveOutDate') || {}).value || ''
@@ -312,6 +326,7 @@
                     unitLabel: (desktopForm.querySelector('[name="unitLabel"]') || {}).value || '',
                     unitSize: (desktopForm.querySelector('[name="unitSize"]') || {}).value || '',
                     monthlyRent: (desktopForm.querySelector('[name="monthlyRent"]') || {}).value || '',
+                    firstRent: (desktopForm.querySelector('[name="firstRent"]') || {}).value || '',
                     rentalMonths: getRentalMonths(
                         (desktopForm.querySelector('[name="moveInDate"]') || {}).value || '',
                         (desktopForm.querySelector('[name="moveOutDate"]') || {}).value || ''
@@ -343,7 +358,7 @@
                 if (hidden) hidden.value = data[k] || '';
             });
         } else {
-            ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent', 'rentalMonths'].forEach(function (k) {
+            ['fullName', 'mobile', 'emirate', 'email', 'storingFor', 'moveInDate', 'moveOutDate', 'unitLabel', 'unitSize', 'monthlyRent', 'firstRent', 'rentalMonths'].forEach(function (k) {
                 const hidden = form.querySelector('input[name="' + k + '"]');
                 if (hidden) hidden.value = p.get(k) || '';
             });
@@ -353,6 +368,7 @@
         const moveInDate = p.get('moveInDate') || (form.querySelector('input[name="moveInDate"]') || {}).value || '';
         const moveOutDate = p.get('moveOutDate') || (form.querySelector('input[name="moveOutDate"]') || {}).value || '';
         const rentalMonths = Number(p.get('rentalMonths') || getRentalMonths(moveInDate, moveOutDate));
+        const firstRent = firstCycleRent(p.get('firstRent') || (form.querySelector('input[name="firstRent"]') || {}).value, rent);
         function calc() {
             let qty = 0;
             let supplies = 0;
@@ -379,8 +395,8 @@
             });
             const remainingMonths = Math.max(0, rentalMonths - 1);
             const remainingRentTotal = remainingMonths * rent;
-            const due = rent + supplies;
-            const estimatedTotal = rent + remainingRentTotal + supplies;
+            const due = firstRent + supplies;
+            const estimatedTotal = firstRent + remainingRentTotal + supplies;
 
             const month1LabelEl = document.getElementById('sumMonth1Label');
             const month1ValueEl = document.getElementById('sumMonth1');
@@ -388,8 +404,8 @@
             const remainingValueEl = document.getElementById('sumRemaining');
             const estimatedEl = document.getElementById('sumEstimated');
 
-            if (month1LabelEl) month1LabelEl.textContent = 'Rent per 4 weeks';
-            if (month1ValueEl) month1ValueEl.textContent = fmtAED(rent);
+            if (month1LabelEl) month1LabelEl.textContent = firstRent < rent ? 'First 4 weeks (offer)' : 'Rent per 4 weeks';
+            if (month1ValueEl) month1ValueEl.textContent = fmtAED(firstRent);
             if (remainingLabelEl) {
                 remainingLabelEl.textContent = remainingMonths > 0
                     ? ('Remaining cycles total')
@@ -469,8 +485,11 @@
             unitSize: pick('unitSize', '35 sq ft (M)'),
             unitLabel: pick('unitLabel', 'SARA - M'),
             monthlyRent: Number(pick('monthlyRent', 700)),
+            firstRent: 0,
             rentalMonths: Number(pick('rentalMonths', 1))
         };
+
+        data.firstRent = firstCycleRent(pick('firstRent', ''), data.monthlyRent);
 
         if (!Number.isFinite(data.rentalMonths) || data.rentalMonths < 1) {
             data.rentalMonths = getRentalMonths(data.moveInDate, data.moveOutDate);
@@ -492,10 +511,10 @@
             });
         }
 
-        const due = Number(p.get('dueToday') || (data.monthlyRent + suppliesTotal));
+        const due = Number(p.get('dueToday') || (data.firstRent + suppliesTotal));
         const estimatedTotal = Number(
             p.get('estimatedTotal') ||
-            (data.monthlyRent + Math.max(0, data.rentalMonths - 1) * data.monthlyRent + suppliesTotal)
+            (data.firstRent + Math.max(0, data.rentalMonths - 1) * data.monthlyRent + suppliesTotal)
         );
 
         const supplyLines = PRODUCTS.filter(function (it) { return qty[it.id] > 0; }).map(function (it) {
@@ -520,7 +539,9 @@
             supplyLines.length ? supplyLines.join('\n') : '- No supplies selected',
             '',
             '💰 PRICING',
-            '- Rent: ' + fmtAED(data.monthlyRent) + ' / 4 weeks',
+            (data.firstRent < data.monthlyRent
+                ? '- Rent: ' + fmtAED(data.firstRent) + ' for the first 4 weeks (offer), then ' + fmtAED(data.monthlyRent) + ' / 4 weeks'
+                : '- Rent: ' + fmtAED(data.monthlyRent) + ' / 4 weeks'),
             '- Supplies: ' + fmtAED(suppliesTotal),
             '- Due today: ' + fmtAED(due),
             '- Estimated total (' + data.rentalMonths + ' x 4 weeks): ' + fmtAED(estimatedTotal),
@@ -627,6 +648,7 @@
                 unit_size: data.unitSize,
                 unit_label: data.unitLabel,
                 monthly_rent: String(data.monthlyRent),
+                first_rent: String(data.firstRent),
                 promo_code: '',
                 supplies_total: String(suppliesTotal),
                 due_today: String(due),

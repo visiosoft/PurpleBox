@@ -1766,7 +1766,7 @@
   <link rel="stylesheet" href="css/layout-template.css" />
   <link rel="stylesheet" href="css/mobile-base.css" />
   <script src="js/site-nav.js" defer></script>
-  <script src="js/pbx-pricing.js" defer></script>
+  <script src="js/pbx-pricing.js?v=2" defer></script>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -2481,22 +2481,10 @@
         try { sessionStorage.setItem('pbx_lp_attr', JSON.stringify(attribution)); } catch (e) { }
       })();
 
-      /* ---------- Live availability: waiting list + lowest "from" price ---------- */
+      /* ---------- Live lowest "from" price (availability is deliberately never shown) ---------- */
       function applyAvailability() {
-        document.querySelectorAll('.lp-unit').forEach(function (card) {
-          var u = UNITS[card.getAttribute('data-size')];
-          var btn = card.querySelector('[data-reserve]');
-          if (!u || !btn) return;
-          if (u.available === 0) {
-            btn.textContent = 'Join the waiting list';
-            btn.className = 'btn btn-outline btn-block';
-            btn.href = WA + encodeURIComponent('Hi, please add me to the waiting list for a ' + card.getAttribute('data-size') + ' sq ft unit.');
-            btn.target = '_blank';
-            btn.rel = 'noopener noreferrer';
-          }
-        });
         var min = Infinity;
-        ORDER.forEach(function (s) { if (UNITS[s].available !== 0 && UNITS[s].now < min) min = UNITS[s].now; });
+        ORDER.forEach(function (s) { if (UNITS[s].now < min) min = UNITS[s].now; });
         if (isFinite(min)) {
           document.querySelectorAll('[data-lp-from]').forEach(function (el) { el.innerHTML = 'AED&nbsp;' + fmt(min); });
         }
@@ -2512,7 +2500,6 @@
             var discounted = s.hasDiscount && s.offerPrice < s.price;
             u.price = s.price;
             u.now = discounted ? Math.round(s.offerPrice) : s.price;
-            u.available = s.available;
           });
           applyAvailability();
         })

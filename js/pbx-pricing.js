@@ -3,7 +3,7 @@
  *
  * Any element with data-pbx-price="<sizeSqf>" gets its contents replaced with the
  * current price for that size, as the design system's PriceCard (option A):
- *   struck "was" price -> price + "/ 4 weeks" (plus a "Fully booked" chip when sold out).
+ *   struck "was" price -> price + "/ 4 weeks".
  * Styles live in css/pb-unit-card.css. The static HTML inside each element is
  * left in place as a fallback if the API fails.
  */
@@ -44,12 +44,9 @@
       '<span class="pb-price__per">/ ' + period + '</span>' +
       '</div>';
 
-    if (size.available === 0) {
-      html += '<span class="pb-save pb-save--soldout">Fully booked</span>';
-    } else {
-      // Hold the chip's line too, so full-price and discounted prices line up.
-      html += '<span class="pb-save pb-save--empty" aria-hidden="true">&nbsp;</span>';
-    }
+    // Hold the chip's line too, so full-price and discounted prices line up.
+    // Availability is deliberately never shown, even when a size is sold out.
+    html += '<span class="pb-save pb-save--empty" aria-hidden="true">&nbsp;</span>';
 
     el.innerHTML = html;
     el.setAttribute('data-pbx-price-live', '');
