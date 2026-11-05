@@ -890,6 +890,26 @@
       stroke-linejoin: round;
     }
 
+    @media (max-width: 640px) {
+      .terms-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 18px 22px;
+      }
+
+      .terms-strip span {
+        align-items: flex-start;
+        gap: 10px;
+        line-height: 1.4;
+      }
+
+      .terms-strip svg {
+        flex-shrink: 0;
+        margin-top: 3px;
+      }
+    }
+
     .center-cta {
       display: flex;
       flex-wrap: wrap;
@@ -947,10 +967,91 @@
       font-size: 14px;
     }
 
+    .review-slider {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .review-slider[hidden] {
+      display: none;
+    }
+
     .review-grid {
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
       gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .review-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .review-grid .review-card {
+      flex: 0 0 86%;
+      scroll-snap-align: start;
+    }
+
+    @media (min-width: 720px) {
+      .review-grid .review-card {
+        flex-basis: calc(50% - 8px);
+      }
+    }
+
+    .review-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .review-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .review-dots button {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+    }
+
+    .review-dots button[aria-current="true"] {
+      background: var(--purple-darker);
+      width: 20px;
+      border-radius: 4px;
+    }
+
+    .review-arrows {
+      display: flex;
+      gap: 8px;
+    }
+
+    .review-arrows button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .review-arrows button:disabled {
+      opacity: .35;
+      cursor: default;
     }
 
     .review-card {
@@ -2171,7 +2272,16 @@
 
           <!-- Review cards render from the REVIEWS array in the script below.
                Only add genuine Google reviews, copied word for word, with the reviewer's name as shown. -->
-          <div class="review-grid" id="reviewGrid" hidden></div>
+          <div class="review-slider" id="reviewSlider" hidden>
+            <div class="review-grid" id="reviewGrid" role="region" aria-label="Google reviews" tabindex="0"></div>
+            <div class="review-nav">
+              <div class="review-dots" id="reviewDots"></div>
+              <div class="review-arrows">
+                <button type="button" id="reviewPrev" aria-label="Previous review">&larr;</button>
+                <button type="button" id="reviewNext" aria-label="Next review">&rarr;</button>
+              </div>
+            </div>
+          </div>
 
           <div class="proof-points" id="proofFallback">
             <h3>What customers check before they book</h3>
@@ -2564,7 +2674,7 @@
       /* ---------- Reviews ---------- */
       if (REVIEWS.length) {
         var grid = document.getElementById('reviewGrid');
-        REVIEWS.slice(0, 3).forEach(function (r) {
+        REVIEWS.forEach(function (r) {
           var card = document.createElement('figure');
           card.className = 'review-card';
           var stars = '';
@@ -2576,9 +2686,37 @@
           card.querySelector('.who span:last-child').textContent = r.name + ' · Google review';
           grid.appendChild(card);
         });
-        if (REVIEWS.length >= 3) grid.classList.add('has-3');
-        grid.hidden = false;
+        document.getElementById('reviewSlider').hidden = false;
         document.getElementById('proofFallback').hidden = true;
+
+        var cards = grid.querySelectorAll('.review-card');
+        var dotsWrap = document.getElementById('reviewDots');
+        var prev = document.getElementById('reviewPrev');
+        var next = document.getElementById('reviewNext');
+        var step = function () { return cards[0].getBoundingClientRect().width + 16; };
+        cards.forEach(function (c, i) {
+          var d = document.createElement('button');
+          d.type = 'button';
+          d.setAttribute('aria-label', 'Go to review ' + (i + 1));
+          d.addEventListener('click', function () { grid.scrollLeft = i * step(); });
+          dotsWrap.appendChild(d);
+        });
+        var dots = dotsWrap.querySelectorAll('button');
+        function syncReviews() {
+          var max = grid.scrollWidth - grid.clientWidth;
+          var idx = Math.round(grid.scrollLeft / step());
+          if (grid.scrollLeft >= max - 4) idx = cards.length - 1;
+          dots.forEach(function (d, i) { d.setAttribute('aria-current', i === idx ? 'true' : 'false'); });
+          prev.disabled = grid.scrollLeft <= 4;
+          next.disabled = grid.scrollLeft >= max - 4;
+          var noScroll = max <= 4;
+          prev.parentNode.parentNode.style.display = noScroll ? 'none' : '';
+        }
+        prev.addEventListener('click', function () { grid.scrollLeft -= step(); });
+        next.addEventListener('click', function () { grid.scrollLeft += step(); });
+        grid.addEventListener('scroll', function () { window.requestAnimationFrame(syncReviews); }, { passive: true });
+        window.addEventListener('resize', syncReviews);
+        syncReviews();
       }
 
       /* ---------- Attribution: UTM, gclid, fbclid, landing page ---------- */
