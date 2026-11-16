@@ -1214,7 +1214,7 @@ add_filter('template_include', function ($template) {
         $html = purplebox_static_inject_pack_products($html);
     }
 
-    if ($slug === 'index' || $slug === 'reserve-step-3' || $slug === 'landing-local-storage-facility-in-dubai' || $slug === 'packing-moving' || $slug === 'vehicle-storage-dubai' || $slug === 'secure-storage-dubai') {
+    if ($slug === 'index' || $slug === 'reserve-step-3' || $slug === 'landing-local-storage-facility-in-dubai' || $slug === 'packing-moving' || $slug === 'vehicle-storage-dubai' || $slug === 'secure-storage-dubai' || $slug === 'self-storage-units-dubai' || $slug === 'household-storage-dubai' || $slug === 'business-storage-dubai') {
         $html = purplebox_static_inject_reservation_lead_config($html);
     }
 
